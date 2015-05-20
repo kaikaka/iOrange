@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D5BDCA07-5323-4B66-9712-C8E50C77B0B6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iOrange</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>059ED7BB340C6979E0C6F23B25D536F8659513B4</key>
+		<string>https://bitbucket.org/yoon/iorange.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iOrange.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>059ED7BB340C6979E0C6F23B25D536F8659513B4</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/yoon/iorange.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>059ED7BB340C6979E0C6F23B25D536F8659513B4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>059ED7BB340C6979E0C6F23B25D536F8659513B4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iorange</string>
+		</dict>
+	</array>
+</dict>
+</plist>
