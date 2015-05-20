@@ -104,6 +104,7 @@
                     <connections>
                         <outlet property="_buttonSearch" destination="Est-EW-hPV" id="Oan-ya-nu6"/>
                         <outlet property="_buttonTwoCode" destination="4ie-Sb-ZvJ" id="014-Z9-OfF"/>
+                        <outlet property="_viewContent" destination="nho-ee-0Cu" id="5rE-Pc-5NP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

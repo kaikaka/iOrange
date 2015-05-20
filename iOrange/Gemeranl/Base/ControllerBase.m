@@ -29,7 +29,7 @@
     if (isPad)
       stroyboard = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
     else
-      stroyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+      stroyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
   }
   if (stroyboard) {
     vcself = [stroyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];

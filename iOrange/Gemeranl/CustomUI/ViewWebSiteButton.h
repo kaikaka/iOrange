@@ -1,5 +1,5 @@
 //
-//  ControllerBase.h
+//  ViewWebSiteButton.h
 //  iOrange
 //
 //  Created by XiangKai Yin on 5/20/15.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ControllerBase : UIViewController
+@interface ViewWebSiteButton : UIView
 
-+ (instancetype)loadFromStoryboard;
+- (id)initWithFrame:(CGRect)frame WithImgName:(NSString *)imgName;
 
 @end
