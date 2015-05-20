@@ -8,7 +8,12 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () {
+  
+  __weak IBOutlet UIButton *_buttonSearch;
+  __weak IBOutlet UIButton *_buttonTwoCode;
+  
+}
 
 @end
 
@@ -17,12 +22,13 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view, typically from a nib.
-
+  
 }
 
-- (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+#pragma mark- public Methods
+
+- (void)showWebSitesInView {
+  
 }
 
 @end

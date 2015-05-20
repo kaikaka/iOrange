@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F09A97C1B0C8DD60036BDB7 /* home_nav_searchBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F09A97A1B0C8DD60036BDB7 /* home_nav_searchBg@2x.png */; };
+		7F09A97D1B0C8DD60036BDB7 /* home_nav_searchBg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F09A97B1B0C8DD60036BDB7 /* home_nav_searchBg@3x.png */; };
+		7F09A98E1B0C9D8F0036BDB7 /* ControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F09A98D1B0C9D8F0036BDB7 /* ControllerBase.m */; };
 		7F91D5301B0C81640087080D /* home_nav_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D5131B0C81640087080D /* home_nav_bg@2x.png */; };
 		7F91D5311B0C81640087080D /* home_nav_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D5141B0C81640087080D /* home_nav_bg@3x.png */; };
 		7F91D5321B0C81640087080D /* home_nav_search_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D5151B0C81640087080D /* home_nav_search_default@2x.png */; };
@@ -59,6 +62,13 @@
 
 /* Begin PBXFileReference section */
 		6EB5AF0E0B59701CDA4DF7DF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F09A97A1B0C8DD60036BDB7 /* home_nav_searchBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_nav_searchBg@2x.png"; sourceTree = "<group>"; };
+		7F09A97B1B0C8DD60036BDB7 /* home_nav_searchBg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_nav_searchBg@3x.png"; sourceTree = "<group>"; };
+		7F09A9891B0C9D030036BDB7 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		7F09A98B1B0C9D520036BDB7 /* ApiConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiConfig.h; sourceTree = "<group>"; };
+		7F09A98C1B0C9D8F0036BDB7 /* ControllerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerBase.h; sourceTree = "<group>"; };
+		7F09A98D1B0C9D8F0036BDB7 /* ControllerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerBase.m; sourceTree = "<group>"; };
+		7F09A98F1B0C9E6A0036BDB7 /* iOrange.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOrange.pch; sourceTree = "<group>"; };
 		7F91D5131B0C81640087080D /* home_nav_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_nav_bg@2x.png"; sourceTree = "<group>"; };
 		7F91D5141B0C81640087080D /* home_nav_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_nav_bg@3x.png"; sourceTree = "<group>"; };
 		7F91D5151B0C81640087080D /* home_nav_search_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_nav_search_default@2x.png"; sourceTree = "<group>"; };
@@ -142,6 +152,94 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7F09A97E1B0C9C8B0036BDB7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		7F09A97F1B0C9C8B0036BDB7 /* Gemeranl */ = {
+			isa = PBXGroup;
+			children = (
+				7F09A9821B0C9D030036BDB7 /* Base */,
+				7F09A9831B0C9D030036BDB7 /* Categary */,
+				7F09A9841B0C9D030036BDB7 /* CustomUI */,
+				7F09A9851B0C9D030036BDB7 /* Guide */,
+				7F09A9861B0C9D030036BDB7 /* Helper */,
+				7F09A9871B0C9D030036BDB7 /* Marco */,
+				7F09A98A1B0C9D030036BDB7 /* Share */,
+			);
+			path = Gemeranl;
+			sourceTree = "<group>";
+		};
+		7F09A9801B0C9C8B0036BDB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7F09A9811B0C9C8B0036BDB7 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		7F09A9821B0C9D030036BDB7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7F09A98C1B0C9D8F0036BDB7 /* ControllerBase.h */,
+				7F09A98D1B0C9D8F0036BDB7 /* ControllerBase.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		7F09A9831B0C9D030036BDB7 /* Categary */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categary;
+			sourceTree = "<group>";
+		};
+		7F09A9841B0C9D030036BDB7 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		7F09A9851B0C9D030036BDB7 /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Guide;
+			sourceTree = "<group>";
+		};
+		7F09A9861B0C9D030036BDB7 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		7F09A9871B0C9D030036BDB7 /* Marco */ = {
+			isa = PBXGroup;
+			children = (
+				7F09A9891B0C9D030036BDB7 /* Common.h */,
+				7F09A98B1B0C9D520036BDB7 /* ApiConfig.h */,
+			);
+			path = Marco;
+			sourceTree = "<group>";
+		};
+		7F09A98A1B0C9D030036BDB7 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
 		7F91D5111B0C81640087080D /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +251,8 @@
 		7F91D5121B0C81640087080D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				7F09A97A1B0C8DD60036BDB7 /* home_nav_searchBg@2x.png */,
+				7F09A97B1B0C8DD60036BDB7 /* home_nav_searchBg@3x.png */,
 				7F91D5131B0C81640087080D /* home_nav_bg@2x.png */,
 				7F91D5141B0C81640087080D /* home_nav_bg@3x.png */,
 				7F91D5151B0C81640087080D /* home_nav_search_default@2x.png */,
@@ -215,12 +315,12 @@
 		7FC997D61B09794E009E8BD7 /* iOrange */ = {
 			isa = PBXGroup;
 			children = (
-				7FC997FD1B0A0D7A009E8BD7 /* Core */,
-				7FC997FE1B0A0D7A009E8BD7 /* Gemeranl */,
+				7F09A97E1B0C9C8B0036BDB7 /* Core */,
+				7F09A97F1B0C9C8B0036BDB7 /* Gemeranl */,
+				7F09A9801B0C9C8B0036BDB7 /* Model */,
+				7F09A9811B0C9C8B0036BDB7 /* Vendors */,
 				7FC997FF1B0A0D7A009E8BD7 /* iPhone */,
-				7FC998041B0A0D7A009E8BD7 /* Model */,
 				7FC998051B0A0D7A009E8BD7 /* Resource */,
-				7FC998061B0A0D7A009E8BD7 /* Vendors */,
 				7FC997E41B09794E009E8BD7 /* Images.xcassets */,
 				7FC997E61B09794E009E8BD7 /* LaunchScreen.xib */,
 				7FC997D71B09794E009E8BD7 /* Supporting Files */,
@@ -233,6 +333,7 @@
 			children = (
 				7FC997D81B09794E009E8BD7 /* Info.plist */,
 				7FC997D91B09794E009E8BD7 /* main.m */,
+				7F09A98F1B0C9E6A0036BDB7 /* iOrange.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -254,20 +355,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7FC997FD1B0A0D7A009E8BD7 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		7FC997FE1B0A0D7A009E8BD7 /* Gemeranl */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Gemeranl;
-			sourceTree = "<group>";
-		};
 		7FC997FF1B0A0D7A009E8BD7 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,13 +367,6 @@
 			path = iPhone;
 			sourceTree = "<group>";
 		};
-		7FC998041B0A0D7A009E8BD7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		7FC998051B0A0D7A009E8BD7 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,13 +376,6 @@
 				7F91D52F1B0C81640087080D /* plists */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		7FC998061B0A0D7A009E8BD7 /* Vendors */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Vendors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,6 +464,7 @@
 				7F91D5301B0C81640087080D /* home_nav_bg@2x.png in Resources */,
 				7F91D54B1B0C81640087080D /* home_webSite_youku@3x.png in Resources */,
 				7F91D5321B0C81640087080D /* home_nav_search_default@2x.png in Resources */,
+				7F09A97D1B0C8DD60036BDB7 /* home_nav_searchBg@3x.png in Resources */,
 				7F91D5341B0C81640087080D /* home_nav_search_pressed@2x.png in Resources */,
 				7F91D53B1B0C81640087080D /* home_webSite_amazon@3x.png in Resources */,
 				7F91D53E1B0C81640087080D /* home_webSite_ctrip@2x.png in Resources */,
@@ -412,6 +486,7 @@
 				7FC997E31B09794E009E8BD7 /* Main.storyboard in Resources */,
 				7FC997E81B09794E009E8BD7 /* LaunchScreen.xib in Resources */,
 				7F91D53A1B0C81640087080D /* home_webSite_amazon@2x.png in Resources */,
+				7F09A97C1B0C8DD60036BDB7 /* home_nav_searchBg@2x.png in Resources */,
 				7F91D5351B0C81640087080D /* home_nav_search_pressed@3x.png in Resources */,
 				7F91D5471B0C81640087080D /* home_webSite_toutiao@3x.png in Resources */,
 				7F91D5381B0C81640087080D /* home_nav_twoCode_pressed@2x.png in Resources */,
@@ -473,6 +548,7 @@
 			files = (
 				7FC998081B0A0D7A009E8BD7 /* ViewController.m in Sources */,
 				7FC998071B0A0D7A009E8BD7 /* AppDelegate.m in Sources */,
+				7F09A98E1B0C9D8F0036BDB7 /* ControllerBase.m in Sources */,
 				7FC997DA1B09794E009E8BD7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,6 +683,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: xiangkai yin (G986QBUMM5)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = iOrange/iOrange.pch;
 				INFOPLIST_FILE = iOrange/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -621,6 +699,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: xiangkai yin (G986QBUMM5)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = iOrange/iOrange.pch;
 				INFOPLIST_FILE = iOrange/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
