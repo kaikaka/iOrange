@@ -11,6 +11,22 @@
 		7F09A97D1B0C8DD60036BDB7 /* home_nav_searchBg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F09A97B1B0C8DD60036BDB7 /* home_nav_searchBg@3x.png */; };
 		7F09A98E1B0C9D8F0036BDB7 /* ControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F09A98D1B0C9D8F0036BDB7 /* ControllerBase.m */; };
 		7F09A9921B0CA0B50036BDB7 /* ViewWebSiteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F09A9911B0CA0B50036BDB7 /* ViewWebSiteButton.m */; };
+		7F5572211B0D7BA600B0CE8F /* baidumobadsdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F5571F01B0D7BA600B0CE8F /* baidumobadsdk.bundle */; };
+		7F5572221B0D7BA600B0CE8F /* libBaiduMobAdSdk64bit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5571F41B0D7BA600B0CE8F /* libBaiduMobAdSdk64bit.a */; };
+		7F5572231B0D7BA600B0CE8F /* mongoose.c in Sources */ = {isa = PBXBuildFile; fileRef = 7F5571F61B0D7BA600B0CE8F /* mongoose.c */; };
+		7F5572371B0D7EC700B0CE8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5572361B0D7EC700B0CE8F /* QuartzCore.framework */; };
+		7F5572391B0D7ED100B0CE8F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5572381B0D7ED100B0CE8F /* AdSupport.framework */; };
+		7F55723B1B0D7EDB00B0CE8F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F55723A1B0D7EDB00B0CE8F /* StoreKit.framework */; };
+		7F55723D1B0D7EE200B0CE8F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F55723C1B0D7EE200B0CE8F /* libz.dylib */; };
+		7F55723F1B0D7EEA00B0CE8F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F55723E1B0D7EEA00B0CE8F /* AudioToolbox.framework */; };
+		7F5572411B0D7EF800B0CE8F /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5572401B0D7EF800B0CE8F /* CoreMotion.framework */; };
+		7F5572431B0D7F0500B0CE8F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5572421B0D7F0500B0CE8F /* MediaPlayer.framework */; };
+		7F5572451B0D7F1000B0CE8F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5572441B0D7F1000B0CE8F /* AVFoundation.framework */; };
+		7F5572471B0D7F2C00B0CE8F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5572461B0D7F2C00B0CE8F /* MessageUI.framework */; };
+		7F5572491B0D7F3A00B0CE8F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5572481B0D7F3A00B0CE8F /* CoreLocation.framework */; };
+		7F55724B1B0D7F4400B0CE8F /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F55724A1B0D7F4400B0CE8F /* libstdc++.dylib */; };
+		7F55724D1B0D7F4F00B0CE8F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F55724C1B0D7F4F00B0CE8F /* CoreTelephony.framework */; };
+		7F55724F1B0D7F5A00B0CE8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F55724E1B0D7F5A00B0CE8F /* UIKit.framework */; };
 		7F91D5301B0C81640087080D /* home_nav_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D5131B0C81640087080D /* home_nav_bg@2x.png */; };
 		7F91D5311B0C81640087080D /* home_nav_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D5141B0C81640087080D /* home_nav_bg@3x.png */; };
 		7F91D5321B0C81640087080D /* home_nav_search_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D5151B0C81640087080D /* home_nav_search_default@2x.png */; };
@@ -72,6 +88,32 @@
 		7F09A98F1B0C9E6A0036BDB7 /* iOrange.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOrange.pch; sourceTree = "<group>"; };
 		7F09A9901B0CA0B50036BDB7 /* ViewWebSiteButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewWebSiteButton.h; sourceTree = "<group>"; };
 		7F09A9911B0CA0B50036BDB7 /* ViewWebSiteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewWebSiteButton.m; sourceTree = "<group>"; };
+		7F5571EA1B0D7BA600B0CE8F /* BaiduMobAdCommonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdCommonConfig.h; sourceTree = "<group>"; };
+		7F5571EB1B0D7BA600B0CE8F /* BaiduMobAdDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdDelegateProtocol.h; sourceTree = "<group>"; };
+		7F5571EC1B0D7BA600B0CE8F /* BaiduMobAdInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdInterstitial.h; sourceTree = "<group>"; };
+		7F5571ED1B0D7BA600B0CE8F /* BaiduMobAdInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdInterstitialDelegate.h; sourceTree = "<group>"; };
+		7F5571EE1B0D7BA600B0CE8F /* BaiduMobAdRecommendDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdRecommendDelegateProtocol.h; sourceTree = "<group>"; };
+		7F5571EF1B0D7BA600B0CE8F /* BaiduMobAdRecommendIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdRecommendIcon.h; sourceTree = "<group>"; };
+		7F5571F01B0D7BA600B0CE8F /* baidumobadsdk.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = baidumobadsdk.bundle; sourceTree = "<group>"; };
+		7F5571F11B0D7BA600B0CE8F /* BaiduMobAdSplash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdSplash.h; sourceTree = "<group>"; };
+		7F5571F21B0D7BA600B0CE8F /* BaiduMobAdSplashDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdSplashDelegate.h; sourceTree = "<group>"; };
+		7F5571F31B0D7BA600B0CE8F /* BaiduMobAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdView.h; sourceTree = "<group>"; };
+		7F5571F41B0D7BA600B0CE8F /* libBaiduMobAdSdk64bit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBaiduMobAdSdk64bit.a; sourceTree = "<group>"; };
+		7F5571F61B0D7BA600B0CE8F /* mongoose.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mongoose.c; sourceTree = "<group>"; };
+		7F5571F71B0D7BA600B0CE8F /* mongoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mongoose.h; sourceTree = "<group>"; };
+		7F5572361B0D7EC700B0CE8F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7F5572381B0D7ED100B0CE8F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		7F55723A1B0D7EDB00B0CE8F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		7F55723C1B0D7EE200B0CE8F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		7F55723E1B0D7EEA00B0CE8F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		7F5572401B0D7EF800B0CE8F /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		7F5572421B0D7F0500B0CE8F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		7F5572441B0D7F1000B0CE8F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7F5572461B0D7F2C00B0CE8F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		7F5572481B0D7F3A00B0CE8F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7F55724A1B0D7F4400B0CE8F /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		7F55724C1B0D7F4F00B0CE8F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		7F55724E1B0D7F5A00B0CE8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7F91D5131B0C81640087080D /* home_nav_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_nav_bg@2x.png"; sourceTree = "<group>"; };
 		7F91D5141B0C81640087080D /* home_nav_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_nav_bg@3x.png"; sourceTree = "<group>"; };
 		7F91D5151B0C81640087080D /* home_nav_search_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_nav_search_default@2x.png"; sourceTree = "<group>"; };
@@ -124,6 +166,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F55724F1B0D7F5A00B0CE8F /* UIKit.framework in Frameworks */,
+				7F55724D1B0D7F4F00B0CE8F /* CoreTelephony.framework in Frameworks */,
+				7F55724B1B0D7F4400B0CE8F /* libstdc++.dylib in Frameworks */,
+				7F5572491B0D7F3A00B0CE8F /* CoreLocation.framework in Frameworks */,
+				7F5572471B0D7F2C00B0CE8F /* MessageUI.framework in Frameworks */,
+				7F5572451B0D7F1000B0CE8F /* AVFoundation.framework in Frameworks */,
+				7F5572431B0D7F0500B0CE8F /* MediaPlayer.framework in Frameworks */,
+				7F5572411B0D7EF800B0CE8F /* CoreMotion.framework in Frameworks */,
+				7F55723F1B0D7EEA00B0CE8F /* AudioToolbox.framework in Frameworks */,
+				7F55723D1B0D7EE200B0CE8F /* libz.dylib in Frameworks */,
+				7F55723B1B0D7EDB00B0CE8F /* StoreKit.framework in Frameworks */,
+				7F5572391B0D7ED100B0CE8F /* AdSupport.framework in Frameworks */,
+				7F5572371B0D7EC700B0CE8F /* QuartzCore.framework in Frameworks */,
+				7F5572221B0D7BA600B0CE8F /* libBaiduMobAdSdk64bit.a in Frameworks */,
 				C37A855E273AE8C121E29079 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +206,19 @@
 		6576AC60241C78755AF2A5D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7F55724E1B0D7F5A00B0CE8F /* UIKit.framework */,
+				7F55724C1B0D7F4F00B0CE8F /* CoreTelephony.framework */,
+				7F55724A1B0D7F4400B0CE8F /* libstdc++.dylib */,
+				7F5572481B0D7F3A00B0CE8F /* CoreLocation.framework */,
+				7F5572461B0D7F2C00B0CE8F /* MessageUI.framework */,
+				7F5572441B0D7F1000B0CE8F /* AVFoundation.framework */,
+				7F5572421B0D7F0500B0CE8F /* MediaPlayer.framework */,
+				7F5572401B0D7EF800B0CE8F /* CoreMotion.framework */,
+				7F55723E1B0D7EEA00B0CE8F /* AudioToolbox.framework */,
+				7F55723C1B0D7EE200B0CE8F /* libz.dylib */,
+				7F55723A1B0D7EDB00B0CE8F /* StoreKit.framework */,
+				7F5572381B0D7ED100B0CE8F /* AdSupport.framework */,
+				7F5572361B0D7EC700B0CE8F /* QuartzCore.framework */,
 				6EB5AF0E0B59701CDA4DF7DF /* libPods.a */,
 			);
 			name = Frameworks;
@@ -186,6 +255,7 @@
 		7F09A9811B0C9C8B0036BDB7 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				7F5571E91B0D7BA600B0CE8F /* Baidu_Ad_2.6 */,
 			);
 			path = Vendors;
 			sourceTree = "<group>";
@@ -243,6 +313,34 @@
 			children = (
 			);
 			path = Share;
+			sourceTree = "<group>";
+		};
+		7F5571E91B0D7BA600B0CE8F /* Baidu_Ad_2.6 */ = {
+			isa = PBXGroup;
+			children = (
+				7F5571EA1B0D7BA600B0CE8F /* BaiduMobAdCommonConfig.h */,
+				7F5571EB1B0D7BA600B0CE8F /* BaiduMobAdDelegateProtocol.h */,
+				7F5571EC1B0D7BA600B0CE8F /* BaiduMobAdInterstitial.h */,
+				7F5571ED1B0D7BA600B0CE8F /* BaiduMobAdInterstitialDelegate.h */,
+				7F5571EE1B0D7BA600B0CE8F /* BaiduMobAdRecommendDelegateProtocol.h */,
+				7F5571EF1B0D7BA600B0CE8F /* BaiduMobAdRecommendIcon.h */,
+				7F5571F01B0D7BA600B0CE8F /* baidumobadsdk.bundle */,
+				7F5571F11B0D7BA600B0CE8F /* BaiduMobAdSplash.h */,
+				7F5571F21B0D7BA600B0CE8F /* BaiduMobAdSplashDelegate.h */,
+				7F5571F31B0D7BA600B0CE8F /* BaiduMobAdView.h */,
+				7F5571F41B0D7BA600B0CE8F /* libBaiduMobAdSdk64bit.a */,
+				7F5571F51B0D7BA600B0CE8F /* Mongoose */,
+			);
+			path = Baidu_Ad_2.6;
+			sourceTree = "<group>";
+		};
+		7F5571F51B0D7BA600B0CE8F /* Mongoose */ = {
+			isa = PBXGroup;
+			children = (
+				7F5571F61B0D7BA600B0CE8F /* mongoose.c */,
+				7F5571F71B0D7BA600B0CE8F /* mongoose.h */,
+			);
+			path = Mongoose;
 			sourceTree = "<group>";
 		};
 		7F91D5111B0C81640087080D /* Images */ = {
@@ -438,6 +536,7 @@
 					};
 					7FC997EC1B09794E009E8BD7 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = Y3A2P99A4V;
 						TestTargetID = 7FC997D31B09794E009E8BD7;
 					};
 				};
@@ -472,6 +571,7 @@
 				7F09A97D1B0C8DD60036BDB7 /* home_nav_searchBg@3x.png in Resources */,
 				7F91D5341B0C81640087080D /* home_nav_search_pressed@2x.png in Resources */,
 				7F91D53B1B0C81640087080D /* home_webSite_amazon@3x.png in Resources */,
+				7F5572211B0D7BA600B0CE8F /* baidumobadsdk.bundle in Resources */,
 				7F91D53E1B0C81640087080D /* home_webSite_ctrip@2x.png in Resources */,
 				7F91D5331B0C81640087080D /* home_nav_search_default@3x.png in Resources */,
 				7F91D53C1B0C81640087080D /* home_webSite_baidu@2x.png in Resources */,
@@ -555,6 +655,7 @@
 				7F09A9921B0CA0B50036BDB7 /* ViewWebSiteButton.m in Sources */,
 				7FC998071B0A0D7A009E8BD7 /* AppDelegate.m in Sources */,
 				7F09A98E1B0C9D8F0036BDB7 /* ControllerBase.m in Sources */,
+				7F5572231B0D7BA600B0CE8F /* mongoose.c in Sources */,
 				7FC997DA1B09794E009E8BD7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -638,7 +739,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4702c640-a365-4e8d-8402-0b614e02dc58";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -676,7 +777,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4702c640-a365-4e8d-8402-0b614e02dc58";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -694,8 +795,14 @@
 				INFOPLIST_FILE = iOrange/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOrange/Vendors/Baidu_Ad_2.6",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4702c640-a365-4e8d-8402-0b614e02dc58";
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
 		};
@@ -711,8 +818,14 @@
 				INFOPLIST_FILE = iOrange/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOrange/Vendors/Baidu_Ad_2.6",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4702c640-a365-4e8d-8402-0b614e02dc58";
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
 		};
@@ -720,6 +833,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -731,6 +846,7 @@
 				INFOPLIST_FILE = iOrangeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOrange.app/iOrange";
 			};
 			name = Debug;
@@ -739,6 +855,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -746,6 +864,7 @@
 				INFOPLIST_FILE = iOrangeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOrange.app/iOrange";
 			};
 			name = Release;

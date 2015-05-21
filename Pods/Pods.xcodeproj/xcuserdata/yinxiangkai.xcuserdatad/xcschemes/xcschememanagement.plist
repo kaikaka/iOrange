@@ -9,6 +9,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-OpenUDID.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-TouchJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-ZipArchive.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>9A9339BB2799FF27EF936286</key>
+		<key>97F0B696FF949F329AEF2785</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B11BC567EE840376A7F3E2E9</key>
+		<key>A7DE54B0F5F55FA87E58B288</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B8DEEF359B66C065EB2F266C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D32113D52AEF73AAF5AF3956</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F322612450707BC78114E4AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

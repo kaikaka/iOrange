@@ -18,13 +18,17 @@
     self.layer.masksToBounds = YES;
     self.layer.cornerRadius = 5.0;
     
-    UIImage *image = [UIImage imageNamed:imgName];
-    UIButton *buttonImg = [UIButton buttonWithType:0];
-    [buttonImg setFrame:CGRectMake((CGRectGetWidth(frame) - image.size.width/2)/2,
-                                   (CGRectGetHeight(frame) - image.size.height/2)/2,
-                                   image.size.width/2, image.size.height/2)];
-    [buttonImg setImage:image forState:0];
+    UIImage *img = [UIImage imageNamed:imgName];
+    UIButton *buttonImg = [UIButton buttonWithType:1];
+    [buttonImg setFrame:self.bounds];
     [self addSubview:buttonImg];
+    
+    UIImageView *image = [[UIImageView alloc] initWithFrame:
+                          CGRectMake((CGRectGetWidth(frame) - img.size.width/2)/2,
+                                     (CGRectGetHeight(frame) - img.size.height/2)/2,
+                                     img.size.width/2, img.size.height/2)];
+    [image setImage:img];
+    [buttonImg addSubview:image];
   }
   return self;
 }

@@ -51,6 +51,12 @@
                                                 </state>
                                                 <state key="highlighted" image="home_nav_search_pressed.png"/>
                                             </button>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="搜索或输入网址" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7O6-9E-dtu">
+                                                <rect key="frame" x="49" y="34" width="270" height="30"/>
+                                                <color key="textColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="italicSystem" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -66,13 +72,23 @@
                                             <constraint firstAttribute="height" constant="79" id="nm7-CY-MkZ"/>
                                             <constraint firstAttribute="bottom" secondItem="Est-EW-hPV" secondAttribute="bottom" constant="18" id="qDT-OM-HQu"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="nm7-CY-MkZ"/>
+                                            </mask>
+                                        </variation>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nho-ee-0Cu">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nho-ee-0Cu" customClass="UIScrollView">
                                         <rect key="frame" x="0.0" y="79" width="375" height="588"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="588" id="CO6-kx-Pod"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="CO6-kx-Pod"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

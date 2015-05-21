@@ -14,7 +14,7 @@
   __weak IBOutlet UIButton *_buttonSearch;
   __weak IBOutlet UIButton *_buttonTwoCode;
   
-  __weak IBOutlet UIView *_viewContent;
+  __weak IBOutlet UIScrollView *_viewContent;
   
 }
 
@@ -36,10 +36,10 @@
   NSArray *arrayImageName = @[@"home_webSite_baidu",@"home_webSite_weibo",@"home_webSite_jianshu",
                               @"home_webSite_jd",@"home_webSite_amazon",@"home_webSite_tmall",
                               @"home_webSite_toutiao",@"home_webSite_ctrip",@"home_webSite_youku"];
-  int totalloc=3;
-  CGFloat appvieww=115;
-  CGFloat appviewh=50;
-  CGFloat margin=(self.view.frame.size.width-totalloc*appvieww)/(totalloc+1);
+  int totalloc =3;
+  CGFloat appvieww = (CGRectGetWidth(self.view.frame)-30)/3;
+  CGFloat appviewh = iPhone5?(0.85*50):iPhone6Plus?(1.65*50):50;
+  CGFloat margin = (self.view.frame.size.width-totalloc*appvieww)/(totalloc+1);
   
   for (int i = 0 ; i < [arrayImageName count]; i++) {
     int row=i/totalloc;//行号
@@ -55,6 +55,8 @@
   }
 }
 
-
+- (void)showAdvertInView {
+  
+}
 
 @end
