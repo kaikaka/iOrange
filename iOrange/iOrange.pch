@@ -14,8 +14,12 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#endif
 
 #import "Common.h"
+#import "UIViewEx.h"
+
+#endif
+
+
 
 #endif

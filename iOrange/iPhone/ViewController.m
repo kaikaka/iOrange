@@ -13,7 +13,7 @@
 #import "ViewWebSiteButton.h"
 #import "ViewHomeSection.h"
 
-@interface ViewController () <UITableViewDelegate,UITableViewDataSource>{
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>{
   
   __weak IBOutlet UIButton *_buttonSearch;
   __weak IBOutlet UIButton *_buttonTwoCode;
@@ -25,6 +25,8 @@
   __weak IBOutlet UIView *_viewHomeThree;
 
   UITableView *_tableViewExpend;
+  UIPageControl *_pageViewMark;
+  
   NSMutableArray *_DataArray;//记录所有section是否伸展
   NSArray *_arrayCateImageName;// 图片名称
   NSArray *_arrayCateName;//section名称
@@ -123,20 +125,25 @@
   [tableCategory setSeparatorInset:UIEdgeInsetsZero];
   tableCategory.delegate = self;
   tableCategory.dataSource = self;
-  tableCategory.scrollEnabled = YES;
+  tableCategory.scrollEnabled = NO;
   _tableViewExpend = tableCategory;
   
 }
 
 - (void)showPageView {
-  UIPageControl *pageView = [[UIPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame)-80, CGRectGetWidth(self.view.frame), 10)];
-  pageView.pageIndicatorTintColor = RGBA(125., 125., 125., 1.);
-  pageView.currentPageIndicatorTintColor = [UIColor blackColor];
+  UIPageControl *pageView = [[UIPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame)-70, CGRectGetWidth(self.view.frame), 10)];
+  pageView.currentPageIndicatorTintColor = RGBA(125., 125., 125., 1.);
+  pageView.pageIndicatorTintColor = [UIColor blackColor];
   pageView.numberOfPages = 3;
+  pageView.currentPage = 0;
   [self.view addSubview:pageView];
+  _pageViewMark = pageView;
 }
 
 - (void)initDataSource {
+  _scrollViewContent.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame)*3, 0);
+  _scrollViewContent.pagingEnabled = YES;
+  _scrollViewContent.delegate = self;
   //创建一个数组
   _DataArray=[[NSMutableArray alloc] init];
   for (int i = 0; i<5; i++) {
@@ -153,6 +160,13 @@
   NSDictionary *dic=[_DataArray objectAtIndex:section];
   int expanded=[[dic objectForKey:DIC_EXPANDED] intValue];
   return expanded;
+}
+
+#pragma mark - UIScrollViewDelegate 
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+  CGFloat f = scrollView.contentOffset.x /scrollView.width;
+  _pageViewMark.currentPage = f;
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
