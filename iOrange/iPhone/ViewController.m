@@ -7,10 +7,7 @@
 //
 
 #define DIC_EXPANDED @"expanded" //是否是展开 0收缩 1展开
-
-#define DIC_ARARRY @"array"
-
-#define DIC_TITILESTRING @"title"
+#define kSectionHeight 50
 
 #import "ViewController.h"
 #import "ViewWebSiteButton.h"
@@ -29,6 +26,9 @@
 
   UITableView *_tableViewExpend;
   NSMutableArray *_DataArray;//记录所有section是否伸展
+  NSArray *_arrayCateImageName;// 图片名称
+  NSArray *_arrayCateName;//section名称
+  NSArray *_arrayCateDetail;//详细说明
   NSInteger _lastSection;//记录上一个点击的section
 }
 
@@ -42,6 +42,7 @@
   // Do any additional setup after loading the view, typically from a nib.
   
   [self showWebSitesInView];
+  [self showPageView];
   [self initDataSource];
 }
 
@@ -78,12 +79,6 @@
 
   NSMutableDictionary *dic=[_DataArray objectAtIndex:section];
   [dic setValue:[NSNumber numberWithInt:!isExpand]forKey:DIC_EXPANDED];
-//  int expanded=[[dic objectForKey:DIC_EXPANDED] intValue];
-//  if (isExpand) {
-//    [dic setValue:[NSNumber numberWithInt:!isExpand]forKey:DIC_EXPANDED];
-//  } else {
-//    [dic setValue:[NSNumber numberWithInt:1]forKey:DIC_EXPANDED];
-//  }
 }
 
 - (void)showWebSitesInView {
@@ -118,7 +113,7 @@
 }
 
 - (void)showCategoryTableWithMargin:(CGFloat)margin withHeight:(CGFloat)siteHeight {
-  UITableView *tableCategory = [[UITableView alloc] initWithFrame:CGRectMake(margin, siteHeight, CGRectGetWidth(self.view.frame)-margin * 2, 44*5-1) style:UITableViewStylePlain];
+  UITableView *tableCategory = [[UITableView alloc] initWithFrame:CGRectMake(margin, siteHeight, CGRectGetWidth(self.view.frame)-margin * 2, kSectionHeight*5-1) style:UITableViewStylePlain];
   tableCategory.layer.masksToBounds = YES;
   tableCategory.layer.cornerRadius = 5.;
   tableCategory.backgroundColor = RGBA(230., 230., 230., 1.);
@@ -133,6 +128,14 @@
   
 }
 
+- (void)showPageView {
+  UIPageControl *pageView = [[UIPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame)-80, CGRectGetWidth(self.view.frame), 10)];
+  pageView.pageIndicatorTintColor = RGBA(125., 125., 125., 1.);
+  pageView.currentPageIndicatorTintColor = [UIColor blackColor];
+  pageView.numberOfPages = 3;
+  [self.view addSubview:pageView];
+}
+
 - (void)initDataSource {
   //创建一个数组
   _DataArray=[[NSMutableArray alloc] init];
@@ -140,6 +143,16 @@
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:0],DIC_EXPANDED,nil];
     [_DataArray addObject:dic];
   }
+  //可以用plist 便于维护
+  _arrayCateImageName = @[@"home_image_cool",@"home_image_sevice",@"home_image_movie",@"home_image_baike",@"home_image_now"];
+  _arrayCateName = @[@"手机酷站",@"生活服务",@"影视音乐",@"趣味百科",@"最近访问"];
+  _arrayCateDetail = @[@"",@"查询.资讯.服务",@"视频.综艺.音乐台",@"笑话.漫画.百科",@""];
+}
+
+-(int)isExpanded:(NSInteger)section{
+  NSDictionary *dic=[_DataArray objectAtIndex:section];
+  int expanded=[[dic objectForKey:DIC_EXPANDED] intValue];
+  return expanded;
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
@@ -165,7 +178,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-  return 44;
+  return kSectionHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -183,7 +196,9 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-  ViewHomeSection *viewSection = [[ViewHomeSection alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(tableView.frame), 44)];
+  ViewHomeSection *viewSection = [[ViewHomeSection alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(tableView.frame), kSectionHeight) withImageName:_arrayCateImageName[section] withLableName:_arrayCateName[section]];
+  [viewSection setIsMarkDown:[self isExpanded:section]];
+  [viewSection.labelDetail setText:_arrayCateDetail[section]];
   UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onGestureSectionWithTop:)];
   viewSection.tag = section+10;
   [viewSection addGestureRecognizer:tapGesture];

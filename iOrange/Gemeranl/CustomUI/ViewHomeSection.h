@@ -10,5 +10,14 @@
 
 @interface ViewHomeSection : UIView
 
+@property (nonatomic,strong) UILabel *labelDetail;
+@property (nonatomic,readonly) UIImageView *imgvMark;
+@property (nonatomic,assign) BOOL isMarkDown;
+
+
+- (id)initWithFrame:(CGRect)frame
+      withImageName:(NSString *)imageName
+      withLableName:(NSString *)cateName;
+
 
 @end
