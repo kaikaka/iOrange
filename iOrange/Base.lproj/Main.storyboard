@@ -80,6 +80,20 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nho-ee-0Cu" customClass="UIScrollView">
                                         <rect key="frame" x="0.0" y="79" width="375" height="588"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktI-m3-Mw8" customClass="UIScrollView">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="588"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oea-ki-WQQ" customClass="UIScrollView">
+                                                <rect key="frame" x="375" y="0.0" width="375" height="588"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uL6-Lk-PZG">
+                                                <rect key="frame" x="750" y="0.0" width="375" height="588"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="588" id="CO6-kx-Pod"/>
@@ -120,7 +134,10 @@
                     <connections>
                         <outlet property="_buttonSearch" destination="Est-EW-hPV" id="Oan-ya-nu6"/>
                         <outlet property="_buttonTwoCode" destination="4ie-Sb-ZvJ" id="014-Z9-OfF"/>
-                        <outlet property="_viewContent" destination="nho-ee-0Cu" id="5rE-Pc-5NP"/>
+                        <outlet property="_scrollViewContent" destination="nho-ee-0Cu" id="Gww-d2-T5c"/>
+                        <outlet property="_viewHomeOne" destination="ktI-m3-Mw8" id="Hte-pC-M8c"/>
+                        <outlet property="_viewHomeThree" destination="uL6-Lk-PZG" id="rIT-BI-a5d"/>
+                        <outlet property="_viewHomeTwo" destination="oea-ki-WQQ" id="zzi-aE-zwE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
