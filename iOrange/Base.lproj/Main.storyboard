@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -104,50 +105,54 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3vk-4b-jay">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vk-4b-jay">
                                         <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="376" translatesAutoresizingMaskIntoConstraints="NO" id="aoF-RP-ndC">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="376" translatesAutoresizingMaskIntoConstraints="NO" id="aoF-RP-ndC">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
                                                 <color key="backgroundColor" red="0.58431372549019611" green="0.58431372549019611" blue="0.58431372549019611" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="LsK-Bj-72l"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" red="0.58431372549019611" green="0.58431372549019611" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzR-nz-m8d">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="49"/>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzR-nz-m8d">
+                                                <rect key="frame" x="0.0" y="1" width="75" height="49"/>
                                                 <state key="normal" backgroundImage="home_button_back.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <state key="selected" backgroundImage="home_button_back_select.png"/>
                                                 <state key="highlighted" backgroundImage="home_button_back_select.png"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIW-2f-cIe">
-                                                <rect key="frame" x="300" y="0.0" width="75" height="49"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIW-2f-cIe">
+                                                <rect key="frame" x="300" y="1" width="75" height="49"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" backgroundImage="home_button_home.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <state key="selected" backgroundImage="home_button_home_select.png"/>
                                                 <state key="highlighted" backgroundImage="home_button_home_select.png"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSS-U9-dEf">
-                                                <rect key="frame" x="225" y="0.0" width="75" height="49"/>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSS-U9-dEf">
+                                                <rect key="frame" x="225" y="1" width="75" height="49"/>
                                                 <state key="normal" backgroundImage="home_button_moreMark.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <state key="selected" backgroundImage="home_button_moreMark_select.png"/>
                                                 <state key="highlighted" backgroundImage="home_button_moreMark_select.png"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVE-NS-18j">
-                                                <rect key="frame" x="150" y="0.0" width="75" height="49"/>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVE-NS-18j">
+                                                <rect key="frame" x="150" y="1" width="75" height="49"/>
                                                 <state key="normal" backgroundImage="home_button_setting.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <state key="selected" backgroundImage="home_button_setting_select.png"/>
                                                 <state key="highlighted" backgroundImage="home_button_setting_select.png"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rta-GV-afp">
-                                                <rect key="frame" x="75" y="0.0" width="75" height="49"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rta-GV-afp">
+                                                <rect key="frame" x="75" y="1" width="75" height="49"/>
                                                 <state key="normal" backgroundImage="home_bottom_forward.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -156,12 +161,61 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="SVE-NS-18j" firstAttribute="width" secondItem="hSS-U9-dEf" secondAttribute="width" id="1Lw-Z2-DN1"/>
+                                            <constraint firstAttribute="height" constant="50" id="2OR-B5-POd"/>
+                                            <constraint firstAttribute="bottom" secondItem="rta-GV-afp" secondAttribute="bottom" id="3k6-zt-WSP"/>
+                                            <constraint firstItem="uIW-2f-cIe" firstAttribute="width" secondItem="hSS-U9-dEf" secondAttribute="width" id="5jH-cS-Adi"/>
+                                            <constraint firstItem="rta-GV-afp" firstAttribute="width" secondItem="hSS-U9-dEf" secondAttribute="width" id="5yg-OL-TLv"/>
+                                            <constraint firstItem="SVE-NS-18j" firstAttribute="width" secondItem="DzR-nz-m8d" secondAttribute="width" id="7Ig-jC-wpo"/>
+                                            <constraint firstItem="uIW-2f-cIe" firstAttribute="top" secondItem="aoF-RP-ndC" secondAttribute="bottom" id="C08-Zr-L3U"/>
+                                            <constraint firstItem="SVE-NS-18j" firstAttribute="width" secondItem="uIW-2f-cIe" secondAttribute="width" id="Ce0-lj-Q5i"/>
+                                            <constraint firstAttribute="bottom" secondItem="SVE-NS-18j" secondAttribute="bottom" id="Egg-yG-Ob9"/>
+                                            <constraint firstItem="DzR-nz-m8d" firstAttribute="leading" secondItem="3vk-4b-jay" secondAttribute="leading" id="Pcv-1T-lvG"/>
+                                            <constraint firstItem="hSS-U9-dEf" firstAttribute="leading" secondItem="SVE-NS-18j" secondAttribute="trailing" id="Rf2-5p-K8y"/>
+                                            <constraint firstAttribute="bottom" secondItem="uIW-2f-cIe" secondAttribute="bottom" id="RzJ-0u-Ah4"/>
+                                            <constraint firstItem="aoF-RP-ndC" firstAttribute="leading" secondItem="3vk-4b-jay" secondAttribute="leading" id="Ucp-ik-sAJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="hSS-U9-dEf" secondAttribute="bottom" id="a1u-TK-9Bw"/>
+                                            <constraint firstItem="uIW-2f-cIe" firstAttribute="width" secondItem="DzR-nz-m8d" secondAttribute="width" id="a3R-98-wHd"/>
+                                            <constraint firstAttribute="width" secondItem="DzR-nz-m8d" secondAttribute="width" multiplier="5" id="cMb-fM-akc"/>
+                                            <constraint firstItem="SVE-NS-18j" firstAttribute="width" secondItem="rta-GV-afp" secondAttribute="width" id="dW3-R8-70m"/>
+                                            <constraint firstItem="uIW-2f-cIe" firstAttribute="leading" secondItem="hSS-U9-dEf" secondAttribute="trailing" id="fJw-Tv-Fpm"/>
+                                            <constraint firstAttribute="bottom" secondItem="DzR-nz-m8d" secondAttribute="bottom" id="hdN-PR-D3q"/>
+                                            <constraint firstItem="rta-GV-afp" firstAttribute="leading" secondItem="DzR-nz-m8d" secondAttribute="trailing" id="hsC-y6-1A5"/>
+                                            <constraint firstItem="rta-GV-afp" firstAttribute="top" secondItem="aoF-RP-ndC" secondAttribute="bottom" id="hv6-jL-mlw"/>
+                                            <constraint firstItem="uIW-2f-cIe" firstAttribute="width" secondItem="hSS-U9-dEf" secondAttribute="width" id="iZc-CB-ixT"/>
+                                            <constraint firstItem="SVE-NS-18j" firstAttribute="top" secondItem="aoF-RP-ndC" secondAttribute="bottom" id="kWC-hw-JfR"/>
+                                            <constraint firstAttribute="trailing" secondItem="aoF-RP-ndC" secondAttribute="trailing" id="m8c-MM-XWW"/>
+                                            <constraint firstItem="uIW-2f-cIe" firstAttribute="leading" secondItem="hSS-U9-dEf" secondAttribute="trailing" id="mJj-Me-WFY"/>
+                                            <constraint firstItem="hSS-U9-dEf" firstAttribute="top" secondItem="aoF-RP-ndC" secondAttribute="bottom" id="nh1-t2-BiO"/>
+                                            <constraint firstItem="SVE-NS-18j" firstAttribute="leading" secondItem="rta-GV-afp" secondAttribute="trailing" id="qgI-b9-nk8"/>
+                                            <constraint firstItem="SVE-NS-18j" firstAttribute="width" secondItem="hSS-U9-dEf" secondAttribute="width" id="szw-xo-lA1"/>
+                                            <constraint firstItem="SVE-NS-18j" firstAttribute="width" secondItem="rta-GV-afp" secondAttribute="width" id="tIU-Td-hya"/>
+                                            <constraint firstItem="aoF-RP-ndC" firstAttribute="top" secondItem="3vk-4b-jay" secondAttribute="top" id="xmS-Pg-ORM"/>
+                                            <constraint firstItem="DzR-nz-m8d" firstAttribute="top" secondItem="aoF-RP-ndC" secondAttribute="bottom" id="y6Q-pf-75R"/>
+                                            <constraint firstItem="uIW-2f-cIe" firstAttribute="width" secondItem="DzR-nz-m8d" secondAttribute="width" id="yOK-xC-Acp"/>
+                                            <constraint firstItem="uIW-2f-cIe" firstAttribute="width" secondItem="hSS-U9-dEf" secondAttribute="width" id="zJ1-6H-iKX"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="5yg-OL-TLv"/>
+                                                <exclude reference="1Lw-Z2-DN1"/>
+                                                <exclude reference="7Ig-jC-wpo"/>
+                                                <exclude reference="Ce0-lj-Q5i"/>
+                                                <exclude reference="tIU-Td-hya"/>
+                                                <exclude reference="5jH-cS-Adi"/>
+                                                <exclude reference="a3R-98-wHd"/>
+                                                <exclude reference="mJj-Me-WFY"/>
+                                                <exclude reference="zJ1-6H-iKX"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="n1g-b0-ceT" firstAttribute="leading" secondItem="8D6-sf-R0g" secondAttribute="leading" id="4Cf-P3-snV"/>
                                     <constraint firstAttribute="bottom" secondItem="nho-ee-0Cu" secondAttribute="bottom" id="4u8-xD-waA"/>
+                                    <constraint firstItem="3vk-4b-jay" firstAttribute="leading" secondItem="8D6-sf-R0g" secondAttribute="leading" id="7yW-QA-WXb"/>
                                     <constraint firstItem="n1g-b0-ceT" firstAttribute="top" secondItem="8D6-sf-R0g" secondAttribute="top" id="Gsv-Pc-eLw"/>
                                     <constraint firstItem="nho-ee-0Cu" firstAttribute="leading" secondItem="8D6-sf-R0g" secondAttribute="leading" id="IcL-F2-VzI"/>
                                     <constraint firstItem="uYT-a9-xm9" firstAttribute="top" secondItem="8D6-sf-R0g" secondAttribute="top" id="Woq-27-Pu8"/>
@@ -169,8 +223,10 @@
                                     <constraint firstItem="uYT-a9-xm9" firstAttribute="leading" secondItem="8D6-sf-R0g" secondAttribute="leading" id="aEB-ny-lTA"/>
                                     <constraint firstAttribute="trailing" secondItem="n1g-b0-ceT" secondAttribute="trailing" id="eo3-hn-lXI"/>
                                     <constraint firstAttribute="trailing" secondItem="uYT-a9-xm9" secondAttribute="trailing" id="nGf-wX-WfZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="3vk-4b-jay" secondAttribute="trailing" id="nRB-el-3g2"/>
                                     <constraint firstItem="nho-ee-0Cu" firstAttribute="top" secondItem="n1g-b0-ceT" secondAttribute="bottom" id="oOh-57-zLA"/>
                                     <constraint firstAttribute="trailing" secondItem="nho-ee-0Cu" secondAttribute="trailing" id="xX1-0N-ZNF"/>
+                                    <constraint firstAttribute="bottom" secondItem="3vk-4b-jay" secondAttribute="bottom" id="yDo-mq-N56"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -198,16 +254,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home_bottom_forward.png" width="150" height="99"/>
-        <image name="home_bottom_forward_select.png" width="150" height="99"/>
-        <image name="home_button_back.png" width="150" height="99"/>
-        <image name="home_button_back_select.png" width="150" height="99"/>
-        <image name="home_button_home.png" width="150" height="99"/>
-        <image name="home_button_home_select.png" width="150" height="99"/>
-        <image name="home_button_moreMark.png" width="150" height="99"/>
-        <image name="home_button_moreMark_select.png" width="150" height="99"/>
-        <image name="home_button_setting.png" width="150" height="99"/>
-        <image name="home_button_setting_select.png" width="150" height="99"/>
+        <image name="home_bottom_forward.png" width="128" height="99"/>
+        <image name="home_bottom_forward_select.png" width="128" height="99"/>
+        <image name="home_button_back.png" width="128" height="99"/>
+        <image name="home_button_back_select.png" width="128" height="99"/>
+        <image name="home_button_home.png" width="128" height="99"/>
+        <image name="home_button_home_select.png" width="128" height="99"/>
+        <image name="home_button_moreMark.png" width="128" height="99"/>
+        <image name="home_button_moreMark_select.png" width="128" height="99"/>
+        <image name="home_button_setting.png" width="128" height="99"/>
+        <image name="home_button_setting_select.png" width="128" height="99"/>
         <image name="home_nav_bg.png" width="750" height="1334"/>
         <image name="home_nav_searchBg.png" width="710" height="80"/>
         <image name="home_nav_search_default.png" width="48" height="48"/>

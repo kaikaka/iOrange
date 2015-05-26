@@ -12,6 +12,7 @@
 #import "ViewController.h"
 #import "ViewWebSiteButton.h"
 #import "ViewHomeSection.h"
+#import "ViewGuideSiteButton.h"
 
 @interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>{
   
@@ -44,6 +45,7 @@
   // Do any additional setup after loading the view, typically from a nib.
   
   [self showWebSitesInView];
+  [self showGuideSiteInView];
   [self showPageView];
   [self initDataSource];
 }
@@ -107,6 +109,37 @@
     [_viewHomeOne addSubview:viewSiteButton];
   }
   [self showCategoryTableWithMargin:margin withHeight:siteHeight];
+}
+
+- (void)showGuideSiteInView {
+  NSString *pathString = [[NSBundle mainBundle] pathForResource:@"HomeGuideSite" ofType:@"plist"];
+  NSArray *arraySite = [NSArray arrayWithContentsOfFile:pathString];
+  CGFloat widthS = (self.view.width-22*5)/4;
+  CGFloat heightS = iPhone5?(0.85 * 90):90;
+  CGFloat margin = 22;
+  int totalloc = 4;
+  
+  for (int i = 0; i<[arraySite count]; i++) {
+    NSDictionary *dictSite = [arraySite objectAtIndex:i];
+    int row = i / totalloc;
+    int loc = i % totalloc;
+    
+    CGFloat appviewx = margin + (margin + widthS) * loc;
+    CGFloat appviewy = margin + (margin + heightS) * row;
+    
+    ViewGuideSiteButton *siteView = [[ViewGuideSiteButton alloc] initWithFrame:CGRectMake(appviewx, appviewy, widthS, heightS) withIconName:dictSite[@"sIcon"] withSiteName:dictSite[@"sTitle"]];
+    [_viewHomeTwo addSubview:siteView];
+    if (i == [arraySite count]-1) {
+      int row = (i+1) / totalloc;
+      int loc = (i+1) % totalloc;
+      
+      CGFloat appviewW = margin + (margin + widthS) * loc;
+      CGFloat appviewH = margin + (margin + heightS) * row;
+      ViewGuideSiteButton *siteViewNine = [[ViewGuideSiteButton alloc] initWithFrame:CGRectMake(appviewW, appviewH, widthS, heightS) withIconName:@"home_site_icon9" withSiteName:@""];
+      [_viewHomeTwo addSubview:siteViewNine];
+    }
+  }
+  
 }
 
 //广告
