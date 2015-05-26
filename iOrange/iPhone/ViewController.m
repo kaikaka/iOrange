@@ -174,6 +174,7 @@
 }
 
 - (void)initDataSource {
+
   _scrollViewContent.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame)*3, 0);
   _scrollViewContent.pagingEnabled = YES;
   _scrollViewContent.delegate = self;
@@ -187,6 +188,35 @@
   _arrayCateImageName = @[@"home_image_cool",@"home_image_sevice",@"home_image_movie",@"home_image_baike",@"home_image_now"];
   _arrayCateName = @[@"手机酷站",@"生活服务",@"影视音乐",@"趣味百科",@"最近访问"];
   _arrayCateDetail = @[@"",@"查询.资讯.服务",@"视频.综艺.音乐台",@"笑话.漫画.百科",@""];
+  
+}
+
+-(void)viewDidLayoutSubviews{
+
+  [_scrollViewContent.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *layConstant, NSUInteger idx, BOOL *stop) {
+    if ((layConstant.firstItem == _viewHomeOne) && (layConstant.firstAttribute == NSLayoutAttributeWidth)) {
+      layConstant.constant = _scrollViewContent.width;
+    }
+    if (layConstant.firstItem == _viewHomeTwo) {
+      if (layConstant.firstAttribute == NSLayoutAttributeWidth) {
+        layConstant.constant = _scrollViewContent.width;
+      }
+      if (layConstant.firstAttribute == NSLayoutAttributeLeft) {
+        layConstant.constant = _scrollViewContent.width;
+      }
+    }
+    if (layConstant.firstItem == _viewHomeThree) {
+      if (layConstant.firstAttribute == NSLayoutAttributeWidth) {
+        layConstant.constant = _scrollViewContent.width;
+      }
+      if (layConstant.firstAttribute == NSLayoutAttributeLeft) {
+        layConstant.constant = _scrollViewContent.width*2;
+      }
+    }
+  }];
+
+  [_scrollViewContent layoutSubviews];
+
 }
 
 -(int)isExpanded:(NSInteger)section{
