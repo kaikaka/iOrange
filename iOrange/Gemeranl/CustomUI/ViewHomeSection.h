@@ -13,6 +13,7 @@
 @property (nonatomic,strong) UILabel *labelDetail;
 @property (nonatomic,readonly) UIImageView *imgvMark;
 @property (nonatomic,assign) BOOL isMarkDown;
+@property (nonatomic,assign) BOOL isHiddenLine;
 
 
 - (id)initWithFrame:(CGRect)frame

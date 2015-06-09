@@ -157,7 +157,9 @@
 #endif
 
 //动画时间
-#define kDuration150ms    0.15 // 时长
+#define kDuration050ms    0.05 // 时长
+#define kDuration100ms    0.1
+#define kDuration150ms    0.15
 #define kDuration200ms    0.2
 #define kDuration250ms    0.25
 #define kDuration300ms    0.3

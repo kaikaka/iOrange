@@ -9,6 +9,7 @@
 #import "ViewHomeSection.h"
 
 @interface ViewHomeSection() {
+  UILabel *_bottomLine;
 }
 @property (nonatomic,assign) CGPoint isMarkCenter;
 
@@ -16,7 +17,7 @@
 
 @implementation ViewHomeSection
 
-@synthesize labelDetail = _labelDetail,imgvMark = _imgvMark,isMarkDown = _isMarkDown,isMarkCenter = _isMarkCenter;
+@synthesize labelDetail = _labelDetail,imgvMark = _imgvMark,isMarkDown = _isMarkDown,isMarkCenter = _isMarkCenter ,isHiddenLine = _isHiddenLine;
 
 - (id)initWithFrame:(CGRect)frame
       withImageName:(NSString *)imageName
@@ -52,6 +53,7 @@
     UILabel *labelLine = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(frame)-1, CGRectGetWidth(frame), 1)];
     [labelLine setBackgroundColor:RGBA(182., 182., 182., 1.)];
     [self addSubview:labelLine];
+    _bottomLine = labelLine;
   }
   return self;
 }
@@ -71,7 +73,10 @@
   }
 }
 
-
+- (void)setIsHiddenLine:(BOOL)isHiddenLine {
+  _isHiddenLine = isHiddenLine;
+  _bottomLine.hidden = isHiddenLine;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
