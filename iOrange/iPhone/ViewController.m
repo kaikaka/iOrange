@@ -21,9 +21,9 @@
   
   __weak IBOutlet UIScrollView *_scrollViewContent;
   
-  __weak IBOutlet UIView *_viewHomeOne;
-  __weak IBOutlet UIView *_viewHomeTwo;
-  __weak IBOutlet UIView *_viewHomeThree;
+  __weak IBOutlet UIScrollView *_viewHomeOne;
+  __weak IBOutlet UIScrollView *_viewHomeTwo;
+  __weak IBOutlet UIScrollView *_viewHomeThree;
 
   UITableView *_tableViewExpend;
   UIPageControl *_pageViewMark;
@@ -178,6 +178,7 @@
   _scrollViewContent.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame)*3, 0);
   _scrollViewContent.pagingEnabled = YES;
   _scrollViewContent.delegate = self;
+  _scrollViewContent.showsHorizontalScrollIndicator = NO;
   //创建一个数组
   _DataArray=[[NSMutableArray alloc] init];
   for (int i = 0; i<5; i++) {

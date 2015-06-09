@@ -15,23 +15,23 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8D6-sf-R0g">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_nav_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="uYT-a9-xm9">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1g-b0-ceT">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_nav_searchBg.png" translatesAutoresizingMaskIntoConstraints="NO" id="PhZ-jG-kdJ">
-                                                <rect key="frame" x="10" y="30" width="355" height="40"/>
+                                                <rect key="frame" x="10" y="30" width="300" height="40"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ie-Sb-ZvJ">
-                                                <rect key="frame" x="327" y="37" width="28" height="24"/>
+                                                <rect key="frame" x="272" y="37" width="28" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="Dq4-Hg-BFx"/>
                                                     <constraint firstAttribute="width" constant="28" id="o4N-41-yTp"/>
@@ -53,7 +53,7 @@
                                                 <state key="highlighted" image="home_nav_search_pressed.png"/>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="搜索或输入网址" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7O6-9E-dtu">
-                                                <rect key="frame" x="49" y="34" width="270" height="30"/>
+                                                <rect key="frame" x="49" y="34" width="215" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="DsS-tl-aDa"/>
                                                 </constraints>
@@ -79,28 +79,177 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nho-ee-0Cu" customClass="UIScrollView">
-                                        <rect key="frame" x="0.0" y="79" width="375" height="588"/>
+                                        <rect key="frame" x="0.0" y="79" width="320" height="439"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktI-m3-Mw8" customClass="UIScrollView">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="588"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="439"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oea-ki-WQQ" customClass="UIScrollView">
-                                                <rect key="frame" x="375" y="0.0" width="375" height="588"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <rect key="frame" x="320" y="0.0" width="320" height="439"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                             </view>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uL6-Lk-PZG">
-                                                <rect key="frame" x="750" y="0.0" width="375" height="588"/>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uL6-Lk-PZG" customClass="UIScrollView">
+                                                <rect key="frame" x="640" y="0.0" width="320" height="439"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UN0-IR-kVh">
+                                                        <rect key="frame" x="20" y="17" width="14" height="14"/>
+                                                        <state key="normal" backgroundImage="home_weather_location.png">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="北京" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhW-0h-jzg">
+                                                        <rect key="frame" x="39" y="15" width="28" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMm-3y-OGo">
+                                                        <rect key="frame" x="294" y="17" width="18" height="18"/>
+                                                        <state key="normal" image="home_weather_sharebutton_normal.png">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="white_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rko-fB-tlb">
+                                                        <rect key="frame" x="59" y="86" width="33" height="46"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="white_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="sTf-p5-7Kw">
+                                                        <rect key="frame" x="92" y="86" width="33" height="46"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_weather_cuttingLine.png" translatesAutoresizingMaskIntoConstraints="NO" id="7ez-S7-htj">
+                                                        <rect key="frame" x="148" y="66" width="23" height="66"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_weathersunCenter.png" translatesAutoresizingMaskIntoConstraints="NO" id="8nn-bM-Le7">
+                                                        <rect key="frame" x="127" y="76" width="16" height="16"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="big_fine.png" translatesAutoresizingMaskIntoConstraints="NO" id="aTJ-Ny-gpW">
+                                                        <rect key="frame" x="185" y="66" width="64" height="64"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15°/28°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8E-IQ-0th">
+                                                        <rect key="frame" x="67" y="148" width="52" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="晴" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1V8-YS-pxZ">
+                                                        <rect key="frame" x="185" y="148" width="64" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_weather_PM25Exp.png" translatesAutoresizingMaskIntoConstraints="NO" id="cfE-AN-xIR">
+                                                        <rect key="frame" x="47" y="186" width="13" height="13"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="33  空气优" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0j-td-jRJ">
+                                                        <rect key="frame" x="67" y="183" width="76" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_weather_windmillBase.png" translatesAutoresizingMaskIntoConstraints="NO" id="5EK-hp-hia">
+                                                        <rect key="frame" x="175" y="186" width="14" height="14"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_weather_windmill.png" translatesAutoresizingMaskIntoConstraints="NO" id="m2a-pr-3nh">
+                                                        <rect key="frame" x="175" y="181" width="14" height="14"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5x-A5-3Jb">
+                                                        <rect key="frame" x="195" y="183" width="26" height="19"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="级微风" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRn-lm-nWi">
+                                                        <rect key="frame" x="228" y="183" width="49" height="19"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="small_cloudy.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xm9-4M-Glh">
+                                                        <rect key="frame" x="30" y="236" width="28" height="28"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15°/28°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYt-u8-ez2">
+                                                        <rect key="frame" x="19" y="264" width="50" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="明天" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpS-SV-zWS">
+                                                        <rect key="frame" x="30" y="285" width="29" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="small_cloudyDay.png" translatesAutoresizingMaskIntoConstraints="NO" id="FFx-tp-fYu">
+                                                        <rect key="frame" x="87" y="236" width="28" height="28"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15°/28°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAJ-fc-JVK">
+                                                        <rect key="frame" x="76" y="264" width="50" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="周四" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8l-Ss-N4g">
+                                                        <rect key="frame" x="87" y="285" width="29" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="small_eind.png" translatesAutoresizingMaskIntoConstraints="NO" id="bEQ-BY-Ezu">
+                                                        <rect key="frame" x="146" y="236" width="28" height="28"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15°/28°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXO-bc-5xT">
+                                                        <rect key="frame" x="135" y="264" width="50" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="周五" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqq-9l-Aok">
+                                                        <rect key="frame" x="146" y="285" width="29" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="small_fine.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xpm-dl-XFo">
+                                                        <rect key="frame" x="204" y="236" width="28" height="28"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15°/28°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TG0-v2-2so">
+                                                        <rect key="frame" x="193" y="264" width="50" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="周六" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utI-s6-DRd">
+                                                        <rect key="frame" x="204" y="285" width="29" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="small_fog.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wqw-5O-x5c">
+                                                        <rect key="frame" x="262" y="236" width="28" height="28"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15°/28°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhv-rY-jLD">
+                                                        <rect key="frame" x="251" y="264" width="50" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="周日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fs-wU-yr1">
+                                                        <rect key="frame" x="262" y="285" width="29" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vk-4b-jay">
-                                        <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="376" translatesAutoresizingMaskIntoConstraints="NO" id="aoF-RP-ndC">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
                                                 <color key="backgroundColor" red="0.58431372549019611" green="0.58431372549019611" blue="0.58431372549019611" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="4za-En-470"/>
@@ -110,7 +259,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzR-nz-m8d">
-                                                <rect key="frame" x="0.0" y="1" width="75" height="49"/>
+                                                <rect key="frame" x="0.0" y="1" width="64" height="49"/>
                                                 <state key="normal" backgroundImage="home_button_back.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -118,7 +267,7 @@
                                                 <state key="highlighted" backgroundImage="home_button_back_select.png"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIW-2f-cIe">
-                                                <rect key="frame" x="300" y="1" width="75" height="49"/>
+                                                <rect key="frame" x="256" y="1" width="64" height="49"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" backgroundImage="home_button_home.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -127,7 +276,7 @@
                                                 <state key="highlighted" backgroundImage="home_button_home_select.png"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSS-U9-dEf">
-                                                <rect key="frame" x="225" y="1" width="75" height="49"/>
+                                                <rect key="frame" x="192" y="1" width="64" height="49"/>
                                                 <state key="normal" backgroundImage="home_button_moreMark.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -135,7 +284,7 @@
                                                 <state key="highlighted" backgroundImage="home_button_moreMark_select.png"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVE-NS-18j">
-                                                <rect key="frame" x="150" y="1" width="75" height="49"/>
+                                                <rect key="frame" x="128" y="1" width="64" height="49"/>
                                                 <state key="normal" backgroundImage="home_button_setting.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -143,7 +292,7 @@
                                                 <state key="highlighted" backgroundImage="home_button_setting_select.png"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rta-GV-afp">
-                                                <rect key="frame" x="75" y="1" width="75" height="49"/>
+                                                <rect key="frame" x="64" y="1" width="64" height="49"/>
                                                 <state key="normal" backgroundImage="home_bottom_forward.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -193,7 +342,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="uYT-a9-xm9" secondAttribute="bottom" id="5y3-Ce-Wwb"/>
                                     <constraint firstItem="3vk-4b-jay" firstAttribute="leading" secondItem="8D6-sf-R0g" secondAttribute="leading" id="6EG-rA-MrM"/>
-                                    <constraint firstAttribute="bottom" secondItem="nho-ee-0Cu" secondAttribute="bottom" id="Ct0-xv-z5O"/>
+                                    <constraint firstAttribute="bottom" secondItem="nho-ee-0Cu" secondAttribute="bottom" constant="50" id="Ct0-xv-z5O"/>
                                     <constraint firstAttribute="bottom" secondItem="3vk-4b-jay" secondAttribute="bottom" id="D4r-RL-RwO"/>
                                     <constraint firstItem="n1g-b0-ceT" firstAttribute="top" secondItem="8D6-sf-R0g" secondAttribute="top" id="G66-an-TWu"/>
                                     <constraint firstAttribute="trailing" secondItem="n1g-b0-ceT" secondAttribute="trailing" id="HIM-Qc-0Hn"/>
@@ -223,7 +372,7 @@
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="_buttonSearch" destination="Est-EW-hPV" id="Oan-ya-nu6"/>
                         <outlet property="_buttonTwoCode" destination="4ie-Sb-ZvJ" id="014-Z9-OfF"/>
@@ -238,6 +387,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="big_fine.png" width="64" height="64"/>
         <image name="home_bottom_forward.png" width="128" height="99"/>
         <image name="home_bottom_forward_select.png" width="128" height="99"/>
         <image name="home_button_back.png" width="128" height="99"/>
@@ -254,5 +404,18 @@
         <image name="home_nav_search_pressed.png" width="48" height="48"/>
         <image name="home_nav_twoCode_default.png" width="53" height="49"/>
         <image name="home_nav_twoCode_pressed.png" width="53" height="49"/>
+        <image name="home_weather_PM25Exp.png" width="13" height="13"/>
+        <image name="home_weather_cuttingLine.png" width="23" height="66"/>
+        <image name="home_weather_location.png" width="13" height="14"/>
+        <image name="home_weather_sharebutton_normal.png" width="19" height="19"/>
+        <image name="home_weather_windmill.png" width="14" height="14"/>
+        <image name="home_weather_windmillBase.png" width="14" height="14"/>
+        <image name="home_weathersunCenter.png" width="16" height="16"/>
+        <image name="small_cloudy.png" width="28" height="28"/>
+        <image name="small_cloudyDay.png" width="28" height="28"/>
+        <image name="small_eind.png" width="28" height="28"/>
+        <image name="small_fine.png" width="28" height="28"/>
+        <image name="small_fog.png" width="28" height="28"/>
+        <image name="white_2.png" width="33" height="46"/>
     </resources>
 </document>
