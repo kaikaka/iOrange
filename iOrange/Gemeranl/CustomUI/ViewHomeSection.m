@@ -51,7 +51,7 @@
     _labelDetail = labelDet;
     
     UILabel *labelLine = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(frame)-1, CGRectGetWidth(frame), 1)];
-    [labelLine setBackgroundColor:RGBA(182., 182., 182., 1.)];
+    [labelLine setBackgroundColor:RGBA(182., 182., 182., 0.4)];
     [self addSubview:labelLine];
     _bottomLine = labelLine;
   }

@@ -13,6 +13,8 @@
 #import "ViewWebSiteButton.h"
 #import "ViewHomeSection.h"
 #import "ViewGuideSiteButton.h"
+#import "ViewCellControl.h"
+#import "FilePathUtil.h"
 
 @interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>{
   
@@ -35,6 +37,7 @@
   NSArray *_arrayCateDetail;//详细说明
   NSInteger _lastSection;//记录上一个点击的section
   NSInteger _webSiteHeight;
+  NSArray *_arrayContentSite;
 }
 
 
@@ -50,6 +53,7 @@
   [self showGuideSiteInView];
   [self showPageView];
   [self initDataSource];
+  [self getCoolSitePath];
 }
 
 #pragma mark - events
@@ -58,13 +62,22 @@
   ViewHomeSection *viewSection = (ViewHomeSection *)[recognizer view];
   NSInteger section = viewSection.tag - 10;
   section = section + 1;
+  
   if (_lastSection == section) {
     NSMutableDictionary *dic=[_DataArray objectAtIndex:section-1];
     int expanded=[[dic objectForKey:DIC_EXPANDED] intValue];
     [self collapseOrExpand:section-1 withExpanded:expanded];
-    [_tableViewExpend reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationFade];
+    [_tableViewExpend reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
     _lastSection = section;
-    [_tableViewExpend scrollsToTop];
+    if (expanded == 1) {
+      [_tableViewExpend scrollsToTop];
+    } else {
+      dispatch_time_t when =  dispatch_time(DISPATCH_TIME_NOW, kDuration150ms * NSEC_PER_SEC);
+      dispatch_after(when, dispatch_get_main_queue(), ^{
+        CGPoint bottomOffset = CGPointMake(0, 44 * 4);
+        [_tableViewExpend setContentOffset:bottomOffset animated:YES];
+      });
+    }
     return;
   }
   for (int i = 1; i<6; i++) {
@@ -231,11 +244,44 @@
   viewRadius.layer.masksToBounds=YES;
 }
 
-- (void)viewDidLayoutSubviews{
+- (int)isExpanded:(NSInteger)section{
+  NSDictionary *dic=[_DataArray objectAtIndex:section];
+  int expanded=[[dic objectForKey:DIC_EXPANDED] intValue];
+  return expanded;
+}
 
+- (void)getCoolSitePath {
+  NSString *lastPath = [[NSBundle mainBundle] pathForResource:@"PhoneCoolSite" ofType:@"plist"];
+  NSArray *array = [NSArray arrayWithContentsOfFile:lastPath];
+  _arrayContentSite = array;
+}
+
+- (NSArray  *)arrayCutWithRow:(NSInteger)row withSection:(NSInteger)section {
+  NSMutableArray *array = [NSMutableArray array];
+  NSArray *sectionArray = [_arrayContentSite objectAtIndex:section-1];
+  NSInteger m = 4 * row;
+
+  for (NSInteger i = m; i<sectionArray.count; i++) {
+    [array addObject:[sectionArray objectAtIndex:i]];
+    if (array.count>=4) {
+      return array;
+    }
+  }
+  return array;
+}
+
+#pragma mark - Systems Methods
+
+- (void)viewDidLayoutSubviews{
+  
   [_scrollViewContent.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *layConstant, NSUInteger idx, BOOL *stop) {
-    if ((layConstant.firstItem == _viewHomeOne) && (layConstant.firstAttribute == NSLayoutAttributeWidth)) {
-      layConstant.constant = _scrollViewContent.width;
+    if (layConstant.firstItem == _viewHomeOne) {
+      if (layConstant.firstAttribute == NSLayoutAttributeWidth) {
+        layConstant.constant = _scrollViewContent.width;
+      }
+      if (layConstant.firstAttribute == NSLayoutAttributeHeight) {
+        layConstant.constant = _scrollViewContent.height;
+      }
     }
     if (layConstant.firstItem == _viewHomeTwo) {
       if (layConstant.firstAttribute == NSLayoutAttributeWidth) {
@@ -243,6 +289,9 @@
       }
       if (layConstant.firstAttribute == NSLayoutAttributeLeft) {
         layConstant.constant = _scrollViewContent.width;
+      }
+      if (layConstant.firstAttribute == NSLayoutAttributeHeight) {
+        layConstant.constant = _scrollViewContent.height;
       }
     }
     if (layConstant.firstItem == _viewHomeThree) {
@@ -254,15 +303,9 @@
       }
     }
   }];
-
+  
   [_scrollViewContent layoutSubviews];
-
-}
-
-- (int)isExpanded:(NSInteger)section{
-  NSDictionary *dic=[_DataArray objectAtIndex:section];
-  int expanded=[[dic objectForKey:DIC_EXPANDED] intValue];
-  return expanded;
+  
 }
 
 #pragma mark - UIScrollViewDelegate 
@@ -306,12 +349,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  static NSString *cellIdentifier = @"cellIdentifier";
-  UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-  if (!cell) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    cell.backgroundColor = RGBA(182., 182., 182., 1.);
+  UITableViewCell * cell = [[UITableViewCell alloc] initWithFrame:CGRectZero];
+  cell.backgroundColor = RGBA(182., 182., 182., 0.5);
+  if (indexPath.section == 5) {    
+    return cell;
   }
+  ViewCellControl *viewS = [[ViewCellControl alloc] initWithFrame:CGRectMake(0, 0, tableView.width, cell.height)];
+  [cell addSubview:viewS];
+  [viewS setArraySite:[self arrayCutWithRow:indexPath.row withSection:indexPath.section]];
+  
   return cell;
 }
 

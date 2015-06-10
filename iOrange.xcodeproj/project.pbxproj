@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F0794331B2703E4006883F9 /* ViewCellControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0794321B2703E4006883F9 /* ViewCellControl.m */; };
+		7F0794361B2728E3006883F9 /* ControllerTempBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0794351B2728E3006883F9 /* ControllerTempBase.m */; };
+		7F07943B1B27C239006883F9 /* home_webSite_LightLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F0794371B27C239006883F9 /* home_webSite_LightLine@2x.png */; };
+		7F07943C1B27C239006883F9 /* home_webSite_LightLine@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F0794381B27C239006883F9 /* home_webSite_LightLine@3x.png */; };
+		7F07943D1B27C239006883F9 /* home_webSite_Line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F0794391B27C239006883F9 /* home_webSite_Line@2x.png */; };
+		7F07943E1B27C239006883F9 /* home_webSite_Line@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F07943A1B27C239006883F9 /* home_webSite_Line@3x.png */; };
+		7F0794401B27DB5C006883F9 /* PhoneCoolSite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F07943F1B27DB5C006883F9 /* PhoneCoolSite.plist */; };
+		7F0794431B27E171006883F9 /* FilePathUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0794421B27E171006883F9 /* FilePathUtil.m */; };
 		7F09A98E1B0C9D8F0036BDB7 /* ControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F09A98D1B0C9D8F0036BDB7 /* ControllerBase.m */; };
 		7F09A9921B0CA0B50036BDB7 /* ViewWebSiteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F09A9911B0CA0B50036BDB7 /* ViewWebSiteButton.m */; };
 		7F5572211B0D7BA600B0CE8F /* baidumobadsdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F5571F01B0D7BA600B0CE8F /* baidumobadsdk.bundle */; };
@@ -194,6 +202,17 @@
 
 /* Begin PBXFileReference section */
 		6EB5AF0E0B59701CDA4DF7DF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F0794311B2703E4006883F9 /* ViewCellControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewCellControl.h; sourceTree = "<group>"; };
+		7F0794321B2703E4006883F9 /* ViewCellControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewCellControl.m; sourceTree = "<group>"; };
+		7F0794341B2728E3006883F9 /* ControllerTempBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerTempBase.h; sourceTree = "<group>"; };
+		7F0794351B2728E3006883F9 /* ControllerTempBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerTempBase.m; sourceTree = "<group>"; };
+		7F0794371B27C239006883F9 /* home_webSite_LightLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_webSite_LightLine@2x.png"; sourceTree = "<group>"; };
+		7F0794381B27C239006883F9 /* home_webSite_LightLine@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_webSite_LightLine@3x.png"; sourceTree = "<group>"; };
+		7F0794391B27C239006883F9 /* home_webSite_Line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_webSite_Line@2x.png"; sourceTree = "<group>"; };
+		7F07943A1B27C239006883F9 /* home_webSite_Line@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_webSite_Line@3x.png"; sourceTree = "<group>"; };
+		7F07943F1B27DB5C006883F9 /* PhoneCoolSite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PhoneCoolSite.plist; sourceTree = "<group>"; };
+		7F0794411B27E171006883F9 /* FilePathUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilePathUtil.h; sourceTree = "<group>"; };
+		7F0794421B27E171006883F9 /* FilePathUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilePathUtil.m; sourceTree = "<group>"; };
 		7F09A9891B0C9D030036BDB7 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		7F09A98B1B0C9D520036BDB7 /* ApiConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiConfig.h; sourceTree = "<group>"; };
 		7F09A98C1B0C9D8F0036BDB7 /* ControllerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerBase.h; sourceTree = "<group>"; };
@@ -538,6 +557,8 @@
 				7F5572511B10236500B0CE8F /* ViewHomeSection.m */,
 				7F7058D51B14A15700FCB86C /* ViewGuideSiteButton.h */,
 				7F7058D61B14A15700FCB86C /* ViewGuideSiteButton.m */,
+				7F0794311B2703E4006883F9 /* ViewCellControl.h */,
+				7F0794321B2703E4006883F9 /* ViewCellControl.m */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -552,6 +573,8 @@
 		7F09A9861B0C9D030036BDB7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				7F0794411B27E171006883F9 /* FilePathUtil.h */,
+				7F0794421B27E171006883F9 /* FilePathUtil.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -604,6 +627,7 @@
 			isa = PBXGroup;
 			children = (
 				7F7058AB1B135DAB00FCB86C /* HomeGuideSite.plist */,
+				7F07943F1B27DB5C006883F9 /* PhoneCoolSite.plist */,
 			);
 			path = Plists;
 			sourceTree = "<group>";
@@ -667,6 +691,10 @@
 		7F7059041B242E4A00FCB86C /* Site */ = {
 			isa = PBXGroup;
 			children = (
+				7F0794371B27C239006883F9 /* home_webSite_LightLine@2x.png */,
+				7F0794381B27C239006883F9 /* home_webSite_LightLine@3x.png */,
+				7F0794391B27C239006883F9 /* home_webSite_Line@2x.png */,
+				7F07943A1B27C239006883F9 /* home_webSite_Line@3x.png */,
 				7F7059051B242E4A00FCB86C /* home_site_icon0@2x.png */,
 				7F7059061B242E4A00FCB86C /* home_site_icon0@3x.png */,
 				7F7059071B242E4A00FCB86C /* home_site_icon1@2x.png */,
@@ -869,6 +897,8 @@
 				7FC998011B0A0D7A009E8BD7 /* AppDelegate.m */,
 				7FC998021B0A0D7A009E8BD7 /* ViewController.h */,
 				7FC998031B0A0D7A009E8BD7 /* ViewController.m */,
+				7F0794341B2728E3006883F9 /* ControllerTempBase.h */,
+				7F0794351B2728E3006883F9 /* ControllerTempBase.m */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -973,6 +1003,7 @@
 				7F7059DD1B242E4B00FCB86C /* home_weather_cuttingLine@2x.png in Resources */,
 				7F705A731B265BC000FCB86C /* big_shower@2x.png in Resources */,
 				7F7059DF1B242E4B00FCB86C /* home_weather_PM25Exp@2x.png in Resources */,
+				7F07943C1B27C239006883F9 /* home_webSite_LightLine@3x.png in Resources */,
 				7F7059CC1B242E4B00FCB86C /* home_webSite_ctrip@3x.png in Resources */,
 				7F7059A71B242E4B00FCB86C /* home_nav_bg@2x.png in Resources */,
 				7F7059A91B242E4B00FCB86C /* home_nav_search_default@2x.png in Resources */,
@@ -987,6 +1018,7 @@
 				7F7059B21B242E4B00FCB86C /* home_nav_twoCode_pressed@3x.png in Resources */,
 				7F70599D1B242E4B00FCB86C /* home_image_baike@2x.png in Resources */,
 				7F705A6A1B265BC000FCB86C /* big_cloudy@2x.png in Resources */,
+				7F07943E1B27C239006883F9 /* home_webSite_Line@3x.png in Resources */,
 				7F7059891B242E4A00FCB86C /* home_bottom_forward@2x.png in Resources */,
 				7F7059D51B242E4B00FCB86C /* home_webSite_tmall@2x.png in Resources */,
 				7F705A621B265BC000FCB86C /* white_5@2x.png in Resources */,
@@ -1000,6 +1032,7 @@
 				7F7059AB1B242E4B00FCB86C /* home_nav_search_pressed@2x.png in Resources */,
 				7F5572211B0D7BA600B0CE8F /* baidumobadsdk.bundle in Resources */,
 				7F70598C1B242E4B00FCB86C /* home_bottom_forward_select@3x.png in Resources */,
+				7F07943B1B27C239006883F9 /* home_webSite_LightLine@2x.png in Resources */,
 				7F7059921B242E4B00FCB86C /* home_button_home@3x.png in Resources */,
 				7F7059BE1B242E4B00FCB86C /* home_site_icon5@3x.png in Resources */,
 				7F70599B1B242E4B00FCB86C /* home_button_setting_select@2x.png in Resources */,
@@ -1019,6 +1052,7 @@
 				7F7059991B242E4B00FCB86C /* home_button_setting@2x.png in Resources */,
 				7F7059D41B242E4B00FCB86C /* home_webSite_right@3x.png in Resources */,
 				7F7059901B242E4B00FCB86C /* home_button_back_select@3x.png in Resources */,
+				7F07943D1B27C239006883F9 /* home_webSite_Line@2x.png in Resources */,
 				7F705A7B1B265BC000FCB86C /* small_cloudyDay@2x.png in Resources */,
 				7F7059C61B242E4B00FCB86C /* home_site_icon9@3x.png in Resources */,
 				7F7059C21B242E4B00FCB86C /* home_site_icon7@3x.png in Resources */,
@@ -1086,6 +1120,7 @@
 				7F705A7E1B265BC000FCB86C /* small_fog@2x.png in Resources */,
 				7F7059D01B242E4B00FCB86C /* home_webSite_jd@3x.png in Resources */,
 				7F7059C41B242E4B00FCB86C /* home_site_icon8@3x.png in Resources */,
+				7F0794401B27DB5C006883F9 /* PhoneCoolSite.plist in Resources */,
 				7F70598A1B242E4A00FCB86C /* home_bottom_forward@3x.png in Resources */,
 				7F7059D81B242E4B00FCB86C /* home_webSite_toutiao@3x.png in Resources */,
 				7F7059B41B242E4B00FCB86C /* home_site_icon0@3x.png in Resources */,
@@ -1164,10 +1199,13 @@
 				7F5572521B10236500B0CE8F /* ViewHomeSection.m in Sources */,
 				7F5572921B108AA400B0CE8F /* NSStringEx.m in Sources */,
 				7F5572941B108AA400B0CE8F /* UIColor+Expanded.m in Sources */,
+				7F0794431B27E171006883F9 /* FilePathUtil.m in Sources */,
 				7F5572961B108AA400B0CE8F /* UIImageEx.m in Sources */,
 				7F5572971B108AA400B0CE8F /* UIViewEx.m in Sources */,
 				7F09A9921B0CA0B50036BDB7 /* ViewWebSiteButton.m in Sources */,
 				7F5572951B108AA400B0CE8F /* UIImage+Bundle.m in Sources */,
+				7F0794361B2728E3006883F9 /* ControllerTempBase.m in Sources */,
+				7F0794331B2703E4006883F9 /* ViewCellControl.m in Sources */,
 				7FC998071B0A0D7A009E8BD7 /* AppDelegate.m in Sources */,
 				7F09A98E1B0C9D8F0036BDB7 /* ControllerBase.m in Sources */,
 				7F7058D71B14A15700FCB86C /* ViewGuideSiteButton.m in Sources */,
