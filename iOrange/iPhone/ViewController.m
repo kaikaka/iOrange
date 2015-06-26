@@ -16,11 +16,14 @@
 #import "ViewCellControl.h"
 #import "FilePathUtil.h"
 #import "UtaWebView.h"
+#import "NSStringEx.h"
 
-@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>{
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate>{
   
   __weak IBOutlet UIButton *_buttonSearch;
   __weak IBOutlet UIButton *_buttonTwoCode;
+  __weak IBOutlet UITextField *_textFiledContent;
+  
   
   __weak IBOutlet UIScrollView *_scrollViewContent;
   
@@ -29,6 +32,7 @@
   __weak IBOutlet UIScrollView *_viewHomeThree;
   __weak IBOutlet UIView *_viewSearch;
   __weak IBOutlet UIView *_viewTouch;
+  
   
   UITableView *_tableViewExpend;
   UIPageControl *_pageViewMark;
@@ -51,7 +55,6 @@
 
 @implementation ViewController
 
-
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view, typically from a nib.
@@ -63,6 +66,7 @@
   [self getCoolSitePath];
 }
 
+#pragma mark -
 #pragma mark - events
 
 - (void)onGestureSectionWithTop:(UITapGestureRecognizer *)recognizer {
@@ -227,6 +231,8 @@ static id _aSelf;
   _scrollViewContent.delegate = self;
   _scrollViewContent.showsHorizontalScrollIndicator = NO;
   
+  _textFiledContent.delegate = self;
+  
   [self loadWebView];
   
   //创建一个数组
@@ -283,11 +289,19 @@ static id _aSelf;
   return array;
 }
 
+#pragma mark - 
+#pragma mark - Webview Methods
+
 - (void)loadWebView {
   UtaWebView *webView = [[UtaWebView alloc] initWithFrame:CGRectMake(0, _viewSearch.height, self.view.width, self.view.height - _viewSearch.height - _viewTouch.height)];
   [self.view addSubview:webView];
   [webView setHidden:YES];
   _webViewMain = webView;
+}
+
+- (void)setWebViewHidden:(BOOL) isHidden withLink:(NSString *)link {
+  [_webViewMain setHidden:isHidden];
+  [_webViewMain loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:link]]];
 }
 
 #pragma mark -  Block Methods
@@ -340,7 +354,26 @@ void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
   [_webViewMain setHidden:YES];
 }
 
-#pragma mark - UIScrollViewDelegate 
+#pragma mark - 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+  NSString *link = textField.text;
+  if (link.length) {
+    if ([link hasPrefix:@"http://itunes.apple.com/"]
+        || [link hasPrefix:@"https://itunes.apple.com/"]
+        || [link hasPrefix:@"itms-apps://itunes.apple.com/"]) {
+      [[UIApplication sharedApplication] openURL:[NSURL URLWithString:link]];
+      return YES;
+    }
+    link =  [link getLinkWithText];
+    [self setWebViewHidden:NO withLink:link];
+    [self.view endEditing:YES];
+  }
+  return YES;
+}
+
+#pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
   CGFloat f = scrollView.contentOffset.x /scrollView.width;
