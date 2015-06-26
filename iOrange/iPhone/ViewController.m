@@ -15,6 +15,7 @@
 #import "ViewGuideSiteButton.h"
 #import "ViewCellControl.h"
 #import "FilePathUtil.h"
+#import "UtaWebView.h"
 
 @interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>{
   
@@ -26,7 +27,9 @@
   __weak IBOutlet UIView *_viewHomeOne;
   __weak IBOutlet UIScrollView *_viewHomeTwo;
   __weak IBOutlet UIScrollView *_viewHomeThree;
-
+  __weak IBOutlet UIView *_viewSearch;
+  __weak IBOutlet UIView *_viewTouch;
+  
   UITableView *_tableViewExpend;
   UIPageControl *_pageViewMark;
   UIView *_viewSiteShow;
@@ -38,17 +41,21 @@
   NSInteger _lastSection;//记录上一个点击的section
   NSInteger _webSiteHeight;
   NSArray *_arrayContentSite;
+  
+  
 }
-
+@property (nonatomic,strong) __block UtaWebView *webViewMain;
+@property (nonatomic,strong)void (^whenTouchEnd) (NSString *);
 
 @end
 
 @implementation ViewController
 
+
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view, typically from a nib.
-  
+
   [self countMargin];
   [self showGuideSiteInView];
   [self showPageView];
@@ -108,9 +115,8 @@
 
 - (UIView *)showWebSitesInView {
   
-  NSArray *arrayImageName = @[@"home_webSite_baidu",@"home_webSite_weibo",@"home_webSite_jianshu",
-                              @"home_webSite_jd",@"home_webSite_amazon",@"home_webSite_tmall",
-                              @"home_webSite_toutiao",@"home_webSite_ctrip",@"home_webSite_youku"];
+  NSString *pathString = [[NSBundle mainBundle] pathForResource:@"HomeNavSite" ofType:@"plist"];
+  NSArray *arraySite = [NSArray arrayWithContentsOfFile:pathString];
   
   int totalloc =3;
   CGFloat appvieww = (CGRectGetWidth(self.view.frame)-30)/3;
@@ -123,7 +129,7 @@
   [_viewHomeOne addSubview:viewShow];
   _viewSiteShow = viewShow;
   
-  for (int i = 0 ; i < [arrayImageName count]; i++) {
+  for (int i = 0 ; i < [arraySite count]; i++) {
     int row=i/totalloc;//行号
     int loc=i%totalloc;//列号
     
@@ -132,9 +138,11 @@
     
     ViewWebSiteButton *viewSiteButton = [[ViewWebSiteButton alloc] initWithFrame:
                                          CGRectMake(appviewx, appviewy, appvieww, appviewh)
-                                          WithImgName:arrayImageName[i]];
+                                          WithImgDict:arraySite[i]];
+    viewSiteButton.touched = whenTouchEnd;
     [viewShow addSubview:viewSiteButton];
   }
+
   return viewShow;
 }
 
@@ -163,7 +171,8 @@
     CGFloat appviewx = margin + (margin + widthS) * loc;
     CGFloat appviewy = margin + (margin + heightS) * row;
     
-    ViewGuideSiteButton *siteView = [[ViewGuideSiteButton alloc] initWithFrame:CGRectMake(appviewx, appviewy, widthS, heightS) withIconName:dictSite[@"sIcon"] withSiteName:dictSite[@"sTitle"]];
+    ViewGuideSiteButton *siteView = [[ViewGuideSiteButton alloc] initWithFrame:CGRectMake(appviewx, appviewy, widthS, heightS) withDict:dictSite];
+    siteView.touched = whenTouchEnd;
     [_viewHomeTwo addSubview:siteView];
     if (i == [arraySite count]-1) {
       int row = (i+1) / totalloc;
@@ -172,6 +181,7 @@
       CGFloat appviewW = margin + (margin + widthS) * loc;
       CGFloat appviewH = margin + (margin + heightS) * row;
       ViewGuideSiteButton *siteViewNine = [[ViewGuideSiteButton alloc] initWithFrame:CGRectMake(appviewW, appviewH, widthS, heightS) withIconName:@"home_site_icon9" withSiteName:@""];
+      siteViewNine.touched = whenTouchEnd;
       [_viewHomeTwo addSubview:siteViewNine];
     }
   }
@@ -209,12 +219,15 @@
   _pageViewMark = pageView;
 }
 
+static id _aSelf;
 - (void)initDataSource {
-
+  _aSelf = self;
   _scrollViewContent.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame)*3, 0);
   _scrollViewContent.pagingEnabled = YES;
   _scrollViewContent.delegate = self;
   _scrollViewContent.showsHorizontalScrollIndicator = NO;
+  
+  [self loadWebView];
   
   //创建一个数组
   _DataArray=[[NSMutableArray alloc] init];
@@ -270,6 +283,20 @@
   return array;
 }
 
+- (void)loadWebView {
+  UtaWebView *webView = [[UtaWebView alloc] initWithFrame:CGRectMake(0, _viewSearch.height, self.view.width, self.view.height - _viewSearch.height - _viewTouch.height)];
+  [self.view addSubview:webView];
+  [webView setHidden:YES];
+  _webViewMain = webView;
+}
+
+#pragma mark -  Block Methods
+
+void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
+  [[_aSelf webViewMain] setHidden:NO];
+  [[_aSelf webViewMain] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:link]]];
+};
+
 #pragma mark - Systems Methods
 
 - (void)viewDidLayoutSubviews{
@@ -306,6 +333,11 @@
   
   [_scrollViewContent layoutSubviews];
   
+}
+
+- (IBAction)onTouchWithShow:(UIButton *)sender {
+  [_webViewMain loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@""]]];
+  [_webViewMain setHidden:YES];
 }
 
 #pragma mark - UIScrollViewDelegate 
@@ -351,10 +383,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   UITableViewCell * cell = [[UITableViewCell alloc] initWithFrame:CGRectZero];
   cell.backgroundColor = RGBA(182., 182., 182., 0.5);
-  if (indexPath.section == 5) {    
+  if (indexPath.section == 5) {
     return cell;
   }
   ViewCellControl *viewS = [[ViewCellControl alloc] initWithFrame:CGRectMake(0, 0, tableView.width, cell.height)];
+  viewS.touched = whenTouchEnd;
   [cell addSubview:viewS];
   [viewS setArraySite:[self arrayCutWithRow:indexPath.row withSection:indexPath.section]];
   

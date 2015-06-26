@@ -8,20 +8,29 @@
 
 #import "ViewWebSiteButton.h"
 
+@interface ViewWebSiteButton () {
+  NSDictionary *_dictConent;
+}
+
+@end
+
 @implementation ViewWebSiteButton
 
-- (id)initWithFrame:(CGRect)frame WithImgName:(NSString *)imgName {
+- (id)initWithFrame:(CGRect)frame WithImgDict:(NSDictionary *)imgDict {
   self = [super initWithFrame:frame];
   if (self) {
     self.backgroundColor = RGBA(234., 234., 234., 1.);
+    _dictConent = imgDict;
     
     self.layer.masksToBounds = YES;
     self.layer.cornerRadius = 5.0;
     
+    NSString *imgName = [imgDict objectForKey:@"icon"];
     UIImage *img = [UIImage imageNamed:imgName];
     UIButton *buttonImg = [UIButton buttonWithType:1];
     [buttonImg setFrame:self.bounds];
     [self addSubview:buttonImg];
+    [buttonImg addTarget:self action:@selector(onTouchWithSelect:) forControlEvents:UIControlEventTouchUpInside];
     
     UIImageView *image = [[UIImageView alloc] initWithFrame:
                           CGRectMake((CGRectGetWidth(frame) - img.size.width/2)/2,
@@ -31,6 +40,15 @@
     [buttonImg addSubview:image];
   }
   return self;
+
+}
+
+- (void)onTouchWithSelect:(UIButton *)sender {
+  NSString *link = [_dictConent objectForKey:@"link"];
+  
+  if (_touched) {
+    _touched(link);
+  }
 }
 
 /*

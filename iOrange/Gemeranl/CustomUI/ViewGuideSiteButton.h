@@ -10,6 +10,10 @@
 
 @interface ViewGuideSiteButton : UIView
 
+@property (nonatomic,strong) void (^touched) (NSString *webLink);
+
 - (id)initWithFrame:(CGRect)frame withIconName:(NSString *)imgName withSiteName:(NSString *)siteName;
+
+- (id)initWithFrame:(CGRect)frame withDict:(NSDictionary *)dictSite;
 
 @end

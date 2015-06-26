@@ -15,6 +15,14 @@
 		7F07943E1B27C239006883F9 /* home_webSite_Line@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F07943A1B27C239006883F9 /* home_webSite_Line@3x.png */; };
 		7F0794401B27DB5C006883F9 /* PhoneCoolSite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F07943F1B27DB5C006883F9 /* PhoneCoolSite.plist */; };
 		7F0794431B27E171006883F9 /* FilePathUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0794421B27E171006883F9 /* FilePathUtil.m */; };
+		7F0794671B28779B006883F9 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F07945C1B28779B006883F9 /* NJKWebViewProgress.m */; };
+		7F0794681B28779B006883F9 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F07945E1B28779B006883F9 /* NJKWebViewProgressView.m */; };
+		7F0794691B28779B006883F9 /* UIWebView+Clean.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0794611B28779B006883F9 /* UIWebView+Clean.m */; };
+		7F07946A1B28779B006883F9 /* UtaWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0794631B28779B006883F9 /* UtaWebView.m */; };
+		7F07946B1B28779B006883F9 /* web_btn_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F0794641B28779B006883F9 /* web_btn_error@2x.png */; };
+		7F07946C1B28779B006883F9 /* web_error.html in Resources */ = {isa = PBXBuildFile; fileRef = 7F0794651B28779B006883F9 /* web_error.html */; };
+		7F07946D1B28779B006883F9 /* web_jq1.5.1.js in Resources */ = {isa = PBXBuildFile; fileRef = 7F0794661B28779B006883F9 /* web_jq1.5.1.js */; };
+		7F07946F1B2FC66E006883F9 /* HomeNavSite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F07946E1B2FC66E006883F9 /* HomeNavSite.plist */; };
 		7F09A98E1B0C9D8F0036BDB7 /* ControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F09A98D1B0C9D8F0036BDB7 /* ControllerBase.m */; };
 		7F09A9921B0CA0B50036BDB7 /* ViewWebSiteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F09A9911B0CA0B50036BDB7 /* ViewWebSiteButton.m */; };
 		7F5572211B0D7BA600B0CE8F /* baidumobadsdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F5571F01B0D7BA600B0CE8F /* baidumobadsdk.bundle */; };
@@ -213,6 +221,18 @@
 		7F07943F1B27DB5C006883F9 /* PhoneCoolSite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PhoneCoolSite.plist; sourceTree = "<group>"; };
 		7F0794411B27E171006883F9 /* FilePathUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilePathUtil.h; sourceTree = "<group>"; };
 		7F0794421B27E171006883F9 /* FilePathUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilePathUtil.m; sourceTree = "<group>"; };
+		7F07945B1B28779B006883F9 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
+		7F07945C1B28779B006883F9 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
+		7F07945D1B28779B006883F9 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
+		7F07945E1B28779B006883F9 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
+		7F0794601B28779B006883F9 /* UIWebView+Clean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Clean.h"; sourceTree = "<group>"; };
+		7F0794611B28779B006883F9 /* UIWebView+Clean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Clean.m"; sourceTree = "<group>"; };
+		7F0794621B28779B006883F9 /* UtaWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtaWebView.h; sourceTree = "<group>"; };
+		7F0794631B28779B006883F9 /* UtaWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtaWebView.m; sourceTree = "<group>"; };
+		7F0794641B28779B006883F9 /* web_btn_error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web_btn_error@2x.png"; sourceTree = "<group>"; };
+		7F0794651B28779B006883F9 /* web_error.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = web_error.html; sourceTree = "<group>"; };
+		7F0794661B28779B006883F9 /* web_jq1.5.1.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = web_jq1.5.1.js; sourceTree = "<group>"; };
+		7F07946E1B2FC66E006883F9 /* HomeNavSite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HomeNavSite.plist; sourceTree = "<group>"; };
 		7F09A9891B0C9D030036BDB7 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		7F09A98B1B0C9D520036BDB7 /* ApiConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiConfig.h; sourceTree = "<group>"; };
 		7F09A98C1B0C9D8F0036BDB7 /* ControllerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerBase.h; sourceTree = "<group>"; };
@@ -482,6 +502,40 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7F0794591B28779B006883F9 /* KWebView_15.06.10 */ = {
+			isa = PBXGroup;
+			children = (
+				7F07945A1B28779B006883F9 /* NJKWebViewProgress */,
+				7F07945F1B28779B006883F9 /* UIWebView+Clean */,
+				7F0794621B28779B006883F9 /* UtaWebView.h */,
+				7F0794631B28779B006883F9 /* UtaWebView.m */,
+				7F0794641B28779B006883F9 /* web_btn_error@2x.png */,
+				7F0794651B28779B006883F9 /* web_error.html */,
+				7F0794661B28779B006883F9 /* web_jq1.5.1.js */,
+			);
+			path = KWebView_15.06.10;
+			sourceTree = "<group>";
+		};
+		7F07945A1B28779B006883F9 /* NJKWebViewProgress */ = {
+			isa = PBXGroup;
+			children = (
+				7F07945B1B28779B006883F9 /* NJKWebViewProgress.h */,
+				7F07945C1B28779B006883F9 /* NJKWebViewProgress.m */,
+				7F07945D1B28779B006883F9 /* NJKWebViewProgressView.h */,
+				7F07945E1B28779B006883F9 /* NJKWebViewProgressView.m */,
+			);
+			path = NJKWebViewProgress;
+			sourceTree = "<group>";
+		};
+		7F07945F1B28779B006883F9 /* UIWebView+Clean */ = {
+			isa = PBXGroup;
+			children = (
+				7F0794601B28779B006883F9 /* UIWebView+Clean.h */,
+				7F0794611B28779B006883F9 /* UIWebView+Clean.m */,
+			);
+			path = "UIWebView+Clean";
+			sourceTree = "<group>";
+		};
 		7F09A97E1B0C9C8B0036BDB7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,6 +567,7 @@
 		7F09A9811B0C9C8B0036BDB7 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				7F0794591B28779B006883F9 /* KWebView_15.06.10 */,
 				7F5571E91B0D7BA600B0CE8F /* Baidu_Ad_2.6 */,
 			);
 			path = Vendors;
@@ -628,6 +683,7 @@
 			children = (
 				7F7058AB1B135DAB00FCB86C /* HomeGuideSite.plist */,
 				7F07943F1B27DB5C006883F9 /* PhoneCoolSite.plist */,
+				7F07946E1B2FC66E006883F9 /* HomeNavSite.plist */,
 			);
 			path = Plists;
 			sourceTree = "<group>";
@@ -1026,6 +1082,7 @@
 				7F705A701B265BC000FCB86C /* big_NA@2x.png in Resources */,
 				7F7059B31B242E4B00FCB86C /* home_site_icon0@2x.png in Resources */,
 				7F705A7D1B265BC000FCB86C /* small_fine@2x.png in Resources */,
+				7F07946D1B28779B006883F9 /* web_jq1.5.1.js in Resources */,
 				7F7059E11B242E4B00FCB86C /* home_weather_windmill@2x.png in Resources */,
 				7F705A611B265BC000FCB86C /* white_4@2x.png in Resources */,
 				7F7059CD1B242E4B00FCB86C /* home_webSite_down@2x.png in Resources */,
@@ -1065,6 +1122,7 @@
 				7F7059CF1B242E4B00FCB86C /* home_webSite_jd@2x.png in Resources */,
 				7F705A861B265BC000FCB86C /* small_snow@2x.png in Resources */,
 				7F7059BB1B242E4B00FCB86C /* home_site_icon4@2x.png in Resources */,
+				7F07946B1B28779B006883F9 /* web_btn_error@2x.png in Resources */,
 				7F7059941B242E4B00FCB86C /* home_button_home_select@3x.png in Resources */,
 				7F705A821B265BC000FCB86C /* small_sandstorm@2x.png in Resources */,
 				7F7059D11B242E4B00FCB86C /* home_webSite_jianshu@2x.png in Resources */,
@@ -1104,6 +1162,7 @@
 				7F705A6D1B265BC000FCB86C /* big_fine@2x.png in Resources */,
 				7F7059BF1B242E4B00FCB86C /* home_site_icon6@2x.png in Resources */,
 				7F70599E1B242E4B00FCB86C /* home_image_baike@3x.png in Resources */,
+				7F07946F1B2FC66E006883F9 /* HomeNavSite.plist in Resources */,
 				7F705A781B265BC000FCB86C /* big_thunderstorms@2x.png in Resources */,
 				7F7059C11B242E4B00FCB86C /* home_site_icon7@2x.png in Resources */,
 				7F7059B11B242E4B00FCB86C /* home_nav_twoCode_pressed@2x.png in Resources */,
@@ -1136,6 +1195,7 @@
 				7F7059A51B242E4B00FCB86C /* home_image_sevice@2x.png in Resources */,
 				7F7059C51B242E4B00FCB86C /* home_site_icon9@2x.png in Resources */,
 				7F70599C1B242E4B00FCB86C /* home_button_setting_select@3x.png in Resources */,
+				7F07946C1B28779B006883F9 /* web_error.html in Resources */,
 				7F91D54F1B0C81750087080D /* iTunesArtwork@2x in Resources */,
 				7F705A7A1B265BC000FCB86C /* small_cloudy@2x.png in Resources */,
 				7F7059E21B242E4B00FCB86C /* home_weather_windmillBase@2x.png in Resources */,
@@ -1202,9 +1262,12 @@
 				7F0794431B27E171006883F9 /* FilePathUtil.m in Sources */,
 				7F5572961B108AA400B0CE8F /* UIImageEx.m in Sources */,
 				7F5572971B108AA400B0CE8F /* UIViewEx.m in Sources */,
+				7F0794671B28779B006883F9 /* NJKWebViewProgress.m in Sources */,
 				7F09A9921B0CA0B50036BDB7 /* ViewWebSiteButton.m in Sources */,
 				7F5572951B108AA400B0CE8F /* UIImage+Bundle.m in Sources */,
 				7F0794361B2728E3006883F9 /* ControllerTempBase.m in Sources */,
+				7F0794681B28779B006883F9 /* NJKWebViewProgressView.m in Sources */,
+				7F07946A1B28779B006883F9 /* UtaWebView.m in Sources */,
 				7F0794331B2703E4006883F9 /* ViewCellControl.m in Sources */,
 				7FC998071B0A0D7A009E8BD7 /* AppDelegate.m in Sources */,
 				7F09A98E1B0C9D8F0036BDB7 /* ControllerBase.m in Sources */,
@@ -1212,6 +1275,7 @@
 				7F5572231B0D7BA600B0CE8F /* mongoose.c in Sources */,
 				7FC997DA1B09794E009E8BD7 /* main.m in Sources */,
 				7F5572931B108AA400B0CE8F /* UIButtonEx.m in Sources */,
+				7F0794691B28779B006883F9 /* UIWebView+Clean.m in Sources */,
 				7F5572911B108AA400B0CE8F /* NSString+URL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

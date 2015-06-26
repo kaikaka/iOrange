@@ -10,6 +10,7 @@
 
 @interface ViewCellControl : UIView
 
-@property (nonatomic,strong)NSArray *arraySite;
+@property (nonatomic,strong) NSArray *arraySite;
+@property (nonatomic,strong) void (^touched) (NSString *);
 
 @end

@@ -8,7 +8,7 @@
 		<key>sTitle</key>
 		<string>淘宝</string>
 		<key>sLink</key>
-		<string>www.taobao.com</string>
+		<string>http://www.taobao.com</string>
 	</dict>
 	<dict>
 		<key>sIcon</key>
@@ -16,7 +16,7 @@
 		<key>sTitle</key>
 		<string>苏宁</string>
 		<key>sLink</key>
-		<string>www.taobao.com</string>
+		<string>http://m.suning.com</string>
 	</dict>
 	<dict>
 		<key>sIcon</key>
@@ -24,7 +24,7 @@
 		<key>sTitle</key>
 		<string>58同城</string>
 		<key>sLink</key>
-		<string>www.taobao.com</string>
+		<string>http://m.58.com</string>
 	</dict>
 	<dict>
 		<key>sIcon</key>
@@ -32,7 +32,7 @@
 		<key>sTitle</key>
 		<string>1号店</string>
 		<key>sLink</key>
-		<string>www.taobao.com</string>
+		<string>http://m.yhd.com</string>
 	</dict>
 	<dict>
 		<key>sIcon</key>
@@ -40,7 +40,7 @@
 		<key>sTitle</key>
 		<string>美团网</string>
 		<key>sLink</key>
-		<string>www.taobao.com</string>
+		<string>http://i.meituan.com</string>
 	</dict>
 	<dict>
 		<key>sIcon</key>
@@ -48,7 +48,7 @@
 		<key>sTitle</key>
 		<string>赶集网</string>
 		<key>sLink</key>
-		<string>www.taobao.com</string>
+		<string>http://3g.ganji.com</string>
 	</dict>
 	<dict>
 		<key>sIcon</key>
@@ -56,7 +56,7 @@
 		<key>sTitle</key>
 		<string>搜狐</string>
 		<key>sLink</key>
-		<string>www.taobao.com</string>
+		<string>http://m.sohu.com</string>
 	</dict>
 	<dict>
 		<key>sIcon</key>
@@ -64,7 +64,7 @@
 		<key>sTitle</key>
 		<string>凤凰新闻</string>
 		<key>sLink</key>
-		<string>www.taobao.com</string>
+		<string>http://3g.ifeng.com</string>
 	</dict>
 	<dict>
 		<key>sIcon</key>
@@ -72,7 +72,7 @@
 		<key>sTitle</key>
 		<string>网易新闻</string>
 		<key>sLink</key>
-		<string>www.taobao.com</string>
+		<string>http://3g.163.com</string>
 	</dict>
 </array>
 </plist>

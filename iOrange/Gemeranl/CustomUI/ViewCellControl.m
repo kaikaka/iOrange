@@ -141,22 +141,30 @@
   switch (sender.tag) {
     case 10: {
       NSString *link = [_dictAr objectForKey:@"link"];
-      DLog(@"link1 = %@",link);
+      if (_touched) {
+        _touched(link);
+      }
     }
       break;
     case 11: {
       NSString *link = [_dictBr objectForKey:@"link"];
-      DLog(@"link2 = %@",link);
+      if (_touched) {
+        _touched(link);
+      }
     }
       break;
     case 12: {
       NSString *link = [_dictCr objectForKey:@"link"];
-      DLog(@"link3 = %@",link);
+      if (_touched) {
+        _touched(link);
+      }
     }
       break;
     case 13: {
       NSString *link = [_dictDr objectForKey:@"link"];
-      DLog(@"link4 = %@",link);
+      if (_touched) {
+        _touched(link);
+      }
     }
       break;
       

@@ -290,6 +290,9 @@
                                                 </state>
                                                 <state key="selected" backgroundImage="home_button_setting_select.png"/>
                                                 <state key="highlighted" backgroundImage="home_button_setting_select.png"/>
+                                                <connections>
+                                                    <action selector="onTouchWithShow:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Opa-YZ-gl6"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rta-GV-afp">
                                                 <rect key="frame" x="64" y="1" width="64" height="49"/>
@@ -380,6 +383,8 @@
                         <outlet property="_viewHomeOne" destination="ktI-m3-Mw8" id="Hte-pC-M8c"/>
                         <outlet property="_viewHomeThree" destination="uL6-Lk-PZG" id="rIT-BI-a5d"/>
                         <outlet property="_viewHomeTwo" destination="oea-ki-WQQ" id="zzi-aE-zwE"/>
+                        <outlet property="_viewSearch" destination="n1g-b0-ceT" id="Mhk-gl-x63"/>
+                        <outlet property="_viewTouch" destination="3vk-4b-jay" id="YwM-CJ-GGk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

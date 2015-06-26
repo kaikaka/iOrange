@@ -10,6 +10,8 @@
 
 @interface ViewWebSiteButton : UIView
 
-- (id)initWithFrame:(CGRect)frame WithImgName:(NSString *)imgName;
+@property (nonatomic,strong) void (^touched) (NSString *webLink);
+
+- (id)initWithFrame:(CGRect)frame WithImgDict:(NSDictionary *)imgDict;
 
 @end

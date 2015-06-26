@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>%@</title>
+        <style type='text/css'>
+            body {
+                margin:0px;
+                padding:0px;
+            }
+            .div-error {
+                display:table;
+                margin:100px auto 0px;
+                min-width:280px; min-height:200px;
+            }
+            .div-tips {
+                display:table-cell;
+                text-align:center;
+                vertical-align:middle;
+                color:rgb(150,150,150);
+                background-color:rgb(250,250,250);
+                border-radius:5px;
+                border:1px solid rgb(239,239,239);
+            }
+            .btn-reload {
+                width:160px;
+                height:120px;
+                outline:none;
+            }
+        </style>
+        <script type="text/javascript" src="web_jq1.5.1.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                var windowW = $(window).width();
+                var windowH = $(window).height();
+                $('.div-error').animate({
+                    'width':windowW*0.9,
+                    'height':windowH*0.66,
+                    'margin-top':windowH*0.17
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class='div-error'>
+            <div class='div-tips'>
+                <input type='image' class='btn-reload' src='web_btn_error@2x.png' onclick='location.href="%@";' onmousedown='this.style.opacity=0.6;' onmouseup='this.style.opacity=1;' />
+                <p>%@</p>
+            </div>
+        </div>
+    </body>
+</html>
