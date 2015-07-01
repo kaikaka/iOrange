@@ -10,6 +10,7 @@
 #define kSectionHeight 50
 
 #import "ViewController.h"
+#import "ControllerScanCode.h"
 #import "ViewWebSiteButton.h"
 #import "ViewHomeSection.h"
 #import "ViewGuideSiteButton.h"
@@ -17,6 +18,7 @@
 #import "FilePathUtil.h"
 #import "UtaWebView.h"
 #import "NSStringEx.h"
+#import "ApiConfig.h"
 
 @interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate>{
   
@@ -32,6 +34,7 @@
   __weak IBOutlet UIScrollView *_viewHomeThree;
   __weak IBOutlet UIView *_viewSearch;
   __weak IBOutlet UIView *_viewTouch;
+  __weak IBOutlet UIView *_viewMain;
   
   
   UITableView *_tableViewExpend;
@@ -219,7 +222,7 @@
   pageView.pageIndicatorTintColor = [UIColor blackColor];
   pageView.numberOfPages = 3;
   pageView.currentPage = 0;
-  [self.view addSubview:pageView];
+  [_viewMain addSubview:pageView];
   _pageViewMark = pageView;
 }
 
@@ -293,8 +296,9 @@ static id _aSelf;
 #pragma mark - Webview Methods
 
 - (void)loadWebView {
-  UtaWebView *webView = [[UtaWebView alloc] initWithFrame:CGRectMake(0, _viewSearch.height, self.view.width, self.view.height - _viewSearch.height - _viewTouch.height)];
-  [self.view addSubview:webView];
+  UtaWebView *webView = [[UtaWebView alloc] initWithFrame:CGRectMake(0, _viewSearch.height, self.view.width, self.view.height - _viewSearch.height)];
+  [_viewMain addSubview:webView];
+  [_viewMain bringSubviewToFront:_viewTouch];
   [webView setHidden:YES];
   _webViewMain = webView;
 }
@@ -350,9 +354,22 @@ void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
 }
 
 - (IBAction)onTouchWithShow:(UIButton *)sender {
-  [_webViewMain loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@""]]];
-  [_webViewMain setHidden:YES];
+  switch (sender.tag) {
+    case MainHomeButtonTypeHome:
+      [_webViewMain loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@""]]];
+      [_webViewMain setHidden:YES];
+      break;
+      
+    default:
+      break;
+  }
 }
+
+- (IBAction)onTouchWithScan:(UIButton *)sender {
+  ControllerScanCode *scanView = [[ControllerScanCode alloc] init];
+  [self presentViewController:scanView animated:YES completion:nil];
+}
+
 
 #pragma mark - 
 #pragma mark - UITextFieldDelegate

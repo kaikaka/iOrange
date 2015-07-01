@@ -9,5 +9,12 @@
 #ifndef iOrange_ApiConfig_h
 #define iOrange_ApiConfig_h
 
+typedef enum : NSUInteger {
+  MainHomeButtonTypeBack = 10,
+  MainHomeButtonTypeForward,
+  MainHomeButtonTypeSetting,
+  MainHomeButtonTypeMore,
+  MainHomeButtonTypeHome
+} MainHomeButtonType;
 
 #endif
