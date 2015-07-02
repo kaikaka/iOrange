@@ -20,12 +20,10 @@
 #import "NSStringEx.h"
 #import "ApiConfig.h"
 
-@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate>{
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate,ScanCodeDelegate>{
   
   __weak IBOutlet UIButton *_buttonSearch;
   __weak IBOutlet UIButton *_buttonTwoCode;
-  __weak IBOutlet UITextField *_textFiledContent;
-  
   
   __weak IBOutlet UIScrollView *_scrollViewContent;
   
@@ -51,6 +49,8 @@
   
   
 }
+
+@property (weak, nonatomic) IBOutlet UITextField *textFiledContent;
 @property (nonatomic,strong) __block UtaWebView *webViewMain;
 @property (nonatomic,strong)void (^whenTouchEnd) (NSString *);
 
@@ -69,48 +69,9 @@
   [self getCoolSitePath];
 }
 
-#pragma mark -
-#pragma mark - events
+#pragma mrak -
+#pragma mark - public Methods
 
-- (void)onGestureSectionWithTop:(UITapGestureRecognizer *)recognizer {
-  ViewHomeSection *viewSection = (ViewHomeSection *)[recognizer view];
-  NSInteger section = viewSection.tag - 10;
-  section = section + 1;
-  
-  if (_lastSection == section) {
-    NSMutableDictionary *dic=[_DataArray objectAtIndex:section-1];
-    int expanded=[[dic objectForKey:DIC_EXPANDED] intValue];
-    [self collapseOrExpand:section-1 withExpanded:expanded];
-    [_tableViewExpend reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
-    _lastSection = section;
-    if (expanded == 1) {
-      [_tableViewExpend scrollsToTop];
-    } else {
-      dispatch_time_t when =  dispatch_time(DISPATCH_TIME_NOW, kDuration150ms * NSEC_PER_SEC);
-      dispatch_after(when, dispatch_get_main_queue(), ^{
-        CGPoint bottomOffset = CGPointMake(0, 44 * 4);
-        [_tableViewExpend setContentOffset:bottomOffset animated:YES];
-      });
-    }
-    return;
-  }
-  for (int i = 1; i<6; i++) {
-    if (i != section) {
-      [self collapseOrExpand:i-1 withExpanded:YES];
-    } else {
-      [self collapseOrExpand:i-1 withExpanded:NO];
-      _lastSection = section;
-    }
-    [_tableViewExpend reloadSections:[NSIndexSet indexSetWithIndex:i] withRowAnimation:UITableViewRowAnimationNone];
-  }
-  dispatch_time_t when =  dispatch_time(DISPATCH_TIME_NOW, kDuration150ms * NSEC_PER_SEC);
-  dispatch_after(when, dispatch_get_main_queue(), ^{
-    CGPoint bottomOffset = CGPointMake(0, 44 * 4);
-    [_tableViewExpend setContentOffset:bottomOffset animated:YES];
-  });
-}
-
-#pragma mark- public Methods
 
 #pragma mark - private Methods
 
@@ -313,7 +274,25 @@ static id _aSelf;
 void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
   [[_aSelf webViewMain] setHidden:NO];
   [[_aSelf webViewMain] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:link]]];
+  [[_aSelf textFiledContent] setText:link];
 };
+
+#pragma mark - 
+#pragma mark - ScanCodeDelegate
+
+- (void)scanEndResultWithString:(NSString *)link {
+  NSString *url = link;
+  if ([url hasPrefix:@"http://itunes.apple.com/"]
+      || [url hasPrefix:@"https://itunes.apple.com/"]
+      || [url hasPrefix:@"itms-apps://itunes.apple.com/"]) {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+  }
+  url = [url getLinkWithText];
+  [self.webViewMain setHidden:NO];
+  [self.webViewMain loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+  [self.textFiledContent setText:link];
+  [self.view endEditing:YES];
+}
 
 #pragma mark - Systems Methods
 
@@ -353,11 +332,52 @@ void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
   
 }
 
+#pragma mark - Events
+
+- (void)onGestureSectionWithTop:(UITapGestureRecognizer *)recognizer {
+  ViewHomeSection *viewSection = (ViewHomeSection *)[recognizer view];
+  NSInteger section = viewSection.tag - 10;
+  section = section + 1;
+  
+  if (_lastSection == section) {
+    NSMutableDictionary *dic=[_DataArray objectAtIndex:section-1];
+    int expanded=[[dic objectForKey:DIC_EXPANDED] intValue];
+    [self collapseOrExpand:section-1 withExpanded:expanded];
+    [_tableViewExpend reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
+    _lastSection = section;
+    if (expanded == 1) {
+      [_tableViewExpend scrollsToTop];
+    } else {
+      dispatch_time_t when =  dispatch_time(DISPATCH_TIME_NOW, kDuration150ms * NSEC_PER_SEC);
+      dispatch_after(when, dispatch_get_main_queue(), ^{
+        CGPoint bottomOffset = CGPointMake(0, 44 * 4);
+        [_tableViewExpend setContentOffset:bottomOffset animated:YES];
+      });
+    }
+    return;
+  }
+  for (int i = 1; i<6; i++) {
+    if (i != section) {
+      [self collapseOrExpand:i-1 withExpanded:YES];
+    } else {
+      [self collapseOrExpand:i-1 withExpanded:NO];
+      _lastSection = section;
+    }
+    [_tableViewExpend reloadSections:[NSIndexSet indexSetWithIndex:i] withRowAnimation:UITableViewRowAnimationNone];
+  }
+  dispatch_time_t when =  dispatch_time(DISPATCH_TIME_NOW, kDuration150ms * NSEC_PER_SEC);
+  dispatch_after(when, dispatch_get_main_queue(), ^{
+    CGPoint bottomOffset = CGPointMake(0, 44 * 4);
+    [_tableViewExpend setContentOffset:bottomOffset animated:YES];
+  });
+}
+
 - (IBAction)onTouchWithShow:(UIButton *)sender {
   switch (sender.tag) {
     case MainHomeButtonTypeHome:
       [_webViewMain loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@""]]];
       [_webViewMain setHidden:YES];
+      [self.textFiledContent setText:@""];
       break;
       
     default:
@@ -367,9 +387,14 @@ void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
 
 - (IBAction)onTouchWithScan:(UIButton *)sender {
   ControllerScanCode *scanView = [[ControllerScanCode alloc] init];
+  scanView.delegateScanCode = self;
   [self presentViewController:scanView animated:YES completion:nil];
 }
 
+- (IBAction)onTouchWithSearchAction:(UIButton *)sender {
+  [_textFiledContent becomeFirstResponder];
+  return;
+}
 
 #pragma mark - 
 #pragma mark - UITextFieldDelegate

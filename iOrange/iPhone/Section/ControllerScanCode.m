@@ -7,6 +7,7 @@
 //
 
 #import "ControllerScanCode.h"
+#import "SlurImageView.h"
 
 @interface ControllerScanCode ()
 
@@ -18,11 +19,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
   self.view.backgroundColor = [UIColor grayColor];
-  UIButton * scanButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  [scanButton setTitle:@"取消" forState:UIControlStateNormal];
-  scanButton.frame = CGRectMake(100, 420, 120, 40);
-  [scanButton addTarget:self action:@selector(onTouchBackAction:) forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview:scanButton];
+  
+  UIButton * closeButton = [UIButton buttonWithType:0];
+  closeButton.frame = CGRectMake(218, 420, 44, 44);
+  [closeButton setBackgroundImage:[UIImage imageNamed:@"home_scan_close"] forState:0];
+  [closeButton addTarget:self action:@selector(onTouchBackAction:) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:closeButton];
+  
+  UIButton * lightButton = [UIButton buttonWithType:0];
+  lightButton.frame = CGRectMake(58, 420, 44, 44);
+  [lightButton setBackgroundImage:[UIImage imageNamed:@"home_scan_light_off"] forState:0];
+  [lightButton addTarget:self action:@selector(onTouchOpenLightAction:) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:lightButton];
   
   UILabel * labIntroudction= [[UILabel alloc] initWithFrame:CGRectMake(15, 40, 290, 50)];
   labIntroudction.backgroundColor = [UIColor clearColor];
@@ -33,13 +41,13 @@
   [self.view addSubview:labIntroudction];
   
   
-  UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 100, 300, 300)];
+  UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(12, 101, 296, 296)];
   imageView.image = [UIImage imageNamed:@"home_scan_pick_bg"];
   [self.view addSubview:imageView];
   
   upOrdown = NO;
   num =0;
-  _line = [[UIImageView alloc] initWithFrame:CGRectMake(50, 110, 220, 2)];
+  _line = [[UIImageView alloc] initWithFrame:CGRectMake(20, 110, 280, 24)];
   _line.image = [UIImage imageNamed:@"home_scan_line"];
   [self.view addSubview:_line];
   
@@ -61,17 +69,32 @@
   }];
 }
 
+- (void)onTouchOpenLightAction:(UIButton *)sender {
+  AVCaptureDevice * device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+  if (device.torchMode == AVCaptureTorchModeOff) {
+    [device lockForConfiguration:nil];
+    [device setTorchMode:AVCaptureTorchModeOn];
+    [device unlockForConfiguration];
+    [sender setBackgroundImage:[UIImage imageNamed:@"home_scan_light_on"] forState:0];
+  }else{
+    [device lockForConfiguration:nil];
+    [device setTorchMode:AVCaptureTorchModeOff];
+    [device unlockForConfiguration];
+    [sender setBackgroundImage:[UIImage imageNamed:@"home_scan_light_off"] forState:0];
+  }
+}
+
 - (void)onTimerAnimate:(NSTimer *)timer {
   if (upOrdown == NO) {
     num ++;
-    _line.frame = CGRectMake(50, 110+2*num, 220, 2);
-    if (2*num == 280) {
+    _line.frame = CGRectMake(20, 110+2*num, 280, 24);
+    if (2*num == 258) {
       upOrdown = YES;
     }
   }
   else {
     num --;
-    _line.frame = CGRectMake(50, 110+2*num, 220, 2);
+    _line.frame = CGRectMake(20, 110+2*num, 280, 24);
     if (num == 0) {
       upOrdown = NO;
     }
@@ -130,7 +153,10 @@
   [_session stopRunning];
   [self dismissViewControllerAnimated:YES completion:^ {
      [timer invalidate];
-     NSLog(@"%@",stringValue);
+    NSString *dataUTF8 = [stringValue stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    if ([_delegateScanCode respondsToSelector:@selector(scanEndResultWithString:)]) {
+      [_delegateScanCode scanEndResultWithString:dataUTF8];
+    }
    }];
 }
 

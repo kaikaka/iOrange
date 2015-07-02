@@ -25,6 +25,8 @@
 		7F09A98E1B0C9D8F0036BDB7 /* ControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F09A98D1B0C9D8F0036BDB7 /* ControllerBase.m */; };
 		7F09A9921B0CA0B50036BDB7 /* ViewWebSiteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F09A9911B0CA0B50036BDB7 /* ViewWebSiteButton.m */; };
 		7F2ED4141B442CBC00D4B5AA /* SlurImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2ED4131B442CBC00D4B5AA /* SlurImageView.m */; };
+		7F5519771B44E81000E0A0D1 /* home_scan_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5519731B44E81000E0A0D1 /* home_scan_close@2x.png */; };
+		7F5519781B44E81000E0A0D1 /* home_scan_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5519741B44E81000E0A0D1 /* home_scan_close@3x.png */; };
 		7F5572211B0D7BA600B0CE8F /* baidumobadsdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F5571F01B0D7BA600B0CE8F /* baidumobadsdk.bundle */; };
 		7F5572221B0D7BA600B0CE8F /* libBaiduMobAdSdk64bit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5571F41B0D7BA600B0CE8F /* libBaiduMobAdSdk64bit.a */; };
 		7F5572231B0D7BA600B0CE8F /* mongoose.c in Sources */ = {isa = PBXBuildFile; fileRef = 7F5571F61B0D7BA600B0CE8F /* mongoose.c */; };
@@ -201,6 +203,10 @@
 		7FC997F41B09794E009E8BD7 /* iOrangeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC997F31B09794E009E8BD7 /* iOrangeTests.m */; };
 		7FC998071B0A0D7A009E8BD7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC998011B0A0D7A009E8BD7 /* AppDelegate.m */; };
 		7FC998081B0A0D7A009E8BD7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC998031B0A0D7A009E8BD7 /* ViewController.m */; };
+		7FF8DB3E1B4534E100226B48 /* home_scan_light_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF8DB3A1B4534E100226B48 /* home_scan_light_off@2x.png */; };
+		7FF8DB3F1B4534E100226B48 /* home_scan_light_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF8DB3B1B4534E100226B48 /* home_scan_light_off@3x.png */; };
+		7FF8DB401B4534E100226B48 /* home_scan_light_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF8DB3C1B4534E100226B48 /* home_scan_light_on@2x.png */; };
+		7FF8DB411B4534E100226B48 /* home_scan_light_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF8DB3D1B4534E100226B48 /* home_scan_light_on@3x.png */; };
 		C37A855E273AE8C121E29079 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB5AF0E0B59701CDA4DF7DF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -246,6 +252,8 @@
 		7F09A9911B0CA0B50036BDB7 /* ViewWebSiteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewWebSiteButton.m; sourceTree = "<group>"; };
 		7F2ED4121B442CBC00D4B5AA /* SlurImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlurImageView.h; sourceTree = "<group>"; };
 		7F2ED4131B442CBC00D4B5AA /* SlurImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlurImageView.m; sourceTree = "<group>"; };
+		7F5519731B44E81000E0A0D1 /* home_scan_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_close@2x.png"; sourceTree = "<group>"; };
+		7F5519741B44E81000E0A0D1 /* home_scan_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_close@3x.png"; sourceTree = "<group>"; };
 		7F5571EA1B0D7BA600B0CE8F /* BaiduMobAdCommonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdCommonConfig.h; sourceTree = "<group>"; };
 		7F5571EB1B0D7BA600B0CE8F /* BaiduMobAdDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdDelegateProtocol.h; sourceTree = "<group>"; };
 		7F5571EC1B0D7BA600B0CE8F /* BaiduMobAdInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdInterstitial.h; sourceTree = "<group>"; };
@@ -449,6 +457,10 @@
 		7FC998011B0A0D7A009E8BD7 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7FC998021B0A0D7A009E8BD7 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7FC998031B0A0D7A009E8BD7 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7FF8DB3A1B4534E100226B48 /* home_scan_light_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_light_off@2x.png"; sourceTree = "<group>"; };
+		7FF8DB3B1B4534E100226B48 /* home_scan_light_off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_light_off@3x.png"; sourceTree = "<group>"; };
+		7FF8DB3C1B4534E100226B48 /* home_scan_light_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_light_on@2x.png"; sourceTree = "<group>"; };
+		7FF8DB3D1B4534E100226B48 /* home_scan_light_on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_light_on@3x.png"; sourceTree = "<group>"; };
 		A9FD645B0EE89C3D997E75FE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CA9FBDCB21C4BE8713762F85 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -745,6 +757,12 @@
 		7F7058ED1B242E4A00FCB86C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				7FF8DB3A1B4534E100226B48 /* home_scan_light_off@2x.png */,
+				7FF8DB3B1B4534E100226B48 /* home_scan_light_off@3x.png */,
+				7FF8DB3C1B4534E100226B48 /* home_scan_light_on@2x.png */,
+				7FF8DB3D1B4534E100226B48 /* home_scan_light_on@3x.png */,
+				7F5519731B44E81000E0A0D1 /* home_scan_close@2x.png */,
+				7F5519741B44E81000E0A0D1 /* home_scan_close@3x.png */,
 				7F58A98C1B3E88C70009E965 /* home_scan_line@2x.png */,
 				7F58A98D1B3E88C70009E965 /* home_scan_line@3x.png */,
 				7F58A98E1B3E88C70009E965 /* home_scan_pick_bg@2x.png */,
@@ -1046,7 +1064,7 @@
 		7FC997CC1B09794E009E8BD7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = yinxiangkai;
 				TargetAttributes = {
 					7FC997D31B09794E009E8BD7 = {
@@ -1134,6 +1152,8 @@
 				7F7059A21B242E4B00FCB86C /* home_image_movie@3x.png in Resources */,
 				7F705A5E1B265BC000FCB86C /* white_1@2x.png in Resources */,
 				7F7059AD1B242E4B00FCB86C /* home_nav_searchBg@2x.png in Resources */,
+				7F5519781B44E81000E0A0D1 /* home_scan_close@3x.png in Resources */,
+				7FF8DB3F1B4534E100226B48 /* home_scan_light_off@3x.png in Resources */,
 				7F7059E01B242E4B00FCB86C /* home_weather_sharebutton_normal@2x.png in Resources */,
 				7F705A6C1B265BC000FCB86C /* big_eind@2x.png in Resources */,
 				7F7059C71B242E4B00FCB86C /* home_webSite_amazon@2x.png in Resources */,
@@ -1158,9 +1178,11 @@
 				7F705A821B265BC000FCB86C /* small_sandstorm@2x.png in Resources */,
 				7F7059D11B242E4B00FCB86C /* home_webSite_jianshu@2x.png in Resources */,
 				7F705A871B265BC000FCB86C /* small_snowShower@2x.png in Resources */,
+				7FF8DB3E1B4534E100226B48 /* home_scan_light_off@2x.png in Resources */,
 				7F7059B51B242E4B00FCB86C /* home_site_icon1@2x.png in Resources */,
 				7F705A6B1B265BC000FCB86C /* big_cloudyDay@2x.png in Resources */,
 				7F7059AA1B242E4B00FCB86C /* home_nav_search_default@3x.png in Resources */,
+				7F5519771B44E81000E0A0D1 /* home_scan_close@2x.png in Resources */,
 				7F7059B81B242E4B00FCB86C /* home_site_icon2@3x.png in Resources */,
 				7F7059B61B242E4B00FCB86C /* home_site_icon1@3x.png in Resources */,
 				7F7059CA1B242E4B00FCB86C /* home_webSite_baidu@3x.png in Resources */,
@@ -1198,6 +1220,7 @@
 				7F58A9911B3E88C70009E965 /* home_scan_line@3x.png in Resources */,
 				7F7059C11B242E4B00FCB86C /* home_site_icon7@2x.png in Resources */,
 				7F7059B11B242E4B00FCB86C /* home_nav_twoCode_pressed@2x.png in Resources */,
+				7FF8DB401B4534E100226B48 /* home_scan_light_on@2x.png in Resources */,
 				7F705A851B265BC000FCB86C /* small_smallSnow@2x.png in Resources */,
 				7F7059A01B242E4B00FCB86C /* home_image_cool@3x.png in Resources */,
 				7F7059CE1B242E4B00FCB86C /* home_webSite_down@3x.png in Resources */,
@@ -1210,6 +1233,7 @@
 				7F70598F1B242E4B00FCB86C /* home_button_back_select@2x.png in Resources */,
 				7F705A7E1B265BC000FCB86C /* small_fog@2x.png in Resources */,
 				7F7059D01B242E4B00FCB86C /* home_webSite_jd@3x.png in Resources */,
+				7FF8DB411B4534E100226B48 /* home_scan_light_on@3x.png in Resources */,
 				7F7059C41B242E4B00FCB86C /* home_site_icon8@3x.png in Resources */,
 				7F0794401B27DB5C006883F9 /* PhoneCoolSite.plist in Resources */,
 				7F70598A1B242E4A00FCB86C /* home_bottom_forward@3x.png in Resources */,
@@ -1376,7 +1400,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiangkai yin (G986QBUMM5)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1421,6 +1447,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiangkai yin (G986QBUMM5)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1446,6 +1473,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: xiangkai yin (G986QBUMM5)";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOrange/iOrange.pch;
 				INFOPLIST_FILE = iOrange/Info.plist;
@@ -1455,6 +1483,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/iOrange/Vendors/Baidu_Ad_2.6",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yoon.iOrange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -1469,6 +1498,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: xiangkai yin (G986QBUMM5)";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOrange/iOrange.pch;
 				INFOPLIST_FILE = iOrange/Info.plist;
@@ -1478,6 +1508,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/iOrange/Vendors/Baidu_Ad_2.6",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yoon.iOrange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -1491,16 +1522,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = iOrangeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yoon.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOrange.app/iOrange";
@@ -1513,12 +1542,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = iOrangeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yoon.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOrange.app/iOrange";

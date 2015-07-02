@@ -47,6 +47,7 @@
                                                 <state key="normal" image="home_nav_twoCode_default.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <state key="selected" image="home_nav_twoCode_default.png"/>
                                                 <state key="highlighted" image="home_nav_twoCode_pressed.png"/>
                                                 <connections>
                                                     <action selector="onTouchWithScan:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dkp-s4-ky4"/>
@@ -63,15 +64,18 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <state key="highlighted" image="home_nav_search_pressed.png"/>
+                                                <connections>
+                                                    <action selector="onTouchWithSearchAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vss-HJ-gh4"/>
+                                                </connections>
                                             </button>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="搜索或输入网址" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7O6-9E-dtu">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="搜索或输入网址" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7O6-9E-dtu">
                                                 <rect key="frame" x="49" y="34" width="215" height="30"/>
                                                 <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="DsS-tl-aDa"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="italicSystem" pointSize="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -450,13 +454,13 @@
                         <outlet property="_buttonSearch" destination="Est-EW-hPV" id="Oan-ya-nu6"/>
                         <outlet property="_buttonTwoCode" destination="4ie-Sb-ZvJ" id="014-Z9-OfF"/>
                         <outlet property="_scrollViewContent" destination="nho-ee-0Cu" id="Gww-d2-T5c"/>
-                        <outlet property="_textFiledContent" destination="7O6-9E-dtu" id="dYC-v8-ZXY"/>
                         <outlet property="_viewHomeOne" destination="ktI-m3-Mw8" id="Hte-pC-M8c"/>
                         <outlet property="_viewHomeThree" destination="uL6-Lk-PZG" id="rIT-BI-a5d"/>
                         <outlet property="_viewHomeTwo" destination="oea-ki-WQQ" id="zzi-aE-zwE"/>
                         <outlet property="_viewMain" destination="8D6-sf-R0g" id="WXA-vn-O1C"/>
                         <outlet property="_viewSearch" destination="n1g-b0-ceT" id="Mhk-gl-x63"/>
                         <outlet property="_viewTouch" destination="3vk-4b-jay" id="YwM-CJ-GGk"/>
+                        <outlet property="textFiledContent" destination="7O6-9E-dtu" id="THg-yw-ksa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

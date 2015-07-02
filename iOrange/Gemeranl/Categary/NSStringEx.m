@@ -193,8 +193,7 @@ NSString * Utf8StrToUnicodeStr(NSString *utf8Str) {
     return [str md5];
 }
 
-- (NSString *)getLinkWithText
-{
+- (NSString *)getLinkWithText {
     NSString *url;
     //自动补全 URL
     NSString *link = [self urlEncodeNormal];

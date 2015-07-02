@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
+@protocol ScanCodeDelegate <NSObject>
+
+- (void)scanEndResultWithString:(NSString *)link;
+
+@end
+
 @interface ControllerScanCode : UIViewController <AVCaptureMetadataOutputObjectsDelegate>{
   int num;
   BOOL upOrdown;
@@ -20,5 +26,7 @@
 @property (strong,nonatomic)AVCaptureSession * session;
 @property (strong,nonatomic)AVCaptureVideoPreviewLayer * preview;
 @property (nonatomic, retain) UIImageView * line;
+@property (nonatomic,assign)id<ScanCodeDelegate> delegateScanCode;
+
 
 @end
