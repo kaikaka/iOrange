@@ -17,4 +17,8 @@ typedef enum : NSUInteger {
   MainHomeButtonTypeHome
 } MainHomeButtonType;
 
+#define sevenDaysWeatherInfoUrl(cityCode) [NSString stringWithFormat:@"http://mobile.weather.com.cn/data/forecast/%@.html", cityCode]
+#define CITYWEATHERURL(Identifier) [NSString stringWithFormat:@"http://mobile.weather.com.cn/data/forecast/%@.html", Identifier]
+#define CITYNOWWEATHERURL(Identifier)  [NSString stringWithFormat:@"http://www.weather.com.cn/data/sk/%@.html", Identifier]
+#define CITYPMVALUE(Identifier) [NSString stringWithFormat:@"http://mobile.weather.com.cn/data/air/%@.html",Identifier]
 #endif

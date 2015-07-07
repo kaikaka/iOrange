@@ -15,24 +15,27 @@
 #import "ViewHomeSection.h"
 #import "ViewGuideSiteButton.h"
 #import "ViewCellControl.h"
+#import "ViewWeather.h"
 #import "FilePathUtil.h"
 #import "UtaWebView.h"
 #import "NSStringEx.h"
 #import "ApiConfig.h"
 
-@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate,ScanCodeDelegate>{
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate,ScanCodeDelegate,UIWebViewDelegate>{
   
   __weak IBOutlet UIButton *_buttonSearch;
   __weak IBOutlet UIButton *_buttonTwoCode;
   
   __weak IBOutlet UIScrollView *_scrollViewContent;
-  
   __weak IBOutlet UIView *_viewHomeOne;
   __weak IBOutlet UIScrollView *_viewHomeTwo;
-  __weak IBOutlet UIScrollView *_viewHomeThree;
+  __weak IBOutlet ViewWeather *_viewHomeThree;
   __weak IBOutlet UIView *_viewSearch;
   __weak IBOutlet UIView *_viewTouch;
   __weak IBOutlet UIView *_viewMain;
+  
+  __weak IBOutlet UIButton *_buttonBack;
+  __weak IBOutlet UIButton *_buttonGoforw;
   
   
   UITableView *_tableViewExpend;
@@ -44,14 +47,19 @@
   NSArray *_arrayCateName;//section名称
   NSArray *_arrayCateDetail;//详细说明
   NSInteger _lastSection;//记录上一个点击的section
-  NSInteger _webSiteHeight;
-  NSArray *_arrayContentSite;
+  NSInteger _webSiteHeight;//记录手机酷站等高度
+  NSArray *_arrayContentSite;//PhoneCoolSite 的plist文件
+  /// 全屏显示
+  BOOL    _isFullScreen;
+  CGFloat _lastOffsetY;
   
+  NSLayoutConstraint *_constraintViewTopT;
+  NSLayoutConstraint *_constraintViewBottomB;
   
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *textFiledContent;
-@property (nonatomic,strong) __block UtaWebView *webViewMain;
+@property (weak, nonatomic) __block IBOutlet UtaWebView *webViewMain;
 @property (nonatomic,strong)void (^whenTouchEnd) (NSString *);
 
 @end
@@ -178,12 +186,12 @@
 }
 
 - (void)showPageView {
-  UIPageControl *pageView = [[UIPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame)-65, CGRectGetWidth(self.view.frame), 8)];
+  UIPageControl *pageView = [[UIPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame)-65, _viewHomeOne.width, 8)];
   pageView.currentPageIndicatorTintColor = RGBA(125., 125., 125., 1.);
   pageView.pageIndicatorTintColor = [UIColor blackColor];
   pageView.numberOfPages = 3;
   pageView.currentPage = 0;
-  [_viewMain addSubview:pageView];
+  [_viewMain insertSubview:pageView belowSubview:_webViewMain];
   _pageViewMark = pageView;
 }
 
@@ -196,9 +204,11 @@ static id _aSelf;
   _scrollViewContent.showsHorizontalScrollIndicator = NO;
   
   _textFiledContent.delegate = self;
+  _buttonBack.enabled = NO;
+  _buttonGoforw.enabled = NO;
   
   [self loadWebView];
-  
+  [_viewHomeThree setUp];
   //创建一个数组
   _DataArray=[[NSMutableArray alloc] init];
   for (int i = 0; i<5; i++) {
@@ -207,7 +217,7 @@ static id _aSelf;
   }
   //可以用plist 便于维护
   _arrayCateImageName = @[@"home_image_cool",@"home_image_sevice",@"home_image_movie",@"home_image_baike",@"home_image_now"];
-  _arrayCateName = @[@"手机酷站",@"生活服务",@"影视音乐",@"趣味百科",@"最近访问"];
+  _arrayCateName = @[@"手机酷站",@"生活服务",@"影视音乐",@"趣味百科",@"最常访问"];
   _arrayCateDetail = @[@"",@"查询.资讯.服务",@"视频.综艺.音乐台",@"笑话.漫画.百科",@""];
   
   int totalloc =3;
@@ -253,20 +263,85 @@ static id _aSelf;
   return array;
 }
 
-#pragma mark - 
-#pragma mark - Webview Methods
+/// 全屏显示
+- (void)toFullScreen:(BOOL)fullScreen {
+  if (_isFullScreen == fullScreen) {
+    return;
+  }
+  _isFullScreen = fullScreen;
+  [[UIApplication sharedApplication] setStatusBarHidden:fullScreen withAnimation:UIStatusBarAnimationSlide];
+  static CGFloat attrTop = 0;
+  if (!_constraintViewTopT) {
+    for (NSLayoutConstraint *constraint in _viewMain.constraints) {
+      if ((constraint.firstItem == _viewSearch)
+          && (constraint.firstAttribute == NSLayoutAttributeTop)) {
+        attrTop = constraint.constant;
+        _constraintViewTopT = constraint;
+        break;
+      }
+    }
+    for (NSLayoutConstraint *constraint in _viewMain.constraints) {
+      if ((constraint.secondItem == _viewTouch)
+          && (constraint.secondAttribute == NSLayoutAttributeBottom)) {
+        _constraintViewBottomB = constraint;
+        break;
+      }
+    }
+  }
+  _constraintViewTopT.constant = attrTop-(_isFullScreen?_viewSearch.bounds.size.height:0);
+//  _constraintViewBottomB.constant = _isFullScreen?-_viewTouch.bounds.size.height:0;
+  [UIView animateWithDuration:kDuration250ms animations:^{
+    [self.view layoutIfNeeded];
+  }];
+}
+
+- (void)goToHome {
+  [_webViewMain loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@""]]];
+  [_webViewMain setHidden:YES];
+  [self.textFiledContent setText:@""];
+  [self toFullScreen:NO];
+  _buttonBack.enabled = NO;
+  _buttonGoforw.enabled = NO;
+}
+
+/// 更新界面显示
+- (void)updateDisplay {
+
+  NSString *title;
+  if (_webViewMain.link.length) {
+    title = _webViewMain.title;
+  }
+  _textFiledContent.text = title;
+  _buttonGoforw.enabled = _webViewMain.canGoForward;
+  if (_webViewMain.hidden == NO) {
+    _buttonBack.enabled = YES;
+  } else
+    _buttonBack.enabled = NO;
+
+}
+
+
+#pragma mark -
+#pragma mark - Webview Methods & UIWebViewDelegate
 
 - (void)loadWebView {
-  UtaWebView *webView = [[UtaWebView alloc] initWithFrame:CGRectMake(0, _viewSearch.height, self.view.width, self.view.height - _viewSearch.height)];
-  [_viewMain addSubview:webView];
+  UtaWebView *webView = _webViewMain;
+  [webView.scrollView setTag:60];
+  [webView.scrollView setDelegate:self];
+  webView.scalesPageToFit = YES;
+  webView.dataDetectorTypes = UIDataDetectorTypeNone;
+  webView.delegate = self;
   [_viewMain bringSubviewToFront:_viewTouch];
   [webView setHidden:YES];
-  _webViewMain = webView;
 }
 
 - (void)setWebViewHidden:(BOOL) isHidden withLink:(NSString *)link {
   [_webViewMain setHidden:isHidden];
   [_webViewMain loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:link]]];
+}
+
+- (void)webViewDidFinishLoad:(nonnull UIWebView *)webView {
+  [self updateDisplay];
 }
 
 #pragma mark -  Block Methods
@@ -276,6 +351,7 @@ void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
   [[_aSelf webViewMain] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:link]]];
   [[_aSelf textFiledContent] setText:link];
 };
+
 
 #pragma mark - 
 #pragma mark - ScanCodeDelegate
@@ -375,11 +451,25 @@ void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
 - (IBAction)onTouchWithShow:(UIButton *)sender {
   switch (sender.tag) {
     case MainHomeButtonTypeHome:
-      [_webViewMain loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@""]]];
-      [_webViewMain setHidden:YES];
-      [self.textFiledContent setText:@""];
+      [self goToHome];
+      _buttonBack.enabled = NO;
+      _buttonGoforw.enabled = NO;
       break;
-      
+    case MainHomeButtonTypeBack:
+      if (_webViewMain.canGoBack) {
+        [_webViewMain goBack];
+        [self updateDisplay];
+      } else {
+        [self goToHome];
+        _buttonBack.enabled = NO;
+      }
+      break;
+    case MainHomeButtonTypeForward:
+      if (_webViewMain.canGoForward) {
+        [_webViewMain goForward];
+        [self updateDisplay];
+      }
+      break;
     default:
       break;
   }
@@ -410,6 +500,7 @@ void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
     }
     link =  [link getLinkWithText];
     [self setWebViewHidden:NO withLink:link];
+    [self updateDisplay];
     [self.view endEditing:YES];
   }
   return YES;
@@ -417,9 +508,70 @@ void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
 
 #pragma mark - UIScrollViewDelegate
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+  if (scrollView.tag == 60) {
+    [_viewMain endEditing:YES];
+    _lastOffsetY = scrollView.contentOffset.y;
+  }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+  if (scrollView.tag != 60) {
+    return;
+  }
+  if (!scrollView.isTracking) {
+    return;
+  }
+  
+  CGFloat currOffsetY = scrollView.contentOffset.y;
+  CGFloat maxOffsetY = MAX(0, scrollView.contentSize.height-scrollView.bounds.size.height);
+  if (!_isFullScreen && maxOffsetY<(_viewSearch.bounds.size.height+20)) {
+    return;
+  }
+  
+  if (fabs(currOffsetY-_lastOffsetY) > 10) {
+    BOOL needFullScreen = NO;
+    if (currOffsetY > 10
+        && (currOffsetY>_lastOffsetY || currOffsetY>maxOffsetY)) {
+      needFullScreen = YES;
+    }
+    [self toFullScreen:needFullScreen];
+    
+    _lastOffsetY = currOffsetY;
+  }
+  
+  CGPoint offset = scrollView.contentOffset;
+  
+  CGRect bounds = scrollView.bounds;
+  
+  CGSize size = scrollView.contentSize;
+  
+  UIEdgeInsets inset = scrollView.contentInset;
+  
+  CGFloat currentOffset = offset.y + bounds.size.height - inset.bottom;
+  
+  CGFloat maximumOffset = size.height;
+  
+  //当currentOffset与maximumOffset的值相等时，说明scrollview已经滑到底部了。也可以根据这两个值的差来让他做点其他的什么事情
+  
+  if((maximumOffset - currentOffset) <= 0.0) {
+    _constraintViewBottomB.constant = -_viewTouch.bounds.size.height;
+    [UIView animateWithDuration:kDuration250ms animations:^{
+      [self.view layoutIfNeeded];
+    }];
+  } else {
+    _constraintViewBottomB.constant = 0;
+    [UIView animateWithDuration:kDuration250ms animations:^{
+      [self.view layoutIfNeeded];
+    }];
+  }
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-  CGFloat f = scrollView.contentOffset.x /scrollView.width;
-  _pageViewMark.currentPage = f;
+  if (scrollView.tag == 50) {
+    CGFloat f = scrollView.contentOffset.x /scrollView.width;
+    _pageViewMark.currentPage = f;
+  }
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource

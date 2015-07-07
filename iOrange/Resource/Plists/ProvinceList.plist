@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Other</key>
+	<dict>
+		<key>Africa</key>
+		<string>非洲</string>
+		<key>Asia</key>
+		<string>亚洲</string>
+		<key>Europe</key>
+		<string>欧洲</string>
+		<key>North America</key>
+		<string>北美洲</string>
+		<key>Oceania</key>
+		<string>大洋洲</string>
+		<key>South America</key>
+		<string>南美洲</string>
+	</dict>
+	<key>Our</key>
+	<dict>
+		<key>Anhuisheng</key>
+		<string>安徽省</string>
+		<key>Fujiansheng</key>
+		<string>福建省</string>
+		<key>Gansusheng</key>
+		<string>甘肃省</string>
+		<key>Guangdongsheng</key>
+		<string>广东省</string>
+		<key>Guangxi Zhuangzu zizhiqu</key>
+		<string>广西壮族自治区</string>
+		<key>Guizhousheng</key>
+		<string>贵州省</string>
+		<key>Hainansheng</key>
+		<string>海南省</string>
+		<key>Hebeisheng</key>
+		<string>河北省</string>
+		<key>Heilongjiangsheng</key>
+		<string>黑龙江省</string>
+		<key>Henansheng</key>
+		<string>河南省</string>
+		<key>Hubeisheng</key>
+		<string>湖北省</string>
+		<key>Hunansheng</key>
+		<string>湖南省</string>
+		<key>Jiangsusheng</key>
+		<string>江苏省</string>
+		<key>Jiangxisheng</key>
+		<string>江西省</string>
+		<key>Jilinsheng</key>
+		<string>吉林省</string>
+		<key>Liaoningsheng</key>
+		<string>辽宁省</string>
+		<key>Neimenggu zizhiqu</key>
+		<string>内蒙古自治区</string>
+		<key>Ningxia Huizu zizhiqu</key>
+		<string>宁夏回族自治区</string>
+		<key>Qinghaisheng</key>
+		<string>青海省</string>
+		<key>Shandongsheng</key>
+		<string>山东省</string>
+		<key>Shanxisheng</key>
+		<string>陕西省</string>
+		<key>Shanxisheng_</key>
+		<string>山西省</string>
+		<key>Sichuansheng</key>
+		<string>四川省</string>
+		<key>Taiwansheng</key>
+		<string>台湾省</string>
+		<key>Tequ</key>
+		<string>特区</string>
+		<key>Xinjiang Weiwuerzu zizhiqu</key>
+		<string>新疆维吾尔自治区</string>
+		<key>Xizang zizhiqu</key>
+		<string>西藏自治区</string>
+		<key>Yunnansheng</key>
+		<string>云南省</string>
+		<key>Zhejiangsheng</key>
+		<string>浙江省</string>
+		<key>Zhixiashi</key>
+		<string>直辖市</string>
+	</dict>
+</dict>
+</plist>
