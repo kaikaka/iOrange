@@ -19,6 +19,7 @@ typedef enum : NSUInteger {
 
 #define sevenDaysWeatherInfoUrl(cityCode) [NSString stringWithFormat:@"http://mobile.weather.com.cn/data/forecast/%@.html", cityCode]
 #define CITYWEATHERURL(Identifier) [NSString stringWithFormat:@"http://mobile.weather.com.cn/data/forecast/%@.html", Identifier]
-#define CITYNOWWEATHERURL(Identifier)  [NSString stringWithFormat:@"http://www.weather.com.cn/data/sk/%@.html", Identifier]
-#define CITYPMVALUE(Identifier) [NSString stringWithFormat:@"http://mobile.weather.com.cn/data/air/%@.html",Identifier]
+#define CITYNOWWEATHERURL(Identifier) [NSString stringWithFormat:@"http://weather.51wnl.com/weatherinfo/GetMoreWeather?cityCode=%@&weatherType=1", Identifier]
+#define CITYPMVALUE(Identifier) [NSString stringWithFormat:@"http://weather.123.duba.net/static/weather_info/%@.html",Identifier]
+
 #endif

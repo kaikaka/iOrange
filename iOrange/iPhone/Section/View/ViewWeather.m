@@ -11,13 +11,7 @@
 #import "ApiConfig.h"
 #import "UIImageViewEx.h"
 #import "CalendarDateUtil.h"
-
-@interface ViewWeather () {
-  NSString                *_province;
-  NSString                *_city;
-}
-
-@end
+#import "AFNetworking.h"
 
 @implementation ViewWeather
 
@@ -38,7 +32,7 @@
       self.myLocationManager = [[CLLocationManager alloc] init];
       self.myLocationManager.delegate = self;
       self.myLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
-      self.myLocationManager.distanceFilter  = 100;//kCLDistanceFilterNone;
+      self.myLocationManager.distanceFilter  = kCLDistanceFilterNone;
       if ([self.myLocationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [self.myLocationManager requestWhenInUseAuthorization];
       }
@@ -54,7 +48,10 @@
  *  @param placeArray [地理位置]
  */
 - (void)requestWeatherDataWithPlace:(NSArray *)placeArray {
-  
+  if (self.myLocationManager) {
+    [self.myLocationManager stopUpdatingLocation];
+    self.myLocationManager = nil;
+  }
   NSString *placeAdministrativeArea = [placeArray objectAtIndex:0];
   NSString *placeLocality = [placeArray objectAtIndex:1];
   
@@ -82,7 +79,7 @@
   //获取天气信息
   [self getWeatherWithCity:cityCode];
   [self getWeatherNow:cityCode];
-  [self getPMValueNow:cityCode];
+  [self getPMValueNowCityCode:cityCode];
 }
 
 /**
@@ -118,7 +115,7 @@
 - (void)getWeatherWithCity:(NSString *)cityIdentifier {
   NSURLCache *urlCache = [NSURLCache sharedURLCache];
   [urlCache setMemoryCapacity:1*1024*1024];
-  NSURL *url = [NSURL URLWithString:sevenDaysWeatherInfoUrl(cityIdentifier)];//CITYWEATHERURL(cityIdentifier)];
+  NSURL *url = [NSURL URLWithString:CITYWEATHERURL(cityIdentifier)];//CITYWEATHERURL(cityIdentifier)];
   NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
   [request setCachePolicy:NSURLRequestReloadRevalidatingCacheData];
   [request setURL:url];
@@ -131,7 +128,7 @@
   //缓存
   NSCachedURLResponse *responseU = [urlCache cachedResponseForRequest:request];
   if (responseU != nil) {
-    [request setCachePolicy:NSURLRequestReturnCacheDataElseLoad];
+    [request setCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData];
   }
   [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
 
@@ -157,6 +154,7 @@
  *  @param cityIdentifier 城市代码
  */
 - (void)getWeatherNow:(NSString *)cityIdentifier {
+
   NSURLCache *urlCache = [NSURLCache sharedURLCache];
   [urlCache setMemoryCapacity:1*1024*1024];
   NSURL *url = [NSURL URLWithString:CITYNOWWEATHERURL(cityIdentifier)];
@@ -164,7 +162,7 @@
   [request setCachePolicy:NSURLRequestReloadRevalidatingCacheData];
   [request setURL:url];
   [request setHTTPMethod:@"GET"];
-  [request setValue:@"application/json, text/javascript, */*; q=0.01" forHTTPHeaderField:@"Accept"];
+  [request setValue:@"application/json, text/html, */*; q=0.01" forHTTPHeaderField:@"Accept"];
   [request setValue:@"gzip" forHTTPHeaderField:@"Accepts-Encoding"];;
   [request setValue:@"zh-CN,zh;q=0.8" forHTTPHeaderField:@"Accept-Language"];
   [request setValue:@"http://mobile.weather.com.cn/" forHTTPHeaderField:@"Referer"];
@@ -178,7 +176,6 @@
     if ([data length] > 0 && connectionError == nil) {
       NSDictionary *jsonString = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
       [self showTodayData:jsonString];
-      
     }
     else if ([data length] == 0 && connectionError ==nil) { // 没有数据
     }
@@ -196,35 +193,35 @@
  *
  *  @param cityIdentifier 城市代码
  */
-- (void)getPMValueNow:(NSString *)cityIdentifier {
-  NSURLCache *urlCache = [NSURLCache sharedURLCache];
-  [urlCache setMemoryCapacity:1*1024*1024];
-  NSURL *url = [NSURL URLWithString:CITYPMVALUE(cityIdentifier)];
-  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
-  [request setCachePolicy:NSURLRequestReloadRevalidatingCacheData];
-  [request setURL:url];
-  [request setHTTPMethod:@"GET"];
-  [request setValue:@"application/json, text/javascript, */*; q=0.01" forHTTPHeaderField:@"Accept"];
-  [request setValue:@"gzip" forHTTPHeaderField:@"Accepts-Encoding"];;
-  [request setValue:@"zh-CN,zh;q=0.8" forHTTPHeaderField:@"Accept-Language"];
-  [request setValue:@"http://mobile.weather.com.cn/" forHTTPHeaderField:@"Referer"];
-  [request setTimeoutInterval:20];
-  //缓存
-  NSCachedURLResponse *responseU = [urlCache cachedResponseForRequest:request];
-  if (responseU != nil) {
-    [request setCachePolicy:NSURLRequestReturnCacheDataElseLoad];
-  }
-  [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-    if ([data length] > 0 && connectionError == nil) {
-      NSDictionary *jsonString = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-      [self showPMValueWithJsonDict:jsonString];
-    } else if ([data length] == 0 && connectionError ==nil) { // 没有数据
-    } else if (connectionError != nil) {
-      NSDictionary *jsonString = [NSJSONSerialization JSONObjectWithData:[responseU data] options:NSJSONReadingMutableLeaves error:nil];
-      [self showPMValueWithJsonDict:jsonString];
-    } else {
+- (void)getPMValueNowCityCode:(NSString *)cityCode{
+  AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+  AFHTTPRequestSerializer * requestSerializer = [AFHTTPRequestSerializer serializer];
+  AFHTTPResponseSerializer * responseSerializer = [AFHTTPResponseSerializer serializer];
+  
+  responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+  manager.responseSerializer = responseSerializer;
+  manager.requestSerializer = requestSerializer;
+  [manager GET:CITYPMVALUE(cityCode) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSString *stringWeather = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+    NSArray *arrayWeather =[stringWeather componentsSeparatedByString:@"("];
+    if (arrayWeather.lastObject) {
+      NSString *stringW = [arrayWeather lastObject];
+       NSArray *arrayTianqi =[stringW componentsSeparatedByString:@")"];
+      if ([arrayTianqi firstObject]) {
+        NSString *stringC = [arrayTianqi firstObject];
+        NSString *stringE = [stringC stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[stringE dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableLeaves error:nil];
+        NSDictionary *weatherinfo = [dict objectForKey:@"weatherinfo"];
+        [self showAqiImage:[[weatherinfo objectForKey:@"pm"] integerValue]];
+        [self showPMValueWithJsonDict:[weatherinfo objectForKey:@"pm"]];
+      }
     }
+    
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+    DLog(@"requestDogs error:--- %@", error);
   }];
+
 }
 
 /**
@@ -237,10 +234,16 @@
   NSString *nowTempSrting = [dictString objectForKey:@"temp"];
   NSString *wsString = [dictString objectForKey:@"WD"];//风力
   NSString *wdString = [dictString objectForKey:@"WS"];//风向
-  NSString *wseString = [dictString objectForKey:@"WSE"];
-  [self moveWindWithWSE:wseString];
-  [self.labelWindLevel setText:[NSString stringWithFormat:@"%@%@",wdString,wsString]];
+  NSString *wse ;
+  if (wdString.length>2) {
+    wse = [wdString substringToIndex:2];
+  } else {
+    wse = [wdString substringToIndex:1];
+  }
+  [self moveWindWithWSE:wse];
+  [self.labelWindLevel setText:[NSString stringWithFormat:@"%@%@",wsString,wdString]];
   if (nowTempSrting.length>1) {
+    _nowTempToString = nowTempSrting;
     NSString *firstString = [nowTempSrting substringToIndex:1];
     NSString *secondString = [nowTempSrting substringFromIndex:1];
     [_imageTemperatureFirst setImage:[UIImage imageNamed:[self getNumberImagePath:firstString]]];
@@ -257,13 +260,9 @@
  *
  *  @param jsonDict json数据
  */
-- (void)showPMValueWithJsonDict:(NSDictionary *)jsonDict {
-  NSString *pmValue;
-  NSDictionary *resultDict = [jsonDict objectForKey:@"k"];
-  NSString *resultString = [resultDict objectForKey:@"k3"];
-  NSArray *pm2d5Arr = [resultString componentsSeparatedByString:@"|"];
-  NSString *pm2d5 = pm2d5Arr[23];
-  NSInteger pm2 = [pm2d5 integerValue];
+- (void)showPMValueWithJsonDict:(NSString *)pmValue {
+  
+  NSInteger pm2 = [pmValue integerValue];
   if (pm2 >= 0 && pm2 < 50) {
     pmValue = @"空气优";
     [self showAqiImage:1];
@@ -283,7 +282,7 @@
     pmValue = @"严重污染";
     [self showAqiImage:6];
   }
-  [_labelAirLevel setText:[NSString stringWithFormat:@"%@ %@",pm2d5,pmValue]];
+  [_labelAirLevel setText:[NSString stringWithFormat:@"%ld %@",pm2,pmValue]];
 }
 
 /**
@@ -323,6 +322,7 @@
  *  刷新天气数据
  */
 - (void)reloadWeatherData {
+  DLog(@"self.weatherDictionary = %@",self.weatherDictionary);
   NSArray *fArray = [[self.weatherDictionary objectForKey:@"f"] objectForKey:@"f1"];
   if ([fArray count]==0) {
     return;
@@ -332,7 +332,7 @@
     NSDictionary *dict = [fArray objectAtIndex:i];
     NSString *fa = [dict objectForKey:@"fa"];
     NSString *fb = [dict objectForKey:@"fb"];
-    NSString *fc = [dict objectForKey:@"fc"];
+    NSString *fc = ([[dict objectForKey:@"fc"] length]>0) ?[dict objectForKey:@"fc"]:_nowTempToString;
     NSString *fd = [dict objectForKey:@"fd"];
     if (i == 0) {
       //超过下午四点 显示下午天气
@@ -549,7 +549,6 @@
  */
 - (void)moveWindWithWSE:(NSString *)wseString {
   NSInteger m = [wseString integerValue];
-  
   CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
   animation.fromValue = [NSNumber numberWithFloat:0];
   animation.toValue = [NSNumber numberWithFloat:2*M_PI];

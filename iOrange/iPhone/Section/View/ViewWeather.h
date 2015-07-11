@@ -47,6 +47,7 @@
 
 @property (nonatomic,strong) CLLocationManager *myLocationManager;
 @property (nonatomic,strong)NSMutableDictionary *weatherDictionary;
+@property (nonatomic,strong)NSString *nowTempToString;
 
 - (void)setUp;
 
