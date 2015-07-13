@@ -38,7 +38,7 @@
       }
     }
     [self.myLocationManager startUpdatingLocation];
-  } else {;
+  } else {
   }
 }
 
@@ -80,6 +80,10 @@
   [self getWeatherWithCity:cityCode];
   [self getWeatherNow:cityCode];
   [self getPMValueNowCityCode:cityCode];
+  if (_weatherInfoEnd) {
+    _weatherInfoEnd();
+  }
+  [_buttonLocation setBackgroundImage:[UIImage imageNamed:@"home_weather_location@2x.png"] forState:0];
 }
 
 /**
@@ -170,7 +174,7 @@
   //缓存
   NSCachedURLResponse *responseU = [urlCache cachedResponseForRequest:request];
   if (responseU != nil) {
-    [request setCachePolicy:NSURLRequestReturnCacheDataElseLoad];
+    [request setCachePolicy:NSURLRequestReloadRevalidatingCacheData];
   }
   [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
     if ([data length] > 0 && connectionError == nil) {
@@ -322,7 +326,7 @@
  *  刷新天气数据
  */
 - (void)reloadWeatherData {
-  DLog(@"self.weatherDictionary = %@",self.weatherDictionary);
+
   NSArray *fArray = [[self.weatherDictionary objectForKey:@"f"] objectForKey:@"f1"];
   if ([fArray count]==0) {
     return;
@@ -552,16 +556,25 @@
   CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
   animation.fromValue = [NSNumber numberWithFloat:0];
   animation.toValue = [NSNumber numberWithFloat:2*M_PI];
-  animation.speed = m/10.;
+  animation.speed = m/20.;
   animation.autoreverses = NO;
   animation.repeatCount = MAXFLOAT;
   [_imgvWindmill.layer addAnimation:animation forKey:@"shakeAnimation"];
 }
 
+#pragma mark - Events
+
+- (IBAction)onTouchWithCithClick:(UIButton *)sender {
+  [_buttonLocation setBackgroundImage:[UIImage imageNamed:@"home_weather_autoLocation@2x.png"] forState:0];
+  [self getLocal];
+}
+
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-  //  [self showLocalCity];
+  if (_weatherInfoEnd) {
+    _weatherInfoEnd();
+  }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
@@ -585,6 +598,9 @@
     else if (error != nil)
     {
       DLog(@"An error occurred = %@",error);
+      if (_weatherInfoEnd) {
+        _weatherInfoEnd();
+      }
     }
   }];
   [self.myLocationManager stopUpdatingLocation];

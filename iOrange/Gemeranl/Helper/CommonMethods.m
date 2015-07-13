@@ -11,7 +11,7 @@
 @implementation CommonMethods
 
 + (NSDictionary *)getNewCityDict {
-  NSString *path = [[NSBundle mainBundle] pathForResource:@"NewCityList"
+  NSString *path = [[NSBundle mainBundle] pathForResource:@"CnCityList"
                                                    ofType:@"plist"];
   NSDictionary *dict = [[NSDictionary alloc]
                         initWithContentsOfFile:path];
@@ -27,7 +27,7 @@
 }
 
 + (NSDictionary *)getEnglishCityDict {
-  NSString *path  = [[NSBundle mainBundle] pathForResource:@"PYCityList" ofType:@"plist"];
+  NSString *path  = [[NSBundle mainBundle] pathForResource:@"EnCityList" ofType:@"plist"];
   NSDictionary *dict = [[NSDictionary alloc]
                         initWithContentsOfFile:path];
   return dict;

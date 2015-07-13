@@ -20,6 +20,7 @@
 #import "UtaWebView.h"
 #import "NSStringEx.h"
 #import "ApiConfig.h"
+#import "SVPullToRefresh.h"
 
 @interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate,ScanCodeDelegate,UIWebViewDelegate>{
   
@@ -61,6 +62,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textFiledContent;
 @property (weak, nonatomic) __block IBOutlet UtaWebView *webViewMain;
 @property (nonatomic,strong)void (^whenTouchEnd) (NSString *);
+@property (nonatomic,strong)void (^whenShowWeatherEnd) (void);
 
 @end
 
@@ -226,6 +228,19 @@ static id _aSelf;
   CGFloat margin = (self.view.frame.size.width-totalloc*appvieww)/(totalloc+1);
   CGFloat siteHeight = (appviewh + margin )* totalloc + totalloc * 3 - margin;
   _webSiteHeight = siteHeight;
+  
+  [_viewMain bringSubviewToFront:_viewSearch];
+  [_viewHomeThree setContentSize:CGSizeMake(0, _viewHomeThree.height+1)];
+  [_viewHomeThree setShowsVerticalScrollIndicator:NO];
+  [_viewHomeThree setDelegate:self];
+  [_viewHomeThree addPullToRefreshWithActionHandler:^{
+    [_viewHomeThree setUp];
+  }];
+  [_viewHomeThree.pullToRefreshView setHidden:YES];
+  [_viewHomeThree.pullToRefreshView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
+  [_viewHomeThree.pullToRefreshView setTextColor:[UIColor whiteColor]];
+  [_viewHomeThree.pullToRefreshView setArrowColor:[UIColor whiteColor]];
+  [_viewHomeThree setWeatherInfoEnd:whenShowWeatherEnd];
 }
 
 - (void)setLayerRadius:(UIView *)viewRadius rectCorner:(UIRectCorner)corner{
@@ -320,6 +335,12 @@ static id _aSelf;
 
 }
 
+- (void)reloadEnd {
+  if ([_viewHomeThree.pullToRefreshView isHidden] == NO) {
+    [_viewHomeThree.pullToRefreshView setHidden:YES];
+    [_viewHomeThree.pullToRefreshView stopAnimating];
+  }
+}
 
 #pragma mark -
 #pragma mark - Webview Methods & UIWebViewDelegate
@@ -352,6 +373,9 @@ void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
   [[_aSelf textFiledContent] setText:link];
 };
 
+void (^whenShowWeatherEnd)(void) = ^ void (){
+  [_aSelf reloadEnd];
+};
 
 #pragma mark - 
 #pragma mark - ScanCodeDelegate
@@ -509,6 +533,10 @@ void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+  if (scrollView == _viewHomeThree) {
+    [_viewHomeThree.pullToRefreshView setHidden:NO];
+    return;
+  }
   if (scrollView.tag == 60) {
     [_viewMain endEditing:YES];
     _lastOffsetY = scrollView.contentOffset.y;

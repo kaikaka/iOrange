@@ -49,6 +49,8 @@
 @property (nonatomic,strong)NSMutableDictionary *weatherDictionary;
 @property (nonatomic,strong)NSString *nowTempToString;
 
+@property (nonatomic,strong)void (^weatherInfoEnd) (void);
+
 - (void)setUp;
 
 @end
