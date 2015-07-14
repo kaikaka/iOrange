@@ -7,50 +7,57 @@
 
 #import "NJKWebViewProgress.h"
 
-NSString *completeRPCURLPath = @"/njkwebviewprogressproxy/complete";
+NSString *completeRPCURL = @"webviewprogressproxy:///complete";
 
-const float NJKInitialProgressValue = 0.06f;
+static const float initialProgressValue = 0.1;
+static const float beforeInteractiveMaxProgressValue = 0.5;
+static const float afterInteractiveMaxProgressValue = 0.9;
 
-@implementation NJKWebViewProgress {
-    NSInteger _loadingCount;
-    NSInteger _maxLoadCount;
+@implementation NJKWebViewProgress
+{
+    NSUInteger _loadingCount;
+    NSUInteger _maxLoadCount;
     NSURL *_currentURL;
     BOOL _interactive;
 }
 
-- (id)init {
-    if (self = [super init]) {
+- (id)init
+{
+    self = [super init];
+    if (self) {
         _maxLoadCount = _loadingCount = 0;
         _interactive = NO;
     }
-    
     return self;
 }
 
-- (void)startProgress {
-    if (_progress < NJKInitialProgressValue) {
-        [self setProgress:NJKInitialProgressValue];
+- (void)startProgress
+{
+    if (_progress < initialProgressValue) {
+        [self setProgress:initialProgressValue];
     }
 }
 
-- (void)incrementProgress {
-    float progress = _progress;
-    float maxProgress = _interactive?1.0:NJKInitialProgressValue;
-    float remainPercent = (float)_loadingCount/(float)_maxLoadCount;
-    float increment = (maxProgress-progress)*remainPercent;
+- (void)incrementProgress
+{
+    float progress = self.progress;
+    float maxProgress = _interactive ? afterInteractiveMaxProgressValue : beforeInteractiveMaxProgressValue;
+    float remainPercent = (float)_loadingCount / (float)_maxLoadCount;
+    float increment = (maxProgress - progress) * remainPercent;
     progress += increment;
     progress = fmin(progress, maxProgress);
-    
     [self setProgress:progress];
 }
 
-- (void)completeProgress {
+- (void)completeProgress
+{
     [self setProgress:1.0];
 }
 
-- (void)setProgress:(float)progress {
+- (void)setProgress:(float)progress
+{
     // progress should be incremental only
-    if (progress>_progress || progress==0) {
+    if (progress > _progress || progress == 0) {
         _progress = progress;
         if ([_progressDelegate respondsToSelector:@selector(webViewProgress:updateProgress:)]) {
             [_progressDelegate webViewProgress:self updateProgress:progress];
@@ -61,44 +68,26 @@ const float NJKInitialProgressValue = 0.06f;
     }
 }
 
-- (void)reset {
+- (void)reset
+{
     _maxLoadCount = _loadingCount = 0;
     _interactive = NO;
     [self setProgress:0.0];
 }
 
-/// 加载结束
-- (void)webViewLoadEnded:(UIWebView *)webView {
-    _loadingCount = MAX(0, _loadingCount-1);
-    [self incrementProgress];
-    
-    NSString *readyState = [webView stringByEvaluatingJavaScriptFromString:@"document.readyState"];
-    
-    BOOL interactive = [readyState isEqualToString:@"interactive"];
-    if (interactive) {
-        _interactive = YES;
-        NSString *waitForCompleteJS = [NSString stringWithFormat:@"window.addEventListener('load',function() { var iframe = document.createElement('iframe'); iframe.style.display = 'none'; iframe.src = '%@://%@%@'; document.body.appendChild(iframe);  }, false);", webView.request.mainDocumentURL.scheme, webView.request.mainDocumentURL.host, completeRPCURLPath];
-        [webView stringByEvaluatingJavaScriptFromString:waitForCompleteJS];
-    }
-    
-    BOOL isNotRedirect = _currentURL && [_currentURL isEqual:webView.request.mainDocumentURL];
-    BOOL complete = [readyState isEqualToString:@"complete"];
-    if (complete && isNotRedirect) {
-        [self completeProgress];
-    }
-}
-
 #pragma mark -
 #pragma mark UIWebViewDelegate
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    if ([request.URL.path isEqualToString:completeRPCURLPath]) {
-        [self completeProgress];
-        return NO;
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    BOOL ret = YES;
+    if ([_webViewProxyDelegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
+        ret = [_webViewProxyDelegate webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
     }
     
-    BOOL should = YES;
-    if ([_webViewProxyDelegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
-        should = [_webViewProxyDelegate webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
+    if ([request.URL.absoluteString isEqualToString:completeRPCURL]) {
+        [self completeProgress];
+        return NO;
     }
     
     BOOL isFragmentJump = NO;
@@ -107,17 +96,18 @@ const float NJKInitialProgressValue = 0.06f;
         isFragmentJump = [nonFragmentURL isEqualToString:webView.request.URL.absoluteString];
     }
 
-    BOOL isTopLevelNavigation = [request.mainDocumentURL isEqual:request.URL]; 
+    BOOL isTopLevelNavigation = [request.mainDocumentURL isEqual:request.URL];
+
     BOOL isHTTP = [request.URL.scheme isEqualToString:@"http"] || [request.URL.scheme isEqualToString:@"https"];
-    if (should && !isFragmentJump && isHTTP && isTopLevelNavigation) {
+    if (ret && !isFragmentJump && isHTTP && isTopLevelNavigation && navigationType != UIWebViewNavigationTypeBackForward) {
         _currentURL = request.URL;
         [self reset];
     }
-    
-    return should;
+    return ret;
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)webView {
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
     if ([_webViewProxyDelegate respondsToSelector:@selector(webViewDidStartLoad:)]) {
         [_webViewProxyDelegate webViewDidStartLoad:webView];
     }
@@ -128,51 +118,72 @@ const float NJKInitialProgressValue = 0.06f;
     [self startProgress];
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
     if ([_webViewProxyDelegate respondsToSelector:@selector(webViewDidFinishLoad:)]) {
         [_webViewProxyDelegate webViewDidFinishLoad:webView];
     }
     
-    [self webViewLoadEnded:webView];
+    _loadingCount--;
+    [self incrementProgress];
     
-    // 内存处理之一
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    [ud setInteger:0 forKey:@"WebKitCacheModelPreferenceKey"];
-    [ud synchronize];
+    NSString *readyState = [webView stringByEvaluatingJavaScriptFromString:@"document.readyState"];
+
+    BOOL interactive = [readyState isEqualToString:@"interactive"];
+    if (interactive) {
+        _interactive = YES;
+        NSString *waitForCompleteJS = [NSString stringWithFormat:@"window.addEventListener('load',function() { var iframe = document.createElement('iframe'); iframe.style.display = 'none'; iframe.src = '%@'; document.body.appendChild(iframe);  }, false);", completeRPCURL];
+        [webView stringByEvaluatingJavaScriptFromString:waitForCompleteJS];
+    }
+    
+    BOOL isNotRedirect = _currentURL && [_currentURL isEqual:webView.request.mainDocumentURL];
+    BOOL complete = [readyState isEqualToString:@"complete"];
+    if (complete && isNotRedirect) {
+        [self completeProgress];
+    }
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
     if ([_webViewProxyDelegate respondsToSelector:@selector(webView:didFailLoadWithError:)]) {
         [_webViewProxyDelegate webView:webView didFailLoadWithError:error];
     }
     
-    [self webViewLoadEnded:webView];
+    _loadingCount--;
+    [self incrementProgress];
+
+    NSString *readyState = [webView stringByEvaluatingJavaScriptFromString:@"document.readyState"];
+
+    BOOL interactive = [readyState isEqualToString:@"interactive"];
+    if (interactive) {
+        _interactive = YES;
+        NSString *waitForCompleteJS = [NSString stringWithFormat:@"window.addEventListener('load',function() { var iframe = document.createElement('iframe'); iframe.style.display = 'none'; iframe.src = '%@'; document.body.appendChild(iframe);  }, false);", completeRPCURL];
+        [webView stringByEvaluatingJavaScriptFromString:waitForCompleteJS];
+    }
+    
+    BOOL isNotRedirect = _currentURL && [_currentURL isEqual:webView.request.mainDocumentURL];
+    BOOL complete = [readyState isEqualToString:@"complete"];
+    if (complete && isNotRedirect) {
+        [self completeProgress];
+    }
 }
 
 #pragma mark - 
 #pragma mark Method Forwarding
-// for future UIWebViewDelegate impl implementation
-- (BOOL)respondsToSelector:(SEL)aSelector {
-    if ([super respondsToSelector:aSelector])
-        return YES;
-    
-    if ([self.webViewProxyDelegate respondsToSelector:aSelector])
-        return YES;
-    
-    return NO;
-}
-
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)selector {
+// for future UIWebViewDelegate impl
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)selector
+{
     NSMethodSignature *signature = [super methodSignatureForSelector:selector];
-    if (!signature) {
-        if ([_webViewProxyDelegate respondsToSelector:selector]) {
+    if(!signature) {
+        if([_webViewProxyDelegate respondsToSelector:selector]) {
             return [(NSObject *)_webViewProxyDelegate methodSignatureForSelector:selector];
         }
     }
     return signature;
 }
 
-- (void)forwardInvocation:(NSInvocation *)invocation {
+- (void)forwardInvocation:(NSInvocation*)invocation
+{
     if ([_webViewProxyDelegate respondsToSelector:[invocation selector]]) {
         [invocation invokeWithTarget:_webViewProxyDelegate];
     }

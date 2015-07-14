@@ -17,7 +17,7 @@
 #import "ViewCellControl.h"
 #import "ViewWeather.h"
 #import "FilePathUtil.h"
-#import "UtaWebView.h"
+#import "UIWebPage.h"
 #import "NSStringEx.h"
 #import "ApiConfig.h"
 #import "SVPullToRefresh.h"
@@ -60,7 +60,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *textFiledContent;
-@property (weak, nonatomic) __block IBOutlet UtaWebView *webViewMain;
+@property (weak, nonatomic) __block IBOutlet UIWebPage *webViewMain;
 @property (nonatomic,strong)void (^whenTouchEnd) (NSString *);
 @property (nonatomic,strong)void (^whenShowWeatherEnd) (void);
 
@@ -210,7 +210,7 @@ static id _aSelf;
   _buttonGoforw.enabled = NO;
   
   [self loadWebView];
-  [_viewHomeThree setUp];
+//  [_viewHomeThree setUp];
   //创建一个数组
   _DataArray=[[NSMutableArray alloc] init];
   for (int i = 0; i<5; i++) {
@@ -229,7 +229,7 @@ static id _aSelf;
   CGFloat siteHeight = (appviewh + margin )* totalloc + totalloc * 3 - margin;
   _webSiteHeight = siteHeight;
   
-  [_viewMain bringSubviewToFront:_viewSearch];
+//  [_viewMain bringSubviewToFront:_viewSearch];
   [_viewHomeThree setContentSize:CGSizeMake(0, _viewHomeThree.height+1)];
   [_viewHomeThree setShowsVerticalScrollIndicator:NO];
   [_viewHomeThree setDelegate:self];
@@ -311,7 +311,8 @@ static id _aSelf;
 }
 
 - (void)goToHome {
-  [_webViewMain loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@""]]];
+  [_webViewMain.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@""]]];
+  [_webViewMain.webView setHidden:YES];
   [_webViewMain setHidden:YES];
   [self.textFiledContent setText:@""];
   [self toFullScreen:NO];
@@ -323,12 +324,13 @@ static id _aSelf;
 - (void)updateDisplay {
 
   NSString *title;
+  
   if (_webViewMain.link.length) {
     title = _webViewMain.title;
   }
   _textFiledContent.text = title;
-  _buttonGoforw.enabled = _webViewMain.canGoForward;
-  if (_webViewMain.hidden == NO) {
+  _buttonGoforw.enabled = _webViewMain.webView.canGoForward;
+  if (_webViewMain.webView.hidden == NO) {
     _buttonBack.enabled = YES;
   } else
     _buttonBack.enabled = NO;
@@ -346,7 +348,7 @@ static id _aSelf;
 #pragma mark - Webview Methods & UIWebViewDelegate
 
 - (void)loadWebView {
-  UtaWebView *webView = _webViewMain;
+  UIWebView *webView = _webViewMain.webView;
   [webView.scrollView setTag:60];
   [webView.scrollView setDelegate:self];
   webView.scalesPageToFit = YES;
@@ -358,7 +360,8 @@ static id _aSelf;
 
 - (void)setWebViewHidden:(BOOL) isHidden withLink:(NSString *)link {
   [_webViewMain setHidden:isHidden];
-  [_webViewMain loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:link]]];
+  [_webViewMain.webView setHidden:isHidden];
+  [_webViewMain.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:link]]];
 }
 
 - (void)webViewDidFinishLoad:(nonnull UIWebView *)webView {
@@ -369,7 +372,8 @@ static id _aSelf;
 
 void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
   [[_aSelf webViewMain] setHidden:NO];
-  [[_aSelf webViewMain] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:link]]];
+  [[_aSelf webViewMain].webView setHidden:NO];
+  [[_aSelf webViewMain].webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:link]]];
   [[_aSelf textFiledContent] setText:link];
 };
 
@@ -389,7 +393,8 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
   }
   url = [url getLinkWithText];
   [self.webViewMain setHidden:NO];
-  [self.webViewMain loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+  [self.webViewMain.webView setHidden:NO];
+  [self.webViewMain.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
   [self.textFiledContent setText:link];
   [self.view endEditing:YES];
 }
@@ -480,8 +485,8 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
       _buttonGoforw.enabled = NO;
       break;
     case MainHomeButtonTypeBack:
-      if (_webViewMain.canGoBack) {
-        [_webViewMain goBack];
+      if (_webViewMain.webView.canGoBack) {
+        [_webViewMain.webView goBack];
         [self updateDisplay];
       } else {
         [self goToHome];
@@ -489,8 +494,8 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
       }
       break;
     case MainHomeButtonTypeForward:
-      if (_webViewMain.canGoForward) {
-        [_webViewMain goForward];
+      if (_webViewMain.webView.canGoForward) {
+        [_webViewMain.webView goForward];
         [self updateDisplay];
       }
       break;

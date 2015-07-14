@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MDRadialProgress.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-OpenUDID.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4888BD24671E1FE7D0155623</key>
+		<key>18112FB4D04A6E46CB8BADC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5705C76139C01C96FC4DAD8B</key>
+		<key>7DF340D7358C7DA0A84C48EA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A68FEB6E0FA6CE57FB70CB33</key>
+		<key>B1073D8F7A7AFB4D9D0B7911</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B781032DB7040E60BA0E7742</key>
+		<key>C5484B681718BE768B93B12E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BB510ECF3ECC081039C2DB0C</key>
+		<key>EEBDB1C846946757FDFF265D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FF5A217D3B007FFF51E3B75C</key>
+		<key>F3068B37A20CA79B4F5AB837</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FD8B8D3DF67862A60333DFAE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+            <title>@{code}:@{title}</title>
+            <link href="/-_-/img/favicon.ico" rel="Shortcut Icon" />
+            <style>
+                body{background:#ebebeb; color:#3c3c3c; font-size:14px;font-family:verdan;text-align:center;}
+                body,p{margin:0;padding:0;border:0}
+                .gRaius{border-radius:4px; box-shadow:4px 5px 9px rgba(0,0,0,0.05);}
+                .gInBlock{display:inline-block; vertical-align:middle; overflow:auto}
+                .iLogo{ width:29px; height:29px;}
+                .header,.content{ margin: 0 auto;}
+                .header{width:90%; padding-top:26px; padding-bottom:20px;text-align: left;}
+                .header span{ padding-left:10px; font-weight:normal;font-size:22px; line-height:24px; text-shadow:0 1px 1px #fff;}
+                .content{width:90%; border:1px solid #d1d1d1; background:#fff; position:relative; z-index:1;}
+                </style>
+    </head>
+    <body>
+        
+        <div class="header" id="Header">
+            <h1><img class="gInBlock iLogo" src="Icon-Small@2x.png"></img><span id="Title">错误代码:@{code}  @{title}</span></h1>
+        </div>
+        
+        <div class="gRaius content">
+            <div style="padding:40px 20px 40px 20px;">
+                <p id="errorTs">@{error}</p>
+            </div>
+        </div>
+    </body>
+</html>

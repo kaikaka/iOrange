@@ -14,13 +14,6 @@
 		7F07943E1B27C239006883F9 /* home_webSite_Line@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F07943A1B27C239006883F9 /* home_webSite_Line@3x.png */; };
 		7F0794401B27DB5C006883F9 /* PhoneCoolSite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F07943F1B27DB5C006883F9 /* PhoneCoolSite.plist */; };
 		7F0794431B27E171006883F9 /* FilePathUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0794421B27E171006883F9 /* FilePathUtil.m */; };
-		7F0794671B28779B006883F9 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F07945C1B28779B006883F9 /* NJKWebViewProgress.m */; };
-		7F0794681B28779B006883F9 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F07945E1B28779B006883F9 /* NJKWebViewProgressView.m */; };
-		7F0794691B28779B006883F9 /* UIWebView+Clean.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0794611B28779B006883F9 /* UIWebView+Clean.m */; };
-		7F07946A1B28779B006883F9 /* UtaWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0794631B28779B006883F9 /* UtaWebView.m */; };
-		7F07946B1B28779B006883F9 /* web_btn_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F0794641B28779B006883F9 /* web_btn_error@2x.png */; };
-		7F07946C1B28779B006883F9 /* web_error.html in Resources */ = {isa = PBXBuildFile; fileRef = 7F0794651B28779B006883F9 /* web_error.html */; };
-		7F07946D1B28779B006883F9 /* web_jq1.5.1.js in Resources */ = {isa = PBXBuildFile; fileRef = 7F0794661B28779B006883F9 /* web_jq1.5.1.js */; };
 		7F07946F1B2FC66E006883F9 /* HomeNavSite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F07946E1B2FC66E006883F9 /* HomeNavSite.plist */; };
 		7F09A98E1B0C9D8F0036BDB7 /* ControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F09A98D1B0C9D8F0036BDB7 /* ControllerBase.m */; };
 		7F09A9921B0CA0B50036BDB7 /* ViewWebSiteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F09A9911B0CA0B50036BDB7 /* ViewWebSiteButton.m */; };
@@ -226,6 +219,20 @@
 		7FEBB6FB1B53B63F0097FF73 /* EnCityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FEBB6FA1B53B63F0097FF73 /* EnCityList.plist */; };
 		7FEBB6FD1B53B6770097FF73 /* CnCityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FEBB6FC1B53B6770097FF73 /* CnCityList.plist */; };
 		7FEBB6FF1B5409760097FF73 /* home_weather_autoLocation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEBB6FE1B5409760097FF73 /* home_weather_autoLocation@2x.png */; };
+		7FEBB7081B5411EE0097FF73 /* UIViewTaskPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEBB7071B5411EE0097FF73 /* UIViewTaskPage.m */; };
+		7FEBB71E1B5412FD0097FF73 /* BUIControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEBB70D1B5412FD0097FF73 /* BUIControl.m */; };
+		7FEBB71F1B5412FD0097FF73 /* BUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEBB70F1B5412FD0097FF73 /* BUIView.m */; };
+		7FEBB7201B5412FD0097FF73 /* html.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7FEBB7101B5412FD0097FF73 /* html.bundle */; };
+		7FEBB7211B5412FD0097FF73 /* js.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7FEBB7111B5412FD0097FF73 /* js.bundle */; };
+		7FEBB7221B5412FD0097FF73 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEBB7141B5412FD0097FF73 /* NJKWebViewProgress.m */; };
+		7FEBB7231B5412FD0097FF73 /* res.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7FEBB7151B5412FD0097FF73 /* res.bundle */; };
+		7FEBB7241B5412FD0097FF73 /* UIWebPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEBB7171B5412FD0097FF73 /* UIWebPage.m */; };
+		7FEBB7251B5412FD0097FF73 /* UIWebViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEBB7191B5412FD0097FF73 /* UIWebViewAdditions.m */; };
+		7FEBB7261B5412FD0097FF73 /* UnpreventableUILongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEBB71B1B5412FD0097FF73 /* UnpreventableUILongPressGestureRecognizer.m */; };
+		7FEBB7271B5412FD0097FF73 /* WebPageManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEBB71D1B5412FD0097FF73 /* WebPageManage.m */; };
+		7FEBB72A1B55069D0097FF73 /* UIControllerBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEBB7291B55069D0097FF73 /* UIControllerBrowser.m */; };
+		7FEBB72D1B5506EC0097FF73 /* UITaskPageManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEBB72C1B5506EC0097FF73 /* UITaskPageManage.m */; };
+		7FEBB7301B5506F60097FF73 /* UIScrollViewTaskManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEBB72F1B5506F60097FF73 /* UIScrollViewTaskManage.m */; };
 		7FF8DB3E1B4534E100226B48 /* home_scan_light_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF8DB3A1B4534E100226B48 /* home_scan_light_off@2x.png */; };
 		7FF8DB3F1B4534E100226B48 /* home_scan_light_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF8DB3B1B4534E100226B48 /* home_scan_light_off@3x.png */; };
 		7FF8DB401B4534E100226B48 /* home_scan_light_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF8DB3C1B4534E100226B48 /* home_scan_light_on@2x.png */; };
@@ -259,17 +266,6 @@
 		7F07943F1B27DB5C006883F9 /* PhoneCoolSite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PhoneCoolSite.plist; sourceTree = "<group>"; };
 		7F0794411B27E171006883F9 /* FilePathUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilePathUtil.h; sourceTree = "<group>"; };
 		7F0794421B27E171006883F9 /* FilePathUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilePathUtil.m; sourceTree = "<group>"; };
-		7F07945B1B28779B006883F9 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
-		7F07945C1B28779B006883F9 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
-		7F07945D1B28779B006883F9 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
-		7F07945E1B28779B006883F9 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
-		7F0794601B28779B006883F9 /* UIWebView+Clean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Clean.h"; sourceTree = "<group>"; };
-		7F0794611B28779B006883F9 /* UIWebView+Clean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Clean.m"; sourceTree = "<group>"; };
-		7F0794621B28779B006883F9 /* UtaWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtaWebView.h; sourceTree = "<group>"; };
-		7F0794631B28779B006883F9 /* UtaWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtaWebView.m; sourceTree = "<group>"; };
-		7F0794641B28779B006883F9 /* web_btn_error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web_btn_error@2x.png"; sourceTree = "<group>"; };
-		7F0794651B28779B006883F9 /* web_error.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = web_error.html; sourceTree = "<group>"; };
-		7F0794661B28779B006883F9 /* web_jq1.5.1.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = web_jq1.5.1.js; sourceTree = "<group>"; };
 		7F07946E1B2FC66E006883F9 /* HomeNavSite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HomeNavSite.plist; sourceTree = "<group>"; };
 		7F09A9891B0C9D030036BDB7 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		7F09A98B1B0C9D520036BDB7 /* ApiConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiConfig.h; sourceTree = "<group>"; };
@@ -508,6 +504,32 @@
 		7FEBB6FA1B53B63F0097FF73 /* EnCityList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EnCityList.plist; sourceTree = "<group>"; };
 		7FEBB6FC1B53B6770097FF73 /* CnCityList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CnCityList.plist; sourceTree = "<group>"; };
 		7FEBB6FE1B5409760097FF73 /* home_weather_autoLocation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_weather_autoLocation@2x.png"; sourceTree = "<group>"; };
+		7FEBB7061B5411EE0097FF73 /* UIViewTaskPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewTaskPage.h; sourceTree = "<group>"; };
+		7FEBB7071B5411EE0097FF73 /* UIViewTaskPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewTaskPage.m; sourceTree = "<group>"; };
+		7FEBB70B1B5412FD0097FF73 /* BlockUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockUI.h; sourceTree = "<group>"; };
+		7FEBB70C1B5412FD0097FF73 /* BUIControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUIControl.h; sourceTree = "<group>"; };
+		7FEBB70D1B5412FD0097FF73 /* BUIControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUIControl.m; sourceTree = "<group>"; };
+		7FEBB70E1B5412FD0097FF73 /* BUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUIView.h; sourceTree = "<group>"; };
+		7FEBB70F1B5412FD0097FF73 /* BUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUIView.m; sourceTree = "<group>"; };
+		7FEBB7101B5412FD0097FF73 /* html.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = html.bundle; sourceTree = "<group>"; };
+		7FEBB7111B5412FD0097FF73 /* js.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = js.bundle; sourceTree = "<group>"; };
+		7FEBB7131B5412FD0097FF73 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
+		7FEBB7141B5412FD0097FF73 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
+		7FEBB7151B5412FD0097FF73 /* res.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = res.bundle; sourceTree = "<group>"; };
+		7FEBB7161B5412FD0097FF73 /* UIWebPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWebPage.h; sourceTree = "<group>"; };
+		7FEBB7171B5412FD0097FF73 /* UIWebPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWebPage.m; sourceTree = "<group>"; };
+		7FEBB7181B5412FD0097FF73 /* UIWebViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWebViewAdditions.h; sourceTree = "<group>"; };
+		7FEBB7191B5412FD0097FF73 /* UIWebViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWebViewAdditions.m; sourceTree = "<group>"; };
+		7FEBB71A1B5412FD0097FF73 /* UnpreventableUILongPressGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnpreventableUILongPressGestureRecognizer.h; sourceTree = "<group>"; };
+		7FEBB71B1B5412FD0097FF73 /* UnpreventableUILongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnpreventableUILongPressGestureRecognizer.m; sourceTree = "<group>"; };
+		7FEBB71C1B5412FD0097FF73 /* WebPageManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebPageManage.h; sourceTree = "<group>"; };
+		7FEBB71D1B5412FD0097FF73 /* WebPageManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebPageManage.m; sourceTree = "<group>"; };
+		7FEBB7281B55069D0097FF73 /* UIControllerBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIControllerBrowser.h; sourceTree = "<group>"; };
+		7FEBB7291B55069D0097FF73 /* UIControllerBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIControllerBrowser.m; sourceTree = "<group>"; };
+		7FEBB72B1B5506EC0097FF73 /* UITaskPageManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITaskPageManage.h; sourceTree = "<group>"; };
+		7FEBB72C1B5506EC0097FF73 /* UITaskPageManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITaskPageManage.m; sourceTree = "<group>"; };
+		7FEBB72E1B5506F60097FF73 /* UIScrollViewTaskManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewTaskManage.h; sourceTree = "<group>"; };
+		7FEBB72F1B5506F60097FF73 /* UIScrollViewTaskManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewTaskManage.m; sourceTree = "<group>"; };
 		7FF8DB3A1B4534E100226B48 /* home_scan_light_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_light_off@2x.png"; sourceTree = "<group>"; };
 		7FF8DB3B1B4534E100226B48 /* home_scan_light_off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_light_off@3x.png"; sourceTree = "<group>"; };
 		7FF8DB3C1B4534E100226B48 /* home_scan_light_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_light_on@2x.png"; sourceTree = "<group>"; };
@@ -589,40 +611,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7F0794591B28779B006883F9 /* KWebView_15.06.10 */ = {
-			isa = PBXGroup;
-			children = (
-				7F07945A1B28779B006883F9 /* NJKWebViewProgress */,
-				7F07945F1B28779B006883F9 /* UIWebView+Clean */,
-				7F0794621B28779B006883F9 /* UtaWebView.h */,
-				7F0794631B28779B006883F9 /* UtaWebView.m */,
-				7F0794641B28779B006883F9 /* web_btn_error@2x.png */,
-				7F0794651B28779B006883F9 /* web_error.html */,
-				7F0794661B28779B006883F9 /* web_jq1.5.1.js */,
-			);
-			path = KWebView_15.06.10;
-			sourceTree = "<group>";
-		};
-		7F07945A1B28779B006883F9 /* NJKWebViewProgress */ = {
-			isa = PBXGroup;
-			children = (
-				7F07945B1B28779B006883F9 /* NJKWebViewProgress.h */,
-				7F07945C1B28779B006883F9 /* NJKWebViewProgress.m */,
-				7F07945D1B28779B006883F9 /* NJKWebViewProgressView.h */,
-				7F07945E1B28779B006883F9 /* NJKWebViewProgressView.m */,
-			);
-			path = NJKWebViewProgress;
-			sourceTree = "<group>";
-		};
-		7F07945F1B28779B006883F9 /* UIWebView+Clean */ = {
-			isa = PBXGroup;
-			children = (
-				7F0794601B28779B006883F9 /* UIWebView+Clean.h */,
-				7F0794611B28779B006883F9 /* UIWebView+Clean.m */,
-			);
-			path = "UIWebView+Clean";
-			sourceTree = "<group>";
-		};
 		7F09A97E1B0C9C8B0036BDB7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,7 +642,7 @@
 		7F09A9811B0C9C8B0036BDB7 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				7F0794591B28779B006883F9 /* KWebView_15.06.10 */,
+				7FEBB7091B5412FD0097FF73 /* KWebView_15.06.10 */,
 				7F5571E91B0D7BA600B0CE8F /* Baidu_Ad_2.6 */,
 			);
 			path = Vendors;
@@ -701,6 +689,8 @@
 		7F09A9841B0C9D030036BDB7 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				7FEBB72E1B5506F60097FF73 /* UIScrollViewTaskManage.h */,
+				7FEBB72F1B5506F60097FF73 /* UIScrollViewTaskManage.m */,
 				7F09A9901B0CA0B50036BDB7 /* ViewWebSiteButton.h */,
 				7F09A9911B0CA0B50036BDB7 /* ViewWebSiteButton.m */,
 				7F5572501B10236500B0CE8F /* ViewHomeSection.h */,
@@ -723,6 +713,8 @@
 		7F09A9861B0C9D030036BDB7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				7FEBB72B1B5506EC0097FF73 /* UITaskPageManage.h */,
+				7FEBB72C1B5506EC0097FF73 /* UITaskPageManage.m */,
 				7F0794411B27E171006883F9 /* FilePathUtil.h */,
 				7F0794421B27E171006883F9 /* FilePathUtil.m */,
 				7FF8DB4D1B4A97E700226B48 /* CommonMethods.h */,
@@ -1116,9 +1108,52 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		7FEBB7091B5412FD0097FF73 /* KWebView_15.06.10 */ = {
+			isa = PBXGroup;
+			children = (
+				7FEBB70A1B5412FD0097FF73 /* BlockUI */,
+				7FEBB7101B5412FD0097FF73 /* html.bundle */,
+				7FEBB7111B5412FD0097FF73 /* js.bundle */,
+				7FEBB7121B5412FD0097FF73 /* NJKWebViewProgress */,
+				7FEBB7151B5412FD0097FF73 /* res.bundle */,
+				7FEBB7161B5412FD0097FF73 /* UIWebPage.h */,
+				7FEBB7171B5412FD0097FF73 /* UIWebPage.m */,
+				7FEBB7181B5412FD0097FF73 /* UIWebViewAdditions.h */,
+				7FEBB7191B5412FD0097FF73 /* UIWebViewAdditions.m */,
+				7FEBB71A1B5412FD0097FF73 /* UnpreventableUILongPressGestureRecognizer.h */,
+				7FEBB71B1B5412FD0097FF73 /* UnpreventableUILongPressGestureRecognizer.m */,
+				7FEBB71C1B5412FD0097FF73 /* WebPageManage.h */,
+				7FEBB71D1B5412FD0097FF73 /* WebPageManage.m */,
+			);
+			path = KWebView_15.06.10;
+			sourceTree = "<group>";
+		};
+		7FEBB70A1B5412FD0097FF73 /* BlockUI */ = {
+			isa = PBXGroup;
+			children = (
+				7FEBB70B1B5412FD0097FF73 /* BlockUI.h */,
+				7FEBB70C1B5412FD0097FF73 /* BUIControl.h */,
+				7FEBB70D1B5412FD0097FF73 /* BUIControl.m */,
+				7FEBB70E1B5412FD0097FF73 /* BUIView.h */,
+				7FEBB70F1B5412FD0097FF73 /* BUIView.m */,
+			);
+			path = BlockUI;
+			sourceTree = "<group>";
+		};
+		7FEBB7121B5412FD0097FF73 /* NJKWebViewProgress */ = {
+			isa = PBXGroup;
+			children = (
+				7FEBB7131B5412FD0097FF73 /* NJKWebViewProgress.h */,
+				7FEBB7141B5412FD0097FF73 /* NJKWebViewProgress.m */,
+			);
+			path = NJKWebViewProgress;
+			sourceTree = "<group>";
+		};
 		7FF8DB421B48B61B00226B48 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7FEBB7281B55069D0097FF73 /* UIControllerBrowser.h */,
+				7FEBB7291B55069D0097FF73 /* UIControllerBrowser.m */,
 				7FF8DB431B48B61B00226B48 /* ControllerScanCode.h */,
 				7FF8DB441B48B61B00226B48 /* ControllerScanCode.m */,
 				7FF8DB451B48B61B00226B48 /* ControllerTempBase.h */,
@@ -1131,6 +1166,8 @@
 		7FF8DB471B48B61B00226B48 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7FEBB7061B5411EE0097FF73 /* UIViewTaskPage.h */,
+				7FEBB7071B5411EE0097FF73 /* UIViewTaskPage.m */,
 				7FF8DB4A1B48B62E00226B48 /* ViewWeather.h */,
 				7FF8DB4B1B48B62E00226B48 /* ViewWeather.m */,
 			);
@@ -1243,6 +1280,7 @@
 				7F7059AF1B242E4B00FCB86C /* home_nav_twoCode_default@2x.png in Resources */,
 				7F7059951B242E4B00FCB86C /* home_button_moreMark@2x.png in Resources */,
 				7F7059B21B242E4B00FCB86C /* home_nav_twoCode_pressed@3x.png in Resources */,
+				7FEBB7211B5412FD0097FF73 /* js.bundle in Resources */,
 				7F70599D1B242E4B00FCB86C /* home_image_baike@2x.png in Resources */,
 				7F705A6A1B265BC000FCB86C /* big_cloudy@2x.png in Resources */,
 				7F07943E1B27C239006883F9 /* home_webSite_Line@3x.png in Resources */,
@@ -1254,7 +1292,6 @@
 				7F705A701B265BC000FCB86C /* big_NA@2x.png in Resources */,
 				7F7059B31B242E4B00FCB86C /* home_site_icon0@2x.png in Resources */,
 				7F705A7D1B265BC000FCB86C /* small_fine@2x.png in Resources */,
-				7F07946D1B28779B006883F9 /* web_jq1.5.1.js in Resources */,
 				7F7059E11B242E4B00FCB86C /* home_weather_windmill@2x.png in Resources */,
 				7F705A611B265BC000FCB86C /* white_4@2x.png in Resources */,
 				7F7059CD1B242E4B00FCB86C /* home_webSite_down@2x.png in Resources */,
@@ -1303,7 +1340,6 @@
 				7F7059CF1B242E4B00FCB86C /* home_webSite_jd@2x.png in Resources */,
 				7F705A861B265BC000FCB86C /* small_snow@2x.png in Resources */,
 				7F7059BB1B242E4B00FCB86C /* home_site_icon4@2x.png in Resources */,
-				7F07946B1B28779B006883F9 /* web_btn_error@2x.png in Resources */,
 				7F7059941B242E4B00FCB86C /* home_button_home_select@3x.png in Resources */,
 				7F705A821B265BC000FCB86C /* small_sandstorm@2x.png in Resources */,
 				7F7059D11B242E4B00FCB86C /* home_webSite_jianshu@2x.png in Resources */,
@@ -1323,6 +1359,7 @@
 				7F7059931B242E4B00FCB86C /* home_button_home_select@2x.png in Resources */,
 				7F7059B71B242E4B00FCB86C /* home_site_icon2@2x.png in Resources */,
 				7F705A7C1B265BC000FCB86C /* small_eind@2x.png in Resources */,
+				7FEBB7231B5412FD0097FF73 /* res.bundle in Resources */,
 				7F7059981B242E4B00FCB86C /* home_button_moreMark_select@3x.png in Resources */,
 				7F901DBC1B4B871500835396 /* 3@2x.png in Resources */,
 				7F705A651B265BC000FCB86C /* white_8@2x.png in Resources */,
@@ -1338,6 +1375,7 @@
 				7F901DB91B4B871500835396 /* 0@2x.png in Resources */,
 				7F705A721B265BC000FCB86C /* big_sandstorm@2x.png in Resources */,
 				7F705A5F1B265BC000FCB86C /* white_2@2x.png in Resources */,
+				7FEBB7201B5412FD0097FF73 /* html.bundle in Resources */,
 				7F7059DC1B242E4B00FCB86C /* home_webSite_youku@3x.png in Resources */,
 				7F705A811B265BC000FCB86C /* small_rain@2x.png in Resources */,
 				7F705A691B265BC000FCB86C /* white_negative@2x.png in Resources */,
@@ -1395,7 +1433,6 @@
 				7F7059C51B242E4B00FCB86C /* home_site_icon9@2x.png in Resources */,
 				7F70599C1B242E4B00FCB86C /* home_button_setting_select@3x.png in Resources */,
 				7F58A9931B3E88C70009E965 /* home_scan_pick_bg@3x.png in Resources */,
-				7F07946C1B28779B006883F9 /* web_error.html in Resources */,
 				7F91D54F1B0C81750087080D /* iTunesArtwork@2x in Resources */,
 				7F901DBF1B4B871500835396 /* 6@2x.png in Resources */,
 				7F705A7A1B265BC000FCB86C /* small_cloudy@2x.png in Resources */,
@@ -1457,34 +1494,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FC998081B0A0D7A009E8BD7 /* ViewController.m in Sources */,
+				7FEBB72D1B5506EC0097FF73 /* UITaskPageManage.m in Sources */,
+				7FEBB7271B5412FD0097FF73 /* WebPageManage.m in Sources */,
+				7FEBB72A1B55069D0097FF73 /* UIControllerBrowser.m in Sources */,
+				7FEBB7261B5412FD0097FF73 /* UnpreventableUILongPressGestureRecognizer.m in Sources */,
 				7F5572521B10236500B0CE8F /* ViewHomeSection.m in Sources */,
 				7F5572921B108AA400B0CE8F /* NSStringEx.m in Sources */,
 				7F5572941B108AA400B0CE8F /* UIColor+Expanded.m in Sources */,
 				7F901DD51B4C068B00835396 /* CalendarDateUtil.m in Sources */,
+				7FEBB71E1B5412FD0097FF73 /* BUIControl.m in Sources */,
 				7FF8DB4C1B48B62E00226B48 /* ViewWeather.m in Sources */,
 				7F0794431B27E171006883F9 /* FilePathUtil.m in Sources */,
+				7FEBB7251B5412FD0097FF73 /* UIWebViewAdditions.m in Sources */,
 				7F5572961B108AA400B0CE8F /* UIImageEx.m in Sources */,
+				7FEBB7221B5412FD0097FF73 /* NJKWebViewProgress.m in Sources */,
 				7F4182A11B4B71D300809DD4 /* UIImageViewEx.m in Sources */,
 				7F5572971B108AA400B0CE8F /* UIViewEx.m in Sources */,
-				7F0794671B28779B006883F9 /* NJKWebViewProgress.m in Sources */,
 				7F09A9921B0CA0B50036BDB7 /* ViewWebSiteButton.m in Sources */,
 				7F5572951B108AA400B0CE8F /* UIImage+Bundle.m in Sources */,
-				7F0794681B28779B006883F9 /* NJKWebViewProgressView.m in Sources */,
-				7F07946A1B28779B006883F9 /* UtaWebView.m in Sources */,
 				7F0794331B2703E4006883F9 /* ViewCellControl.m in Sources */,
 				7FC998071B0A0D7A009E8BD7 /* AppDelegate.m in Sources */,
 				7F09A98E1B0C9D8F0036BDB7 /* ControllerBase.m in Sources */,
 				7F7058D71B14A15700FCB86C /* ViewGuideSiteButton.m in Sources */,
+				7FEBB7301B5506F60097FF73 /* UIScrollViewTaskManage.m in Sources */,
 				7F5572231B0D7BA600B0CE8F /* mongoose.c in Sources */,
+				7FEBB7081B5411EE0097FF73 /* UIViewTaskPage.m in Sources */,
+				7FEBB71F1B5412FD0097FF73 /* BUIView.m in Sources */,
 				7FC997DA1B09794E009E8BD7 /* main.m in Sources */,
 				7F5572931B108AA400B0CE8F /* UIButtonEx.m in Sources */,
-				7F0794691B28779B006883F9 /* UIWebView+Clean.m in Sources */,
 				7FF8DB491B48B61B00226B48 /* ControllerTempBase.m in Sources */,
 				7F5572911B108AA400B0CE8F /* NSString+URL.m in Sources */,
 				7FF8DB4F1B4A97E700226B48 /* CommonMethods.m in Sources */,
 				7FF8DB521B4B624A00226B48 /* CLLocationManagerEx.m in Sources */,
 				7F2ED4141B442CBC00D4B5AA /* SlurImageView.m in Sources */,
 				7FF8DB481B48B61B00226B48 /* ControllerScanCode.m in Sources */,
+				7FEBB7241B5412FD0097FF73 /* UIWebPage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
