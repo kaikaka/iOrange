@@ -13,8 +13,7 @@
 
 #define kMaxWebPageNumber 10
 
-@interface UIControllerBrowser () <WebPageManageDelegate, UIGestureRecognizerDelegate>
-{
+@interface UIControllerBrowser () <WebPageManageDelegate, UIGestureRecognizerDelegate> {
     UIWebPage *_webPage;
 }
 
@@ -52,7 +51,7 @@
     
     self.view.backgroundColor = [UIColor clearColor];
     
-    [UIWebPage appearance].progressColor = [UIColor blueColor];//RGBCOLOR(0, 200, 0);
+    [UIWebPage appearance].progressColor = [UIColor orangeColor];//RGBCOLOR(0, 200, 0);
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,13 +69,11 @@
     return rc;
 }
 
-- (void)loadLink:(NSString *)link
-{
+- (void)loadLink:(NSString *)link {
     [self loadLink:link viewLogo:nil];
 }
 
-- (void)loadLink:(NSString *)link viewLogo:(UIView *)viewLogo
-{
+- (void)loadLink:(NSString *)link viewLogo:(UIView *)viewLogo {
     if (_webPage) {
         [_webPage removeFromSuperview];
     }
@@ -155,8 +152,14 @@
 }
 
 #pragma mark - WebPageManageDelegate: UIScrollViewDelegate
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
+
+- (void)scrollViewWillBeginDragging:(nonnull UIScrollView *)scrollView {
+  if ([_delegate respondsToSelector:@selector(controllerBrowser:scrollViewWillBeginDragging:)]) {
+    [_delegate controllerBrowser:self scrollViewWillBeginDragging:scrollView];
+  }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     CGPoint pt = [scrollView.panGestureRecognizer translationInView:self.view];
     if (pt.y==0) {
         // 横向拉动
@@ -167,12 +170,14 @@
     
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGPoint pt = [scrollView.panGestureRecognizer translationInView:self.view];
     if (pt.y==0) {
         // 横向拉动
     }
+  if ([_delegate respondsToSelector:@selector(controllerBrowser:scrollViewDidScroll:)]) {
+    [_delegate controllerBrowser:self scrollViewDidScroll:scrollView];
+  }
 }
 
 #pragma mark - WebPageManageDelegate

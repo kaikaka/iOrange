@@ -21,8 +21,9 @@
 #import "NSStringEx.h"
 #import "ApiConfig.h"
 #import "SVPullToRefresh.h"
+#import "UIControllerBrowser.h"
 
-@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate,ScanCodeDelegate,UIWebViewDelegate>{
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate,ScanCodeDelegate,UIWebViewDelegate,UIControllerBrowserDelegate>{
   
   __weak IBOutlet UIButton *_buttonSearch;
   __weak IBOutlet UIButton *_buttonTwoCode;
@@ -42,6 +43,7 @@
   UITableView *_tableViewExpend;
   UIPageControl *_pageViewMark;
   UIView *_viewSiteShow;
+  UIControllerBrowser *_controllerBrowser;
   
   NSMutableArray *_DataArray;//记录所有section是否伸展
   NSArray *_arrayCateImageName;// 图片名称
@@ -60,7 +62,6 @@
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *textFiledContent;
-@property (weak, nonatomic) __block IBOutlet UIWebPage *webViewMain;
 @property (nonatomic,strong)void (^whenTouchEnd) (NSString *);
 @property (nonatomic,strong)void (^whenShowWeatherEnd) (void);
 
@@ -193,7 +194,7 @@
   pageView.pageIndicatorTintColor = [UIColor blackColor];
   pageView.numberOfPages = 3;
   pageView.currentPage = 0;
-  [_viewMain insertSubview:pageView belowSubview:_webViewMain];
+  [_viewMain insertSubview:pageView belowSubview:_viewTouch];
   _pageViewMark = pageView;
 }
 
@@ -209,7 +210,6 @@ static id _aSelf;
   _buttonBack.enabled = NO;
   _buttonGoforw.enabled = NO;
   
-  [self loadWebView];
 //  [_viewHomeThree setUp];
   //创建一个数组
   _DataArray=[[NSMutableArray alloc] init];
@@ -311,26 +311,19 @@ static id _aSelf;
 }
 
 - (void)goToHome {
-  [_webViewMain.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@""]]];
-  [_webViewMain.webView setHidden:YES];
-  [_webViewMain setHidden:YES];
+  [_controllerBrowser.view removeFromSuperview];
   [self.textFiledContent setText:@""];
   [self toFullScreen:NO];
   _buttonBack.enabled = NO;
   _buttonGoforw.enabled = NO;
+  [[UIApplication sharedApplication] setStatusBarHidden:NO];
+  [self overBackgroundToHidden:NO];
 }
 
 /// 更新界面显示
 - (void)updateDisplay {
-
-  NSString *title;
-  
-  if (_webViewMain.link.length) {
-    title = _webViewMain.title;
-  }
-  _textFiledContent.text = title;
-  _buttonGoforw.enabled = _webViewMain.webView.canGoForward;
-  if (_webViewMain.webView.hidden == NO) {
+  _buttonGoforw.enabled = _controllerBrowser.webPage.webView.canGoForward;
+  if (_controllerBrowser.view) {
     _buttonBack.enabled = YES;
   } else
     _buttonBack.enabled = NO;
@@ -344,24 +337,25 @@ static id _aSelf;
   }
 }
 
+- (void)overBackgroundToHidden:(BOOL)isHidden {
+  _viewSearch.hidden = _scrollViewContent.hidden = isHidden;
+}
+
 #pragma mark -
 #pragma mark - Webview Methods & UIWebViewDelegate
 
-- (void)loadWebView {
-  UIWebView *webView = _webViewMain.webView;
-  [webView.scrollView setTag:60];
-  [webView.scrollView setDelegate:self];
-  webView.scalesPageToFit = YES;
-  webView.dataDetectorTypes = UIDataDetectorTypeNone;
-  webView.delegate = self;
-  [_viewMain bringSubviewToFront:_viewTouch];
-  [webView setHidden:YES];
+- (void)loadWebViewWithLink:(NSString *)link {
+  //实例化浏览器控制器
+  _controllerBrowser = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"UIControllerBrowser"];
+  _controllerBrowser.delegate = self;
+  [_viewMain insertSubview:_controllerBrowser.view belowSubview:_viewTouch];
+  [_controllerBrowser loadLink:link];
+  [[UIApplication sharedApplication] setStatusBarHidden:YES];
+  [self overBackgroundToHidden:YES];
 }
 
 - (void)setWebViewHidden:(BOOL) isHidden withLink:(NSString *)link {
-  [_webViewMain setHidden:isHidden];
-  [_webViewMain.webView setHidden:isHidden];
-  [_webViewMain.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:link]]];
+  
 }
 
 - (void)webViewDidFinishLoad:(nonnull UIWebView *)webView {
@@ -371,10 +365,8 @@ static id _aSelf;
 #pragma mark -  Block Methods
 
 void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
-  [[_aSelf webViewMain] setHidden:NO];
-  [[_aSelf webViewMain].webView setHidden:NO];
-  [[_aSelf webViewMain].webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:link]]];
   [[_aSelf textFiledContent] setText:link];
+  [_aSelf loadWebViewWithLink:link];
 };
 
 void (^whenShowWeatherEnd)(void) = ^ void (){
@@ -392,10 +384,8 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
   }
   url = [url getLinkWithText];
-  [self.webViewMain setHidden:NO];
-  [self.webViewMain.webView setHidden:NO];
-  [self.webViewMain.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
-  [self.textFiledContent setText:link];
+  [self loadWebViewWithLink:url];
+  [self.textFiledContent setText:url];
   [self.view endEditing:YES];
 }
 
@@ -485,19 +475,19 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
       _buttonGoforw.enabled = NO;
       break;
     case MainHomeButtonTypeBack:
-      if (_webViewMain.webView.canGoBack) {
-        [_webViewMain.webView goBack];
+//      if (_webViewMain.webView.canGoBack) {
+//        [_webViewMain.webView goBack];
         [self updateDisplay];
-      } else {
+//      } else {
         [self goToHome];
         _buttonBack.enabled = NO;
-      }
+//      }
       break;
     case MainHomeButtonTypeForward:
-      if (_webViewMain.webView.canGoForward) {
-        [_webViewMain.webView goForward];
+//      if (_webViewMain.webView.canGoForward) {
+//        [_webViewMain.webView goForward];
         [self updateDisplay];
-      }
+//      }
       break;
     default:
       break;
@@ -513,6 +503,56 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
 - (IBAction)onTouchWithSearchAction:(UIButton *)sender {
   [_textFiledContent becomeFirstResponder];
   return;
+}
+
+#pragma mark - UIControllerBrowserDelegate
+
+- (void)controllerBrowserWillDimiss:(UIControllerBrowser *)controllerBrowser willRemoveWebPage:(UIWebPage *)webPage {
+  
+}
+
+- (void)controllerBrowser:(UIControllerBrowser *)controllerBrowser scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+  [_viewMain endEditing:YES];
+  _lastOffsetY = scrollView.contentOffset.y;
+}
+
+- (void)controllerBrowser:(UIControllerBrowser *)controllerBrowser scrollViewDidScroll:(UIScrollView *)scrollView {
+  CGFloat currOffsetY = scrollView.contentOffset.y;
+  CGFloat maxOffsetY = MAX(0, scrollView.contentSize.height-scrollView.bounds.size.height);
+  if (!_isFullScreen && maxOffsetY<(_viewSearch.bounds.size.height+20)) {
+    return;
+  }
+  
+  if (fabs(currOffsetY-_lastOffsetY) > 10) {
+    BOOL needFullScreen = NO;
+    if (currOffsetY > 10
+        && (currOffsetY>_lastOffsetY || currOffsetY>maxOffsetY)) {
+      needFullScreen = YES;
+    }
+    [self toFullScreen:needFullScreen];
+    
+    _lastOffsetY = currOffsetY;
+  }
+  
+  CGPoint offset = scrollView.contentOffset;
+  CGRect bounds = scrollView.bounds;
+  CGSize size = scrollView.contentSize;
+  UIEdgeInsets inset = scrollView.contentInset;
+  CGFloat currentOffset = offset.y + bounds.size.height - inset.bottom;
+  CGFloat maximumOffset = size.height;
+  
+  //当currentOffset与maximumOffset的值相等时，说明scrollview已经滑到底部了。也可以根据这两个值的差来让他做点其他的什么事情
+  if((maximumOffset - currentOffset) <= 0.0) {
+    _constraintViewBottomB.constant = -_viewTouch.bounds.size.height;
+    [UIView animateWithDuration:kDuration250ms animations:^{
+      [self.view layoutIfNeeded];
+    }];
+  } else {
+    _constraintViewBottomB.constant = 0;
+    [UIView animateWithDuration:kDuration250ms animations:^{
+      [self.view layoutIfNeeded];
+    }];
+  }
 }
 
 #pragma mark - 
@@ -542,62 +582,9 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
     [_viewHomeThree.pullToRefreshView setHidden:NO];
     return;
   }
-  if (scrollView.tag == 60) {
-    [_viewMain endEditing:YES];
-    _lastOffsetY = scrollView.contentOffset.y;
-  }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-  if (scrollView.tag != 60) {
-    return;
-  }
-  if (!scrollView.isTracking) {
-    return;
-  }
-  
-  CGFloat currOffsetY = scrollView.contentOffset.y;
-  CGFloat maxOffsetY = MAX(0, scrollView.contentSize.height-scrollView.bounds.size.height);
-  if (!_isFullScreen && maxOffsetY<(_viewSearch.bounds.size.height+20)) {
-    return;
-  }
-  
-  if (fabs(currOffsetY-_lastOffsetY) > 10) {
-    BOOL needFullScreen = NO;
-    if (currOffsetY > 10
-        && (currOffsetY>_lastOffsetY || currOffsetY>maxOffsetY)) {
-      needFullScreen = YES;
-    }
-    [self toFullScreen:needFullScreen];
-    
-    _lastOffsetY = currOffsetY;
-  }
-  
-  CGPoint offset = scrollView.contentOffset;
-  
-  CGRect bounds = scrollView.bounds;
-  
-  CGSize size = scrollView.contentSize;
-  
-  UIEdgeInsets inset = scrollView.contentInset;
-  
-  CGFloat currentOffset = offset.y + bounds.size.height - inset.bottom;
-  
-  CGFloat maximumOffset = size.height;
-  
-  //当currentOffset与maximumOffset的值相等时，说明scrollview已经滑到底部了。也可以根据这两个值的差来让他做点其他的什么事情
-  
-  if((maximumOffset - currentOffset) <= 0.0) {
-    _constraintViewBottomB.constant = -_viewTouch.bounds.size.height;
-    [UIView animateWithDuration:kDuration250ms animations:^{
-      [self.view layoutIfNeeded];
-    }];
-  } else {
-    _constraintViewBottomB.constant = 0;
-    [UIView animateWithDuration:kDuration250ms animations:^{
-      [self.view layoutIfNeeded];
-    }];
-  }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{

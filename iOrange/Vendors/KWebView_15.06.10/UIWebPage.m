@@ -323,7 +323,7 @@ typedef NS_ENUM(NSInteger, CustomPanDirection) {
 	_progressRefresh.startingSlice = 1;
 	_progressRefresh.clockwise = YES;
     _progressRefresh.theme.thickness =_progressRefresh.bounds.size.width-0;
-	_progressRefresh.theme.completedColor = [UIColor brownColor];
+	_progressRefresh.theme.completedColor = [UIColor colorWithRed:247./255. green:146./255. blue:77./255. alpha:1.];
 	_progressRefresh.theme.sliceDividerThickness = 0;
     _progressRefresh.theme.dropLabelShadow = NO;
     [self insertSubview:_progressRefresh atIndex:0];

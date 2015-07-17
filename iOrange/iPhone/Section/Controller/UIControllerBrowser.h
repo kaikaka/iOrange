@@ -17,6 +17,7 @@
 
 @property (nonatomic, weak) id<UIControllerBrowserDelegate> delegate;
 @property (nonatomic, strong, readonly) WebPageManage *webPageManage;
+@property (nonatomic,strong, readonly)UIWebPage *webPage;
 
 - (void)loadLink:(NSString *)link;
 - (void)loadLink:(NSString *)link viewLogo:(UIView *)viewLogo;
@@ -30,5 +31,9 @@
 
 - (void)controllerBrowserWillDimiss:(UIControllerBrowser *)controllerBrowser willRemoveWebPage:(UIWebPage *)webPage;
 //- (void)controllerBrowserDidLoad:(ModelSite *)modelSite;
+
+- (void)controllerBrowser:(UIControllerBrowser *)controllerBrowser scrollViewWillBeginDragging:(UIScrollView *)scrollView;
+
+- (void)controllerBrowser:(UIControllerBrowser *)controllerBrowser scrollViewDidScroll:(UIScrollView *)scrollView;
 
 @end
