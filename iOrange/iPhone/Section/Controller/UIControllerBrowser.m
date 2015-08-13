@@ -96,9 +96,8 @@
         _webPage.frame = self.view.bounds;
         [_webPageManage setCurrWebPage:_webPage];
         [_webPageManage moveCurrPageToLast];
+      [_webPage load:link];
         if (_webPage.canBack) {
-            [_webPage load:link];
-            
             showLoadingViewLogo(viewLogo);
         }
         else {

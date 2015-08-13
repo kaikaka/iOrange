@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -23,13 +23,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_nav_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="uYT-a9-xm9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8D6-sf-R0g">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_nav_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="uYT-a9-xm9">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                        <animations/>
-                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1g-b0-ceT">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                         <subviews>
@@ -440,23 +440,19 @@
                                     </view>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="uYT-a9-xm9" secondAttribute="bottom" id="5y3-Ce-Wwb"/>
                                     <constraint firstItem="3vk-4b-jay" firstAttribute="leading" secondItem="8D6-sf-R0g" secondAttribute="leading" id="6EG-rA-MrM"/>
                                     <constraint firstAttribute="bottom" secondItem="nho-ee-0Cu" secondAttribute="bottom" constant="50" id="Ct0-xv-z5O"/>
                                     <constraint firstAttribute="bottom" secondItem="3vk-4b-jay" secondAttribute="bottom" id="D4r-RL-RwO"/>
                                     <constraint firstItem="n1g-b0-ceT" firstAttribute="top" secondItem="8D6-sf-R0g" secondAttribute="top" id="G66-an-TWu"/>
                                     <constraint firstAttribute="trailing" secondItem="n1g-b0-ceT" secondAttribute="trailing" id="HIM-Qc-0Hn"/>
                                     <constraint firstAttribute="trailing" secondItem="3vk-4b-jay" secondAttribute="trailing" id="JI9-P7-eqd"/>
-                                    <constraint firstItem="uYT-a9-xm9" firstAttribute="top" secondItem="8D6-sf-R0g" secondAttribute="top" id="LPD-fC-JRQ"/>
                                     <constraint firstItem="nho-ee-0Cu" firstAttribute="leading" secondItem="8D6-sf-R0g" secondAttribute="leading" id="NfR-35-FDc"/>
                                     <constraint firstItem="3vk-4b-jay" firstAttribute="top" secondItem="n1g-b0-ceT" secondAttribute="bottom" constant="538" id="X3G-nC-wAj"/>
                                     <constraint firstAttribute="trailing" secondItem="nho-ee-0Cu" secondAttribute="trailing" id="bfs-75-3ir"/>
                                     <constraint firstItem="n1g-b0-ceT" firstAttribute="leading" secondItem="8D6-sf-R0g" secondAttribute="leading" id="byI-8d-Llu"/>
-                                    <constraint firstItem="uYT-a9-xm9" firstAttribute="leading" secondItem="8D6-sf-R0g" secondAttribute="leading" id="lz0-hZ-A0a"/>
                                     <constraint firstItem="nho-ee-0Cu" firstAttribute="top" secondItem="n1g-b0-ceT" secondAttribute="bottom" id="vc2-gd-yhB"/>
-                                    <constraint firstAttribute="trailing" secondItem="uYT-a9-xm9" secondAttribute="trailing" id="yzj-b1-V2P"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -470,8 +466,12 @@
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="8D6-sf-R0g" secondAttribute="bottom" id="16a-zE-CRp"/>
                             <constraint firstAttribute="trailing" secondItem="8D6-sf-R0g" secondAttribute="trailing" id="4wS-vp-gbC"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="uYT-a9-xm9" secondAttribute="bottom" id="8uo-fX-Ufv"/>
+                            <constraint firstAttribute="trailing" secondItem="uYT-a9-xm9" secondAttribute="trailing" id="LNx-BK-9zh"/>
                             <constraint firstItem="8D6-sf-R0g" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Lmx-aV-a09"/>
                             <constraint firstItem="8D6-sf-R0g" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="YV7-zt-Nhj"/>
+                            <constraint firstItem="uYT-a9-xm9" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="uoa-Ql-Vg1"/>
+                            <constraint firstItem="uYT-a9-xm9" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="y4N-7i-WqG"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -481,6 +481,7 @@
                         <outlet property="_buttonGoforw" destination="rta-GV-afp" id="TmQ-2S-owq"/>
                         <outlet property="_buttonSearch" destination="Est-EW-hPV" id="Oan-ya-nu6"/>
                         <outlet property="_buttonTwoCode" destination="4ie-Sb-ZvJ" id="014-Z9-OfF"/>
+                        <outlet property="_imgvBackground" destination="uYT-a9-xm9" id="R6O-ai-Zwe"/>
                         <outlet property="_scrollViewContent" destination="nho-ee-0Cu" id="Gww-d2-T5c"/>
                         <outlet property="_viewHomeOne" destination="ktI-m3-Mw8" id="Hte-pC-M8c"/>
                         <outlet property="_viewHomeThree" destination="uL6-Lk-PZG" id="rIT-BI-a5d"/>

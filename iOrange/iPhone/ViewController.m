@@ -9,21 +9,23 @@
 #define DIC_EXPANDED @"expanded" //是否是展开 0收缩 1展开
 #define kSectionHeight 50
 
-#import "ViewController.h"
+#import "ApiConfig.h"
 #import "ControllerScanCode.h"
+#import "FilePathUtil.h"
+#import "NSStringEx.h"
+#import "SVPullToRefresh.h"
+#import "UIWebPage.h"
+#import "UIControllerBrowser.h"
+#import "UIScrollViewTaskManage.h"
+#import "UIImageEx.h"
+#import "ViewController.h"
 #import "ViewWebSiteButton.h"
 #import "ViewHomeSection.h"
 #import "ViewGuideSiteButton.h"
 #import "ViewCellControl.h"
 #import "ViewWeather.h"
-#import "FilePathUtil.h"
-#import "UIWebPage.h"
-#import "NSStringEx.h"
-#import "ApiConfig.h"
-#import "SVPullToRefresh.h"
-#import "UIControllerBrowser.h"
 
-@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate,ScanCodeDelegate,UIWebViewDelegate,UIControllerBrowserDelegate>{
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate,ScanCodeDelegate,UIWebViewDelegate,UIControllerBrowserDelegate,UIScrollViewTaskManageDelegate>{
   
   __weak IBOutlet UIButton *_buttonSearch;
   __weak IBOutlet UIButton *_buttonTwoCode;
@@ -35,6 +37,7 @@
   __weak IBOutlet UIView *_viewSearch;
   __weak IBOutlet UIView *_viewTouch;
   __weak IBOutlet UIView *_viewMain;
+  __weak IBOutlet UIImageView *_imgvBackground;
   
   __weak IBOutlet UIButton *_buttonBack;
   __weak IBOutlet UIButton *_buttonGoforw;
@@ -44,6 +47,7 @@
   UIPageControl *_pageViewMark;
   UIView *_viewSiteShow;
   UIControllerBrowser *_controllerBrowser;
+  UIScrollViewTaskManage *_viewScrollTaskTab;
   
   NSMutableArray *_DataArray;//记录所有section是否伸展
   NSArray *_arrayCateImageName;// 图片名称
@@ -210,6 +214,9 @@ static id _aSelf;
   _buttonBack.enabled = NO;
   _buttonGoforw.enabled = NO;
   
+  _controllerBrowser = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"UIControllerBrowser"];
+  _controllerBrowser.delegate = self;
+  
 //  [_viewHomeThree setUp];
   //创建一个数组
   _DataArray=[[NSMutableArray alloc] init];
@@ -311,13 +318,12 @@ static id _aSelf;
 }
 
 - (void)goToHome {
-  [_controllerBrowser.view removeFromSuperview];
-  [self.textFiledContent setText:@""];
+//  [_controllerBrowser.view removeFromSuperview];
   [self toFullScreen:NO];
-  _buttonBack.enabled = NO;
-  _buttonGoforw.enabled = NO;
-  [[UIApplication sharedApplication] setStatusBarHidden:NO];
   [self overBackgroundToHidden:NO];
+  [self browserToHomeCompletion:^{
+    
+  }];
 }
 
 /// 更新界面显示
@@ -338,7 +344,148 @@ static id _aSelf;
 }
 
 - (void)overBackgroundToHidden:(BOOL)isHidden {
+  [self.textFiledContent setText:@""];
+  _buttonBack.enabled = NO;
+  _buttonGoforw.enabled = NO;
+  [[UIApplication sharedApplication] setStatusBarHidden:NO];
   _viewSearch.hidden = _scrollViewContent.hidden = isHidden;
+}
+
+- (void)browserToHomeCompletion:(void(^)())completion {
+  // 将首页其他视图的容器添加回来
+  
+  UIView *viewBrowser = _controllerBrowser.view;
+  viewBrowser.layer.anchorPoint = CGPointMake(0.5, 1);
+  viewBrowser.layer.position = CGPointMake(viewBrowser.width/2, viewBrowser.bottom);
+  [UIView animateWithDuration:0.35 animations:^{
+    viewBrowser.transform = CGAffineTransformConcat(CGAffineTransformMakeScale(0.001, 0.001), CGAffineTransformMakeTranslation(0, _viewTouch.height));
+    _viewTouch.transform = CGAffineTransformMakeTranslation(0, _viewTouch.height);
+    _viewMain.alpha = 1;
+    _viewMain.transform = CGAffineTransformIdentity;
+  } completion:^(BOOL finished) {
+    [viewBrowser removeFromSuperview];
+    viewBrowser.transform = CGAffineTransformIdentity;
+    viewBrowser.layer.anchorPoint = CGPointMake(0.5, 0.5);
+    [UIView animateWithDuration:0.35 animations:^{
+      _viewTouch.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+    }];
+    if (completion) completion();
+  }];
+}
+
+- (void)completionToMoreThumb:(void (^)())completion {
+    CGRect rect = [self browserFrame];
+    
+    if (!_viewScrollTaskTab) {
+        _viewScrollTaskTab = [[UIScrollViewTaskManage alloc] initWithFrame:rect];
+        _viewScrollTaskTab.delegate = self;
+    }
+    _viewScrollTaskTab.frame = rect;
+    [_viewScrollTaskTab setArrayOfView:_controllerBrowser.webPageManage.arrWebPage];
+    [_viewScrollTaskTab showInView:self.view completion:^{
+        
+    }];
+    
+    [_controllerBrowser startAllCoverLogoAnimation];
+    
+    self.view.userInteractionEnabled = YES;
+    
+    _viewScrollTaskTab.alpha = 0;
+    _viewScrollTaskTab.transform = CGAffineTransformMakeScale(4, 4);
+    
+    [UIView animateWithDuration:ShowAnimationTime animations:^{
+        _viewScrollTaskTab.transform = CGAffineTransformIdentity;
+        _viewScrollTaskTab.alpha=1;
+        
+        _viewMain.alpha = 0;
+        _viewMain.transform =
+        _imgvBackground.transform = CGAffineTransformMakeScale(kScaleContain, kScaleContain);
+        _viewTouch.transform = CGAffineTransformMakeTranslation(0, _viewTouch.height);
+        
+        [self.view bringSubviewToFront:_viewTouch];
+        
+    } completion:^(BOOL finished) {
+        if (_controllerBrowser.webPageManage.arrWebPage.count>0) {
+            [_viewScrollTaskTab setAlphaFullForSubviews];
+        }
+        if (_controllerBrowser.webPageManage.numberOfWebPage == 0) {
+          //
+        }
+        [UIView animateWithDuration:0.35 animations:^{
+            _viewTouch.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+        }];
+        if (completion) completion();
+        else {
+            [UIView animateWithDuration:0.3 animations:^{
+                _viewMain.alpha = 1;
+                _imgvBackground.transform = CGAffineTransformIdentity;
+            }];
+        }
+    }];
+  _imgvBackground.alpha = 0.8;
+}
+
+/**
+ *  从标签缩略图跳转到浏览器; 当前网页放大，标签页渐出，
+ *
+ *  @param completion 动画结束
+ */
+- (void)thumbToBrowserWithIndex:(NSInteger)idx completion:(void(^)())completion {
+  // 显示=》隐藏
+  [_controllerBrowser setCurrWebPageAtIndex:idx];
+  UIWebPage *webPage = (UIWebPage *)[_viewScrollTaskTab viewAtIndex:idx];
+  if (webPage.snapshot) {
+    [webPage reload];
+  }
+  _controllerBrowser.view.frame = [self browserFrame];
+  webPage.frame = _controllerBrowser.view.bounds;
+  [_controllerBrowser.view insertSubview:webPage atIndex:0];
+  [self.view insertSubview:_controllerBrowser.view belowSubview:_viewTouch];
+  [self moveWebPageByIndex:idx];
+  _controllerBrowser.view.layer.anchorPoint = CGPointMake(0.5, 0.5);
+  _controllerBrowser.view.alpha = 1.;
+  [UIView animateWithDuration:0.25 animations:^{
+    _viewMain.alpha = 1;
+    _viewMain.transform =
+    _imgvBackground.transform = CGAffineTransformIdentity;
+    _viewTouch.transform = CGAffineTransformMakeTranslation(0, _viewTouch.height);
+    [self.view insertSubview:_viewMain aboveSubview:_imgvBackground];
+  } completion:^(BOOL finished) {
+    [UIView animateWithDuration:0.25 animations:^{
+      _viewTouch.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+      _imgvBackground.alpha = 1.0;
+    }];
+  }];
+  if (completion) {
+    completion();
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    self.view.userInteractionEnabled = YES;
+    CGFloat duration = 0.0;
+    _pageViewMark.alpha = 0.0;
+    dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC));
+    dispatch_after(when, dispatch_get_main_queue(), ^{
+      
+    });
+  }
+}
+
+- (void)moveWebPageByIndex:(NSInteger)idx {
+  /**
+   *  顺序不能错（***）
+   */
+  _controllerBrowser.webPageManage.currWebPageIndex = idx;
+  [_controllerBrowser setCurrWebPageAtIndex:idx];
+  [_controllerBrowser.webPageManage moveCurrPageToLast];
+}
+
+- (CGRect)browserFrame {
+  CGRect rc = self.view.bounds;
+  rc.origin.y = 0;
+  rc.size.height = self.view.height-rc.origin.y-50;
+  return rc;
 }
 
 #pragma mark -
@@ -346,10 +493,9 @@ static id _aSelf;
 
 - (void)loadWebViewWithLink:(NSString *)link {
   //实例化浏览器控制器
-  _controllerBrowser = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"UIControllerBrowser"];
-  _controllerBrowser.delegate = self;
-  [_viewMain insertSubview:_controllerBrowser.view belowSubview:_viewTouch];
+  _controllerBrowser.view.frame = self.browserFrame;
   [_controllerBrowser loadLink:link];
+  [_viewMain insertSubview:_controllerBrowser.view belowSubview:_viewTouch];
   [[UIApplication sharedApplication] setStatusBarHidden:YES];
   [self overBackgroundToHidden:YES];
 }
@@ -475,20 +621,27 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
       _buttonGoforw.enabled = NO;
       break;
     case MainHomeButtonTypeBack:
-//      if (_webViewMain.webView.canGoBack) {
-//        [_webViewMain.webView goBack];
+      if (_controllerBrowser.webPage.webView.canGoBack) {
+        [_controllerBrowser.webPage.webView goBack];
         [self updateDisplay];
-//      } else {
+      } else {
         [self goToHome];
         _buttonBack.enabled = NO;
-//      }
+      }
       break;
     case MainHomeButtonTypeForward:
-//      if (_webViewMain.webView.canGoForward) {
-//        [_webViewMain.webView goForward];
+      if (_controllerBrowser.webPage.webView) {
+        [_controllerBrowser.webPage.webView goForward];
         [self updateDisplay];
-//      }
+      }
       break;
+    case MainHomeButtonTypeMore:
+      [self completionToMoreThumb:^{
+        
+      }];
+      break;
+    case MainHomeButtonTypeSetting:
+          break;
     default:
       break;
   }
@@ -670,6 +823,48 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
   viewSection.tag = section+10;
   [viewSection addGestureRecognizer:tapGesture];
   return viewSection;
+}
+
+#pragma mark- UIScrollViewTaskManageDelegate
+
+- (void)viewTaskManageEmpty:(UIScrollViewTaskManage *)view isAfterOfAnimate:(BOOL)animation {
+  self.view.userInteractionEnabled = YES;
+  CGFloat duration = animation?0.8:0.;
+  dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC));
+  dispatch_after(when, dispatch_get_main_queue(), ^{
+    [UIView animateWithDuration:0.5 animations:^{
+      _viewMain.alpha = 1;
+      _viewMain.transform =
+      _imgvBackground.transform = CGAffineTransformIdentity;
+      _viewTouch.transform = CGAffineTransformMakeTranslation(0, _viewTouch.height);
+      [_controllerBrowser.view removeFromSuperview];
+      [self.view insertSubview:_viewMain aboveSubview:_imgvBackground];
+    } completion:^(BOOL finished) {
+      _viewScrollTaskTab = nil;
+      [UIView animateWithDuration:0.35 animations:^{
+        _viewTouch.transform = CGAffineTransformIdentity;
+        [self overBackgroundToHidden:NO];
+      } completion:^(BOOL finished) {
+        _imgvBackground.alpha = 1.0;
+      }];
+    }];
+  });
+ 
+}
+
+- (void)viewTaskManageDidRemoved:(UIScrollViewTaskManage *)view atIndex:(NSInteger)idx {
+  [_controllerBrowser.webPageManage removeAtIndex:idx];
+  NSInteger count = _controllerBrowser.webPageManage.numberOfWebPage;
+  _controllerBrowser.webPageManage.currWebPageIndex = MIN(idx, count-1);
+}
+
+- (void)viewTaskManage:(UIScrollViewTaskManage *)view didSelectShareButton:(TMShareButtonItem )shareTag ofCurrentWebIndex:(NSInteger)currentIdx {
+}
+
+- (void)viewTaskManage:(UIScrollViewTaskManage *)view didTaskViewSelected:(NSInteger)selectedIdx {
+  [self thumbToBrowserWithIndex:selectedIdx completion:^{
+    
+  }];
 }
 
 @end
