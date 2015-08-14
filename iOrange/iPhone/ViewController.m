@@ -11,6 +11,8 @@
 
 #import "ApiConfig.h"
 #import "ControllerScanCode.h"
+#import "ControllerSetting.h"
+#import "Common.h"
 #import "FilePathUtil.h"
 #import "NSStringEx.h"
 #import "SVPullToRefresh.h"
@@ -47,6 +49,7 @@
   UIPageControl *_pageViewMark;
   UIView *_viewSiteShow;
   UIControllerBrowser *_controllerBrowser;
+  ControllerSetting *_controllerSetting;
   UIScrollViewTaskManage *_viewScrollTaskTab;
   
   NSMutableArray *_DataArray;//记录所有section是否伸展
@@ -202,6 +205,13 @@
   _pageViewMark = pageView;
 }
 
+- (void)showSettingView {
+  UIView *viewSetting = _controllerSetting.view;
+  [_controllerSetting showSettingView:^{
+    [self.view insertSubview:viewSetting aboveSubview:_viewTouch];
+  }];
+}
+
 static id _aSelf;
 - (void)initDataSource {
   _aSelf = self;
@@ -216,6 +226,9 @@ static id _aSelf;
   
   _controllerBrowser = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"UIControllerBrowser"];
   _controllerBrowser.delegate = self;
+  
+  _controllerSetting = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ControllerSetting"];
+  
   
 //  [_viewHomeThree setUp];
   //创建一个数组
@@ -641,6 +654,7 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
       }];
       break;
     case MainHomeButtonTypeSetting:
+      [self showSettingView];
           break;
     default:
       break;

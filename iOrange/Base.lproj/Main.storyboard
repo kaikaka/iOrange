@@ -602,6 +602,72 @@
             </objects>
             <point key="canvasLocation" x="1130" y="307"/>
         </scene>
+        <!--Controller Setting-->
+        <scene sceneID="jF4-MS-Lb2">
+            <objects>
+                <viewController storyboardIdentifier="ControllerSetting" id="56C-FL-PEK" customClass="ControllerSetting" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M69-RH-g7Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="fQJ-4E-mUy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PTZ-pq-AIY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4i-nm-2gd">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9T7-wF-LAT">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <color key="backgroundColor" red="0.10606060606060608" green="0.10606060606060608" blue="0.10606060606060608" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdP-cU-Fgp">
+                                        <rect key="frame" x="0.0" y="368" width="320" height="150"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="XUv-fC-1KB"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLy-d5-w19">
+                                        <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="9T7-wF-LAT" firstAttribute="leading" secondItem="I4i-nm-2gd" secondAttribute="leading" id="2EL-Dw-7bB"/>
+                                    <constraint firstAttribute="trailing" secondItem="9T7-wF-LAT" secondAttribute="trailing" id="4pd-jF-qzZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="FLy-d5-w19" secondAttribute="bottom" id="CHv-hR-Kd8"/>
+                                    <constraint firstAttribute="bottom" secondItem="9T7-wF-LAT" secondAttribute="bottom" id="IJo-Gv-v9R"/>
+                                    <constraint firstAttribute="trailing" secondItem="FLy-d5-w19" secondAttribute="trailing" id="K0V-gE-3a7"/>
+                                    <constraint firstAttribute="bottom" secondItem="QdP-cU-Fgp" secondAttribute="bottom" constant="50" id="TuN-kV-geg"/>
+                                    <constraint firstItem="FLy-d5-w19" firstAttribute="leading" secondItem="I4i-nm-2gd" secondAttribute="leading" id="VZe-N1-Cfa"/>
+                                    <constraint firstItem="9T7-wF-LAT" firstAttribute="top" secondItem="I4i-nm-2gd" secondAttribute="top" id="aNb-l5-CY4"/>
+                                    <constraint firstItem="FLy-d5-w19" firstAttribute="top" secondItem="QdP-cU-Fgp" secondAttribute="bottom" id="dda-Oa-Mzi"/>
+                                    <constraint firstItem="QdP-cU-Fgp" firstAttribute="leading" secondItem="I4i-nm-2gd" secondAttribute="leading" id="gDG-MK-pk3"/>
+                                    <constraint firstAttribute="trailing" secondItem="QdP-cU-Fgp" secondAttribute="trailing" id="yYq-T2-7gr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="I4i-nm-2gd" secondAttribute="trailing" id="452-Ig-YHV"/>
+                            <constraint firstItem="I4i-nm-2gd" firstAttribute="top" secondItem="PTZ-pq-AIY" secondAttribute="top" id="LnK-wu-HI6"/>
+                            <constraint firstItem="fQJ-4E-mUy" firstAttribute="top" secondItem="I4i-nm-2gd" secondAttribute="bottom" id="Qzc-Xi-2gp"/>
+                            <constraint firstItem="I4i-nm-2gd" firstAttribute="leading" secondItem="PTZ-pq-AIY" secondAttribute="leading" id="g8h-tG-1ZN"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="ViewContain" destination="9T7-wF-LAT" id="F22-RZ-64p"/>
+                        <outlet property="ViewSettingSum" destination="QdP-cU-Fgp" id="qAO-TZ-Sq7"/>
+                        <outlet property="viewBottom" destination="FLy-d5-w19" id="ait-NG-t0D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qsg-jI-YaB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1481" y="307"/>
+        </scene>
     </scenes>
     <resources>
         <image name="big_fine.png" width="64" height="64"/>
