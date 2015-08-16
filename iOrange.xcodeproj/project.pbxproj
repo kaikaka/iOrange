@@ -50,6 +50,7 @@
 		7F58A9911B3E88C70009E965 /* home_scan_line@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F58A98D1B3E88C70009E965 /* home_scan_line@3x.png */; };
 		7F58A9921B3E88C70009E965 /* home_scan_pick_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F58A98E1B3E88C70009E965 /* home_scan_pick_bg@2x.png */; };
 		7F58A9931B3E88C70009E965 /* home_scan_pick_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F58A98F1B3E88C70009E965 /* home_scan_pick_bg@3x.png */; };
+		7F64E3341B7EE74B008B8BC3 /* ButtonSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F64E3331B7EE74B008B8BC3 /* ButtonSetting.m */; };
 		7F7058AC1B135DAB00FCB86C /* HomeGuideSite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F7058AB1B135DAB00FCB86C /* HomeGuideSite.plist */; };
 		7F7058D71B14A15700FCB86C /* ViewGuideSiteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7058D61B14A15700FCB86C /* ViewGuideSiteButton.m */; };
 		7F7059891B242E4A00FCB86C /* home_bottom_forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F7058D91B242E4A00FCB86C /* home_bottom_forward@2x.png */; };
@@ -200,6 +201,7 @@
 		7F8518251B7E12C600BAD5D3 /* home_setting_setup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8518181B7E12C600BAD5D3 /* home_setting_setup@2x.png */; };
 		7F8518261B7E12C600BAD5D3 /* home_setting_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8518191B7E12C600BAD5D3 /* home_setting_share@2x.png */; };
 		7F8518271B7E12C600BAD5D3 /* home_setting_update@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F85181A1B7E12C600BAD5D3 /* home_setting_update@2x.png */; };
+		7F85182A1B7E13EB00BAD5D3 /* ViewSetupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8518291B7E13EB00BAD5D3 /* ViewSetupButton.m */; };
 		7F901DB91B4B871500835396 /* 0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F901DAC1B4B871500835396 /* 0@2x.png */; };
 		7F901DBA1B4B871500835396 /* 1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F901DAD1B4B871500835396 /* 1@2x.png */; };
 		7F901DBB1B4B871500835396 /* 2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F901DAE1B4B871500835396 /* 2@2x.png */; };
@@ -222,6 +224,7 @@
 		7F901DD51B4C068B00835396 /* CalendarDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F901DD41B4C068B00835396 /* CalendarDateUtil.m */; };
 		7F91D54E1B0C81750087080D /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D54C1B0C81750087080D /* iTunesArtwork */; };
 		7F91D54F1B0C81750087080D /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D54D1B0C81750087080D /* iTunesArtwork@2x */; };
+		7FBB17DA1B8017340005051B /* home_setting_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB17D91B8017340005051B /* home_setting_down@2x.png */; };
 		7FC997DA1B09794E009E8BD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC997D91B09794E009E8BD7 /* main.m */; };
 		7FC997E31B09794E009E8BD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC997E11B09794E009E8BD7 /* Main.storyboard */; };
 		7FC997E51B09794E009E8BD7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FC997E41B09794E009E8BD7 /* Images.xcassets */; };
@@ -341,6 +344,8 @@
 		7F58A98D1B3E88C70009E965 /* home_scan_line@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_line@3x.png"; sourceTree = "<group>"; };
 		7F58A98E1B3E88C70009E965 /* home_scan_pick_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_pick_bg@2x.png"; sourceTree = "<group>"; };
 		7F58A98F1B3E88C70009E965 /* home_scan_pick_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_pick_bg@3x.png"; sourceTree = "<group>"; };
+		7F64E3321B7EE74B008B8BC3 /* ButtonSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonSetting.h; sourceTree = "<group>"; };
+		7F64E3331B7EE74B008B8BC3 /* ButtonSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonSetting.m; sourceTree = "<group>"; };
 		7F7058AB1B135DAB00FCB86C /* HomeGuideSite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HomeGuideSite.plist; sourceTree = "<group>"; };
 		7F7058D51B14A15700FCB86C /* ViewGuideSiteButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewGuideSiteButton.h; sourceTree = "<group>"; };
 		7F7058D61B14A15700FCB86C /* ViewGuideSiteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewGuideSiteButton.m; sourceTree = "<group>"; };
@@ -492,6 +497,8 @@
 		7F8518181B7E12C600BAD5D3 /* home_setting_setup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_setting_setup@2x.png"; sourceTree = "<group>"; };
 		7F8518191B7E12C600BAD5D3 /* home_setting_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_setting_share@2x.png"; sourceTree = "<group>"; };
 		7F85181A1B7E12C600BAD5D3 /* home_setting_update@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_setting_update@2x.png"; sourceTree = "<group>"; };
+		7F8518281B7E13EB00BAD5D3 /* ViewSetupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewSetupButton.h; sourceTree = "<group>"; };
+		7F8518291B7E13EB00BAD5D3 /* ViewSetupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewSetupButton.m; sourceTree = "<group>"; };
 		7F901DAC1B4B871500835396 /* 0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0@2x.png"; sourceTree = "<group>"; };
 		7F901DAD1B4B871500835396 /* 1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1@2x.png"; sourceTree = "<group>"; };
 		7F901DAE1B4B871500835396 /* 2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2@2x.png"; sourceTree = "<group>"; };
@@ -515,6 +522,7 @@
 		7F901DD41B4C068B00835396 /* CalendarDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDateUtil.m; sourceTree = "<group>"; };
 		7F91D54C1B0C81750087080D /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		7F91D54D1B0C81750087080D /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		7FBB17D91B8017340005051B /* home_setting_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_setting_down@2x.png"; sourceTree = "<group>"; };
 		7FC997D41B09794E009E8BD7 /* iOrange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOrange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC997D81B09794E009E8BD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FC997D91B09794E009E8BD7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -728,6 +736,10 @@
 				7F7058D61B14A15700FCB86C /* ViewGuideSiteButton.m */,
 				7F0794311B2703E4006883F9 /* ViewCellControl.h */,
 				7F0794321B2703E4006883F9 /* ViewCellControl.m */,
+				7F8518281B7E13EB00BAD5D3 /* ViewSetupButton.h */,
+				7F8518291B7E13EB00BAD5D3 /* ViewSetupButton.m */,
+				7F64E3321B7EE74B008B8BC3 /* ButtonSetting.h */,
+				7F64E3331B7EE74B008B8BC3 /* ButtonSetting.m */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -1007,6 +1019,7 @@
 		7F85180D1B7E12C600BAD5D3 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				7FBB17D91B8017340005051B /* home_setting_down@2x.png */,
 				7F85180E1B7E12C600BAD5D3 /* home_setting_addbookmark@2x.png */,
 				7F85180F1B7E12C600BAD5D3 /* home_setting_bookmark@2x.png */,
 				7F8518101B7E12C600BAD5D3 /* home_setting_feedback@2x.png */,
@@ -1367,6 +1380,7 @@
 				7F705A7F1B265BC000FCB86C /* small_heavyRain@2x.png in Resources */,
 				7F901DC21B4B871500835396 /* 9@2x.png in Resources */,
 				7F7059AC1B242E4B00FCB86C /* home_nav_search_pressed@3x.png in Resources */,
+				7FBB17DA1B8017340005051B /* home_setting_down@2x.png in Resources */,
 				7F8518201B7E12C600BAD5D3 /* home_setting_nopicture_able@2x.png in Resources */,
 				7F70598D1B242E4B00FCB86C /* home_button_back@2x.png in Resources */,
 				7F7059A21B242E4B00FCB86C /* home_image_movie@3x.png in Resources */,
@@ -1577,6 +1591,7 @@
 				7F5572971B108AA400B0CE8F /* UIViewEx.m in Sources */,
 				7F09A9921B0CA0B50036BDB7 /* ViewWebSiteButton.m in Sources */,
 				7F5572951B108AA400B0CE8F /* UIImage+Bundle.m in Sources */,
+				7F64E3341B7EE74B008B8BC3 /* ButtonSetting.m in Sources */,
 				7F0794331B2703E4006883F9 /* ViewCellControl.m in Sources */,
 				7FC998071B0A0D7A009E8BD7 /* AppDelegate.m in Sources */,
 				7F09A98E1B0C9D8F0036BDB7 /* ControllerBase.m in Sources */,
@@ -1586,6 +1601,7 @@
 				7FE375BE1B7C47C800EEDEE7 /* ControllerSetting.m in Sources */,
 				7FEBB7081B5411EE0097FF73 /* UIViewTaskPage.m in Sources */,
 				7FEBB71F1B5412FD0097FF73 /* BUIView.m in Sources */,
+				7F85182A1B7E13EB00BAD5D3 /* ViewSetupButton.m in Sources */,
 				7FC997DA1B09794E009E8BD7 /* main.m in Sources */,
 				7F5572931B108AA400B0CE8F /* UIButtonEx.m in Sources */,
 				7FF8DB491B48B61B00226B48 /* ControllerTempBase.m in Sources */,

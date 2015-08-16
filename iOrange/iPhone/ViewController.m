@@ -205,7 +205,7 @@
   _pageViewMark = pageView;
 }
 
-- (void)showSettingView {
+- (void)showSettingView:(void(^)(bool complite))completie {
   UIView *viewSetting = _controllerSetting.view;
   [_controllerSetting showSettingView:^{
     [self.view insertSubview:viewSetting aboveSubview:_viewTouch];
@@ -654,7 +654,9 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
       }];
       break;
     case MainHomeButtonTypeSetting:
-      [self showSettingView];
+      [self showSettingView:^(bool complite) {
+        
+      }];
           break;
     default:
       break;

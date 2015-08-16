@@ -630,7 +630,29 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLy-d5-w19">
                                         <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Gq-Lc-5tp">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                                                <color key="backgroundColor" red="0.20099431818181823" green="0.20099431818181823" blue="0.20099431818181823" alpha="0.28999999999999998" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="K2p-hm-Cak"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwu-1l-il1">
+                                                <rect key="frame" x="141" y="12" width="39" height="25"/>
+                                                <state key="normal" image="home_setting_down.png"/>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="zwu-1l-il1" firstAttribute="top" secondItem="3Gq-Lc-5tp" secondAttribute="bottom" constant="11" id="8uF-QJ-uu4"/>
+                                            <constraint firstAttribute="bottom" secondItem="zwu-1l-il1" secondAttribute="bottom" constant="13" id="Lw8-Ue-kUK"/>
+                                            <constraint firstAttribute="trailing" secondItem="3Gq-Lc-5tp" secondAttribute="trailing" id="pIq-mv-VCe"/>
+                                            <constraint firstItem="3Gq-Lc-5tp" firstAttribute="top" secondItem="FLy-d5-w19" secondAttribute="top" id="qnK-L7-pez"/>
+                                            <constraint firstItem="3Gq-Lc-5tp" firstAttribute="leading" secondItem="FLy-d5-w19" secondAttribute="leading" id="r4q-d7-id7"/>
+                                            <constraint firstItem="zwu-1l-il1" firstAttribute="leading" secondItem="FLy-d5-w19" secondAttribute="leading" constant="141" id="rrV-h6-0cW"/>
+                                            <constraint firstAttribute="trailing" secondItem="zwu-1l-il1" secondAttribute="trailing" constant="140" id="tk7-wc-QFA"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -661,6 +683,7 @@
                     <connections>
                         <outlet property="ViewContain" destination="9T7-wF-LAT" id="F22-RZ-64p"/>
                         <outlet property="ViewSettingSum" destination="QdP-cU-Fgp" id="qAO-TZ-Sq7"/>
+                        <outlet property="buttonDown" destination="zwu-1l-il1" id="rms-aN-au9"/>
                         <outlet property="viewBottom" destination="FLy-d5-w19" id="ait-NG-t0D"/>
                     </connections>
                 </viewController>
@@ -687,6 +710,7 @@
         <image name="home_nav_search_pressed.png" width="48" height="48"/>
         <image name="home_nav_twoCode_default.png" width="53" height="49"/>
         <image name="home_nav_twoCode_pressed.png" width="53" height="49"/>
+        <image name="home_setting_down.png" width="39" height="25"/>
         <image name="home_weather_PM25Exp.png" width="13" height="13"/>
         <image name="home_weather_cuttingLine.png" width="23" height="66"/>
         <image name="home_weather_location.png" width="13" height="14"/>

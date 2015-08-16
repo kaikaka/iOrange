@@ -13,6 +13,7 @@
 @property (weak, nonatomic,readonly) IBOutlet UIView *ViewContain;
 @property (weak, nonatomic,readonly) IBOutlet UIView *ViewSettingSum;
 @property (weak, nonatomic,readonly) IBOutlet UIView *viewBottom;
+@property (weak, nonatomic,readonly) IBOutlet UIButton *buttonDown;
 
 
 - (void)showSettingView:(void(^)())completion;
