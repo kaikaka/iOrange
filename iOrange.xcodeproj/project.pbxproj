@@ -224,6 +224,7 @@
 		7F901DD51B4C068B00835396 /* CalendarDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F901DD41B4C068B00835396 /* CalendarDateUtil.m */; };
 		7F91D54E1B0C81750087080D /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D54C1B0C81750087080D /* iTunesArtwork */; };
 		7F91D54F1B0C81750087080D /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D54D1B0C81750087080D /* iTunesArtwork@2x */; };
+		7FB94BBD1B803DF6002A7902 /* ControllerHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB94BBC1B803DF6002A7902 /* ControllerHistory.m */; };
 		7FBB17DA1B8017340005051B /* home_setting_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB17D91B8017340005051B /* home_setting_down@2x.png */; };
 		7FC997DA1B09794E009E8BD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC997D91B09794E009E8BD7 /* main.m */; };
 		7FC997E31B09794E009E8BD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC997E11B09794E009E8BD7 /* Main.storyboard */; };
@@ -522,6 +523,8 @@
 		7F901DD41B4C068B00835396 /* CalendarDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDateUtil.m; sourceTree = "<group>"; };
 		7F91D54C1B0C81750087080D /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		7F91D54D1B0C81750087080D /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		7FB94BBB1B803DF6002A7902 /* ControllerHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerHistory.h; sourceTree = "<group>"; };
+		7FB94BBC1B803DF6002A7902 /* ControllerHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerHistory.m; sourceTree = "<group>"; };
 		7FBB17D91B8017340005051B /* home_setting_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_setting_down@2x.png"; sourceTree = "<group>"; };
 		7FC997D41B09794E009E8BD7 /* iOrange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOrange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC997D81B09794E009E8BD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1223,6 +1226,8 @@
 				7FF8DB461B48B61B00226B48 /* ControllerTempBase.m */,
 				7FE375BC1B7C47C800EEDEE7 /* ControllerSetting.h */,
 				7FE375BD1B7C47C800EEDEE7 /* ControllerSetting.m */,
+				7FB94BBB1B803DF6002A7902 /* ControllerHistory.h */,
+				7FB94BBC1B803DF6002A7902 /* ControllerHistory.m */,
 			);
 			name = Controller;
 			path = Section/Controller;
@@ -1592,6 +1597,7 @@
 				7F09A9921B0CA0B50036BDB7 /* ViewWebSiteButton.m in Sources */,
 				7F5572951B108AA400B0CE8F /* UIImage+Bundle.m in Sources */,
 				7F64E3341B7EE74B008B8BC3 /* ButtonSetting.m in Sources */,
+				7FB94BBD1B803DF6002A7902 /* ControllerHistory.m in Sources */,
 				7F0794331B2703E4006883F9 /* ViewCellControl.m in Sources */,
 				7FC998071B0A0D7A009E8BD7 /* AppDelegate.m in Sources */,
 				7F09A98E1B0C9D8F0036BDB7 /* ControllerBase.m in Sources */,

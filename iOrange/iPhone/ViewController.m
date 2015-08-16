@@ -228,7 +228,7 @@ static id _aSelf;
   _controllerBrowser.delegate = self;
   
   _controllerSetting = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ControllerSetting"];
-  
+  _controllerSetting.delegateMian = self;
   
 //  [_viewHomeThree setUp];
   //创建一个数组

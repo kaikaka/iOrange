@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ControllerBase.h"
 
-@interface ControllerSetting : UIViewController
+@interface ControllerSetting : ControllerBase
 
 @property (weak, nonatomic,readonly) IBOutlet UIView *ViewContain;
 @property (weak, nonatomic,readonly) IBOutlet UIView *ViewSettingSum;
 @property (weak, nonatomic,readonly) IBOutlet UIView *viewBottom;
 @property (weak, nonatomic,readonly) IBOutlet UIButton *buttonDown;
-
+@property (weak, nonatomic) id delegateMian;
 
 - (void)showSettingView:(void(^)())completion;
 

@@ -10,6 +10,9 @@
 
 @interface ViewSetupButton : UIView
 
+@property (nonatomic,strong)ButtonSetting *buttonWithSelect;
+@property (nonatomic,strong)UIImageView *imgvSetting;
+
 - (void)setImageName:(NSString *)imageName labelText:(NSString *)labelText;
 
 @end

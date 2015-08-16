@@ -10,7 +10,6 @@
 #import "ViewSetupButton.h"
 
 @interface ViewSetupButton () {
-  UIImageView *_imgvSetting;
   UILabel *_labelSetting;
 }
 
@@ -64,28 +63,11 @@
   
   ButtonSetting *button = [ButtonSetting buttonWithType:0];
   [button setFrame:self.bounds];
-  [button addTarget:self action:@selector(onTouchWithSelect:) forControlEvents:UIControlEventTouchUpInside];
+  _buttonWithSelect = button;
   [self addSubview:button];
 }
 
 #pragma mark - events
-
-- (void)onTouchWithSelect:(UIButton *)sender {
-  sender.selected = !sender.selected;
-  if (self.tag == 12 && sender.selected == YES) {
-    [_imgvSetting setImage:[UIImage imageNamed:@"home_setting_nopicture_able@2x"]];
-  } else if (self.tag == 12 && sender.selected == NO) {
-    [_imgvSetting setImage:[UIImage imageNamed:@"home_setting_nopicture_noable@2x"]];
-  } else if (self.tag == 13 && sender.selected == YES) {
-    [_imgvSetting setImage:[UIImage imageNamed:@"home_setting_full@2x"]];
-  } else if (self.tag == 13 && sender.selected == NO) {
-    [_imgvSetting setImage:[UIImage imageNamed:@"home_setting_nofull@2x"]];
-  } else if (self.tag == 18 && sender.selected == YES) {
-    [_imgvSetting setImage:[UIImage imageNamed:@"home_setting_privacy@2x"]];
-  } else if (self.tag == 18 && sender.selected == NO) {
-    [_imgvSetting setImage:[UIImage imageNamed:@"home_setting_noprivacy@2x"]];
-  }
-}
 
 /*
 // Only override drawRect: if you perform custom drawing.

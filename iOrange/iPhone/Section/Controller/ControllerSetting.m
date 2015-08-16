@@ -6,8 +6,12 @@
 //  Copyright © 2015 yinxiangkai. All rights reserved.
 //
 
+#import "ApiConfig.h"
+#import "ButtonSetting.h"
 #import "ControllerSetting.h"
+#import "ControllerHistory.h"
 #import "ViewSetupButton.h"
+#import "ViewController.h"
 
 @interface ControllerSetting ()<UIScrollViewDelegate> {
   UIPageControl *_pageViewMark;
@@ -88,8 +92,9 @@
     
     ViewSetupButton *viewButton = [[ViewSetupButton alloc] initWithFrame:CGRectMake(appviewx, appviewy, appvieww, appviewh)];
     [scrollView addSubview:viewButton];
-    [viewButton setTag:10+i];
+    [viewButton.buttonWithSelect setTag:10+i];
     [viewButton setImageName:imageNameArray[i] labelText:labelTextArray[i]];
+    [viewButton.buttonWithSelect addTarget:self action:@selector(onTouchWithSelect:) forControlEvents:UIControlEventTouchUpInside];
   }
   
 }
@@ -125,6 +130,37 @@
 
 - (void)onTouchWithButtonDown:(UIButton *)sender {
   [self onGestureTapTouch:nil];
+}
+
+
+- (void)onTouchWithSelect:(UIButton *)sender {
+  sender.selected = !sender.selected;
+  ViewSetupButton *viewBtn = (ViewSetupButton *)sender.superview;
+  if (sender.tag == 12 && sender.selected == YES) {
+    [viewBtn.imgvSetting setImage:[UIImage imageNamed:@"home_setting_nopicture_able@2x"]];
+  } else if (sender.tag == 12 && sender.selected == NO) {
+    [viewBtn.imgvSetting setImage:[UIImage imageNamed:@"home_setting_nopicture_noable@2x"]];
+  } else if (sender.tag == 13 && sender.selected == YES) {
+    [viewBtn.imgvSetting setImage:[UIImage imageNamed:@"home_setting_full@2x"]];
+  } else if (sender.tag == 13 && sender.selected == NO) {
+    [viewBtn.imgvSetting setImage:[UIImage imageNamed:@"home_setting_nofull@2x"]];
+  } else if (sender.tag == 18 && sender.selected == YES) {
+    [viewBtn.imgvSetting setImage:[UIImage imageNamed:@"home_setting_privacy@2x"]];
+  } else if (sender.tag == 18 && sender.selected == NO) {
+    [viewBtn.imgvSetting setImage:[UIImage imageNamed:@"home_setting_noprivacy@2x"]];
+  }
+  
+  switch (sender.tag) {
+    case HomeSettingTypeAddBookMark: {
+      ControllerHistory *controllerHy = [ControllerHistory loadFromStoryboard];
+      ViewController *viewCon = (ViewController *)_delegateMian;
+      [viewCon.navigationController pushViewController:controllerHy animated:YES];
+    }
+      break;
+      
+    default:
+      break;
+  }
 }
 
 #pragma mark - UIScrollViewDelegate

@@ -17,6 +17,19 @@ typedef enum : NSUInteger {
   MainHomeButtonTypeHome
 } MainHomeButtonType;
 
+typedef enum : NSUInteger {
+  HomeSettingTypeAddBookMark = 10,
+  HomeSettingTypeBookMark,
+  HomeSettingTypeNoPictureMode,
+  HomeSettingTypeFullMode,
+  HomeSettingTypeReload,
+  HomeSettingTypeUpdate,
+  HomeSettingTypeFeedback,
+  HomeSettingTypeShare,
+  HomeSettingTypePrivacy,
+  HomeSettingTypeSetup
+} HomeSettingType;
+
 #define kScaleContain 1.2f
 
 #define sevenDaysWeatherInfoUrl(cityCode) [NSString stringWithFormat:@"http://mobile.weather.com.cn/data/forecast/%@.html", cityCode]
