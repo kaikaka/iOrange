@@ -225,6 +225,9 @@
 		7F91D54E1B0C81750087080D /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D54C1B0C81750087080D /* iTunesArtwork */; };
 		7F91D54F1B0C81750087080D /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D54D1B0C81750087080D /* iTunesArtwork@2x */; };
 		7FB94BBD1B803DF6002A7902 /* ControllerHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB94BBC1B803DF6002A7902 /* ControllerHistory.m */; };
+		7FB94BC01B81C9A2002A7902 /* ControllerSettingDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB94BBF1B81C9A2002A7902 /* ControllerSettingDetail.m */; };
+		7FB94BC31B81C9FB002A7902 /* home_setting_next.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB94BC11B81C9FB002A7902 /* home_setting_next.png */; };
+		7FB94BC41B81C9FB002A7902 /* home_setting_previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB94BC21B81C9FB002A7902 /* home_setting_previous.png */; };
 		7FBB17DA1B8017340005051B /* home_setting_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB17D91B8017340005051B /* home_setting_down@2x.png */; };
 		7FC997DA1B09794E009E8BD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC997D91B09794E009E8BD7 /* main.m */; };
 		7FC997E31B09794E009E8BD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC997E11B09794E009E8BD7 /* Main.storyboard */; };
@@ -525,6 +528,10 @@
 		7F91D54D1B0C81750087080D /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		7FB94BBB1B803DF6002A7902 /* ControllerHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerHistory.h; sourceTree = "<group>"; };
 		7FB94BBC1B803DF6002A7902 /* ControllerHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerHistory.m; sourceTree = "<group>"; };
+		7FB94BBE1B81C9A2002A7902 /* ControllerSettingDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSettingDetail.h; sourceTree = "<group>"; };
+		7FB94BBF1B81C9A2002A7902 /* ControllerSettingDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSettingDetail.m; sourceTree = "<group>"; };
+		7FB94BC11B81C9FB002A7902 /* home_setting_next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_setting_next.png; sourceTree = "<group>"; };
+		7FB94BC21B81C9FB002A7902 /* home_setting_previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_setting_previous.png; sourceTree = "<group>"; };
 		7FBB17D91B8017340005051B /* home_setting_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_setting_down@2x.png"; sourceTree = "<group>"; };
 		7FC997D41B09794E009E8BD7 /* iOrange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOrange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC997D81B09794E009E8BD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1022,6 +1029,8 @@
 		7F85180D1B7E12C600BAD5D3 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				7FB94BC11B81C9FB002A7902 /* home_setting_next.png */,
+				7FB94BC21B81C9FB002A7902 /* home_setting_previous.png */,
 				7FBB17D91B8017340005051B /* home_setting_down@2x.png */,
 				7F85180E1B7E12C600BAD5D3 /* home_setting_addbookmark@2x.png */,
 				7F85180F1B7E12C600BAD5D3 /* home_setting_bookmark@2x.png */,
@@ -1228,6 +1237,8 @@
 				7FE375BD1B7C47C800EEDEE7 /* ControllerSetting.m */,
 				7FB94BBB1B803DF6002A7902 /* ControllerHistory.h */,
 				7FB94BBC1B803DF6002A7902 /* ControllerHistory.m */,
+				7FB94BBE1B81C9A2002A7902 /* ControllerSettingDetail.h */,
+				7FB94BBF1B81C9A2002A7902 /* ControllerSettingDetail.m */,
 			);
 			name = Controller;
 			path = Section/Controller;
@@ -1426,6 +1437,7 @@
 				7F7059B51B242E4B00FCB86C /* home_site_icon1@2x.png in Resources */,
 				7F705A6B1B265BC000FCB86C /* big_cloudyDay@2x.png in Resources */,
 				7F7059AA1B242E4B00FCB86C /* home_nav_search_default@3x.png in Resources */,
+				7FB94BC31B81C9FB002A7902 /* home_setting_next.png in Resources */,
 				7F5519771B44E81000E0A0D1 /* home_scan_close@2x.png in Resources */,
 				7F7059B81B242E4B00FCB86C /* home_site_icon2@3x.png in Resources */,
 				7F901DCD1B4BF92800835396 /* pm25Exp_good@2x.png in Resources */,
@@ -1518,6 +1530,7 @@
 				7F91D54F1B0C81750087080D /* iTunesArtwork@2x in Resources */,
 				7F901DBF1B4B871500835396 /* 6@2x.png in Resources */,
 				7F705A7A1B265BC000FCB86C /* small_cloudy@2x.png in Resources */,
+				7FB94BC41B81C9FB002A7902 /* home_setting_previous.png in Resources */,
 				7F7059E21B242E4B00FCB86C /* home_weather_windmillBase@2x.png in Resources */,
 				7F7059A11B242E4B00FCB86C /* home_image_movie@2x.png in Resources */,
 				7F7059A31B242E4B00FCB86C /* home_image_now@2x.png in Resources */,
@@ -1582,6 +1595,7 @@
 				7FEBB7271B5412FD0097FF73 /* WebPageManage.m in Sources */,
 				7FEBB72A1B55069D0097FF73 /* UIControllerBrowser.m in Sources */,
 				7FEBB7261B5412FD0097FF73 /* UnpreventableUILongPressGestureRecognizer.m in Sources */,
+				7FB94BC01B81C9A2002A7902 /* ControllerSettingDetail.m in Sources */,
 				7F5572521B10236500B0CE8F /* ViewHomeSection.m in Sources */,
 				7F5572921B108AA400B0CE8F /* NSStringEx.m in Sources */,
 				7F5572941B108AA400B0CE8F /* UIColor+Expanded.m in Sources */,

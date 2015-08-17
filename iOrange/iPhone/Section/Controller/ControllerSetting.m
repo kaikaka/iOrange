@@ -10,6 +10,7 @@
 #import "ButtonSetting.h"
 #import "ControllerSetting.h"
 #import "ControllerHistory.h"
+#import "ControllerSettingDetail.h"
 #import "ViewSetupButton.h"
 #import "ViewController.h"
 
@@ -132,7 +133,6 @@
   [self onGestureTapTouch:nil];
 }
 
-
 - (void)onTouchWithSelect:(UIButton *)sender {
   sender.selected = !sender.selected;
   ViewSetupButton *viewBtn = (ViewSetupButton *)sender.superview;
@@ -151,16 +151,26 @@
   }
   
   switch (sender.tag) {
-    case HomeSettingTypeAddBookMark: {
+    case HomeSettingTypeBookMark: {
       ControllerHistory *controllerHy = [ControllerHistory loadFromStoryboard];
       ViewController *viewCon = (ViewController *)_delegateMian;
       [viewCon.navigationController pushViewController:controllerHy animated:YES];
+    }
+      break;
+    case HomeSettingTypeSetup: {
+      ControllerSettingDetail *controllerDetail = [ControllerSettingDetail loadFromStoryboard];
+      ViewController *viewCon = (ViewController *)_delegateMian;
+      [viewCon.navigationController pushViewController:controllerDetail animated:YES];
     }
       break;
       
     default:
       break;
   }
+  dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * kDuration250ms);
+  dispatch_after(when, dispatch_get_main_queue(), ^{
+    [self onTouchWithButtonDown:nil];
+  });
 }
 
 #pragma mark - UIScrollViewDelegate
