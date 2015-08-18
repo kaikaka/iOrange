@@ -50,6 +50,7 @@
 		7F58A9911B3E88C70009E965 /* home_scan_line@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F58A98D1B3E88C70009E965 /* home_scan_line@3x.png */; };
 		7F58A9921B3E88C70009E965 /* home_scan_pick_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F58A98E1B3E88C70009E965 /* home_scan_pick_bg@2x.png */; };
 		7F58A9931B3E88C70009E965 /* home_scan_pick_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F58A98F1B3E88C70009E965 /* home_scan_pick_bg@3x.png */; };
+		7F597EB41B82CCE400F4B5A0 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F597EB31B82CCE400F4B5A0 /* libsqlite3.0.dylib */; };
 		7F64E3341B7EE74B008B8BC3 /* ButtonSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F64E3331B7EE74B008B8BC3 /* ButtonSetting.m */; };
 		7F7058AC1B135DAB00FCB86C /* HomeGuideSite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F7058AB1B135DAB00FCB86C /* HomeGuideSite.plist */; };
 		7F7058D71B14A15700FCB86C /* ViewGuideSiteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7058D61B14A15700FCB86C /* ViewGuideSiteButton.m */; };
@@ -228,6 +229,9 @@
 		7FB94BC01B81C9A2002A7902 /* ControllerSettingDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB94BBF1B81C9A2002A7902 /* ControllerSettingDetail.m */; };
 		7FB94BC31B81C9FB002A7902 /* home_setting_next.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB94BC11B81C9FB002A7902 /* home_setting_next.png */; };
 		7FB94BC41B81C9FB002A7902 /* home_setting_previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB94BC21B81C9FB002A7902 /* home_setting_previous.png */; };
+		7FB94BC71B81D351002A7902 /* DatabaseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB94BC61B81D351002A7902 /* DatabaseUtil.m */; };
+		7FB94BCD1B82CF9C002A7902 /* ModelHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB94BCC1B82CF9C002A7902 /* ModelHistory.m */; };
+		7FB94BD01B82D09B002A7902 /* ADOHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB94BCF1B82D09B002A7902 /* ADOHistory.m */; };
 		7FBB17DA1B8017340005051B /* home_setting_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB17D91B8017340005051B /* home_setting_down@2x.png */; };
 		7FC997DA1B09794E009E8BD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC997D91B09794E009E8BD7 /* main.m */; };
 		7FC997E31B09794E009E8BD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC997E11B09794E009E8BD7 /* Main.storyboard */; };
@@ -348,6 +352,7 @@
 		7F58A98D1B3E88C70009E965 /* home_scan_line@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_line@3x.png"; sourceTree = "<group>"; };
 		7F58A98E1B3E88C70009E965 /* home_scan_pick_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_pick_bg@2x.png"; sourceTree = "<group>"; };
 		7F58A98F1B3E88C70009E965 /* home_scan_pick_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_pick_bg@3x.png"; sourceTree = "<group>"; };
+		7F597EB31B82CCE400F4B5A0 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		7F64E3321B7EE74B008B8BC3 /* ButtonSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonSetting.h; sourceTree = "<group>"; };
 		7F64E3331B7EE74B008B8BC3 /* ButtonSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonSetting.m; sourceTree = "<group>"; };
 		7F7058AB1B135DAB00FCB86C /* HomeGuideSite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HomeGuideSite.plist; sourceTree = "<group>"; };
@@ -532,6 +537,13 @@
 		7FB94BBF1B81C9A2002A7902 /* ControllerSettingDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSettingDetail.m; sourceTree = "<group>"; };
 		7FB94BC11B81C9FB002A7902 /* home_setting_next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_setting_next.png; sourceTree = "<group>"; };
 		7FB94BC21B81C9FB002A7902 /* home_setting_previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_setting_previous.png; sourceTree = "<group>"; };
+		7FB94BC51B81D351002A7902 /* DatabaseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseUtil.h; sourceTree = "<group>"; };
+		7FB94BC61B81D351002A7902 /* DatabaseUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseUtil.m; sourceTree = "<group>"; };
+		7FB94BC81B82CC85002A7902 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		7FB94BCB1B82CF9C002A7902 /* ModelHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelHistory.h; sourceTree = "<group>"; };
+		7FB94BCC1B82CF9C002A7902 /* ModelHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelHistory.m; sourceTree = "<group>"; };
+		7FB94BCE1B82D09B002A7902 /* ADOHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADOHistory.h; sourceTree = "<group>"; };
+		7FB94BCF1B82D09B002A7902 /* ADOHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADOHistory.m; sourceTree = "<group>"; };
 		7FBB17D91B8017340005051B /* home_setting_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_setting_down@2x.png"; sourceTree = "<group>"; };
 		7FC997D41B09794E009E8BD7 /* iOrange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOrange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC997D81B09794E009E8BD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -600,6 +612,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F597EB41B82CCE400F4B5A0 /* libsqlite3.0.dylib in Frameworks */,
 				7F55724F1B0D7F5A00B0CE8F /* UIKit.framework in Frameworks */,
 				7F55724D1B0D7F4F00B0CE8F /* CoreTelephony.framework in Frameworks */,
 				7F55724B1B0D7F4400B0CE8F /* libstdc++.dylib in Frameworks */,
@@ -640,6 +653,8 @@
 		6576AC60241C78755AF2A5D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7F597EB31B82CCE400F4B5A0 /* libsqlite3.0.dylib */,
+				7FB94BC81B82CC85002A7902 /* libsqlite3.0.tbd */,
 				7F55724E1B0D7F5A00B0CE8F /* UIKit.framework */,
 				7F55724C1B0D7F4F00B0CE8F /* CoreTelephony.framework */,
 				7F55724A1B0D7F4400B0CE8F /* libstdc++.dylib */,
@@ -668,6 +683,7 @@
 		7F09A97F1B0C9C8B0036BDB7 /* Gemeranl */ = {
 			isa = PBXGroup;
 			children = (
+				7FB94BCA1B82CDE0002A7902 /* ADO */,
 				7F09A9821B0C9D030036BDB7 /* Base */,
 				7F09A9831B0C9D030036BDB7 /* Categary */,
 				7F09A9841B0C9D030036BDB7 /* CustomUI */,
@@ -682,6 +698,8 @@
 		7F09A9801B0C9C8B0036BDB7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7FB94BCB1B82CF9C002A7902 /* ModelHistory.h */,
+				7FB94BCC1B82CF9C002A7902 /* ModelHistory.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -764,6 +782,8 @@
 		7F09A9861B0C9D030036BDB7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				7FB94BC51B81D351002A7902 /* DatabaseUtil.h */,
+				7FB94BC61B81D351002A7902 /* DatabaseUtil.m */,
 				7FEBB72B1B5506EC0097FF73 /* UITaskPageManage.h */,
 				7FEBB72C1B5506EC0097FF73 /* UITaskPageManage.m */,
 				7F0794411B27E171006883F9 /* FilePathUtil.h */,
@@ -1093,6 +1113,15 @@
 				7F70592F1B242E4A00FCB86C /* Weather */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		7FB94BCA1B82CDE0002A7902 /* ADO */ = {
+			isa = PBXGroup;
+			children = (
+				7FB94BCE1B82D09B002A7902 /* ADOHistory.h */,
+				7FB94BCF1B82D09B002A7902 /* ADOHistory.m */,
+			);
+			path = ADO;
 			sourceTree = "<group>";
 		};
 		7FC997CB1B09794E009E8BD7 = {
@@ -1592,6 +1621,7 @@
 			files = (
 				7FC998081B0A0D7A009E8BD7 /* ViewController.m in Sources */,
 				7FEBB72D1B5506EC0097FF73 /* UITaskPageManage.m in Sources */,
+				7FB94BC71B81D351002A7902 /* DatabaseUtil.m in Sources */,
 				7FEBB7271B5412FD0097FF73 /* WebPageManage.m in Sources */,
 				7FEBB72A1B55069D0097FF73 /* UIControllerBrowser.m in Sources */,
 				7FEBB7261B5412FD0097FF73 /* UnpreventableUILongPressGestureRecognizer.m in Sources */,
@@ -1608,6 +1638,7 @@
 				7FEBB7221B5412FD0097FF73 /* NJKWebViewProgress.m in Sources */,
 				7F4182A11B4B71D300809DD4 /* UIImageViewEx.m in Sources */,
 				7F5572971B108AA400B0CE8F /* UIViewEx.m in Sources */,
+				7FB94BCD1B82CF9C002A7902 /* ModelHistory.m in Sources */,
 				7F09A9921B0CA0B50036BDB7 /* ViewWebSiteButton.m in Sources */,
 				7F5572951B108AA400B0CE8F /* UIImage+Bundle.m in Sources */,
 				7F64E3341B7EE74B008B8BC3 /* ButtonSetting.m in Sources */,
@@ -1629,6 +1660,7 @@
 				7FF8DB4F1B4A97E700226B48 /* CommonMethods.m in Sources */,
 				7FF8DB521B4B624A00226B48 /* CLLocationManagerEx.m in Sources */,
 				7F2ED4141B442CBC00D4B5AA /* SlurImageView.m in Sources */,
+				7FB94BD01B82D09B002A7902 /* ADOHistory.m in Sources */,
 				7FF8DB481B48B61B00226B48 /* ControllerScanCode.m in Sources */,
 				7FEBB7241B5412FD0097FF73 /* UIWebPage.m in Sources */,
 			);

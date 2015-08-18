@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DatabaseUtil.h"
 
 @interface AppDelegate ()
 
@@ -18,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch.
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
+  [DatabaseUtil createDatabase];
   return YES;
 }
 
