@@ -240,6 +240,8 @@
 		7FC997F41B09794E009E8BD7 /* iOrangeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC997F31B09794E009E8BD7 /* iOrangeTests.m */; };
 		7FC998071B0A0D7A009E8BD7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC998011B0A0D7A009E8BD7 /* AppDelegate.m */; };
 		7FC998081B0A0D7A009E8BD7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC998031B0A0D7A009E8BD7 /* ViewController.m */; };
+		7FCABB0E1B88536300B64300 /* CellForAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCABB0D1B88536300B64300 /* CellForAccess.m */; };
+		7FCABB101B88547300B64300 /* home_image_often@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCABB0F1B88547300B64300 /* home_image_often@2x.png */; };
 		7FE375BE1B7C47C800EEDEE7 /* ControllerSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE375BD1B7C47C800EEDEE7 /* ControllerSetting.m */; };
 		7FEBB6FB1B53B63F0097FF73 /* EnCityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FEBB6FA1B53B63F0097FF73 /* EnCityList.plist */; };
 		7FEBB6FD1B53B6770097FF73 /* CnCityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FEBB6FC1B53B6770097FF73 /* CnCityList.plist */; };
@@ -558,6 +560,9 @@
 		7FC998011B0A0D7A009E8BD7 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7FC998021B0A0D7A009E8BD7 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7FC998031B0A0D7A009E8BD7 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7FCABB0C1B88536300B64300 /* CellForAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellForAccess.h; sourceTree = "<group>"; };
+		7FCABB0D1B88536300B64300 /* CellForAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellForAccess.m; sourceTree = "<group>"; };
+		7FCABB0F1B88547300B64300 /* home_image_often@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_image_often@2x.png"; sourceTree = "<group>"; };
 		7FE375BC1B7C47C800EEDEE7 /* ControllerSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSetting.h; sourceTree = "<group>"; };
 		7FE375BD1B7C47C800EEDEE7 /* ControllerSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSetting.m; sourceTree = "<group>"; };
 		7FEBB6FA1B53B63F0097FF73 /* EnCityList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EnCityList.plist; sourceTree = "<group>"; };
@@ -768,6 +773,8 @@
 				7F8518291B7E13EB00BAD5D3 /* ViewSetupButton.m */,
 				7F64E3321B7EE74B008B8BC3 /* ButtonSetting.h */,
 				7F64E3331B7EE74B008B8BC3 /* ButtonSetting.m */,
+				7FCABB0C1B88536300B64300 /* CellForAccess.h */,
+				7FCABB0D1B88536300B64300 /* CellForAccess.m */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -881,6 +888,7 @@
 		7F7058ED1B242E4A00FCB86C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				7FCABB0F1B88547300B64300 /* home_image_often@2x.png */,
 				7FF8DB3A1B4534E100226B48 /* home_scan_light_off@2x.png */,
 				7FF8DB3B1B4534E100226B48 /* home_scan_light_off@3x.png */,
 				7FF8DB3C1B4534E100226B48 /* home_scan_light_on@2x.png */,
@@ -1566,6 +1574,7 @@
 				7F705A761B265BC000FCB86C /* big_snow@2x.png in Resources */,
 				7F85181F1B7E12C600BAD5D3 /* home_setting_nofull@2x.png in Resources */,
 				7F85181B1B7E12C600BAD5D3 /* home_setting_addbookmark@2x.png in Resources */,
+				7FCABB101B88547300B64300 /* home_image_often@2x.png in Resources */,
 				7F7059BA1B242E4B00FCB86C /* home_site_icon3@3x.png in Resources */,
 				7F7059D91B242E4B00FCB86C /* home_webSite_weibo@2x.png in Resources */,
 				7F7059971B242E4B00FCB86C /* home_button_moreMark_select@2x.png in Resources */,
@@ -1642,6 +1651,7 @@
 				7F09A9921B0CA0B50036BDB7 /* ViewWebSiteButton.m in Sources */,
 				7F5572951B108AA400B0CE8F /* UIImage+Bundle.m in Sources */,
 				7F64E3341B7EE74B008B8BC3 /* ButtonSetting.m in Sources */,
+				7FCABB0E1B88536300B64300 /* CellForAccess.m in Sources */,
 				7FB94BBD1B803DF6002A7902 /* ControllerHistory.m in Sources */,
 				7F0794331B2703E4006883F9 /* ViewCellControl.m in Sources */,
 				7FC998071B0A0D7A009E8BD7 /* AppDelegate.m in Sources */,

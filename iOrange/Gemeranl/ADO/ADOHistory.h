@@ -47,4 +47,11 @@
  */
 + (ModelHistory *)queryModelWithLink:(NSString *)link;
 
+/**
+ *  取得最常访问点前四个网址
+ *
+ *  @return 数组
+ */
++ (NSArray *)queryHistoryFour;
+
 @end

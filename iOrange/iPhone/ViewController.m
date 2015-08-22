@@ -10,10 +10,13 @@
 #define kSectionHeight 50
 
 #import "ApiConfig.h"
+#import "ADOHistory.h"
 #import "ControllerScanCode.h"
 #import "ControllerSetting.h"
 #import "Common.h"
+#import "CellForAccess.h"
 #import "FilePathUtil.h"
+#import "ModelHistory.h"
 #import "NSStringEx.h"
 #import "SVPullToRefresh.h"
 #import "UIWebPage.h"
@@ -59,6 +62,7 @@
   NSInteger _lastSection;//记录上一个点击的section
   NSInteger _webSiteHeight;//记录手机酷站等高度
   NSArray *_arrayContentSite;//PhoneCoolSite 的plist文件
+  NSArray *_arrayOftenHistory;//最常访问记录数组
   /// 全屏显示
   BOOL    _isFullScreen;
   CGFloat _lastOffsetY;
@@ -94,7 +98,9 @@
 #pragma mark - private Methods
 
 -(void)collapseOrExpand:(NSInteger)section withExpanded:(BOOL)isExpand{
-
+  if (section == 4 && isExpand == NO) {
+    [self dataForHistory];
+  }
   NSMutableDictionary *dic=[_DataArray objectAtIndex:section];
   [dic setValue:[NSNumber numberWithInt:!isExpand]forKey:DIC_EXPANDED];
 }
@@ -501,6 +507,10 @@ static id _aSelf;
   return rc;
 }
 
+- (void)dataForHistory {
+  _arrayOftenHistory = [NSArray arrayWithArray:[ADOHistory queryHistoryFour]];
+}
+
 #pragma mark -
 #pragma mark - Webview Methods & UIWebViewDelegate
 
@@ -798,9 +808,21 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   UITableViewCell * cell = [[UITableViewCell alloc] initWithFrame:CGRectZero];
+  cell.selectionStyle = UITableViewCellSelectionStyleNone;
   cell.backgroundColor = RGBA(182., 182., 182., 0.5);
   if (indexPath.section == 5) {
-    return cell;
+    CellForAccess * cellAcc = [[CellForAccess alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 44)];
+    if (indexPath.row <= _arrayOftenHistory.count-1) {
+      ModelHistory *model = [_arrayOftenHistory objectAtIndex:indexPath.row];
+      [cellAcc setTitleString:model.hTitle];
+    } else {
+      [cellAcc setImgvHidden:YES];
+    }
+    
+    if (indexPath.row == 3) {
+      [cellAcc setLabelHidden:YES];
+    }
+    return cellAcc;
   }
   ViewCellControl *viewS = [[ViewCellControl alloc] initWithFrame:CGRectMake(0, 0, tableView.width, cell.height)];
   viewS.touched = whenTouchEnd;
@@ -811,7 +833,9 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  [tableView deselectRowAtIndexPath:indexPath animated:YES];
+   if (indexPath.section == 5) {
+     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+   }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
