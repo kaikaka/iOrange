@@ -7,7 +7,7 @@
 //
 
 #import "UIControllerBrowser.h"
-//#import "ADOSite.h"
+#import "ADOHistory.h"
 
 #import "UIWebViewAdditions.h"
 
@@ -233,28 +233,24 @@
   NSString *link = webPage.webView.link;
   
   if (title.length>0 && link.length>0) {
-    //        ModelSite *modelSite = [ADOSite queryWithType:SiteTypeHistory link:webPage.link];
-    //        BOOL isExist = modelSite?YES:NO;
-    //        if (!modelSite) {
-    //            modelSite = [ModelSite model];
-    //            modelSite.type = SiteTypeHistory;
-    //        }
-    //
-    //        modelSite.title = title;
-    //        modelSite.link = link;
-    //        modelSite.time = [[NSDate date] timeIntervalSince1970];
-    //        modelSite.icon = [[AppDelegate appDelegate] getIconWithLink:link];
-    //        if (!modelSite.icon) {
-    //            modelSite.icon = @"Image/iPhone/bm-icon-bg.png";
-    //            modelSite.colorHex = [[AppDelegate appDelegate] randomColorHex];
-    //        }
-    //
-    //        if (isExist) {
-    //            [ADOSite updateModel:modelSite sid:modelSite.sid];
-    //        }
-    //        else {
-    //            [ADOSite addModel:modelSite];
-    //        }
+    ModelHistory *modelHisy = [ADOHistory queryModelWithLink:link];
+    BOOL isExist = modelHisy?YES:NO;
+    if (!modelHisy) {
+      modelHisy = [ModelHistory modelHistory];
+    }
+    
+    modelHisy.hTitle = title;
+    modelHisy.hLink = link;
+    modelHisy.hDatenow = [[NSDate date] timeIntervalSince1970];
+    if (isExist) {
+      NSInteger num = [modelHisy.hNumber integerValue];
+      modelHisy.hNumber = [NSString stringWithFormat:@"%ld",num+1];
+      [ADOHistory updateModel:modelHisy atUid:[NSString stringWithFormat:@"%ld",modelHisy.hid]];
+    }
+    else {
+      modelHisy.hNumber = @"1";
+      [ADOHistory InsertWithModelList:modelHisy];
+    }
   }
 }
 

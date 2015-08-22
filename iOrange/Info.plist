@@ -11,6 +11,8 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
+	<string>${PRODUCT_NAME}</string>
+	<key>CFBundleDisplayName</key>
 	<string>橘子浏览器</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
