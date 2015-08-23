@@ -10,13 +10,14 @@
 #import "ADOMark.h"
 #import "ControllerHistory.h"
 #import "CalendarDateUtil.h"
+#import "CellForHistory.h"
 #import "ModelHistory.h"
 #import "ModelMark.h"
 
 @interface ControllerHistory ()<UITableViewDelegate,UITableViewDataSource> {
   NSInteger _intTimeDays;//所有不同的天数
   NSArray *_arrayHistoryData;//所有历史数据
-  NSArray *_arrayRowData;//每个区里的所有row数据
+  NSArray *_arrayRowData;//每个区里的所有row数据(字符串)
 }
 
 @end
@@ -118,9 +119,12 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  NSString *modelString = [_arrayRowData objectAtIndex:section];
-  NSArray *arr = [self receiveCurrentDayHistory:modelString];
-  return arr.count;
+  if (tableView == _tableHistory) {
+    NSString *modelString = [_arrayRowData objectAtIndex:section];
+    NSArray *arr = [self receiveCurrentDayHistory:modelString];
+    return arr.count;
+  }
+  return 0;
 }
 
 - (CGFloat)tableView:(nonnull UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -131,9 +135,23 @@
   static NSString *cellIdentifier = @"cellIdentifier";
   UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
   if (!cell) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    if (tableView == _tableHistory) {
+    cell = [[CellForHistory alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    } else {
+      cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
   }
-  cell.selectionStyle = UITableViewCellSelectionStyleNone;
+  if (tableView == _tableHistory) {
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    CellForHistory *cellHis = (CellForHistory *)cell;
+    NSString *modelString = [_arrayRowData objectAtIndex:indexPath.section];
+    NSArray *arrModel = [self receiveCurrentDayHistory:modelString];
+    ModelHistory *model = [arrModel objectAtIndex:indexPath.row];
+    cellHis.labelLinkTitle.text = model.hTitle;
+    cellHis.labelLinkLink.text = model.hLink;
+    [cellHis setIconAtUrl:model.hLink];
+  }
+  
   return cell;
 }
 

@@ -10,4 +10,16 @@
 
 @interface CellForHistory : UITableViewCell
 
+@property (nonatomic,strong) UIImageView *imgvDefault;
+@property (nonatomic,strong) UILabel *labelLinkTitle;
+@property (nonatomic,strong) UILabel *labelLinkLink;
+@property (nonatomic,strong) UIButton *btnRight;
+
+/**
+ *  获取icon
+ *
+ *  @param urlLink 网址
+ */
+- (void)setIconAtUrl:(NSString *)urlLink;
+
 @end
