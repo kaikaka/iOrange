@@ -6,9 +6,17 @@
 //  Copyright © 2015 yinxiangkai. All rights reserved.
 //
 
+#import "ADOHistory.h"
+#import "ADOMark.h"
 #import "ControllerHistory.h"
+#import "CalendarDateUtil.h"
+#import "ModelHistory.h"
+#import "ModelMark.h"
 
 @interface ControllerHistory ()<UITableViewDelegate,UITableViewDataSource> {
+  NSInteger _intTimeDays;//所有不同的天数
+  NSArray *_arrayHistoryData;//所有历史数据
+  NSArray *_arrayRowData;//每个区里的所有row数据
 }
 
 @end
@@ -22,18 +30,68 @@
   [_btnBack addTarget:self action:@selector(onTouchToBack:) forControlEvents:UIControlEventTouchUpInside];
   [_btnEdit addTarget:self action:@selector(onTouchWithEditAndClear:) forControlEvents:UIControlEventTouchUpInside];
   [_segmentBomkHisy addTarget:self action:@selector(onTouchWithSegemnt:) forControlEvents:UIControlEventValueChanged];
+  
+  [self setupData];
 }
 
 #pragma mark - private methods 
 
-- (void)setUpDataTable {
+- (void)setupDataTable {
   _tableBookmark.delegate = self;
   _tableBookmark.dataSource = self;
   [_tableBookmark setTag:13];
+  [_tableBookmark setTableFooterView:[[UIView alloc] init]];
   
   _tableHistory.delegate = self;
   _tableHistory.dataSource = self;
   [_tableHistory setTag:14];
+  [_tableHistory setTableFooterView:[[UIView alloc] init]];
+}
+
+- (void)setupData {
+  NSArray *arrayHistory = [NSArray arrayWithArray:[ADOHistory queryAllHistory]];
+  _arrayHistoryData = arrayHistory;
+  
+  [self receiveDiffDays:arrayHistory];
+  
+  [self setupDataTable];
+}
+
+- (void)receiveDiffDays:(NSArray *)arrayHistory {
+  //获取不同的天数
+  NSMutableArray *mutableModel = [NSMutableArray array];
+  for (ModelHistory *modelH in arrayHistory) {
+    NSInteger month = [CalendarDateUtil getMonthWithDate:[NSDate dateWithTimeIntervalSince1970:modelH.hDatenow]];
+    NSInteger day = [CalendarDateUtil getDayWithDate:[NSDate dateWithTimeIntervalSince1970:modelH.hDatenow]];
+    NSString *mDay = [NSString stringWithFormat:@"%ld,%ld",month,day];
+    [mutableModel addObject:mDay];
+  }
+  NSSet *set = [NSSet setWithArray:mutableModel];
+  NSArray *desc = @[[[NSSortDescriptor alloc] initWithKey:nil ascending:NO]];
+  NSArray *arraySet = [set sortedArrayUsingDescriptors:desc];
+  _arrayRowData = [NSArray arrayWithArray:arraySet];
+  _intTimeDays = arraySet.count;
+}
+
+- (NSArray *)receiveCurrentDayHistory:(NSString *)dateString {
+  /**
+   *  思路：先得到目标日期的月和日，然后从数组里面比较获取所有等于这天的历史纪录
+   */
+  NSArray *array = [dateString componentsSeparatedByString:@","];
+  NSInteger nowMonth = [array[0] integerValue];
+  NSInteger nowDay = [array[1] integerValue];
+  NSMutableArray *mutableArray = [NSMutableArray array];
+  for (ModelHistory *model in _arrayHistoryData) {
+    NSDate *dateCurrent = [NSDate dateWithTimeIntervalSince1970:model.hDatenow];
+    NSInteger currentMonth = [CalendarDateUtil getMonthWithDate:dateCurrent];
+    if (currentMonth == nowMonth) {
+      NSInteger currentDay = [CalendarDateUtil getDayWithDate:dateCurrent];
+      if (nowDay == currentDay) {
+        [mutableArray addObject:model];
+      }
+    }
+  }
+  return mutableArray;
 }
 
 #pragma mark - events
@@ -52,10 +110,48 @@
 
 #pragma mark - UITableViewDelegate,UITableViewDataSource
 
+- (NSInteger)numberOfSectionsInTableView:(nonnull UITableView *)tableView {
+  if (tableView == _tableHistory) {
+    return _intTimeDays;
+  }
+  return 0;
+}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  NSString *modelString = [_arrayRowData objectAtIndex:section];
+  NSArray *arr = [self receiveCurrentDayHistory:modelString];
+  return arr.count;
+}
+
+- (CGFloat)tableView:(nonnull UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+  return 30.;
+}
+
+- (UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+  static NSString *cellIdentifier = @"cellIdentifier";
+  UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+  if (!cell) {
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+  }
+  cell.selectionStyle = UITableViewCellSelectionStyleNone;
+  return cell;
+}
+
+- (UIView *)tableView:(nonnull UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+  UIView *view = [[UIView alloc] init];
+  [view setBackgroundColor:RGBA(210., 210., 210., 1.)];
+  NSString *modelString = [_arrayRowData objectAtIndex:section];
+  NSArray *array = [modelString componentsSeparatedByString:@","];
+  NSInteger nowMonth = [array[0] integerValue];
+  NSInteger nowDay = [array[1] integerValue];
+  
+  UILabel *labelDate = [[UILabel alloc] initWithFrame:CGRectMake(15, 2, 200, 26)];
+  [labelDate setText:[NSString stringWithFormat:@"%ld月%ld日",nowMonth,nowDay]];
+  [labelDate setTextColor:[UIColor grayColor]];
+  [labelDate setFont:Font_Size(13.)];
+  [view addSubview:labelDate];
+  
+  return view;
 }
 
 /*

@@ -23,8 +23,7 @@
 
 @implementation UIControllerBrowser
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
     // Custom initialization
@@ -34,8 +33,7 @@
   return self;
 }
 
-- (instancetype)init
-{
+- (instancetype)init {
   self = [super init];
   if (self) {
     _webPageManage = [[WebPageManage alloc] init];
@@ -44,8 +42,7 @@
   return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
   
@@ -54,15 +51,13 @@
   [UIWebPage appearance].progressColor = [UIColor orangeColor];//RGBCOLOR(0, 200, 0);
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - property
-- (CGRect)webPageFrame
-{
+- (CGRect)webPageFrame {
   CGRect rc  = self.view.bounds;
   rc.origin.y = 20.0f;
   rc.size.height = self.view.height-34-rc.origin.y;
@@ -125,8 +120,7 @@
   [self.view insertSubview:_webPage atIndex:0];
 }
 
-- (void)setCurrWebPageAtIndex:(NSInteger)index
-{
+- (void)setCurrWebPageAtIndex:(NSInteger)index {
   UIWebPage *webPage = [_webPageManage webPageAtIndex:index];
   if (webPage && webPage!=_webPage) {
     [_webPage removeFromSuperview];
@@ -134,8 +128,7 @@
   }
 }
 
-- (void)hideCurrWebPageLoadingCover
-{
+- (void)hideCurrWebPageLoadingCover {
   BOOL isShowCoverLogo  = _webPage.isShowCoverLogo;
   BOOL isShowCoverView = _webPage.isShowCoverView;
   if (!isShowCoverLogo && isShowCoverView) {
@@ -143,8 +136,7 @@
   }
 }
 
-- (void)startAllCoverLogoAnimation
-{
+- (void)startAllCoverLogoAnimation {
   for (UIWebPage *webPage in _webPageManage.arrWebPage) {
     [webPage startCoverLogoAnimation];
   }
@@ -180,8 +172,8 @@
 }
 
 #pragma mark - WebPageManageDelegate
-- (void)webPageManage:(WebPageManage *)webPageManage reqLink:(NSString *)link urlOpenMode:(UrlOpenMode)urlOpenMode
-{
+
+- (void)webPageManage:(WebPageManage *)webPageManage reqLink:(NSString *)link urlOpenMode:(UrlOpenMode)urlOpenMode {
   //    NSURL *url = [NSURL URLWithString:link];
   
   switch (urlOpenMode) {
@@ -226,8 +218,7 @@
   }
 }
 
-- (void)webPageManageDidEndLoad:(WebPageManage *)webPageManage atIndex:(NSInteger)index
-{
+- (void)webPageManageDidEndLoad:(WebPageManage *)webPageManage atIndex:(NSInteger)index {
   UIWebPage *webPage = [webPageManage webPageAtIndex:index];
   NSString *title = webPage.webView.title;
   NSString *link = webPage.webView.link;

@@ -835,6 +835,8 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
    if (indexPath.section == 5) {
      [tableView deselectRowAtIndexPath:indexPath animated:YES];
+     ModelHistory *model = [_arrayOftenHistory objectAtIndex:indexPath.row];
+     [self loadWebViewWithLink:model.hLink];
    }
 }
 

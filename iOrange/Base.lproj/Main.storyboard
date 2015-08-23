@@ -780,28 +780,28 @@
                                             <constraint firstAttribute="height" constant="64" id="uW6-Xu-jFo"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gHS-Wa-4lf">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WUE-Kq-Cg9">
                                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WUE-Kq-Cg9">
-                                        <rect key="frame" x="0.0" y="64" width="329" height="504"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gHS-Wa-4lf">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="WUE-Kq-Cg9" secondAttribute="bottom" id="2Bm-y1-5Yy"/>
-                                    <constraint firstAttribute="bottom" secondItem="gHS-Wa-4lf" secondAttribute="bottom" id="6tP-Ui-5rF"/>
-                                    <constraint firstAttribute="trailing" secondItem="gHS-Wa-4lf" secondAttribute="trailing" id="77k-DU-bTA"/>
+                                    <constraint firstAttribute="trailing" secondItem="gHS-Wa-4lf" secondAttribute="trailing" id="4Q1-9J-uNJ"/>
                                     <constraint firstAttribute="trailing" secondItem="BMW-N1-yCy" secondAttribute="trailing" id="DbJ-II-myR"/>
-                                    <constraint firstItem="gHS-Wa-4lf" firstAttribute="top" secondItem="BMW-N1-yCy" secondAttribute="bottom" id="LvU-2u-rzU"/>
+                                    <constraint firstItem="gHS-Wa-4lf" firstAttribute="leading" secondItem="lKp-PR-qVb" secondAttribute="leading" id="FLw-Wi-T0I"/>
+                                    <constraint firstItem="WUE-Kq-Cg9" firstAttribute="leading" secondItem="lKp-PR-qVb" secondAttribute="leading" id="G5K-Eu-lzU"/>
+                                    <constraint firstAttribute="bottom" secondItem="WUE-Kq-Cg9" secondAttribute="bottom" id="Pj9-Yl-JQ2"/>
+                                    <constraint firstAttribute="trailing" secondItem="WUE-Kq-Cg9" secondAttribute="trailing" id="Pwi-eO-cJm"/>
                                     <constraint firstItem="BMW-N1-yCy" firstAttribute="top" secondItem="lKp-PR-qVb" secondAttribute="top" id="Soa-r4-AsQ"/>
+                                    <constraint firstItem="gHS-Wa-4lf" firstAttribute="top" secondItem="BMW-N1-yCy" secondAttribute="bottom" id="V9L-My-83f"/>
                                     <constraint firstItem="BMW-N1-yCy" firstAttribute="leading" secondItem="lKp-PR-qVb" secondAttribute="leading" id="cJ8-ou-QVJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="WUE-Kq-Cg9" secondAttribute="trailing" constant="-9" id="hUM-rX-h4a"/>
-                                    <constraint firstItem="WUE-Kq-Cg9" firstAttribute="top" secondItem="BMW-N1-yCy" secondAttribute="bottom" id="mD0-dF-lg4"/>
-                                    <constraint firstItem="gHS-Wa-4lf" firstAttribute="leading" secondItem="lKp-PR-qVb" secondAttribute="leading" id="poo-TM-BJS"/>
-                                    <constraint firstItem="WUE-Kq-Cg9" firstAttribute="leading" secondItem="lKp-PR-qVb" secondAttribute="leading" id="tC3-KA-u3y"/>
+                                    <constraint firstItem="WUE-Kq-Cg9" firstAttribute="top" secondItem="BMW-N1-yCy" secondAttribute="bottom" id="ciF-ig-zbm"/>
+                                    <constraint firstAttribute="bottom" secondItem="gHS-Wa-4lf" secondAttribute="bottom" id="kOf-Zz-Tp3"/>
                                 </constraints>
                             </view>
                         </subviews>

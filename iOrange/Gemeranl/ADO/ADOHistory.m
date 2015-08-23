@@ -61,6 +61,24 @@
   return  values;
 }
 
++ (NSArray *)queryAllHistory{
+  NSMutableArray *values = [NSMutableArray array];
+  sqlite3 *database;
+  NSString *querySql = @"SELECT * FROM tab_History order by h_datenow desc";
+  if(sqlite3_open([GetDBPath() UTF8String], &database) == SQLITE_OK) {
+    sqlite3_stmt *compiledStatement;
+    if(sqlite3_prepare_v2(database, [querySql UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK) {
+      while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
+        ModelHistory *modelHistory = [ModelHistory modelHistoryWithStmt:compiledStatement];
+        [values addObject:modelHistory];
+      }
+    }
+    sqlite3_finalize(compiledStatement);
+    sqlite3_close(database);
+  }
+  return  values;
+}
+
 + (ModelHistory *)queryModelWithLink:(NSString *)link {
   ModelHistory *valueModel;
   sqlite3 *database;

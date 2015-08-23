@@ -54,4 +54,11 @@
  */
 + (NSArray *)queryHistoryFour;
 
+/**
+ *  取得所有历史纪录
+ *
+ *  @return 数组
+ */
++ (NSArray *)queryAllHistory;
+
 @end
