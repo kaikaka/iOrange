@@ -13,10 +13,11 @@
 @property (weak, nonatomic) IBOutlet UIView *viewHome;
 @property (weak, nonatomic) IBOutlet UIView *viewNav;
 @property (weak, nonatomic) IBOutlet UITableView *tableBookmark;
-
 @property (weak, nonatomic) IBOutlet UITableView *tableHistory;
 @property (weak, nonatomic) IBOutlet UIButton *btnBack;
 @property (weak, nonatomic) IBOutlet UIButton *btnEdit;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentBomkHisy;
+@property (weak, nonatomic) IBOutlet UIView *viewNoMarkbook;
+@property (weak, nonatomic) IBOutlet UIView *viewNoHistory;
 
 @end

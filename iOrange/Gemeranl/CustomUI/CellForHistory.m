@@ -6,6 +6,8 @@
 //  Copyright © 2015 yinxiangkai. All rights reserved.
 //
 
+#import "ADOMark.h"
+#import "ADOHistory.h"
 #import "CellForHistory.h"
 #import "UIImageView+WebCache.h"
 
@@ -77,6 +79,14 @@
   }
 }
 
+- (void)setModelHistroy:(ModelHistory *)modelHistroy {
+  if (modelHistroy) {
+    _modelHistroy = modelHistroy;
+    BOOL isEx = [ADOMark isExistsWithPostLink:modelHistroy.hLink];
+    _btnRight.selected = isEx;
+  }
+}
+
 - (void)setIconAtUrl:(NSString *)urlLink {
   NSURL *url = [NSURL URLWithString:urlLink];
   NSString *icoLink = [NSString stringWithFormat:@"http://%@/favicon.ico", url.host];
@@ -84,6 +94,29 @@
 }
 - (void)onTouchAtSelect:(UIButton *)sender {
   sender.selected = !sender.selected;
+  if (sender.selected == YES) {
+    ModelMark *modelMark = [ModelMark modelMark];
+    modelMark.mDatenow = [[NSDate date] timeIntervalSince1970];
+    modelMark.mHistoryId = _modelHistroy.hid;
+    modelMark.mTitle = _modelHistroy.hTitle;
+    modelMark.mLink = _modelHistroy.hLink;
+    modelMark.mIcon = [NSString stringWithFormat:@"http://%@/favicon.ico", [NSURL URLWithString:_modelHistroy.hLink].host];
+    [ADOMark InsertWithModelList:modelMark];
+    _modelHistroy.hIsmark = @"1";
+    [ADOHistory updateModel:_modelHistroy atUid:[NSString stringWithFormat:@"%ld",_modelHistroy.hid]];
+  } else {
+    [ADOMark deleteWithHistroyId:_modelHistroy.hid];
+    _modelHistroy.hIsmark = @"0";
+    [ADOHistory updateModel:_modelHistroy atUid:[NSString stringWithFormat:@"%ld",_modelHistroy.hid]];
+  }
+}
+
+- (void)deleteHistory {
+  [ADOHistory deleteWithHistroyId:_modelHistroy.hid];
+}
+
+- (void)deleteBookMarkWithModel:(ModelMark *)modelk {
+  [ADOMark deleteWithMid:modelk.mid];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

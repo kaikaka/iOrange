@@ -23,7 +23,7 @@
   "m_dateNow text,"
   "m_icon text,"
   "m_title text,"
-  "m_historyId text,"
+  "m_historyId integer,"
   "m_link text);";
   
   char *sqlSite = "create table if not exists tab_Site ("

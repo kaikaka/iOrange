@@ -788,20 +788,102 @@
                                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableView>
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mFw-f1-axI">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_setting_history_addbookmakr.png" translatesAutoresizingMaskIntoConstraints="NO" id="VGe-8o-Pft">
+                                                <rect key="frame" x="135" y="112" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="TLy-rV-zXn"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="TLy-rV-zXn"/>
+                                                    </mask>
+                                                </variation>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="尚无书签" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="68" translatesAutoresizingMaskIntoConstraints="NO" id="N5A-ki-BxL">
+                                                <rect key="frame" x="126" y="170" width="68" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="N5A-ki-BxL" firstAttribute="top" secondItem="VGe-8o-Pft" secondAttribute="bottom" constant="8" id="7Jy-jZ-LdY"/>
+                                            <constraint firstItem="N5A-ki-BxL" firstAttribute="centerX" secondItem="mFw-f1-axI" secondAttribute="centerX" id="CxH-v0-A6x"/>
+                                            <constraint firstAttribute="trailing" secondItem="VGe-8o-Pft" secondAttribute="trailing" constant="135" id="R9g-3f-1LD"/>
+                                            <constraint firstItem="VGe-8o-Pft" firstAttribute="centerX" secondItem="mFw-f1-axI" secondAttribute="centerX" id="WIu-HO-xJH"/>
+                                            <constraint firstItem="VGe-8o-Pft" firstAttribute="top" secondItem="mFw-f1-axI" secondAttribute="top" constant="112" id="ggf-bV-YHJ"/>
+                                            <constraint firstItem="N5A-ki-BxL" firstAttribute="top" secondItem="VGe-8o-Pft" secondAttribute="bottom" constant="8" id="odv-oo-1Ve"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="R9g-3f-1LD"/>
+                                                <exclude reference="7Jy-jZ-LdY"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fx4-PE-rIa">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_setting_history_seamless.png" translatesAutoresizingMaskIntoConstraints="NO" id="DBW-Lp-bA7">
+                                                <rect key="frame" x="85" y="107" width="150" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="YWZ-lm-UVv"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="YWZ-lm-UVv"/>
+                                                    </mask>
+                                                </variation>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="无痕浏览时没有记录哦" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="170" translatesAutoresizingMaskIntoConstraints="NO" id="T3D-cj-tto">
+                                                <rect key="frame" x="75" y="229" width="170" height="20.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="MO7-XO-8Hl"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="MO7-XO-8Hl"/>
+                                                    </mask>
+                                                </variation>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="T3D-cj-tto" firstAttribute="top" secondItem="DBW-Lp-bA7" secondAttribute="bottom" constant="22" id="LPH-q2-gdU"/>
+                                            <constraint firstItem="T3D-cj-tto" firstAttribute="centerX" secondItem="fx4-PE-rIa" secondAttribute="centerX" id="N8d-Mp-S4l"/>
+                                            <constraint firstItem="DBW-Lp-bA7" firstAttribute="top" secondItem="fx4-PE-rIa" secondAttribute="top" constant="107" id="hZc-qC-dzu"/>
+                                            <constraint firstItem="DBW-Lp-bA7" firstAttribute="centerX" secondItem="fx4-PE-rIa" secondAttribute="centerX" id="jR8-3c-HhG"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="fx4-PE-rIa" firstAttribute="leading" secondItem="lKp-PR-qVb" secondAttribute="leading" id="1tO-Bb-5cu"/>
+                                    <constraint firstItem="fx4-PE-rIa" firstAttribute="top" secondItem="BMW-N1-yCy" secondAttribute="bottom" id="3AO-NZ-4ny"/>
                                     <constraint firstAttribute="trailing" secondItem="gHS-Wa-4lf" secondAttribute="trailing" id="4Q1-9J-uNJ"/>
                                     <constraint firstAttribute="trailing" secondItem="BMW-N1-yCy" secondAttribute="trailing" id="DbJ-II-myR"/>
+                                    <constraint firstAttribute="trailing" secondItem="mFw-f1-axI" secondAttribute="trailing" id="DxM-fp-SNm"/>
                                     <constraint firstItem="gHS-Wa-4lf" firstAttribute="leading" secondItem="lKp-PR-qVb" secondAttribute="leading" id="FLw-Wi-T0I"/>
                                     <constraint firstItem="WUE-Kq-Cg9" firstAttribute="leading" secondItem="lKp-PR-qVb" secondAttribute="leading" id="G5K-Eu-lzU"/>
+                                    <constraint firstItem="mFw-f1-axI" firstAttribute="top" secondItem="BMW-N1-yCy" secondAttribute="bottom" id="IGj-Wx-z1R"/>
                                     <constraint firstAttribute="bottom" secondItem="WUE-Kq-Cg9" secondAttribute="bottom" id="Pj9-Yl-JQ2"/>
                                     <constraint firstAttribute="trailing" secondItem="WUE-Kq-Cg9" secondAttribute="trailing" id="Pwi-eO-cJm"/>
+                                    <constraint firstAttribute="trailing" secondItem="fx4-PE-rIa" secondAttribute="trailing" id="RNV-Qk-QcB"/>
                                     <constraint firstItem="BMW-N1-yCy" firstAttribute="top" secondItem="lKp-PR-qVb" secondAttribute="top" id="Soa-r4-AsQ"/>
                                     <constraint firstItem="gHS-Wa-4lf" firstAttribute="top" secondItem="BMW-N1-yCy" secondAttribute="bottom" id="V9L-My-83f"/>
+                                    <constraint firstAttribute="bottom" secondItem="mFw-f1-axI" secondAttribute="bottom" id="bIu-2y-qUo"/>
                                     <constraint firstItem="BMW-N1-yCy" firstAttribute="leading" secondItem="lKp-PR-qVb" secondAttribute="leading" id="cJ8-ou-QVJ"/>
                                     <constraint firstItem="WUE-Kq-Cg9" firstAttribute="top" secondItem="BMW-N1-yCy" secondAttribute="bottom" id="ciF-ig-zbm"/>
                                     <constraint firstAttribute="bottom" secondItem="gHS-Wa-4lf" secondAttribute="bottom" id="kOf-Zz-Tp3"/>
+                                    <constraint firstAttribute="bottom" secondItem="fx4-PE-rIa" secondAttribute="bottom" id="oXa-SZ-SWn"/>
+                                    <constraint firstItem="mFw-f1-axI" firstAttribute="leading" secondItem="lKp-PR-qVb" secondAttribute="leading" id="yuS-X8-Lae"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -822,6 +904,8 @@
                         <outlet property="tableHistory" destination="WUE-Kq-Cg9" id="wlO-zT-Ls2"/>
                         <outlet property="viewHome" destination="lKp-PR-qVb" id="dGB-GE-T8z"/>
                         <outlet property="viewNav" destination="BMW-N1-yCy" id="U76-oC-IhM"/>
+                        <outlet property="viewNoHistory" destination="fx4-PE-rIa" id="V90-JY-Vj5"/>
+                        <outlet property="viewNoMarkbook" destination="mFw-f1-axI" id="mzm-ij-mCH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xaz-Ns-GFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -939,6 +1023,8 @@
         <image name="home_nav_twoCode_default.png" width="53" height="49"/>
         <image name="home_nav_twoCode_pressed.png" width="53" height="49"/>
         <image name="home_setting_down.png" width="39" height="25"/>
+        <image name="home_setting_history_addbookmakr.png" width="50" height="50"/>
+        <image name="home_setting_history_seamless.png" width="150" height="100"/>
         <image name="home_setting_previous.png" width="50" height="50"/>
         <image name="home_weather_PM25Exp.png" width="13" height="13"/>
         <image name="home_weather_cuttingLine.png" width="23" height="66"/>

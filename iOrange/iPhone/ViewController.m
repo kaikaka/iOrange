@@ -84,6 +84,8 @@
   [super viewDidLoad];
   // Do any additional setup after loading the view, typically from a nib.
 
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationToHismark:) name:kViewControllerNotionHismark object:nil];
+  
   [self countMargin];
   [self showGuideSiteInView];
   [self showPageView];
@@ -93,7 +95,6 @@
 
 #pragma mrak -
 #pragma mark - public Methods
-
 
 #pragma mark - private Methods
 
@@ -682,6 +683,11 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
 - (IBAction)onTouchWithSearchAction:(UIButton *)sender {
   [_textFiledContent becomeFirstResponder];
   return;
+}
+
+- (void)onNotificationToHismark:(NSNotification *)notification {
+  NSString *urlString = [notification object];
+  [self loadWebViewWithLink:urlString];
 }
 
 #pragma mark - UIControllerBrowserDelegate

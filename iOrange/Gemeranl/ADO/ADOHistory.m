@@ -120,4 +120,20 @@
   return NO;
 }
 
++ (BOOL)deleteWithHistroyId:(NSInteger)hid {
+  char * errorMsg;
+  sqlite3 *database;
+  
+  if (sqlite3_open([GetDBPath() UTF8String], &database) == SQLITE_OK) {
+    NSString *deleteSQL = [NSString stringWithFormat:@"delete from tab_History where h_id=%ld;", hid];
+    
+    if (sqlite3_exec (database, [deleteSQL  UTF8String], NULL, NULL, &errorMsg) != SQLITE_OK) {
+    }
+    sqlite3_close(database);
+    return YES;
+  }
+  
+  return NO;
+}
+
 @end

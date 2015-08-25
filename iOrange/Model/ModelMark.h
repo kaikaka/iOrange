@@ -34,7 +34,7 @@
 /**
  *  历史表id
  */
-@property (nonatomic,strong)NSString *mHistoryId;
+@property (nonatomic,assign)NSInteger mHistoryId;
 
 /**
  *  网址

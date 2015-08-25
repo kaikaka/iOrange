@@ -32,8 +32,7 @@
     self.mIcon = value?[NSString stringWithCString:value encoding:NSUTF8StringEncoding]:nil;
     value = (char*)sqlite3_column_text(stmt, 3);
     self.mTitle = value?[NSString stringWithCString:value encoding:NSUTF8StringEncoding]:nil;
-    value = (char*)sqlite3_column_text(stmt, 4);
-    self.mHistoryId = value?[NSString stringWithCString:value encoding:NSUTF8StringEncoding]:nil;
+    self.mHistoryId = sqlite3_column_int(stmt, 4);
     value = (char*)sqlite3_column_text(stmt, 5);
     self.mLink = value?[NSString stringWithCString:value encoding:NSUTF8StringEncoding]:nil;
   }

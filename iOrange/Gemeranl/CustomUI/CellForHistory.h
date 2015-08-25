@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ModelHistory.h"
 
 @interface CellForHistory : UITableViewCell
 
@@ -15,11 +16,23 @@
 @property (nonatomic,strong) UILabel *labelLinkLink;
 @property (nonatomic,strong) UIButton *btnRight;
 
+@property (nonatomic,strong) ModelHistory *modelHistroy;
+
 /**
  *  获取icon
  *
  *  @param urlLink 网址
  */
 - (void)setIconAtUrl:(NSString *)urlLink;
+
+/**
+ *  删除历史纪录
+ */
+- (void)deleteHistory;
+
+/**
+ *  删除书签
+ */
+- (void)deleteBookMarkWithModel:(ModelMark *)model;
 
 @end

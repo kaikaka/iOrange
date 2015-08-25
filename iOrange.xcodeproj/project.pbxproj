@@ -266,6 +266,7 @@
 		7FEBB72A1B55069D0097FF73 /* UIControllerBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEBB7291B55069D0097FF73 /* UIControllerBrowser.m */; };
 		7FEBB72D1B5506EC0097FF73 /* UITaskPageManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEBB72C1B5506EC0097FF73 /* UITaskPageManage.m */; };
 		7FEBB7301B5506F60097FF73 /* UIScrollViewTaskManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEBB72F1B5506F60097FF73 /* UIScrollViewTaskManage.m */; };
+		7FF43D311B8C328C00EA5C61 /* home_setting_history_seamless@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF43D301B8C328C00EA5C61 /* home_setting_history_seamless@2x.png */; };
 		7FF8DB3E1B4534E100226B48 /* home_scan_light_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF8DB3A1B4534E100226B48 /* home_scan_light_off@2x.png */; };
 		7FF8DB3F1B4534E100226B48 /* home_scan_light_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF8DB3B1B4534E100226B48 /* home_scan_light_off@3x.png */; };
 		7FF8DB401B4534E100226B48 /* home_scan_light_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF8DB3C1B4534E100226B48 /* home_scan_light_on@2x.png */; };
@@ -609,6 +610,7 @@
 		7FEBB72C1B5506EC0097FF73 /* UITaskPageManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITaskPageManage.m; sourceTree = "<group>"; };
 		7FEBB72E1B5506F60097FF73 /* UIScrollViewTaskManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewTaskManage.h; sourceTree = "<group>"; };
 		7FEBB72F1B5506F60097FF73 /* UIScrollViewTaskManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewTaskManage.m; sourceTree = "<group>"; };
+		7FF43D301B8C328C00EA5C61 /* home_setting_history_seamless@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_setting_history_seamless@2x.png"; sourceTree = "<group>"; };
 		7FF8DB3A1B4534E100226B48 /* home_scan_light_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_light_off@2x.png"; sourceTree = "<group>"; };
 		7FF8DB3B1B4534E100226B48 /* home_scan_light_off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_light_off@3x.png"; sourceTree = "<group>"; };
 		7FF8DB3C1B4534E100226B48 /* home_scan_light_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_light_on@2x.png"; sourceTree = "<group>"; };
@@ -1066,6 +1068,7 @@
 		7F85180D1B7E12C600BAD5D3 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				7FF43D301B8C328C00EA5C61 /* home_setting_history_seamless@2x.png */,
 				7F23C4111B8A04CD000C4CAD /* home_setting_history_addbookmakr@2x.png */,
 				7F23C4121B8A04CD000C4CAD /* home_setting_history_bookmark@2x.png */,
 				7F23C3FD1B899C9C000C4CAD /* home_setting_history_default@2x.png */,
@@ -1584,6 +1587,7 @@
 				7F8518261B7E12C600BAD5D3 /* home_setting_share@2x.png in Resources */,
 				7F901DBE1B4B871500835396 /* 5@2x.png in Resources */,
 				7FC997E51B09794E009E8BD7 /* Images.xcassets in Resources */,
+				7FF43D311B8C328C00EA5C61 /* home_setting_history_seamless@2x.png in Resources */,
 				7F7059DA1B242E4B00FCB86C /* home_webSite_weibo@3x.png in Resources */,
 				7F901DC31B4B871500835396 /* celsius@2x.png in Resources */,
 				7F705A741B265BC000FCB86C /* big_sleet@2x.png in Resources */,

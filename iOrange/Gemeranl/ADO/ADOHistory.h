@@ -61,4 +61,13 @@
  */
 + (NSArray *)queryAllHistory;
 
+/**
+ *  删除记录
+ *
+ *  @param hid id
+ *
+ *  @return 删除结果
+ */
++ (BOOL)deleteWithHistroyId:(NSInteger)hid;
+
 @end
