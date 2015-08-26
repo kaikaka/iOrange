@@ -15,12 +15,11 @@
 #import "ModelHistory.h"
 #import "ModelMark.h"
 
-@interface ControllerHistory ()<UITableViewDelegate,UITableViewDataSource> {
+@interface ControllerHistory ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate> {
   NSInteger _intTimeDays;//所有不同的天数
   NSArray *_arrayHistoryData;//所有历史数据
   NSArray *_arrayRowData;//每个区里的所有row数据(字符串)(tableHistory)
   NSMutableArray *_arrayMarkData;//所有书签数据
-
 }
 
 @end
@@ -126,6 +125,21 @@
 }
 
 - (void)onTouchWithEditAndClear:(UIButton *)sender {
+  NSString *stringTitle;
+  NSString *stringMessage;
+  NSInteger alertTag = 0;
+  if (_segmentBomkHisy.selectedSegmentIndex == 0) {
+    stringTitle = @"您确定要删除全部书签吗？";
+    stringMessage = @"(您可以滑动删除单个书签)";
+    alertTag = 10;
+  } else if(_segmentBomkHisy.selectedSegmentIndex == 1) {
+    stringTitle = @"您确定要删除全部历史吗？";
+    stringMessage = @"(您可以滑动删除单个历史记录)";
+    alertTag = 20;
+  }
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:stringTitle message:stringMessage delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+  [alert setTag:alertTag];
+  [alert show];
 }
 
 - (void)onTouchWithSegemnt:(UISegmentedControl *)sender {
@@ -135,6 +149,23 @@
     _arrayMarkData = [NSMutableArray arrayWithArray:[ADOMark queryAllMark]];
     [self setViewMarkbook];
     [_tableBookmark reloadData];
+  } else {
+  }
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+  if (buttonIndex == 0) {
+    if (alertView.tag == 10) {
+      [ADOMark deleteAllRecord];
+      _arrayMarkData = [NSMutableArray array];
+      [_tableBookmark reloadData];
+    } else if (alertView.tag == 20) {
+      [ADOHistory deleteAllRecord];
+      _arrayHistoryData = [NSArray array];
+      [_tableHistory reloadData];
+    }
   }
 }
 

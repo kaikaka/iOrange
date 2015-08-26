@@ -72,4 +72,11 @@
  */
 + (BOOL)deleteWithMid:(NSInteger)mid;
 
+/**
+ *  删除所有书签纪录
+ *
+ *  @return 删除结果
+ */
++ (BOOL)deleteAllRecord;
+
 @end

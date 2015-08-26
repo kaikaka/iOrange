@@ -70,4 +70,11 @@
  */
 + (BOOL)deleteWithHistroyId:(NSInteger)hid;
 
+/**
+ *  删除所有历史纪录
+ *
+ *  @return 删除结果
+ */
++ (BOOL)deleteAllRecord;
+
 @end
