@@ -65,6 +65,8 @@
   NSInteger _webSiteHeight;//记录手机酷站等高度
   NSArray *_arrayContentSite;//PhoneCoolSite 的plist文件
   NSArray *_arrayOftenHistory;//最常访问记录数组
+  NSArray *_arraySum;
+  
   /// 全屏显示
   BOOL    _isFullScreen;
   CGFloat _lastOffsetY;
@@ -77,6 +79,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textFiledContent;
 @property (nonatomic,strong)void (^whenTouchEnd) (NSString *);
 @property (nonatomic,strong)void (^whenShowWeatherEnd) (void);
+@property (nonatomic,strong)void (^whenTouchSiteDelete) (NSString *);
 
 @end
 
@@ -87,6 +90,7 @@
   // Do any additional setup after loading the view, typically from a nib.
 
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationToHismark:) name:kViewControllerNotionHismark object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationToSite:) name:kViewControllerNotionSite object:nil];
   
   [self countMargin];
   [self showGuideSiteInView];
@@ -155,6 +159,7 @@
   NSArray *arraySite = [NSArray arrayWithContentsOfFile:pathString];
   NSArray *arrayCustomSite = [NSArray arrayWithArray:[ADOSite queryAllSite]];
   arraySite = [arraySite arrayByAddingObjectsFromArray:arrayCustomSite];
+  _arraySum = [NSArray arrayWithArray:arraySite];
   CGFloat widthS = (self.view.width-22*5)/4;
   CGFloat heightS = iPhone5?(0.85 * 90):90;
   CGFloat margin = 22;
@@ -169,7 +174,9 @@
     CGFloat appviewy = margin + (margin + heightS) * row;
     
     ViewGuideSiteButton *siteView = [[ViewGuideSiteButton alloc] initWithFrame:CGRectMake(appviewx, appviewy, widthS, heightS) withDict:dictSite];
+    [siteView setTag:10+i];
     siteView.touched = whenTouchEnd;
+    siteView.touchedDelete = whenTouchSiteDelete;
     [_viewHomeTwo addSubview:siteView];
     if (i == [arraySite count]-1) {
       int row = (i+1) / totalloc;
@@ -179,6 +186,7 @@
       CGFloat appviewH = margin + (margin + heightS) * row;
       ViewGuideSiteButton *siteViewNine = [[ViewGuideSiteButton alloc] initWithFrame:CGRectMake(appviewW, appviewH, widthS, heightS) withIconName:@"home_site_icon9" withSiteName:@""];
       siteViewNine.touched = whenTouchEnd;
+      siteViewNine.touchedDelete = whenTouchSiteDelete;
       [_viewHomeTwo addSubview:siteViewNine];
     }
   }
@@ -521,6 +529,49 @@ static id _aSelf;
   [self.navigationController pushViewController:controller animated:YES];
 }
 
+- (void)deleteAllSite {
+  for (UIView *view in _viewHomeTwo.subviews) {
+    [view removeFromSuperview];
+  }
+}
+
+- (void)siteAloneForDelete:(NSString *)link {
+  UIView *viewSiteDelete = [[UIView alloc] initWithFrame:self.view.bounds];
+  viewSiteDelete.backgroundColor = [UIColor clearColor];
+  
+  CGFloat widthS = 20;
+  CGFloat heightS = 20;
+  CGFloat marginW = (self.view.width-19*5)/4;
+  CGFloat marginH = (self.view.width-((self.view.width-23*5)/4)*4)/5;
+  int totalloc = 4;
+  
+  for (int i = 9; i<[_arraySum count]; i++) {
+    int row = i / totalloc;
+    int loc = i % totalloc;
+    
+    CGFloat appviewx = marginW + (marginW + 19) * loc;
+    CGFloat appviewy = 64 + 25 + (marginH + 90) * row;
+
+    UIButton *btnDelete = [UIButton buttonWithType:0];
+    [btnDelete setFrame: CGRectMake(appviewx, appviewy, widthS, heightS)];
+    [btnDelete setImage:[UIImage imageNamed:@"home_site_delete@2x"] forState:0];
+    [btnDelete addTarget:self action:@selector(onTouchAtSiteToDelete:) forControlEvents:UIControlEventTouchUpInside];
+    [btnDelete setTag:10+i];
+    [viewSiteDelete addSubview:btnDelete];
+  }
+  
+  UIButton *btnDone = [UIButton buttonWithType:0];
+  [btnDone setFrame:CGRectMake(0, self.view.height - 49, self.view.width, 49)];
+  [btnDone setBackgroundColor:[UIColor whiteColor]];
+  [btnDone setTitle:@"完成" forState:0];
+  [btnDone setTitleColor:[UIColor blackColor] forState:0];
+  [btnDone setTitleColor:[UIColor grayColor] forState:1];
+  [btnDone addTarget:self action:@selector(onTouchAtSiteToDone:) forControlEvents:UIControlEventTouchUpInside];
+  [viewSiteDelete addSubview:btnDone];
+  
+  [self.view addSubview:viewSiteDelete];
+}
+
 #pragma mark -
 #pragma mark - Webview Methods & UIWebViewDelegate
 
@@ -550,6 +601,10 @@ void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
   } else {
     [_aSelf loadAddNavigationController];
   }
+};
+
+void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
+  [_aSelf siteAloneForDelete:link];
 };
 
 void (^whenShowWeatherEnd)(void) = ^ void (){
@@ -701,6 +756,24 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
 - (void)onNotificationToHismark:(NSNotification *)notification {
   NSString *urlString = [notification object];
   [self loadWebViewWithLink:urlString];
+}
+
+- (void)onNotificationToSite:(NSNotification *)notification {
+  [self deleteAllSite];
+  [self showGuideSiteInView];
+}
+
+- (void)onTouchAtSiteToDelete:(UIButton *)sender {
+  [sender removeFromSuperview];
+  ViewGuideSiteButton *guideView = (ViewGuideSiteButton *)[_viewHomeTwo viewWithTag:sender.tag];
+  if ([ADOSite deleteWithSiteId:guideView.modelSite.s_id]) {
+    [self deleteAllSite];
+    [self showGuideSiteInView];
+  }
+}
+
+- (void)onTouchAtSiteToDone:(UIButton *)sender {
+  [sender.superview removeFromSuperview];
 }
 
 #pragma mark - UIControllerBrowserDelegate

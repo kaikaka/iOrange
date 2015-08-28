@@ -13,6 +13,8 @@
 @interface ViewGuideSiteButton () {
   NSDictionary *_dictConent;
   NSString  *_stringContent;
+  UIButton *_buttomImgX;
+  UILabel *_labelTitleX;
 }
 
 @end
@@ -44,30 +46,41 @@
     
     NSString *nameString; NSString *iconString;
     
-    UIButton *buttomImg = [UIButton buttonWithType:0];
-    buttomImg.frame = CGRectMake(0, 0, 62, 62);
-    [self addSubview:buttomImg];
-    [buttomImg addTarget:self action:@selector(onTouchWithSelect:) forControlEvents:UIControlEventTouchUpInside];
-    
+    if (_buttomImgX == nil) {
+      UIButton *buttomImg = [UIButton buttonWithType:0];
+      buttomImg.frame = CGRectMake(0, 0, 62, 62);
+      [self addSubview:buttomImg];
+      _buttomImgX = buttomImg;
+      [buttomImg addTarget:self action:@selector(onTouchWithSelect:) forControlEvents:UIControlEventTouchUpInside];
+    }
     if ([theSite isKindOfClass:[NSDictionary class]]) {
       NSDictionary *siteDict = (NSDictionary *)theSite;
       _stringContent = [siteDict objectForKey:@"sLink"];
       iconString = [siteDict objectForKey:@"sIcon"];
       nameString = [siteDict objectForKey:@"sTitle"];
-      [buttomImg setImage:[UIImage imageNamed:iconString] forState:0];
+      [_buttomImgX setImage:[UIImage imageNamed:iconString] forState:0];
     } else if ([theSite isKindOfClass:[ModelSite class]]) {
       ModelSite *siteModel = (ModelSite *)theSite;
+      _modelSite = siteModel;
       _stringContent = siteModel.s_link;
       iconString = siteModel.s_icon;
       nameString = siteModel.s_title;
-      [buttomImg sd_setBackgroundImageWithURL:[NSURL URLWithString:iconString] forState:0];
+      [_buttomImgX sd_setBackgroundImageWithURL:[NSURL URLWithString:iconString] forState:0 placeholderImage:[UIImage imageNamed:@"home_setting_history_default@2x"]];
+    }
+    if (_labelTitleX == nil) {
+      UILabel *labelTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(_buttomImgX.frame), self.width, 28)];
+      [labelTitle setText:nameString];
+      [labelTitle setLineBreakMode:NSLineBreakByTruncatingTail];
+      [labelTitle setTextAlignment:NSTextAlignmentCenter];
+      [labelTitle setFont:Font_Size(13.)];
+      _labelTitleX = labelTitle;
+      [self addSubview:labelTitle];
+    } else {
+      [_labelTitleX setText:nameString];
     }
     
-    UILabel *labelTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(buttomImg.frame), self.width, 28)];
-    [labelTitle setText:nameString];
-    [labelTitle setTextAlignment:NSTextAlignmentCenter];
-    [labelTitle setFont:Font_Size(13.)];
-    [self addSubview:labelTitle];
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onGestureAtLong:)];
+    [self addGestureRecognizer:longPressGesture];
   }
   return self;
 }
@@ -83,6 +96,15 @@
     }
   }
 }
+
+- (void)onGestureAtLong:(UILongPressGestureRecognizer *)recognizer {
+  if (recognizer.state==UIGestureRecognizerStateBegan) {
+    if (_touchedDelete) {
+      _touchedDelete(_stringContent);
+    }
+  }
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

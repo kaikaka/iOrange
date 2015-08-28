@@ -16,4 +16,6 @@
 
 + (NSArray *)queryAllSite;
 
++ (BOOL)deleteWithSiteId:(NSInteger)sid;
+
 @end

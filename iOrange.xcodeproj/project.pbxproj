@@ -68,6 +68,7 @@
 		7F6910211B90089C00B86985 /* ModelSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6910201B90089C00B86985 /* ModelSite.m */; };
 		7F6910241B900A4700B86985 /* ModelSuper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6910231B900A4700B86985 /* ModelSuper.m */; };
 		7F6910271B900CF200B86985 /* ADOSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6910261B900CF200B86985 /* ADOSite.m */; };
+		7F6910291B90569100B86985 /* home_site_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F6910281B90569100B86985 /* home_site_delete@2x.png */; };
 		7F7058AC1B135DAB00FCB86C /* HomeGuideSite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F7058AB1B135DAB00FCB86C /* HomeGuideSite.plist */; };
 		7F7059891B242E4A00FCB86C /* home_bottom_forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F7058D91B242E4A00FCB86C /* home_bottom_forward@2x.png */; };
 		7F70598A1B242E4A00FCB86C /* home_bottom_forward@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F7058DA1B242E4A00FCB86C /* home_bottom_forward@3x.png */; };
@@ -399,6 +400,7 @@
 		7F6910231B900A4700B86985 /* ModelSuper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelSuper.m; sourceTree = "<group>"; };
 		7F6910251B900CF200B86985 /* ADOSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADOSite.h; sourceTree = "<group>"; };
 		7F6910261B900CF200B86985 /* ADOSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADOSite.m; sourceTree = "<group>"; };
+		7F6910281B90569100B86985 /* home_site_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_site_delete@2x.png"; sourceTree = "<group>"; };
 		7F7058AB1B135DAB00FCB86C /* HomeGuideSite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HomeGuideSite.plist; sourceTree = "<group>"; };
 		7F7058D91B242E4A00FCB86C /* home_bottom_forward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_bottom_forward@2x.png"; sourceTree = "<group>"; };
 		7F7058DA1B242E4A00FCB86C /* home_bottom_forward@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_bottom_forward@3x.png"; sourceTree = "<group>"; };
@@ -1105,6 +1107,7 @@
 		7F85180D1B7E12C600BAD5D3 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				7F6910281B90569100B86985 /* home_site_delete@2x.png */,
 				7FF43D301B8C328C00EA5C61 /* home_setting_history_seamless@2x.png */,
 				7F23C4111B8A04CD000C4CAD /* home_setting_history_addbookmakr@2x.png */,
 				7F23C4121B8A04CD000C4CAD /* home_setting_history_bookmark@2x.png */,
@@ -1469,6 +1472,7 @@
 				7F70599D1B242E4B00FCB86C /* home_image_baike@2x.png in Resources */,
 				7F705A6A1B265BC000FCB86C /* big_cloudy@2x.png in Resources */,
 				7F07943E1B27C239006883F9 /* home_webSite_Line@3x.png in Resources */,
+				7F6910291B90569100B86985 /* home_site_delete@2x.png in Resources */,
 				7F85181E1B7E12C600BAD5D3 /* home_setting_full@2x.png in Resources */,
 				7F85181D1B7E12C600BAD5D3 /* home_setting_feedback@2x.png in Resources */,
 				7F7059891B242E4A00FCB86C /* home_bottom_forward@2x.png in Resources */,

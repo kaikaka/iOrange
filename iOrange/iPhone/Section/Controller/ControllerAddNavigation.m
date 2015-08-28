@@ -6,6 +6,7 @@
 //  Copyright © 2015 yinxiangkai. All rights reserved.
 //
 
+#import "ApiConfig.h"
 #import "ADOHistory.h"
 #import "ADOSite.h"
 #import "ControllerAddNavigation.h"
@@ -72,7 +73,10 @@
   model.s_icon = [NSString stringWithFormat:@"http://%@/favicon.ico", [NSURL URLWithString:stringUrl].host];
   model.s_link = stringUrl;
   model.s_title = [_texFieldName text];
-  [ADOSite InsertWithModelList:model];
+  BOOL isSure = [ADOSite InsertWithModelList:model];
+  if (isSure) {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kViewControllerNotionSite object:nil];
+  }
   [self.navigationController popViewControllerAnimated:YES];
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }

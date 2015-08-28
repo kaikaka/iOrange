@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ModelSite.h"
 
 @interface ViewGuideSiteButton : UIView
 
 @property (nonatomic,strong) void (^touched) (NSString *webLink);
+
+@property (nonatomic,strong) void (^touchedDelete) (NSString *webLink);
+
+@property (nonatomic,strong) ModelSite *modelSite;
 
 - (id)initWithFrame:(CGRect)frame withIconName:(NSString *)imgName withSiteName:(NSString *)siteName;
 
