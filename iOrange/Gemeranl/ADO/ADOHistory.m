@@ -134,7 +134,6 @@
     sqlite3_close(database);
     return YES;
   }
-  
   return NO;
 }
 

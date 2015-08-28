@@ -65,6 +65,9 @@
 		7F69101A1B8E0A7A00B86985 /* ControllerSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6910151B8E0A7A00B86985 /* ControllerSetting.m */; };
 		7F69101B1B8E0A7A00B86985 /* ControllerSettingDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6910171B8E0A7A00B86985 /* ControllerSettingDetail.m */; };
 		7F69101E1B8FEEF700B86985 /* ControllerAddNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F69101D1B8FEEF700B86985 /* ControllerAddNavigation.m */; };
+		7F6910211B90089C00B86985 /* ModelSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6910201B90089C00B86985 /* ModelSite.m */; };
+		7F6910241B900A4700B86985 /* ModelSuper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6910231B900A4700B86985 /* ModelSuper.m */; };
+		7F6910271B900CF200B86985 /* ADOSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6910261B900CF200B86985 /* ADOSite.m */; };
 		7F7058AC1B135DAB00FCB86C /* HomeGuideSite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F7058AB1B135DAB00FCB86C /* HomeGuideSite.plist */; };
 		7F7059891B242E4A00FCB86C /* home_bottom_forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F7058D91B242E4A00FCB86C /* home_bottom_forward@2x.png */; };
 		7F70598A1B242E4A00FCB86C /* home_bottom_forward@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F7058DA1B242E4A00FCB86C /* home_bottom_forward@3x.png */; };
@@ -390,6 +393,12 @@
 		7F6910171B8E0A7A00B86985 /* ControllerSettingDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSettingDetail.m; sourceTree = "<group>"; };
 		7F69101C1B8FEEF600B86985 /* ControllerAddNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerAddNavigation.h; sourceTree = "<group>"; };
 		7F69101D1B8FEEF700B86985 /* ControllerAddNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerAddNavigation.m; sourceTree = "<group>"; };
+		7F69101F1B90089B00B86985 /* ModelSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelSite.h; sourceTree = "<group>"; };
+		7F6910201B90089C00B86985 /* ModelSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelSite.m; sourceTree = "<group>"; };
+		7F6910221B900A4700B86985 /* ModelSuper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelSuper.h; sourceTree = "<group>"; };
+		7F6910231B900A4700B86985 /* ModelSuper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelSuper.m; sourceTree = "<group>"; };
+		7F6910251B900CF200B86985 /* ADOSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADOSite.h; sourceTree = "<group>"; };
+		7F6910261B900CF200B86985 /* ADOSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADOSite.m; sourceTree = "<group>"; };
 		7F7058AB1B135DAB00FCB86C /* HomeGuideSite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HomeGuideSite.plist; sourceTree = "<group>"; };
 		7F7058D91B242E4A00FCB86C /* home_bottom_forward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_bottom_forward@2x.png"; sourceTree = "<group>"; };
 		7F7058DA1B242E4A00FCB86C /* home_bottom_forward@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_bottom_forward@3x.png"; sourceTree = "<group>"; };
@@ -729,10 +738,14 @@
 		7F09A9801B0C9C8B0036BDB7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7F6910221B900A4700B86985 /* ModelSuper.h */,
+				7F6910231B900A4700B86985 /* ModelSuper.m */,
 				7FB94BCB1B82CF9C002A7902 /* ModelHistory.h */,
 				7FB94BCC1B82CF9C002A7902 /* ModelHistory.m */,
 				7F23C3FA1B88C30F000C4CAD /* ModelMark.h */,
 				7F23C3FB1B88C30F000C4CAD /* ModelMark.m */,
+				7F69101F1B90089B00B86985 /* ModelSite.h */,
+				7F6910201B90089C00B86985 /* ModelSite.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1169,6 +1182,8 @@
 				7FB94BCF1B82D09B002A7902 /* ADOHistory.m */,
 				7F23C3F71B88C27D000C4CAD /* ADOMark.h */,
 				7F23C3F81B88C27D000C4CAD /* ADOMark.m */,
+				7F6910251B900CF200B86985 /* ADOSite.h */,
+				7F6910261B900CF200B86985 /* ADOSite.m */,
 			);
 			path = ADO;
 			sourceTree = "<group>";
@@ -1689,6 +1704,7 @@
 				7F23C4101B899DF8000C4CAD /* CellForHistory.m in Sources */,
 				7FEBB72A1B55069D0097FF73 /* UIControllerBrowser.m in Sources */,
 				7F23C4091B899D1E000C4CAD /* ViewCellControl.m in Sources */,
+				7F6910271B900CF200B86985 /* ADOSite.m in Sources */,
 				7F6910191B8E0A7A00B86985 /* ControllerFontChanged.m in Sources */,
 				7FEBB7261B5412FD0097FF73 /* UnpreventableUILongPressGestureRecognizer.m in Sources */,
 				7F23C3F91B88C27D000C4CAD /* ADOMark.m in Sources */,
@@ -1698,6 +1714,7 @@
 				7FEBB71E1B5412FD0097FF73 /* BUIControl.m in Sources */,
 				7FF8DB4C1B48B62E00226B48 /* ViewWeather.m in Sources */,
 				7F0794431B27E171006883F9 /* FilePathUtil.m in Sources */,
+				7F6910241B900A4700B86985 /* ModelSuper.m in Sources */,
 				7F23C40B1B899D1E000C4CAD /* ViewHomeSection.m in Sources */,
 				7FEBB7251B5412FD0097FF73 /* UIWebViewAdditions.m in Sources */,
 				7F23C40D1B899D1E000C4CAD /* ViewWebSiteButton.m in Sources */,
@@ -1706,6 +1723,7 @@
 				7F4182A11B4B71D300809DD4 /* UIImageViewEx.m in Sources */,
 				7F5572971B108AA400B0CE8F /* UIViewEx.m in Sources */,
 				7F69101E1B8FEEF700B86985 /* ControllerAddNavigation.m in Sources */,
+				7F6910211B90089C00B86985 /* ModelSite.m in Sources */,
 				7FB94BCD1B82CF9C002A7902 /* ModelHistory.m in Sources */,
 				7F5572951B108AA400B0CE8F /* UIImage+Bundle.m in Sources */,
 				7F64E3341B7EE74B008B8BC3 /* ButtonSetting.m in Sources */,

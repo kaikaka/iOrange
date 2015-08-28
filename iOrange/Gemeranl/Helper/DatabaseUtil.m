@@ -20,7 +20,7 @@
   
   char *sqlMark = "create table if not exists tab_Mark ("
   "m_id integer not null primary key autoincrement, "
-  "m_dateNow text,"
+  "m_dateNow DATE,"
   "m_icon text,"
   "m_title text,"
   "m_historyId integer,"
@@ -28,15 +28,15 @@
   
   char *sqlSite = "create table if not exists tab_Site ("
   "s_id integer not null primary key autoincrement, "
-  "s_dateNow text,"
+  "s_dateNow DATE,"
   "s_icon text,"
   "s_title text,"
-  "s_isInternal text,"
+  "s_isInternal text,"//备用字段
   "s_link text);";
   
   char *sqlHistory = "create table if not exists tab_History ("
   "h_id integer not null primary key autoincrement,"
-  "h_dateNow text,"
+  "h_dateNow DATE,"
   "h_title text,"
   "h_link text,"
   "h_number text,"

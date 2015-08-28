@@ -11,6 +11,7 @@
 
 #import "ApiConfig.h"
 #import "ADOHistory.h"
+#import "ADOSite.h"
 #import "ControllerScanCode.h"
 #import "ControllerSetting.h"
 #import "ControllerAddNavigation.h"
@@ -152,6 +153,8 @@
 - (void)showGuideSiteInView {
   NSString *pathString = [[NSBundle mainBundle] pathForResource:@"HomeGuideSite" ofType:@"plist"];
   NSArray *arraySite = [NSArray arrayWithContentsOfFile:pathString];
+  NSArray *arrayCustomSite = [NSArray arrayWithArray:[ADOSite queryAllSite]];
+  arraySite = [arraySite arrayByAddingObjectsFromArray:arrayCustomSite];
   CGFloat widthS = (self.view.width-22*5)/4;
   CGFloat heightS = iPhone5?(0.85 * 90):90;
   CGFloat margin = 22;

@@ -7,6 +7,7 @@
 //
 
 #import "ADOHistory.h"
+#import "ADOSite.h"
 #import "ControllerAddNavigation.h"
 #import "CellForHistory.h"
 
@@ -21,7 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+  [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
   [_btnBack addTarget:self action:@selector(onTouchToBack:) forControlEvents:UIControlEventTouchUpInside];
+  [_btnDone addTarget:self action:@selector(onTouchToDone:) forControlEvents:UIControlEventTouchUpInside];
   [_tableNow setTableFooterView:[[UIView alloc] init]];
   [_tableNow setDelegate:self];
   [_tableNow setDataSource:self];
@@ -49,6 +52,29 @@
 
 - (void)onTouchToBack:(UIButton *)sender {
   [self.navigationController popViewControllerAnimated:YES];
+  [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
+- (void)onTouchToDone:(UIButton *)sender {
+  if (_texFieldName.text.length == 0) {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请输入名称" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
+    return;
+  }
+  if (_textFileLink.text.length == 0) {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请输入网址" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
+    return;
+  }
+  ModelSite *model = [ModelSite modelSite];
+  NSString *stringUrl = _textFileLink.text;
+  model.s_dateNow = [[NSDate date] timeIntervalSince1970];
+  model.s_icon = [NSString stringWithFormat:@"http://%@/favicon.ico", [NSURL URLWithString:stringUrl].host];
+  model.s_link = stringUrl;
+  model.s_title = [_texFieldName text];
+  [ADOSite InsertWithModelList:model];
+  [self.navigationController popViewControllerAnimated:YES];
+  [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate
@@ -69,12 +95,15 @@
   cellHis.labelLinkLink.text = model.hLink;
   [cellHis setIconAtUrl:model.hLink];
   [cellHis setModelHistroy:model];
-  [cellHis.btnRight setEnabled:NO];
+  [cellHis.btnRight setHidden:YES];
   return cell;
 }
 
 - (void)tableView:(nonnull UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  CellForHistory *cellHisy = [tableView cellForRowAtIndexPath:indexPath];
+  _textFileLink.text = cellHisy.labelLinkLink.text;
+  _texFieldName.text = cellHisy.labelLinkTitle.text;
 }
 
 /*

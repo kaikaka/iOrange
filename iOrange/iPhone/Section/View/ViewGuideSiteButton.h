@@ -14,6 +14,6 @@
 
 - (id)initWithFrame:(CGRect)frame withIconName:(NSString *)imgName withSiteName:(NSString *)siteName;
 
-- (id)initWithFrame:(CGRect)frame withDict:(NSDictionary *)dictSite;
+- (id)initWithFrame:(CGRect)frame withDict:(id)theSite;
 
 @end
