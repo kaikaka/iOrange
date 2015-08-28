@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ModelHistory.h"
+#import "ModelMark.h"
 
 @interface CellForHistory : UITableViewCell
 

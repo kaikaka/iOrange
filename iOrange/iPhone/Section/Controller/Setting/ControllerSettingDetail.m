@@ -7,6 +7,8 @@
 //
 
 #import "ControllerSettingDetail.h"
+#import "ControllerFontChanged.h"
+#import "ControllerAbout.h"
 
 @interface ControllerSettingDetail ()<UITableViewDelegate,UITableViewDataSource>{
   UISwitch *_switchX;
@@ -83,6 +85,22 @@
 
 - (CGFloat)tableView:(nonnull UITableView *)tableView heightForFooterInSection:(NSInteger)section {
   return 50.;
+}
+
+- (void)tableView:(nonnull UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  UIViewController *controller;
+  switch (indexPath.row) {
+    case 0:
+      controller = [ControllerFontChanged loadFromStoryboard];
+      break;
+    case 1:
+      controller = [ControllerAbout loadFromStoryboard];
+      break;
+    default:
+      break;
+  }
+  [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (UIView *)tableView:(nonnull UITableView *)tableView viewForFooterInSection:(NSInteger)section {

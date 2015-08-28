@@ -13,6 +13,7 @@
 #import "ADOHistory.h"
 #import "ControllerScanCode.h"
 #import "ControllerSetting.h"
+#import "ControllerAddNavigation.h"
 #import "Common.h"
 #import "CellForAccess.h"
 #import "FilePathUtil.h"
@@ -512,6 +513,11 @@ static id _aSelf;
   _arrayOftenHistory = [NSArray arrayWithArray:[ADOHistory queryHistoryFour]];
 }
 
+- (void)loadAddNavigationController {
+  ControllerAddNavigation *controller = [ControllerAddNavigation loadFromStoryboard];
+  [self.navigationController pushViewController:controller animated:YES];
+}
+
 #pragma mark -
 #pragma mark - Webview Methods & UIWebViewDelegate
 
@@ -535,8 +541,12 @@ static id _aSelf;
 #pragma mark -  Block Methods
 
 void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
-  [[_aSelf textFiledContent] setText:link];
-  [_aSelf loadWebViewWithLink:link];
+  if (link.length > 0) {
+    [[_aSelf textFiledContent] setText:link];
+    [_aSelf loadWebViewWithLink:link];
+  } else {
+    [_aSelf loadAddNavigationController];
+  }
 };
 
 void (^whenShowWeatherEnd)(void) = ^ void (){

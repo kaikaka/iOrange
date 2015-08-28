@@ -55,6 +55,13 @@
 + (NSArray *)queryHistoryFour;
 
 /**
+ *  取得最近访问的五个网址
+ *
+ *  @return 数组
+ */
++ (NSArray *)queryHistoryFive;
+
+/**
  *  取得所有历史纪录
  *
  *  @return 数组

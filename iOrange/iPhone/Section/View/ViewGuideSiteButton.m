@@ -62,6 +62,10 @@
     if (_touched) {
       _touched(link);
     }
+  } else {
+    if (_touched) {
+      _touched(@"");
+    }
   }
 }
 /*

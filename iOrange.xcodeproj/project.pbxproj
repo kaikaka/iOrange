@@ -60,6 +60,11 @@
 		7F58A9931B3E88C70009E965 /* home_scan_pick_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F58A98F1B3E88C70009E965 /* home_scan_pick_bg@3x.png */; };
 		7F597EB41B82CCE400F4B5A0 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F597EB31B82CCE400F4B5A0 /* libsqlite3.0.dylib */; };
 		7F64E3341B7EE74B008B8BC3 /* ButtonSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F64E3331B7EE74B008B8BC3 /* ButtonSetting.m */; };
+		7F6910181B8E0A7A00B86985 /* ControllerAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6910111B8E0A7A00B86985 /* ControllerAbout.m */; };
+		7F6910191B8E0A7A00B86985 /* ControllerFontChanged.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6910131B8E0A7A00B86985 /* ControllerFontChanged.m */; };
+		7F69101A1B8E0A7A00B86985 /* ControllerSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6910151B8E0A7A00B86985 /* ControllerSetting.m */; };
+		7F69101B1B8E0A7A00B86985 /* ControllerSettingDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6910171B8E0A7A00B86985 /* ControllerSettingDetail.m */; };
+		7F69101E1B8FEEF700B86985 /* ControllerAddNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F69101D1B8FEEF700B86985 /* ControllerAddNavigation.m */; };
 		7F7058AC1B135DAB00FCB86C /* HomeGuideSite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F7058AB1B135DAB00FCB86C /* HomeGuideSite.plist */; };
 		7F7059891B242E4A00FCB86C /* home_bottom_forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F7058D91B242E4A00FCB86C /* home_bottom_forward@2x.png */; };
 		7F70598A1B242E4A00FCB86C /* home_bottom_forward@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F7058DA1B242E4A00FCB86C /* home_bottom_forward@3x.png */; };
@@ -232,7 +237,6 @@
 		7F91D54E1B0C81750087080D /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D54C1B0C81750087080D /* iTunesArtwork */; };
 		7F91D54F1B0C81750087080D /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D54D1B0C81750087080D /* iTunesArtwork@2x */; };
 		7FB94BBD1B803DF6002A7902 /* ControllerHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB94BBC1B803DF6002A7902 /* ControllerHistory.m */; };
-		7FB94BC01B81C9A2002A7902 /* ControllerSettingDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB94BBF1B81C9A2002A7902 /* ControllerSettingDetail.m */; };
 		7FB94BC31B81C9FB002A7902 /* home_setting_next.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB94BC11B81C9FB002A7902 /* home_setting_next.png */; };
 		7FB94BC41B81C9FB002A7902 /* home_setting_previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB94BC21B81C9FB002A7902 /* home_setting_previous.png */; };
 		7FB94BC71B81D351002A7902 /* DatabaseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB94BC61B81D351002A7902 /* DatabaseUtil.m */; };
@@ -248,7 +252,6 @@
 		7FC998081B0A0D7A009E8BD7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC998031B0A0D7A009E8BD7 /* ViewController.m */; };
 		7FCABB0E1B88536300B64300 /* CellForAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCABB0D1B88536300B64300 /* CellForAccess.m */; };
 		7FCABB101B88547300B64300 /* home_image_often@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCABB0F1B88547300B64300 /* home_image_often@2x.png */; };
-		7FE375BE1B7C47C800EEDEE7 /* ControllerSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE375BD1B7C47C800EEDEE7 /* ControllerSetting.m */; };
 		7FEBB6FB1B53B63F0097FF73 /* EnCityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FEBB6FA1B53B63F0097FF73 /* EnCityList.plist */; };
 		7FEBB6FD1B53B6770097FF73 /* CnCityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FEBB6FC1B53B6770097FF73 /* CnCityList.plist */; };
 		7FEBB6FF1B5409760097FF73 /* home_weather_autoLocation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEBB6FE1B5409760097FF73 /* home_weather_autoLocation@2x.png */; };
@@ -377,6 +380,16 @@
 		7F597EB31B82CCE400F4B5A0 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		7F64E3321B7EE74B008B8BC3 /* ButtonSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonSetting.h; sourceTree = "<group>"; };
 		7F64E3331B7EE74B008B8BC3 /* ButtonSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonSetting.m; sourceTree = "<group>"; };
+		7F6910101B8E0A7A00B86985 /* ControllerAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerAbout.h; sourceTree = "<group>"; };
+		7F6910111B8E0A7A00B86985 /* ControllerAbout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerAbout.m; sourceTree = "<group>"; };
+		7F6910121B8E0A7A00B86985 /* ControllerFontChanged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerFontChanged.h; sourceTree = "<group>"; };
+		7F6910131B8E0A7A00B86985 /* ControllerFontChanged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerFontChanged.m; sourceTree = "<group>"; };
+		7F6910141B8E0A7A00B86985 /* ControllerSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSetting.h; sourceTree = "<group>"; };
+		7F6910151B8E0A7A00B86985 /* ControllerSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSetting.m; sourceTree = "<group>"; };
+		7F6910161B8E0A7A00B86985 /* ControllerSettingDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSettingDetail.h; sourceTree = "<group>"; };
+		7F6910171B8E0A7A00B86985 /* ControllerSettingDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSettingDetail.m; sourceTree = "<group>"; };
+		7F69101C1B8FEEF600B86985 /* ControllerAddNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerAddNavigation.h; sourceTree = "<group>"; };
+		7F69101D1B8FEEF700B86985 /* ControllerAddNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerAddNavigation.m; sourceTree = "<group>"; };
 		7F7058AB1B135DAB00FCB86C /* HomeGuideSite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HomeGuideSite.plist; sourceTree = "<group>"; };
 		7F7058D91B242E4A00FCB86C /* home_bottom_forward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_bottom_forward@2x.png"; sourceTree = "<group>"; };
 		7F7058DA1B242E4A00FCB86C /* home_bottom_forward@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_bottom_forward@3x.png"; sourceTree = "<group>"; };
@@ -551,8 +564,6 @@
 		7F91D54D1B0C81750087080D /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		7FB94BBB1B803DF6002A7902 /* ControllerHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerHistory.h; sourceTree = "<group>"; };
 		7FB94BBC1B803DF6002A7902 /* ControllerHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerHistory.m; sourceTree = "<group>"; };
-		7FB94BBE1B81C9A2002A7902 /* ControllerSettingDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSettingDetail.h; sourceTree = "<group>"; };
-		7FB94BBF1B81C9A2002A7902 /* ControllerSettingDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSettingDetail.m; sourceTree = "<group>"; };
 		7FB94BC11B81C9FB002A7902 /* home_setting_next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_setting_next.png; sourceTree = "<group>"; };
 		7FB94BC21B81C9FB002A7902 /* home_setting_previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_setting_previous.png; sourceTree = "<group>"; };
 		7FB94BC51B81D351002A7902 /* DatabaseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseUtil.h; sourceTree = "<group>"; };
@@ -579,8 +590,6 @@
 		7FCABB0C1B88536300B64300 /* CellForAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellForAccess.h; sourceTree = "<group>"; };
 		7FCABB0D1B88536300B64300 /* CellForAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellForAccess.m; sourceTree = "<group>"; };
 		7FCABB0F1B88547300B64300 /* home_image_often@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_image_often@2x.png"; sourceTree = "<group>"; };
-		7FE375BC1B7C47C800EEDEE7 /* ControllerSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSetting.h; sourceTree = "<group>"; };
-		7FE375BD1B7C47C800EEDEE7 /* ControllerSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSetting.m; sourceTree = "<group>"; };
 		7FEBB6FA1B53B63F0097FF73 /* EnCityList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EnCityList.plist; sourceTree = "<group>"; };
 		7FEBB6FC1B53B6770097FF73 /* CnCityList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CnCityList.plist; sourceTree = "<group>"; };
 		7FEBB6FE1B5409760097FF73 /* home_weather_autoLocation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_weather_autoLocation@2x.png"; sourceTree = "<group>"; };
@@ -854,6 +863,21 @@
 				7F5571F71B0D7BA600B0CE8F /* mongoose.h */,
 			);
 			path = Mongoose;
+			sourceTree = "<group>";
+		};
+		7F69100F1B8E0A7A00B86985 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				7F6910101B8E0A7A00B86985 /* ControllerAbout.h */,
+				7F6910111B8E0A7A00B86985 /* ControllerAbout.m */,
+				7F6910121B8E0A7A00B86985 /* ControllerFontChanged.h */,
+				7F6910131B8E0A7A00B86985 /* ControllerFontChanged.m */,
+				7F6910141B8E0A7A00B86985 /* ControllerSetting.h */,
+				7F6910151B8E0A7A00B86985 /* ControllerSetting.m */,
+				7F6910161B8E0A7A00B86985 /* ControllerSettingDetail.h */,
+				7F6910171B8E0A7A00B86985 /* ControllerSettingDetail.m */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		7F7058AA1B135C0100FCB86C /* Plists */ = {
@@ -1281,18 +1305,17 @@
 		7FF8DB421B48B61B00226B48 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7F69100F1B8E0A7A00B86985 /* Setting */,
 				7FEBB7281B55069D0097FF73 /* UIControllerBrowser.h */,
 				7FEBB7291B55069D0097FF73 /* UIControllerBrowser.m */,
 				7FF8DB431B48B61B00226B48 /* ControllerScanCode.h */,
 				7FF8DB441B48B61B00226B48 /* ControllerScanCode.m */,
 				7FF8DB451B48B61B00226B48 /* ControllerTempBase.h */,
 				7FF8DB461B48B61B00226B48 /* ControllerTempBase.m */,
-				7FE375BC1B7C47C800EEDEE7 /* ControllerSetting.h */,
-				7FE375BD1B7C47C800EEDEE7 /* ControllerSetting.m */,
 				7FB94BBB1B803DF6002A7902 /* ControllerHistory.h */,
 				7FB94BBC1B803DF6002A7902 /* ControllerHistory.m */,
-				7FB94BBE1B81C9A2002A7902 /* ControllerSettingDetail.h */,
-				7FB94BBF1B81C9A2002A7902 /* ControllerSettingDetail.m */,
+				7F69101C1B8FEEF600B86985 /* ControllerAddNavigation.h */,
+				7F69101D1B8FEEF700B86985 /* ControllerAddNavigation.m */,
 			);
 			name = Controller;
 			path = Section/Controller;
@@ -1666,8 +1689,8 @@
 				7F23C4101B899DF8000C4CAD /* CellForHistory.m in Sources */,
 				7FEBB72A1B55069D0097FF73 /* UIControllerBrowser.m in Sources */,
 				7F23C4091B899D1E000C4CAD /* ViewCellControl.m in Sources */,
+				7F6910191B8E0A7A00B86985 /* ControllerFontChanged.m in Sources */,
 				7FEBB7261B5412FD0097FF73 /* UnpreventableUILongPressGestureRecognizer.m in Sources */,
-				7FB94BC01B81C9A2002A7902 /* ControllerSettingDetail.m in Sources */,
 				7F23C3F91B88C27D000C4CAD /* ADOMark.m in Sources */,
 				7F5572921B108AA400B0CE8F /* NSStringEx.m in Sources */,
 				7F5572941B108AA400B0CE8F /* UIColor+Expanded.m in Sources */,
@@ -1682,6 +1705,7 @@
 				7FEBB7221B5412FD0097FF73 /* NJKWebViewProgress.m in Sources */,
 				7F4182A11B4B71D300809DD4 /* UIImageViewEx.m in Sources */,
 				7F5572971B108AA400B0CE8F /* UIViewEx.m in Sources */,
+				7F69101E1B8FEEF700B86985 /* ControllerAddNavigation.m in Sources */,
 				7FB94BCD1B82CF9C002A7902 /* ModelHistory.m in Sources */,
 				7F5572951B108AA400B0CE8F /* UIImage+Bundle.m in Sources */,
 				7F64E3341B7EE74B008B8BC3 /* ButtonSetting.m in Sources */,
@@ -1691,7 +1715,6 @@
 				7F09A98E1B0C9D8F0036BDB7 /* ControllerBase.m in Sources */,
 				7FEBB7301B5506F60097FF73 /* UIScrollViewTaskManage.m in Sources */,
 				7F5572231B0D7BA600B0CE8F /* mongoose.c in Sources */,
-				7FE375BE1B7C47C800EEDEE7 /* ControllerSetting.m in Sources */,
 				7FEBB7081B5411EE0097FF73 /* UIViewTaskPage.m in Sources */,
 				7FEBB71F1B5412FD0097FF73 /* BUIView.m in Sources */,
 				7F23C3FC1B88C30F000C4CAD /* ModelMark.m in Sources */,
@@ -1699,14 +1722,17 @@
 				7F5572931B108AA400B0CE8F /* UIButtonEx.m in Sources */,
 				7FF8DB491B48B61B00226B48 /* ControllerTempBase.m in Sources */,
 				7F5572911B108AA400B0CE8F /* NSString+URL.m in Sources */,
+				7F6910181B8E0A7A00B86985 /* ControllerAbout.m in Sources */,
 				7F23C40C1B899D1E000C4CAD /* ViewSetupButton.m in Sources */,
 				7FF8DB4F1B4A97E700226B48 /* CommonMethods.m in Sources */,
 				7FF8DB521B4B624A00226B48 /* CLLocationManagerEx.m in Sources */,
 				7F2ED4141B442CBC00D4B5AA /* SlurImageView.m in Sources */,
 				7FB94BD01B82D09B002A7902 /* ADOHistory.m in Sources */,
+				7F69101B1B8E0A7A00B86985 /* ControllerSettingDetail.m in Sources */,
 				7FF8DB481B48B61B00226B48 /* ControllerScanCode.m in Sources */,
 				7F23C40A1B899D1E000C4CAD /* ViewGuideSiteButton.m in Sources */,
 				7FEBB7241B5412FD0097FF73 /* UIWebPage.m in Sources */,
+				7F69101A1B8E0A7A00B86985 /* ControllerSetting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
