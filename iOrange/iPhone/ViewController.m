@@ -44,6 +44,8 @@
   __weak IBOutlet UIView *_viewSearch;
   __weak IBOutlet UIView *_viewTouch;
   __weak IBOutlet UIView *_viewMain;
+  
+  __weak IBOutlet UIView *viewHomeThreeCenter;
   __weak IBOutlet UIImageView *_imgvBackground;
   
   __weak IBOutlet UIButton *_buttonBack;
@@ -658,6 +660,15 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
       if (layConstant.firstAttribute == NSLayoutAttributeLeft) {
         layConstant.constant = _scrollViewContent.width*2;
       }
+    }
+  }];
+  
+  [_viewHomeThree.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *layConstant, NSUInteger idx, BOOL *stop) {
+    if (layConstant.firstItem == viewHomeThreeCenter) {
+      if (layConstant.firstAttribute == NSLayoutAttributeLeft) {
+        layConstant.constant = (_scrollViewContent.width - viewHomeThreeCenter.width)/2;
+      }
+      DLog(@"%@,%ld",layConstant.firstItem,layConstant.firstAttribute);
     }
   }];
   
