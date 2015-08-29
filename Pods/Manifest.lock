@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - JTSlideShadowAnimation (1.0.1)
   - MDRadialProgress (1.3.2)
   - OpenUDID (1.0.0)
   - SDWebImage (3.7.3):
@@ -31,6 +32,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - JTSlideShadowAnimation (~> 1.0)
   - MDRadialProgress (~> 1.3.2)
   - OpenUDID (~> 1.0.0)
   - SDWebImage (~> 3.7)
@@ -40,6 +42,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  JTSlideShadowAnimation: abe7fb7b0be0690229e6fe6e93e77998e8cfe279
   MDRadialProgress: 1068574b9b4b870f64b605b07f734385bde5104d
   OpenUDID: e7cb6984c7304906ad20f3a36bf087b025896b6b
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84

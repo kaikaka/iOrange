@@ -668,7 +668,6 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
       if (layConstant.firstAttribute == NSLayoutAttributeLeft) {
         layConstant.constant = (_scrollViewContent.width - viewHomeThreeCenter.width)/2;
       }
-      DLog(@"%@,%ld",layConstant.firstItem,layConstant.firstAttribute);
     }
   }];
   

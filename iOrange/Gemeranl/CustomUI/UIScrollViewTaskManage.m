@@ -6,7 +6,10 @@
 //  Copyright (c) 2014年 VeryApps. All rights reserved.
 //
 
+#define kAnimateStar @"kAnimate"
+
 #import "UIScrollViewTaskManage.h"
+#import "JTSlideShadowAnimation.h"
 
 @interface UIScrollViewTaskManage()<UIScrollViewDelegate,UIViewTaskPageDelegate>
 {
@@ -36,6 +39,8 @@
     UITaskPageManage *_taskManagePages;
     UIView          *_animateForView;
     CGFloat         _shareCurrentX;
+  
+  JTSlideShadowAnimation *_shadowAnimation;
 }
 
 @end
@@ -147,6 +152,11 @@
 - (void)showInView:(UIView *)view completion:(void(^)(void))completion
 {
     self.alpha = 1.;
+  //显示滑动动画
+  if (_shadowAnimation) {
+    [_shadowAnimation start];
+  }
+  
     [self scrollViewSubViewsRemoved];
     [view addSubview:self];
     _numberOfArray = [_taskManagePages nowArrayTask].count;
@@ -222,6 +232,11 @@
  */
 - (void)animationNotForItem
 {
+  //显示滑动动画
+  if (_shadowAnimation) {
+    [_shadowAnimation start];
+  }
+  
     UILabel *promptLabel = [[UILabel alloc] initWithFrame:self.bounds];
     [promptLabel setBackgroundColor:[UIColor clearColor]];
     [promptLabel setText:NSLocalizedString(@"nsvy", nil)];
@@ -385,8 +400,7 @@
     _heightSpace = 20;
 }
 
-- (void)setBegin
-{
+- (void)setBegin {
    
     [self loadInitialization];
     if (!_scrollViewHelp) {
@@ -436,7 +450,29 @@
         _btnShare = btnToShare;
         [self setAlphaZeroForSubviews];
     }
-    
+  {
+    NSUserDefaults *userDefults = [NSUserDefaults standardUserDefaults];
+    int num = [[userDefults objectForKey:kAnimateStar] intValue];
+    if (num <= 3) {
+      //向上滑动效果
+      UIImage *image = [UIImage imageNamed:@"home_more_up@2x"];
+      UIImageView *imgvAnimate = [[UIImageView alloc] initWithFrame:CGRectMake((self.width-image.size.width*2/3)/2, 40, image.size.width*2/3, image.size.height*2/3)];
+      [imgvAnimate setImage:image];
+      [self addSubview:imgvAnimate];
+      imgvAnimate.transform = CGAffineTransformRotate(CGAffineTransformIdentity, -M_PI/2);
+      _shadowAnimation = [JTSlideShadowAnimation new];
+      _shadowAnimation.animatedView = imgvAnimate;
+      _shadowAnimation.shadowWidth = 3.;
+      num++;
+      [userDefults setValue:[NSNumber numberWithInt:num] forKey:kAnimateStar];
+      [userDefults synchronize];
+    } else {
+      if (_shadowAnimation) {
+        [_shadowAnimation.animatedView removeFromSuperview];
+      }
+    }
+  }
+  
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(topGesture:)];
     [self addGestureRecognizer:tapGesture];
     
