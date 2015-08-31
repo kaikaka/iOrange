@@ -15,6 +15,7 @@
 @property (weak, nonatomic,readonly) IBOutlet UIView *ViewSettingSum;
 @property (weak, nonatomic,readonly) IBOutlet UIView *viewBottom;
 @property (weak, nonatomic,readonly) IBOutlet UIButton *buttonDown;
+@property (nonatomic,strong,readonly) UIScrollView *scrollViewSetting;
 @property (weak, nonatomic) id delegateMian;
 
 - (void)showSettingView:(void(^)())completion;

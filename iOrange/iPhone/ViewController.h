@@ -10,5 +10,12 @@
 
 @interface ViewController : UIViewController
 
+/**
+ *  返回当前承载显示的view
+ *
+ *  @return view
+ */
+- (UIWebPage *)receiveToWebView;
+
 @end
 

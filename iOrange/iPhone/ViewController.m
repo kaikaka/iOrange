@@ -31,6 +31,7 @@
 #import "ViewGuideSiteButton.h"
 #import "ViewCellControl.h"
 #import "ViewWeather.h"
+#import "ViewSetupButton.h"
 
 @interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate,ScanCodeDelegate,UIWebViewDelegate,UIControllerBrowserDelegate,UIScrollViewTaskManageDelegate>{
   
@@ -103,6 +104,10 @@
 
 #pragma mrak -
 #pragma mark - public Methods
+
+- (UIWebPage *)receiveToWebView {
+  return _controllerBrowser.webPage;
+}
 
 #pragma mark - private Methods
 
@@ -230,6 +235,10 @@
   UIView *viewSetting = _controllerSetting.view;
   [_controllerSetting showSettingView:^{
     [self.view insertSubview:viewSetting aboveSubview:_viewTouch];
+    dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, 0.35 * NSEC_PER_SEC);
+    dispatch_after(when, dispatch_get_main_queue(), ^{
+      [self enableWithWebView];
+    });
   }];
 }
 
@@ -572,6 +581,18 @@ static id _aSelf;
   [viewSiteDelete addSubview:btnDone];
   
   [self.view addSubview:viewSiteDelete];
+}
+
+- (void)enableWithWebView {
+  ViewSetupButton *view10 = (ViewSetupButton *)[_controllerSetting.scrollViewSetting viewWithTag:100];
+  ViewSetupButton *view104 = (ViewSetupButton *)[_controllerSetting.scrollViewSetting viewWithTag:104];
+  if (_controllerBrowser.webPage.webView) {
+    [view10 setImageEnable:YES];
+    [view104 setImageEnable:YES];
+  } else {
+    [view10 setImageEnable:NO];
+    [view104 setImageEnable:NO];
+  }
 }
 
 #pragma mark -

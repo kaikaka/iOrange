@@ -7,22 +7,23 @@
 //
 
 #import "ApiConfig.h"
+#import "ADOMark.h"
 #import "ButtonSetting.h"
 #import "ControllerSetting.h"
 #import "ControllerHistory.h"
 #import "ControllerSettingDetail.h"
+#import "UIWebPage.h"
 #import "ViewSetupButton.h"
 #import "ViewController.h"
 
 @interface ControllerSetting ()<UIScrollViewDelegate> {
   UIPageControl *_pageViewMark;
-  UIScrollView *_scrollViewSetting;
 }
 
 @end
 
 @implementation ControllerSetting
-@synthesize  ViewContain = _ViewContain,ViewSettingSum = _ViewSettingSum,viewBottom = _viewBottom,buttonDown = _buttonDown;
+@synthesize  ViewContain = _ViewContain,ViewSettingSum = _ViewSettingSum,viewBottom = _viewBottom,buttonDown = _buttonDown,scrollViewSetting = _scrollViewSetting;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -93,6 +94,7 @@
     
     ViewSetupButton *viewButton = [[ViewSetupButton alloc] initWithFrame:CGRectMake(appviewx, appviewy, appvieww, appviewh)];
     [scrollView addSubview:viewButton];
+    [viewButton setTag:100+i];
     [viewButton.buttonWithSelect setTag:10+i];
     [viewButton setImageName:imageNameArray[i] labelText:labelTextArray[i]];
     [viewButton.buttonWithSelect addTarget:self action:@selector(onTouchWithSelect:) forControlEvents:UIControlEventTouchUpInside];
@@ -151,6 +153,28 @@
   }
   
   switch (sender.tag) {
+    case HomeSettingTypeAddBookMark: {
+      ViewController *viewCon = (ViewController *)_delegateMian;
+      UIWebPage *webpage = [viewCon receiveToWebView];
+      if (webpage) {
+        NSString *host = [NSString stringWithFormat:@"http://%@/favicon.ico", [NSURL URLWithString:webpage.link].host];
+        ModelMark *model = [ModelMark modelMark];
+        model.mDatenow = [[NSDate date] timeIntervalSince1970];
+        model.mLink = webpage.link;
+        model.mIcon = host;
+        model.mTitle = webpage.title;
+        BOOL isSuccess = [ADOMark InsertWithModelList:model];
+        NSString *message;
+        if (isSuccess) {
+          message = @"添加成功!";
+        } else {
+          message = @"添加失败,请重试!";
+        }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:message message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+      }
+    }
+      break;
     case HomeSettingTypeBookMark: {
       ControllerHistory *controllerHy = [ControllerHistory loadFromStoryboard];
       ViewController *viewCon = (ViewController *)_delegateMian;

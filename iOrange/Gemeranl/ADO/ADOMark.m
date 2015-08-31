@@ -30,6 +30,9 @@
 }
 
 + (BOOL)InsertWithModelList:(ModelMark *)modelMark {
+  if ([self isExistsWithPostLink:modelMark.mLink]) {
+    return NO;
+  }
   BOOL bFlage = NO;
   char * errorMsg;
   sqlite3 *database;
@@ -111,7 +114,7 @@
 
 + (BOOL)isExistsWithPostLink:(NSString *)link {
   sqlite3 *database;
-  NSString *sql = [NSString stringWithFormat:@"select * from tab_Mark where h_link = \"%@\";",[NSString stringWithFormat:@"%@",link]];
+  NSString *sql = [NSString stringWithFormat:@"select * from tab_Mark where m_link = \"%@\";",[NSString stringWithFormat:@"%@",link]];
   
   if (sqlite3_open([GetDBPath() UTF8String], &database) == SQLITE_OK) {
     int count = 0;

@@ -44,6 +44,17 @@
   }
 }
 
+- (void)setImageEnable:(BOOL)isEable {
+  if (isEable) {
+    [_imgvSetting setAlpha:1.];
+    [_labelSetting setTextColor:[UIColor blackColor]];
+  } else {
+    [_imgvSetting setAlpha:0.6];
+    [_labelSetting setTextColor:[UIColor grayColor]];
+  }
+  [_buttonWithSelect setEnabled:isEable];
+}
+
 #pragma mark - init
 
 - (void)setup {
