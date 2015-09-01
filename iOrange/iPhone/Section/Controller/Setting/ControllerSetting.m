@@ -9,9 +9,11 @@
 #import "ApiConfig.h"
 #import "ADOMark.h"
 #import "ButtonSetting.h"
+#import "CheckVersion.h"
 #import "ControllerSetting.h"
 #import "ControllerHistory.h"
 #import "ControllerSettingDetail.h"
+#import "SettingConfig.h"
 #import "UIWebPage.h"
 #import "ViewSetupButton.h"
 #import "ViewController.h"
@@ -102,6 +104,7 @@
   
 }
 
+
 #pragma mark - events
 
 - (void)onGestureTapTouch:(UITapGestureRecognizer *)recognizer {
@@ -151,10 +154,10 @@
   } else if (sender.tag == 18 && sender.selected == NO) {
     [viewBtn.imgvSetting setImage:[UIImage imageNamed:@"home_setting_noprivacy@2x"]];
   }
-  
+  SettingConfig *config = [SettingConfig defaultSettingConfig];
+  ViewController *viewCon = (ViewController *)_delegateMian;
   switch (sender.tag) {
     case HomeSettingTypeAddBookMark: {
-      ViewController *viewCon = (ViewController *)_delegateMian;
       UIWebPage *webpage = [viewCon receiveToWebView];
       if (webpage) {
         NSString *host = [NSString stringWithFormat:@"http://%@/favicon.ico", [NSURL URLWithString:webpage.link].host];
@@ -177,8 +180,34 @@
       break;
     case HomeSettingTypeBookMark: {
       ControllerHistory *controllerHy = [ControllerHistory loadFromStoryboard];
-      ViewController *viewCon = (ViewController *)_delegateMian;
       [viewCon.navigationController pushViewController:controllerHy animated:YES];
+    }
+      break;
+    case HomeSettingTypeNoPictureMode: {
+      [config setNoPicture:!config.noPicture];
+    }
+      break;
+    case HomeSettingTypeFullMode: {
+      [config setFullScreen:!config.fullScreen];
+    }
+      break;
+    case HomeSettingTypeReload: {
+      [viewCon reloadWebView];
+    }
+      break;
+    case HomeSettingTypeUpdate: {
+      [CheckVersion checkVersionWithAppleID:kAppId];
+    }
+      break;
+    case HomeSettingTypeFeedback: {
+    }
+      break;
+    case HomeSettingTypeShare: {
+    }
+      break;
+    case HomeSettingTypePrivacy: {
+      [config setNTraceBrowser:!config.nTraceBrowser];
+      [[NSNotificationCenter defaultCenter] postNotificationName:kViewControllerNotionPrivacy object:nil];
     }
       break;
     case HomeSettingTypeSetup: {

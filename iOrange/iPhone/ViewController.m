@@ -21,6 +21,7 @@
 #import "ModelHistory.h"
 #import "NSStringEx.h"
 #import "SVPullToRefresh.h"
+#import "SettingConfig.h"
 #import "UIWebPage.h"
 #import "UIControllerBrowser.h"
 #import "UIScrollViewTaskManage.h"
@@ -59,6 +60,7 @@
   UIControllerBrowser *_controllerBrowser;
   ControllerSetting *_controllerSetting;
   UIScrollViewTaskManage *_viewScrollTaskTab;
+  UIImageView *_imgvAtPrivacy;
   
   NSMutableArray *_DataArray;//记录所有section是否伸展
   NSArray *_arrayCateImageName;// 图片名称
@@ -94,6 +96,7 @@
 
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationToHismark:) name:kViewControllerNotionHismark object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationToSite:) name:kViewControllerNotionSite object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationToPrivacy:) name:kViewControllerNotionPrivacy object:nil];
   
   [self countMargin];
   [self showGuideSiteInView];
@@ -107,6 +110,10 @@
 
 - (UIWebPage *)receiveToWebView {
   return _controllerBrowser.webPage;
+}
+
+- (void)reloadWebView {
+  [_controllerBrowser.webPage.webView reload];
 }
 
 #pragma mark - private Methods
@@ -259,6 +266,8 @@ static id _aSelf;
   
   _controllerSetting = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ControllerSetting"];
   _controllerSetting.delegateMian = self;
+  //显示无痕浏览模式
+  [self onNotificationToPrivacy:nil];
   
 //  [_viewHomeThree setUp];
   //创建一个数组
@@ -330,6 +339,10 @@ static id _aSelf;
 
 /// 全屏显示
 - (void)toFullScreen:(BOOL)fullScreen {
+  //全屏模式
+  if (![SettingConfig defaultSettingConfig].fullScreen) {
+    return;
+  }
   if (_isFullScreen == fullScreen) {
     return;
   }
@@ -362,6 +375,9 @@ static id _aSelf;
 
 - (void)goToHome {
 //  [_controllerBrowser.view removeFromSuperview];
+  if (_controllerBrowser.webPage.webView) {
+    _controllerBrowser.webPage.show = NO;
+  }
   [self toFullScreen:NO];
   [self overBackgroundToHidden:NO];
   [self browserToHomeCompletion:^{
@@ -586,9 +602,15 @@ static id _aSelf;
 - (void)enableWithWebView {
   ViewSetupButton *view10 = (ViewSetupButton *)[_controllerSetting.scrollViewSetting viewWithTag:100];
   ViewSetupButton *view104 = (ViewSetupButton *)[_controllerSetting.scrollViewSetting viewWithTag:104];
+  //控制设置按钮
   if (_controllerBrowser.webPage.webView) {
-    [view10 setImageEnable:YES];
-    [view104 setImageEnable:YES];
+    if (_controllerBrowser.webPage.show) {
+      [view10 setImageEnable:YES];
+      [view104 setImageEnable:YES];
+    } else {
+      [view10 setImageEnable:NO];
+      [view104 setImageEnable:NO];
+    }
   } else {
     [view10 setImageEnable:NO];
     [view104 setImageEnable:NO];
@@ -605,6 +627,9 @@ static id _aSelf;
   [_viewMain insertSubview:_controllerBrowser.view belowSubview:_viewTouch];
   [[UIApplication sharedApplication] setStatusBarHidden:YES];
   [self overBackgroundToHidden:YES];
+  if (_controllerBrowser.webPage.webView) {
+    _controllerBrowser.webPage.show = YES;
+  }
 }
 
 - (void)setWebViewHidden:(BOOL) isHidden withLink:(NSString *)link {
@@ -792,6 +817,21 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
 - (void)onNotificationToSite:(NSNotification *)notification {
   [self deleteAllSite];
   [self showGuideSiteInView];
+}
+
+- (void)onNotificationToPrivacy:(NSNotification *)notification {
+  
+  if ([SettingConfig defaultSettingConfig].nTraceBrowser) {
+    UIImageView *imgv = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.width - 90, 0, 50, 50)];
+    [imgv setImage:[UIImage imageNamed:@"home_touch_privacy@2x"]];
+    [imgv setAlpha:0.35];
+    [_viewTouch addSubview:imgv];
+    _imgvAtPrivacy = imgv;
+  } else {
+    if (_imgvAtPrivacy) {
+      [_imgvAtPrivacy removeFromSuperview];
+    }
+  }
 }
 
 - (void)onTouchAtSiteToDelete:(UIButton *)sender {

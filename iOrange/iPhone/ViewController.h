@@ -17,5 +17,10 @@
  */
 - (UIWebPage *)receiveToWebView;
 
+/**
+ *  刷新webview
+ */
+- (void)reloadWebView;
+
 @end
 

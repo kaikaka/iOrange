@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 KOTO Inc. All rights reserved.
 //
 
-#import "UIControllerBrowser.h"
 #import "ADOHistory.h"
-
+#import "SettingConfig.h"
+#import "UIControllerBrowser.h"
 #import "UIWebViewAdditions.h"
 
 #define kMaxWebPageNumber 10
@@ -219,28 +219,35 @@
 }
 
 - (void)webPageManageDidEndLoad:(WebPageManage *)webPageManage atIndex:(NSInteger)index {
+  if ([SettingConfig defaultSettingConfig].noPicture) {
+    [[[webPageManage webPageAtIndex:index] webView]stringByEvaluatingJavaScriptFromString:@"JSHandleHideImage()"];
+  }else{
+    [[[webPageManage webPageAtIndex:index] webView] stringByEvaluatingJavaScriptFromString:@"JSHandleShowImage()"];
+  }
   UIWebPage *webPage = [webPageManage webPageAtIndex:index];
   NSString *title = webPage.webView.title;
   NSString *link = webPage.webView.link;
   
   if (title.length>0 && link.length>0) {
-    ModelHistory *modelHisy = [ADOHistory queryModelWithLink:link];
-    BOOL isExist = modelHisy?YES:NO;
-    if (!modelHisy) {
-      modelHisy = [ModelHistory modelHistory];
-    }
-    
-    modelHisy.hTitle = title;
-    modelHisy.hLink = link;
-    modelHisy.hDatenow = [[NSDate date] timeIntervalSince1970];
-    if (isExist) {
-      NSInteger num = [modelHisy.hNumber integerValue];
-      modelHisy.hNumber = [NSString stringWithFormat:@"%ld",num+1];
-      [ADOHistory updateModel:modelHisy atUid:[NSString stringWithFormat:@"%ld",modelHisy.hid]];
-    }
-    else {
-      modelHisy.hNumber = @"1";
-      [ADOHistory InsertWithModelList:modelHisy];
+    if (![SettingConfig defaultSettingConfig].nTraceBrowser) {
+      ModelHistory *modelHisy = [ADOHistory queryModelWithLink:link];
+      BOOL isExist = modelHisy?YES:NO;
+      if (!modelHisy) {
+        modelHisy = [ModelHistory modelHistory];
+      }
+      
+      modelHisy.hTitle = title;
+      modelHisy.hLink = link;
+      modelHisy.hDatenow = [[NSDate date] timeIntervalSince1970];
+      if (isExist) {
+        NSInteger num = [modelHisy.hNumber integerValue];
+        modelHisy.hNumber = [NSString stringWithFormat:@"%ld",num+1];
+        [ADOHistory updateModel:modelHisy atUid:[NSString stringWithFormat:@"%ld",modelHisy.hid]];
+      }
+      else {
+        modelHisy.hNumber = @"1";
+        [ADOHistory InsertWithModelList:modelHisy];
+      }
     }
   }
 }

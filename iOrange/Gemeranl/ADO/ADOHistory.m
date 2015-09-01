@@ -98,6 +98,7 @@
 }
 
 + (ModelHistory *)queryModelWithLink:(NSString *)link {
+
   ModelHistory *valueModel;
   sqlite3 *database;
   NSString *querySql = [NSString stringWithFormat:@"select * from tab_History where h_link = \"%@\";",[NSString stringWithFormat:@"%@",link]];

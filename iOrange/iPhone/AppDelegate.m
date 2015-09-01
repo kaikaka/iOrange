@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DatabaseUtil.h"
+#import "SettingConfig.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,8 @@
   // Override point for customization after application launch.
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
   [DatabaseUtil createDatabase];
+  [[SettingConfig defaultSettingConfig] setup];
+  
   return YES;
 }
 

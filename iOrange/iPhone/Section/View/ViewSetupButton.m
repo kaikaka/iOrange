@@ -7,6 +7,7 @@
 //
 
 #import "ButtonSetting.h"
+#import "SettingConfig.h"
 #import "ViewSetupButton.h"
 
 @interface ViewSetupButton () {
@@ -41,6 +42,35 @@
   }
   if (labelText) {
     [_labelSetting setText:labelText];
+  }
+  SettingConfig *config = [SettingConfig defaultSettingConfig];;
+  switch (self.buttonWithSelect.tag) {
+    case 12:
+      self.buttonWithSelect.selected = config.noPicture;
+      if (config.noPicture) {
+        [self.imgvSetting setImage:[UIImage imageNamed:@"home_setting_nopicture_able@2x"]];
+      } else {
+        [self.imgvSetting setImage:[UIImage imageNamed:@"home_setting_nopicture_noable@2x"]];
+      }
+      break;
+    case 13:
+      self.buttonWithSelect.selected = config.fullScreen;
+      if (config.fullScreen) {
+        [self.imgvSetting setImage:[UIImage imageNamed:@"home_setting_full@2x"]];
+      } else {
+        [self.imgvSetting setImage:[UIImage imageNamed:@"home_setting_nofull@2x"]];
+      }
+      break;
+    case 18:
+      self.buttonWithSelect.selected = config.nTraceBrowser;
+      if (config.nTraceBrowser) {
+        [self.imgvSetting setImage:[UIImage imageNamed:@"home_setting_privacy@2x"]];
+      } else {
+        [self.imgvSetting setImage:[UIImage imageNamed:@"home_setting_noprivacy@2x"]];
+      }
+      break;
+    default:
+      break;
   }
 }
 

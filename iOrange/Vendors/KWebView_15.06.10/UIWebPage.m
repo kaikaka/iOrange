@@ -864,7 +864,7 @@ typedef NS_ENUM(NSInteger, CustomPanDirection) {
     // 自定义长按选择
     [webView stringByEvaluatingJavaScriptFromString:@"document.body.style.webkitTouchCallout='none';"];
     [webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout='none';"];
-    
+  
     // 注入 JS（修改打开链接方式）
     NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"js.bundle/handle.js"];
     NSString *jsCode = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
