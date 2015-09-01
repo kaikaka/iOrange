@@ -32,6 +32,7 @@
 		7F43EECA1B959A9800753C8D /* SettingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F43EEC91B959A9800753C8D /* SettingConfig.m */; };
 		7F43EECC1B95AB0B00753C8D /* home_touch_privacy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F43EECB1B95AB0B00753C8D /* home_touch_privacy@2x.png */; };
 		7F43EECF1B95CA0600753C8D /* CheckVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F43EECE1B95CA0600753C8D /* CheckVersion.m */; };
+		7F43EED21B95D0EC00753C8D /* ControllerSuggest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F43EED11B95D0EC00753C8D /* ControllerSuggest.m */; };
 		7F5519771B44E81000E0A0D1 /* home_scan_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5519731B44E81000E0A0D1 /* home_scan_close@2x.png */; };
 		7F5519781B44E81000E0A0D1 /* home_scan_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5519741B44E81000E0A0D1 /* home_scan_close@3x.png */; };
 		7F5572211B0D7BA600B0CE8F /* baidumobadsdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F5571F01B0D7BA600B0CE8F /* baidumobadsdk.bundle */; };
@@ -343,6 +344,8 @@
 		7F43EECB1B95AB0B00753C8D /* home_touch_privacy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_touch_privacy@2x.png"; sourceTree = "<group>"; };
 		7F43EECD1B95CA0600753C8D /* CheckVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckVersion.h; sourceTree = "<group>"; };
 		7F43EECE1B95CA0600753C8D /* CheckVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckVersion.m; sourceTree = "<group>"; };
+		7F43EED01B95D0EC00753C8D /* ControllerSuggest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSuggest.h; sourceTree = "<group>"; };
+		7F43EED11B95D0EC00753C8D /* ControllerSuggest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSuggest.m; sourceTree = "<group>"; };
 		7F5519731B44E81000E0A0D1 /* home_scan_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_close@2x.png"; sourceTree = "<group>"; };
 		7F5519741B44E81000E0A0D1 /* home_scan_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_close@3x.png"; sourceTree = "<group>"; };
 		7F5571EA1B0D7BA600B0CE8F /* BaiduMobAdCommonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdCommonConfig.h; sourceTree = "<group>"; };
@@ -903,6 +906,8 @@
 				7F6910151B8E0A7A00B86985 /* ControllerSetting.m */,
 				7F6910161B8E0A7A00B86985 /* ControllerSettingDetail.h */,
 				7F6910171B8E0A7A00B86985 /* ControllerSettingDetail.m */,
+				7F43EED01B95D0EC00753C8D /* ControllerSuggest.h */,
+				7F43EED11B95D0EC00753C8D /* ControllerSuggest.m */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -1737,6 +1742,7 @@
 				7FEBB7251B5412FD0097FF73 /* UIWebViewAdditions.m in Sources */,
 				7F23C40D1B899D1E000C4CAD /* ViewWebSiteButton.m in Sources */,
 				7F43EECA1B959A9800753C8D /* SettingConfig.m in Sources */,
+				7F43EED21B95D0EC00753C8D /* ControllerSuggest.m in Sources */,
 				7F5572961B108AA400B0CE8F /* UIImageEx.m in Sources */,
 				7FEBB7221B5412FD0097FF73 /* NJKWebViewProgress.m in Sources */,
 				7F4182A11B4B71D300809DD4 /* UIImageViewEx.m in Sources */,

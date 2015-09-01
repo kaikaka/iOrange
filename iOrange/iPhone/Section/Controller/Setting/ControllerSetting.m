@@ -13,6 +13,7 @@
 #import "ControllerSetting.h"
 #import "ControllerHistory.h"
 #import "ControllerSettingDetail.h"
+#import "ControllerSuggest.h"
 #import "SettingConfig.h"
 #import "UIWebPage.h"
 #import "ViewSetupButton.h"
@@ -200,9 +201,12 @@
     }
       break;
     case HomeSettingTypeFeedback: {
+      ControllerSuggest *controllerSuggest = [ControllerSuggest loadFromStoryboard];
+      [viewCon.navigationController pushViewController:controllerSuggest animated:YES];
     }
       break;
     case HomeSettingTypeShare: {
+      DLog(@"HomeSettingTypeShare");
     }
       break;
     case HomeSettingTypePrivacy: {
@@ -212,7 +216,6 @@
       break;
     case HomeSettingTypeSetup: {
       ControllerSettingDetail *controllerDetail = [ControllerSettingDetail loadFromStoryboard];
-      ViewController *viewCon = (ViewController *)_delegateMian;
       [viewCon.navigationController pushViewController:controllerDetail animated:YES];
     }
       break;
