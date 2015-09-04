@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "ControllerGuide.h"
 #import "DatabaseUtil.h"
+#import "ViewController.h"
 #import "SettingConfig.h"
 
 @interface AppDelegate ()
@@ -22,6 +24,18 @@
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
   [DatabaseUtil createDatabase];
   [[SettingConfig defaultSettingConfig] setup];
+  
+  if (![[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"]) {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+  }
+  if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
+    ControllerGuide *guideViewController = [[ControllerGuide alloc] init];
+    self.window.rootViewController = guideViewController;
+  }
+  else {
+    self.window.rootViewController = [ViewController loadFromStoryboard];
+  }
   
   return YES;
 }

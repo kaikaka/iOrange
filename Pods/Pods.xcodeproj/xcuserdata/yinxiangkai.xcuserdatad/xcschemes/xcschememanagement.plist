@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SMPageControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SVPullToRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,12 +57,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1CA88C9B63050E4CAA9E21FCB94FB91D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2FEFBD572A40D1534CBEE389B1062C97</key>
+		<key>2AA3605227218FF6665D767BA92D1342</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,7 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7409E8B3B005D308FC2174A1240A9E55</key>
+		<key>575A076CE17AF560E9AC81907A42033F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,22 +77,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>950E83A701D685AB4D3D66645488D4E5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BBE70AB8FA94794405AA9D6D4366C375</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BFB02AF7083E4194E47E10B5FE1480AD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C82172143AE54CF4109FDE63D25E4D75</key>
+		<key>CE27C98731C010AD66A394ED1D6FBA65</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D10AFCBBC3949030D56276226438BB24</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E982817BD5626C0629FC637A5F7EA35B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F39DF367B74F24CAA1B3BCD1E63E6123</key>
 		<dict>
 			<key>primary</key>
 			<true/>

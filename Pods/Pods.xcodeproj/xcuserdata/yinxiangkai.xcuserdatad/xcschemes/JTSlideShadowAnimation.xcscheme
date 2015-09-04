@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4B4DCB2C170D953B9F50D24B"
+               BlueprintIdentifier = "C0C593C9DD57F22744F78FE0"
                BuildableName = "libJTSlideShadowAnimation.a"
                BlueprintName = "JTSlideShadowAnimation"
                ReferencedContainer = "container:Pods.xcodeproj">

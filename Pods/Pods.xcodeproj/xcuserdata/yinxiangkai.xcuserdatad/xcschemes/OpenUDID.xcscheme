@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BDA2B0B2B23B1329A56722CA"
+               BlueprintIdentifier = "CBBD6910696610D5941177B2"
                BuildableName = "libOpenUDID.a"
                BlueprintName = "OpenUDID"
                ReferencedContainer = "container:Pods.xcodeproj">

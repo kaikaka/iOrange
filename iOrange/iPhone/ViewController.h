@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ControllerBase.h"
+#import "UIWebPage.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : ControllerBase
 
 /**
  *  返回当前承载显示的view
