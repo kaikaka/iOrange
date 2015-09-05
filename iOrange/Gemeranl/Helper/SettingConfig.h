@@ -13,6 +13,8 @@
 @property (nonatomic) BOOL noPicture;//无图模式
 @property (nonatomic) BOOL fullScreen;//全屏模式
 @property(nonatomic) BOOL nTraceBrowser;//无痕模式
+@property (nonatomic,assign)NSInteger fontSize;//字体大小
+@property (nonatomic)BOOL isEnableWebButton;//是否启用页面按钮
 
 @property(nonatomic, assign) UIInterfaceOrientation interfaceOrientation;//(旋转方向)下个版本
 @property(nonatomic) BOOL rotateLock;//(锁定方向)下个版本
@@ -30,6 +32,9 @@ extern NSString * const LightBrowserNTraceBrowser;
 extern NSString * const LightBrowserUIModel;
 extern NSString * const LightBrowserNoPicture;
 extern NSString * const LightBrowserRememberAccountAndPwd;
+
+extern NSString * const LightBrowserFontSizeChanged;
+extern NSString * const LightBrowserEnableWebButton;
 
 
 #pragma mark CHKeychain

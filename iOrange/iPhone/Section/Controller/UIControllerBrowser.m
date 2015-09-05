@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 KOTO Inc. All rights reserved.
 //
 
+#import "ApiConfig.h"
 #import "ADOHistory.h"
 #import "SettingConfig.h"
 #import "UIControllerBrowser.h"
@@ -49,6 +50,7 @@
   self.view.backgroundColor = [UIColor clearColor];
   
   [UIWebPage appearance].progressColor = [UIColor orangeColor];//RGBCOLOR(0, 200, 0);
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationAtFont:) name:kBrowserControllerFont object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -224,9 +226,12 @@
   }else{
     [[[webPageManage webPageAtIndex:index] webView] stringByEvaluatingJavaScriptFromString:@"JSHandleShowImage()"];
   }
+  NSString* str1 =[NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%f%%'",([SettingConfig defaultSettingConfig].fontSize * 10)+100.];
+  
   UIWebPage *webPage = [webPageManage webPageAtIndex:index];
   NSString *title = webPage.webView.title;
   NSString *link = webPage.webView.link;
+  [webPage.webView stringByEvaluatingJavaScriptFromString:str1];
   
   if (title.length>0 && link.length>0) {
     if (![SettingConfig defaultSettingConfig].nTraceBrowser) {
@@ -250,6 +255,14 @@
       }
     }
   }
+}
+
+#pragma mark - events
+
+- (void)onNotificationAtFont:(NSNotification *)center {
+  NSInteger itg = [[center object] integerValue];
+  NSString* str1 =[NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%f%%'",(itg*10)+100.];
+  [_webPage.webView stringByEvaluatingJavaScriptFromString:str1];
 }
 
 /*

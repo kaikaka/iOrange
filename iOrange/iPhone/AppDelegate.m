@@ -34,7 +34,8 @@
     self.window.rootViewController = guideViewController;
   }
   else {
-    self.window.rootViewController = [ViewController loadFromStoryboard];
+    UINavigationController *nav = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Navigation"];
+    self.window.rootViewController = nav;
   }
   
   return YES;

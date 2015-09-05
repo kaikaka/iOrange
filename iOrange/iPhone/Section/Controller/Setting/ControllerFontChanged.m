@@ -6,7 +6,9 @@
 //  Copyright © 2015 yinxiangkai. All rights reserved.
 //
 
+#import "ApiConfig.h"
 #import "ControllerFontChanged.h"
+#import "SettingConfig.h"
 
 @interface ControllerFontChanged ()<UITableViewDataSource,UITableViewDelegate> {
 }
@@ -60,7 +62,7 @@
       break;
   }
   cell.textLabel.text = textString;
-  if (indexPath.row == 1) {
+  if (indexPath.row == [SettingConfig defaultSettingConfig].fontSize) {
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
   } else {
     cell.accessoryType = UITableViewCellAccessoryNone;
@@ -116,7 +118,8 @@
   } else {
       [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
   }
-  
+  [[NSNotificationCenter defaultCenter] postNotificationName:kBrowserControllerFont object:[NSNumber numberWithInteger:indexPath.row]];
+  [[SettingConfig defaultSettingConfig] setFontSize:indexPath.row];
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

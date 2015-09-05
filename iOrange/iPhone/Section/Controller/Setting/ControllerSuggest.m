@@ -6,6 +6,7 @@
 //  Copyright © 2015 yinxiangkai. All rights reserved.
 //
 
+#import "ApiConfig.h"
 #import "ControllerSuggest.h"
 
 @interface ControllerSuggest ()
@@ -18,12 +19,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
   [_btnBack addTarget:self action:@selector(onTouchToBack:) forControlEvents:UIControlEventTouchUpInside];
+   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 #pragma mark - events
 
 - (void)onTouchToBack:(UIButton *)sender {
   [self.navigationController popViewControllerAnimated:YES];
+  [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
+- (IBAction)onTouchSuggest:(UIButton *)sender {
+  
+  NSString *url = [NSString stringWithFormat:
+                   @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", kAppId];
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 /*

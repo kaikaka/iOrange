@@ -9,6 +9,7 @@
 #import "ControllerSettingDetail.h"
 #import "ControllerFontChanged.h"
 #import "ControllerAbout.h"
+#import "SettingConfig.h"
 
 @interface ControllerSettingDetail ()<UITableViewDelegate,UITableViewDataSource>{
   UISwitch *_switchX;
@@ -36,12 +37,12 @@
 
 - (void)onTouchToSelect:(UIButton *)sender {
   [_switchX setOn:NO animated:YES];
+  [[SettingConfig defaultSettingConfig] setFontSize:1];
+  [[SettingConfig defaultSettingConfig] setIsEnableWebButton:NO];
 }
 
 - (void)onTouchAtValueChanged:(UISwitch *)sender {
-  if (sender.on) {
-    DLog(@"onTouchAtValueChanged");
-  }
+  [[SettingConfig defaultSettingConfig] setIsEnableWebButton:sender.on];
 }
 
 #pragma mark - UITableViewDelegate,UITableViewDataSource
@@ -77,6 +78,7 @@
   } else if(indexPath.row == 2){
     UISwitch *switchw = [[UISwitch alloc] initWithFrame:CGRectMake(tableView.width - 60, 7, 60, 30)];
     [switchw addTarget:self action:@selector(onTouchAtValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [switchw setOn:[[SettingConfig defaultSettingConfig] isEnableWebButton] animated:YES];
     [cell addSubview:switchw];
     _switchX = switchw;
   }

@@ -282,8 +282,8 @@ static int i = 0;
   }
   else
   {
-    ViewController *vc = [ViewController loadFromStoryboard];
-    viewContronller = vc;
+    UINavigationController *nav = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Navigation"];
+    viewContronller = nav;
   }
   [UIView animateWithDuration:0.35 animations:^{
     self.view.alpha = 0.0;

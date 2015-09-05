@@ -110,12 +110,31 @@ nTraceBrowser = _nTraceBrowser;
   [userDefaults synchronize];
 }
 
+- (void)setFontSize:(NSInteger)fontSize {
+  _fontSize = fontSize;
+  
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  [userDefaults setBool:_fontSize forKey:LightBrowserFontSizeChanged];
+  [userDefaults synchronize];
+}
+
+- (void)setIsEnableWebButton:(BOOL)isEnableWebButton {
+  _isEnableWebButton = isEnableWebButton;
+  
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  [userDefaults setBool:isEnableWebButton forKey:LightBrowserEnableWebButton];
+  [userDefaults synchronize];
+}
+
 NSString * const LightBrowserRotateLock = @"LightBrowserRotateLock";
 NSString * const LightBrowserBrightValue = @"LightBrowserBrightValue";
 NSString * const LightBrowserNTraceBrowser = @"LightBrowserNTraceBrowser";
 NSString * const LightBrowserUIModel = @"LightBrowserUIModel";
 NSString * const LightBrowserNoPicture = @"LightBrowserNoPicture";
 NSString * const LightBrowserRememberAccountAndPwd = @"LightBrowserRememberAccountAndPwd";
+
+NSString * const LightBrowserFontSizeChanged = @"LightBrowserFontSizeChanged";
+NSString * const LightBrowserEnableWebButton = @"LightBrowserEnableWebButton";
 
 #pragma mark CHKeychain
 NSString * const KEY_REMENBER_ACCOUNT_PWD = @"com.LightBrowser.app.accountpwd";

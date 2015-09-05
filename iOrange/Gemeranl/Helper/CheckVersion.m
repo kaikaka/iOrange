@@ -27,8 +27,7 @@ NSString * const kNeverCheckVersion = @"kNeverCheckVersion";
 
   AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
   [manager POST:[API_CheckVersioniTunes stringByAppendingString:appleId] parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-    NSError *error;
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[responseObject dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableLeaves error:&error];
+    NSDictionary *dic = (NSDictionary *)responseObject;
     NSArray *infoArray = [dic objectForKey:@"results"];
     if ([infoArray count]) {
       NSDictionary *releaseInfo = [infoArray objectAtIndex:0];
