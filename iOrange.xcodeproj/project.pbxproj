@@ -260,19 +260,22 @@
 		7FCABB0E1B88536300B64300 /* CellForAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCABB0D1B88536300B64300 /* CellForAccess.m */; };
 		7FCABB101B88547300B64300 /* home_image_often@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCABB0F1B88547300B64300 /* home_image_often@2x.png */; };
 		7FCE1C2D1B99A00100F881DA /* ControllerGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCE1C2C1B99A00100F881DA /* ControllerGuide.m */; };
-		7FCE1C3B1B99A02400F881DA /* iPhone-guide-0-v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C2F1B99A02400F881DA /* iPhone-guide-0-v@2x.png */; };
-		7FCE1C3C1B99A02400F881DA /* iPhone-guide-1-v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C301B99A02400F881DA /* iPhone-guide-1-v@2x.png */; };
-		7FCE1C3D1B99A02400F881DA /* iPhone-guide-2-v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C311B99A02400F881DA /* iPhone-guide-2-v@2x.png */; };
 		7FCE1C3E1B99A02400F881DA /* iPhone5-guide-0-v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C321B99A02400F881DA /* iPhone5-guide-0-v@2x.png */; };
 		7FCE1C3F1B99A02400F881DA /* iPhone5-guide-1-v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C331B99A02400F881DA /* iPhone5-guide-1-v@2x.png */; };
 		7FCE1C401B99A02400F881DA /* iPhone5-guide-2-v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C341B99A02400F881DA /* iPhone5-guide-2-v@2x.png */; };
 		7FCE1C411B99A02400F881DA /* iPhone6-guide-0-v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C351B99A02400F881DA /* iPhone6-guide-0-v@2x.png */; };
 		7FCE1C421B99A02400F881DA /* iPhone6-guide-1-v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C361B99A02400F881DA /* iPhone6-guide-1-v@2x.png */; };
 		7FCE1C431B99A02400F881DA /* iPhone6-guide-2-v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C371B99A02400F881DA /* iPhone6-guide-2-v@2x.png */; };
-		7FCE1C441B99A02400F881DA /* iPhone6Plus-guide-0-v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C381B99A02400F881DA /* iPhone6Plus-guide-0-v@2x.png */; };
-		7FCE1C451B99A02400F881DA /* iPhone6Plus-guide-1-v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C391B99A02400F881DA /* iPhone6Plus-guide-1-v@2x.png */; };
-		7FCE1C461B99A02400F881DA /* iPhone6Plus-guide-2-v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C3A1B99A02400F881DA /* iPhone6Plus-guide-2-v@2x.png */; };
 		7FCE1C481B9AEFDF00F881DA /* home_about_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C471B9AEFDF00F881DA /* home_about_icon@2x.png */; };
+		7FCE1C4C1B9B166400F881DA /* iPhone6Plus-guide-0-v@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C491B9B166400F881DA /* iPhone6Plus-guide-0-v@3x.png */; };
+		7FCE1C4D1B9B166400F881DA /* iPhone6Plus-guide-1-v@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C4A1B9B166400F881DA /* iPhone6Plus-guide-1-v@3x.png */; };
+		7FCE1C4E1B9B166400F881DA /* iPhone6Plus-guide-2-v@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C4B1B9B166400F881DA /* iPhone6Plus-guide-2-v@3x.png */; };
+		7FCE1C521B9B17BF00F881DA /* iPhone-guide-0-v.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C4F1B9B17BF00F881DA /* iPhone-guide-0-v.png */; };
+		7FCE1C531B9B17BF00F881DA /* iPhone-guide-1-v.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C501B9B17BF00F881DA /* iPhone-guide-1-v.png */; };
+		7FCE1C541B9B17BF00F881DA /* iPhone-guide-2-v.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C511B9B17BF00F881DA /* iPhone-guide-2-v.png */; };
+		7FCE1C581B9B186100F881DA /* iPhone-guide-0-v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C551B9B186100F881DA /* iPhone-guide-0-v@2x.png */; };
+		7FCE1C591B9B186100F881DA /* iPhone-guide-1-v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C561B9B186100F881DA /* iPhone-guide-1-v@2x.png */; };
+		7FCE1C5A1B9B186100F881DA /* iPhone-guide-2-v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE1C571B9B186100F881DA /* iPhone-guide-2-v@2x.png */; };
 		7FD0FB4C1B914386007018AF /* home_more_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD0FB4B1B914386007018AF /* home_more_up@2x.png */; };
 		7FEBB6FB1B53B63F0097FF73 /* EnCityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FEBB6FA1B53B63F0097FF73 /* EnCityList.plist */; };
 		7FEBB6FD1B53B6770097FF73 /* CnCityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FEBB6FC1B53B6770097FF73 /* CnCityList.plist */; };
@@ -627,19 +630,22 @@
 		7FCABB0F1B88547300B64300 /* home_image_often@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_image_often@2x.png"; sourceTree = "<group>"; };
 		7FCE1C2B1B99A00100F881DA /* ControllerGuide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerGuide.h; sourceTree = "<group>"; };
 		7FCE1C2C1B99A00100F881DA /* ControllerGuide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerGuide.m; sourceTree = "<group>"; };
-		7FCE1C2F1B99A02400F881DA /* iPhone-guide-0-v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-guide-0-v@2x.png"; sourceTree = "<group>"; };
-		7FCE1C301B99A02400F881DA /* iPhone-guide-1-v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-guide-1-v@2x.png"; sourceTree = "<group>"; };
-		7FCE1C311B99A02400F881DA /* iPhone-guide-2-v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-guide-2-v@2x.png"; sourceTree = "<group>"; };
 		7FCE1C321B99A02400F881DA /* iPhone5-guide-0-v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone5-guide-0-v@2x.png"; sourceTree = "<group>"; };
 		7FCE1C331B99A02400F881DA /* iPhone5-guide-1-v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone5-guide-1-v@2x.png"; sourceTree = "<group>"; };
 		7FCE1C341B99A02400F881DA /* iPhone5-guide-2-v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone5-guide-2-v@2x.png"; sourceTree = "<group>"; };
 		7FCE1C351B99A02400F881DA /* iPhone6-guide-0-v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone6-guide-0-v@2x.png"; sourceTree = "<group>"; };
 		7FCE1C361B99A02400F881DA /* iPhone6-guide-1-v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone6-guide-1-v@2x.png"; sourceTree = "<group>"; };
 		7FCE1C371B99A02400F881DA /* iPhone6-guide-2-v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone6-guide-2-v@2x.png"; sourceTree = "<group>"; };
-		7FCE1C381B99A02400F881DA /* iPhone6Plus-guide-0-v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone6Plus-guide-0-v@2x.png"; sourceTree = "<group>"; };
-		7FCE1C391B99A02400F881DA /* iPhone6Plus-guide-1-v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone6Plus-guide-1-v@2x.png"; sourceTree = "<group>"; };
-		7FCE1C3A1B99A02400F881DA /* iPhone6Plus-guide-2-v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone6Plus-guide-2-v@2x.png"; sourceTree = "<group>"; };
 		7FCE1C471B9AEFDF00F881DA /* home_about_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_about_icon@2x.png"; sourceTree = "<group>"; };
+		7FCE1C491B9B166400F881DA /* iPhone6Plus-guide-0-v@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone6Plus-guide-0-v@3x.png"; sourceTree = "<group>"; };
+		7FCE1C4A1B9B166400F881DA /* iPhone6Plus-guide-1-v@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone6Plus-guide-1-v@3x.png"; sourceTree = "<group>"; };
+		7FCE1C4B1B9B166400F881DA /* iPhone6Plus-guide-2-v@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone6Plus-guide-2-v@3x.png"; sourceTree = "<group>"; };
+		7FCE1C4F1B9B17BF00F881DA /* iPhone-guide-0-v.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-guide-0-v.png"; sourceTree = "<group>"; };
+		7FCE1C501B9B17BF00F881DA /* iPhone-guide-1-v.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-guide-1-v.png"; sourceTree = "<group>"; };
+		7FCE1C511B9B17BF00F881DA /* iPhone-guide-2-v.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-guide-2-v.png"; sourceTree = "<group>"; };
+		7FCE1C551B9B186100F881DA /* iPhone-guide-0-v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-guide-0-v@2x.png"; sourceTree = "<group>"; };
+		7FCE1C561B9B186100F881DA /* iPhone-guide-1-v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-guide-1-v@2x.png"; sourceTree = "<group>"; };
+		7FCE1C571B9B186100F881DA /* iPhone-guide-2-v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-guide-2-v@2x.png"; sourceTree = "<group>"; };
 		7FD0FB4B1B914386007018AF /* home_more_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_more_up@2x.png"; sourceTree = "<group>"; };
 		7FEBB6FA1B53B63F0097FF73 /* EnCityList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EnCityList.plist; sourceTree = "<group>"; };
 		7FEBB6FC1B53B6770097FF73 /* CnCityList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CnCityList.plist; sourceTree = "<group>"; };
@@ -1333,18 +1339,21 @@
 		7FCE1C2E1B99A02400F881DA /* Guide */ = {
 			isa = PBXGroup;
 			children = (
-				7FCE1C2F1B99A02400F881DA /* iPhone-guide-0-v@2x.png */,
-				7FCE1C301B99A02400F881DA /* iPhone-guide-1-v@2x.png */,
-				7FCE1C311B99A02400F881DA /* iPhone-guide-2-v@2x.png */,
+				7FCE1C551B9B186100F881DA /* iPhone-guide-0-v@2x.png */,
+				7FCE1C561B9B186100F881DA /* iPhone-guide-1-v@2x.png */,
+				7FCE1C571B9B186100F881DA /* iPhone-guide-2-v@2x.png */,
+				7FCE1C4F1B9B17BF00F881DA /* iPhone-guide-0-v.png */,
+				7FCE1C501B9B17BF00F881DA /* iPhone-guide-1-v.png */,
+				7FCE1C511B9B17BF00F881DA /* iPhone-guide-2-v.png */,
+				7FCE1C491B9B166400F881DA /* iPhone6Plus-guide-0-v@3x.png */,
+				7FCE1C4A1B9B166400F881DA /* iPhone6Plus-guide-1-v@3x.png */,
+				7FCE1C4B1B9B166400F881DA /* iPhone6Plus-guide-2-v@3x.png */,
 				7FCE1C321B99A02400F881DA /* iPhone5-guide-0-v@2x.png */,
 				7FCE1C331B99A02400F881DA /* iPhone5-guide-1-v@2x.png */,
 				7FCE1C341B99A02400F881DA /* iPhone5-guide-2-v@2x.png */,
 				7FCE1C351B99A02400F881DA /* iPhone6-guide-0-v@2x.png */,
 				7FCE1C361B99A02400F881DA /* iPhone6-guide-1-v@2x.png */,
 				7FCE1C371B99A02400F881DA /* iPhone6-guide-2-v@2x.png */,
-				7FCE1C381B99A02400F881DA /* iPhone6Plus-guide-0-v@2x.png */,
-				7FCE1C391B99A02400F881DA /* iPhone6Plus-guide-1-v@2x.png */,
-				7FCE1C3A1B99A02400F881DA /* iPhone6Plus-guide-2-v@2x.png */,
 			);
 			path = Guide;
 			sourceTree = "<group>";
@@ -1522,6 +1531,7 @@
 				7F705A731B265BC000FCB86C /* big_shower@2x.png in Resources */,
 				7F7059DF1B242E4B00FCB86C /* home_weather_PM25Exp@2x.png in Resources */,
 				7F07943C1B27C239006883F9 /* home_webSite_LightLine@3x.png in Resources */,
+				7FCE1C541B9B17BF00F881DA /* iPhone-guide-2-v.png in Resources */,
 				7F7059CC1B242E4B00FCB86C /* home_webSite_ctrip@3x.png in Resources */,
 				7F7059A71B242E4B00FCB86C /* home_nav_bg@2x.png in Resources */,
 				7F23C4141B8A04CD000C4CAD /* home_setting_history_bookmark@2x.png in Resources */,
@@ -1533,7 +1543,6 @@
 				7F7059D61B242E4B00FCB86C /* home_webSite_tmall@3x.png in Resources */,
 				7F705A661B265BC000FCB86C /* white_9@2x.png in Resources */,
 				7F7059DE1B242E4B00FCB86C /* home_weather_location@2x.png in Resources */,
-				7FCE1C3B1B99A02400F881DA /* iPhone-guide-0-v@2x.png in Resources */,
 				7F7059911B242E4B00FCB86C /* home_button_home@2x.png in Resources */,
 				7F901DC01B4B871500835396 /* 7@2x.png in Resources */,
 				7F7059AF1B242E4B00FCB86C /* home_nav_twoCode_default@2x.png in Resources */,
@@ -1546,6 +1555,7 @@
 				7F85181E1B7E12C600BAD5D3 /* home_setting_full@2x.png in Resources */,
 				7F85181D1B7E12C600BAD5D3 /* home_setting_feedback@2x.png in Resources */,
 				7F7059891B242E4A00FCB86C /* home_bottom_forward@2x.png in Resources */,
+				7FCE1C581B9B186100F881DA /* iPhone-guide-0-v@2x.png in Resources */,
 				7F7059D51B242E4B00FCB86C /* home_webSite_tmall@2x.png in Resources */,
 				7F705A621B265BC000FCB86C /* white_5@2x.png in Resources */,
 				7F705A801B265BC000FCB86C /* small_NA@2x.png in Resources */,
@@ -1569,10 +1579,10 @@
 				7F70599B1B242E4B00FCB86C /* home_button_setting_select@2x.png in Resources */,
 				7F7059BC1B242E4B00FCB86C /* home_site_icon4@3x.png in Resources */,
 				7F7059A41B242E4B00FCB86C /* home_image_now@3x.png in Resources */,
+				7FCE1C591B9B186100F881DA /* iPhone-guide-1-v@2x.png in Resources */,
 				7F7059D31B242E4B00FCB86C /* home_webSite_right@2x.png in Resources */,
 				7F91D54E1B0C81750087080D /* iTunesArtwork in Resources */,
 				7F705A7F1B265BC000FCB86C /* small_heavyRain@2x.png in Resources */,
-				7FCE1C461B99A02400F881DA /* iPhone6Plus-guide-2-v@2x.png in Resources */,
 				7F901DC21B4B871500835396 /* 9@2x.png in Resources */,
 				7F7059AC1B242E4B00FCB86C /* home_nav_search_pressed@3x.png in Resources */,
 				7FBB17DA1B8017340005051B /* home_setting_down@2x.png in Resources */,
@@ -1592,6 +1602,7 @@
 				7F7059991B242E4B00FCB86C /* home_button_setting@2x.png in Resources */,
 				7F7059D41B242E4B00FCB86C /* home_webSite_right@3x.png in Resources */,
 				7F41829D1B4B6FBF00809DD4 /* ProvinceList.plist in Resources */,
+				7FCE1C4E1B9B166400F881DA /* iPhone6Plus-guide-2-v@3x.png in Resources */,
 				7F7059901B242E4B00FCB86C /* home_button_back_select@3x.png in Resources */,
 				7F07943D1B27C239006883F9 /* home_webSite_Line@2x.png in Resources */,
 				7F705A7B1B265BC000FCB86C /* small_cloudyDay@2x.png in Resources */,
@@ -1599,6 +1610,7 @@
 				7F7059C21B242E4B00FCB86C /* home_site_icon7@3x.png in Resources */,
 				7F7059C01B242E4B00FCB86C /* home_site_icon6@3x.png in Resources */,
 				7F7059961B242E4B00FCB86C /* home_button_moreMark@3x.png in Resources */,
+				7FCE1C5A1B9B186100F881DA /* iPhone-guide-2-v@2x.png in Resources */,
 				7F8518211B7E12C600BAD5D3 /* home_setting_nopicture_noable@2x.png in Resources */,
 				7F7059A61B242E4B00FCB86C /* home_image_sevice@3x.png in Resources */,
 				7F705A601B265BC000FCB86C /* white_3@2x.png in Resources */,
@@ -1610,15 +1622,16 @@
 				7F7059BB1B242E4B00FCB86C /* home_site_icon4@2x.png in Resources */,
 				7F7059941B242E4B00FCB86C /* home_button_home_select@3x.png in Resources */,
 				7F705A821B265BC000FCB86C /* small_sandstorm@2x.png in Resources */,
-				7FCE1C441B99A02400F881DA /* iPhone6Plus-guide-0-v@2x.png in Resources */,
 				7F7059D11B242E4B00FCB86C /* home_webSite_jianshu@2x.png in Resources */,
 				7F705A871B265BC000FCB86C /* small_snowShower@2x.png in Resources */,
 				7FF8DB3E1B4534E100226B48 /* home_scan_light_off@2x.png in Resources */,
 				7F8518231B7E12C600BAD5D3 /* home_setting_privacy@2x.png in Resources */,
 				7F7059B51B242E4B00FCB86C /* home_site_icon1@2x.png in Resources */,
+				7FCE1C531B9B17BF00F881DA /* iPhone-guide-1-v.png in Resources */,
 				7F705A6B1B265BC000FCB86C /* big_cloudyDay@2x.png in Resources */,
 				7F7059AA1B242E4B00FCB86C /* home_nav_search_default@3x.png in Resources */,
 				7FCE1C411B99A02400F881DA /* iPhone6-guide-0-v@2x.png in Resources */,
+				7FCE1C4D1B9B166400F881DA /* iPhone6Plus-guide-1-v@3x.png in Resources */,
 				7FB94BC31B81C9FB002A7902 /* home_setting_next.png in Resources */,
 				7F5519771B44E81000E0A0D1 /* home_scan_close@2x.png in Resources */,
 				7F7059B81B242E4B00FCB86C /* home_site_icon2@3x.png in Resources */,
@@ -1639,6 +1652,7 @@
 				7F7058AC1B135DAB00FCB86C /* HomeGuideSite.plist in Resources */,
 				7F901DC41B4B871500835396 /* NA@2x.png in Resources */,
 				7F70598E1B242E4B00FCB86C /* home_button_back@3x.png in Resources */,
+				7FCE1C4C1B9B166400F881DA /* iPhone6Plus-guide-0-v@3x.png in Resources */,
 				7FEBB6FD1B53B6770097FF73 /* CnCityList.plist in Resources */,
 				7F7059B91B242E4B00FCB86C /* home_site_icon3@2x.png in Resources */,
 				7FCE1C3E1B99A02400F881DA /* iPhone5-guide-0-v@2x.png in Resources */,
@@ -1654,6 +1668,7 @@
 				7F43EECC1B95AB0B00753C8D /* home_touch_privacy@2x.png in Resources */,
 				7FEBB7201B5412FD0097FF73 /* html.bundle in Resources */,
 				7F7059DC1B242E4B00FCB86C /* home_webSite_youku@3x.png in Resources */,
+				7FCE1C521B9B17BF00F881DA /* iPhone-guide-0-v.png in Resources */,
 				7F8518221B7E12C600BAD5D3 /* home_setting_noprivacy@2x.png in Resources */,
 				7F705A811B265BC000FCB86C /* small_rain@2x.png in Resources */,
 				7F705A691B265BC000FCB86C /* white_negative@2x.png in Resources */,
@@ -1683,7 +1698,6 @@
 				7F705A791B265BC000FCB86C /* big_wind@2x.png in Resources */,
 				7F705A711B265BC000FCB86C /* big_rain@2x.png in Resources */,
 				7F7059AE1B242E4B00FCB86C /* home_nav_searchBg@3x.png in Resources */,
-				7FCE1C3D1B99A02400F881DA /* iPhone-guide-2-v@2x.png in Resources */,
 				7F901DC11B4B871500835396 /* 8@2x.png in Resources */,
 				7F70598B1B242E4A00FCB86C /* home_bottom_forward_select@2x.png in Resources */,
 				7F7059D71B242E4B00FCB86C /* home_webSite_toutiao@2x.png in Resources */,
@@ -1695,7 +1709,6 @@
 				7FF8DB411B4534E100226B48 /* home_scan_light_on@3x.png in Resources */,
 				7F7059C41B242E4B00FCB86C /* home_site_icon8@3x.png in Resources */,
 				7F0794401B27DB5C006883F9 /* PhoneCoolSite.plist in Resources */,
-				7FCE1C451B99A02400F881DA /* iPhone6Plus-guide-1-v@2x.png in Resources */,
 				7F70598A1B242E4A00FCB86C /* home_bottom_forward@3x.png in Resources */,
 				7F7059D81B242E4B00FCB86C /* home_webSite_toutiao@3x.png in Resources */,
 				7F58A9921B3E88C70009E965 /* home_scan_pick_bg@2x.png in Resources */,
@@ -1706,7 +1719,6 @@
 				7F23C3FE1B899C9C000C4CAD /* home_setting_history_default@2x.png in Resources */,
 				7F7059C91B242E4B00FCB86C /* home_webSite_baidu@2x.png in Resources */,
 				7F7059C81B242E4B00FCB86C /* home_webSite_amazon@3x.png in Resources */,
-				7FCE1C3C1B99A02400F881DA /* iPhone-guide-1-v@2x.png in Resources */,
 				7F705A751B265BC000FCB86C /* big_smallSnow@2x.png in Resources */,
 				7F705A631B265BC000FCB86C /* white_6@2x.png in Resources */,
 				7F8518261B7E12C600BAD5D3 /* home_setting_share@2x.png in Resources */,

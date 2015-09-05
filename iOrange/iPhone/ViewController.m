@@ -34,7 +34,7 @@
 #import "ViewWeather.h"
 #import "ViewSetupButton.h"
 
-@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate,ScanCodeDelegate,UIWebViewDelegate,UIControllerBrowserDelegate,UIScrollViewTaskManageDelegate>{
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate,ScanCodeDelegate,UIControllerBrowserDelegate,UIScrollViewTaskManageDelegate>{
   
   __weak IBOutlet UIButton *_buttonSearch;
   __weak IBOutlet UIButton *_buttonTwoCode;
@@ -97,6 +97,7 @@
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationToHismark:) name:kViewControllerNotionHismark object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationToSite:) name:kViewControllerNotionSite object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationToPrivacy:) name:kViewControllerNotionPrivacy object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationToUpadtePaly:) name:kViewControllerNotionUpadtePaly object:nil];
   
   [self countMargin];
   [self showGuideSiteInView];
@@ -618,7 +619,7 @@ static id _aSelf;
 }
 
 #pragma mark -
-#pragma mark - Webview Methods & UIWebViewDelegate
+#pragma mark - Webview Methods
 
 - (void)loadWebViewWithLink:(NSString *)link {
   //实例化浏览器控制器
@@ -634,10 +635,6 @@ static id _aSelf;
 
 - (void)setWebViewHidden:(BOOL) isHidden withLink:(NSString *)link {
   
-}
-
-- (void)webViewDidFinishLoad:(nonnull UIWebView *)webView {
-  [self updateDisplay];
 }
 
 #pragma mark -  Block Methods
@@ -832,6 +829,10 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
       [_imgvAtPrivacy removeFromSuperview];
     }
   }
+}
+
+- (void)onNotificationToUpadtePaly:(NSNotification *)center {
+  [self updateDisplay];
 }
 
 - (void)onTouchAtSiteToDelete:(UIButton *)sender {

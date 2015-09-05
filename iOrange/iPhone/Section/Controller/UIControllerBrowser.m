@@ -163,6 +163,10 @@
   
 }
 
+- (void)webPageManage:(WebPageManage *)webPageManage didUpdateLink:(NSString *)link atIndex:(NSInteger)index {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kViewControllerNotionUpadtePaly object:nil];
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
   CGPoint pt = [scrollView.panGestureRecognizer translationInView:self.view];
   if (pt.y==0) {
@@ -227,7 +231,6 @@
     [[[webPageManage webPageAtIndex:index] webView] stringByEvaluatingJavaScriptFromString:@"JSHandleShowImage()"];
   }
   NSString* str1 =[NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%f%%'",([SettingConfig defaultSettingConfig].fontSize * 10)+100.];
-  
   UIWebPage *webPage = [webPageManage webPageAtIndex:index];
   NSString *title = webPage.webView.title;
   NSString *link = webPage.webView.link;

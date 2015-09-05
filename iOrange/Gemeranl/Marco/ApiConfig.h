@@ -37,10 +37,12 @@ typedef enum : NSUInteger {
 #define kViewControllerNotionHismark @"kNotionHismark"
 #define kViewControllerNotionSite @"kNotionSite"
 #define kViewControllerNotionPrivacy @"kViewControllerNotionPrivacy"
+#define kViewControllerNotionUpadtePaly @"kViewControllerNotionUpadtePaly"
 
 #define kSettingControllerNoPicture @"kSettingControllerNoPicture"
 
 #define kBrowserControllerFont @"kBrowserControllerFont"
+
 
 #define sevenDaysWeatherInfoUrl(cityCode) [NSString stringWithFormat:@"http://mobile.weather.com.cn/data/forecast/%@.html", cityCode]
 #define CITYWEATHERURL(Identifier) [NSString stringWithFormat:@"http://mobile.weather.com.cn/data/forecast/%@.html", Identifier]
