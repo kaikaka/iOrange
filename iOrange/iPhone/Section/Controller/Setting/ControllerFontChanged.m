@@ -46,10 +46,10 @@
   NSString *textString;
   switch (indexPath.row) {
     case 0:
-      textString = @"小号";
+      textString = @"小号(默认)";
       break;
     case 1:
-      textString = @"中号(默认)";
+      textString = @"中号";
       break;
     case 2:
       textString = @"大号";

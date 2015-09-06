@@ -37,7 +37,7 @@
 
 - (void)onTouchToSelect:(UIButton *)sender {
   [_switchX setOn:NO animated:YES];
-  [[SettingConfig defaultSettingConfig] setFontSize:1];
+  [[SettingConfig defaultSettingConfig] setFontSize:0];
   [[SettingConfig defaultSettingConfig] setIsEnableWebButton:NO];
 }
 

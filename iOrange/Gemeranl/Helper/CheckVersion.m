@@ -26,7 +26,8 @@ NSString * const kNeverCheckVersion = @"kNeverCheckVersion";
 + (void)checkVersionWithAppleID:(NSString *)appleId {
 
   AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-  [manager POST:[API_CheckVersioniTunes stringByAppendingString:appleId] parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+  
+  [manager POST:[API_CheckVersioniTunes stringByAppendingString:appleId] parameters:nil success:^(AFHTTPRequestOperation * operation, id responseObject) {
     NSDictionary *dic = (NSDictionary *)responseObject;
     NSArray *infoArray = [dic objectForKey:@"results"];
     if ([infoArray count]) {
@@ -53,7 +54,7 @@ NSString * const kNeverCheckVersion = @"kNeverCheckVersion";
       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"AppStore上未找到该App，可能还未提交或还未通过审核！" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles: nil];
       [alert show];
     }
-  } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+  } failure:^(AFHTTPRequestOperation * operation, NSError * error) {
     
   }];
 }
@@ -68,7 +69,7 @@ NSString * const kNeverCheckVersion = @"kNeverCheckVersion";
     }
     
   AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-  [manager POST:[API_CheckVersioniTunes stringByAppendingString:appleId] parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+  [manager POST:[API_CheckVersioniTunes stringByAppendingString:appleId] parameters:nil success:^(AFHTTPRequestOperation * operation, id responseObject) {
     NSError *error;
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[responseObject dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableLeaves error:&error];
     NSArray *infoArray = [dic objectForKey:@"results"];
@@ -96,7 +97,7 @@ NSString * const kNeverCheckVersion = @"kNeverCheckVersion";
       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"AppStore上未找到该App，可能还未提交或还未通过审核！" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles: nil];
       [alert show];
     }
-  } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+  } failure:^(AFHTTPRequestOperation * operation, NSError * error) {
     
   }];
 }

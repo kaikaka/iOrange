@@ -269,8 +269,8 @@ static id _aSelf;
   _controllerSetting.delegateMian = self;
   //显示无痕浏览模式
   [self onNotificationToPrivacy:nil];
-  
-//  [_viewHomeThree setUp];
+  //天气注释
+  [_viewHomeThree setUp];
   //创建一个数组
   _DataArray=[[NSMutableArray alloc] init];
   for (int i = 0; i<5; i++) {
@@ -976,7 +976,7 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
   cell.backgroundColor = RGBA(182., 182., 182., 0.5);
   if (indexPath.section == 5) {
     CellForAccess * cellAcc = [[CellForAccess alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 44)];
-    if (indexPath.row <= _arrayOftenHistory.count-1) {
+    if (indexPath.row <= (NSInteger)(_arrayOftenHistory.count-1)) {
       ModelHistory *model = [_arrayOftenHistory objectAtIndex:indexPath.row];
       [cellAcc setTitleString:model.hTitle];
     } else {
