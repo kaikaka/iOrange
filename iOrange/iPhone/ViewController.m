@@ -633,10 +633,6 @@ static id _aSelf;
   }
 }
 
-- (void)setWebViewHidden:(BOOL) isHidden withLink:(NSString *)link {
-  
-}
-
 #pragma mark -  Block Methods
 
 void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
@@ -911,7 +907,7 @@ void (^whenShowWeatherEnd)(void) = ^ void (){
       return YES;
     }
     link =  [link getLinkWithText];
-    [self setWebViewHidden:NO withLink:link];
+    [self loadWebViewWithLink:link];
     [self updateDisplay];
     [self.view endEditing:YES];
   }

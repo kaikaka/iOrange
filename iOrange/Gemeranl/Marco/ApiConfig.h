@@ -32,7 +32,7 @@ typedef enum : NSUInteger {
 
 #define kScaleContain 1.2f
 
-#define kAppId @"922922"
+#define kAppId @"996950205"
 
 #define kViewControllerNotionHismark @"kNotionHismark"
 #define kViewControllerNotionSite @"kNotionSite"
