@@ -250,6 +250,8 @@
 		7FB94BCD1B82CF9C002A7902 /* ModelHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB94BCC1B82CF9C002A7902 /* ModelHistory.m */; };
 		7FB94BD01B82D09B002A7902 /* ADOHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB94BCF1B82D09B002A7902 /* ADOHistory.m */; };
 		7FBB17DA1B8017340005051B /* home_setting_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB17D91B8017340005051B /* home_setting_down@2x.png */; };
+		7FC19EA21BA4285D006E1354 /* TextFieldInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC19EA11BA4285D006E1354 /* TextFieldInputView.m */; settings = {ASSET_TAGS = (); }; };
+		7FC19EA41BA42879006E1354 /* TextFieldInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC19EA31BA42879006E1354 /* TextFieldInputView.xib */; settings = {ASSET_TAGS = (); }; };
 		7FC997DA1B09794E009E8BD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC997D91B09794E009E8BD7 /* main.m */; };
 		7FC997E31B09794E009E8BD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC997E11B09794E009E8BD7 /* Main.storyboard */; };
 		7FC997E51B09794E009E8BD7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FC997E41B09794E009E8BD7 /* Images.xcassets */; };
@@ -612,6 +614,9 @@
 		7FB94BCE1B82D09B002A7902 /* ADOHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADOHistory.h; sourceTree = "<group>"; };
 		7FB94BCF1B82D09B002A7902 /* ADOHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADOHistory.m; sourceTree = "<group>"; };
 		7FBB17D91B8017340005051B /* home_setting_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_setting_down@2x.png"; sourceTree = "<group>"; };
+		7FC19EA01BA4285D006E1354 /* TextFieldInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldInputView.h; sourceTree = "<group>"; };
+		7FC19EA11BA4285D006E1354 /* TextFieldInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldInputView.m; sourceTree = "<group>"; };
+		7FC19EA31BA42879006E1354 /* TextFieldInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldInputView.xib; sourceTree = "<group>"; };
 		7FC997D41B09794E009E8BD7 /* iOrange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOrange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC997D81B09794E009E8BD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FC997D91B09794E009E8BD7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -884,6 +889,9 @@
 				7FF8DB4E1B4A97E700226B48 /* CommonMethods.m */,
 				7F43EEC81B959A9800753C8D /* SettingConfig.h */,
 				7F43EEC91B959A9800753C8D /* SettingConfig.m */,
+				7FC19EA01BA4285D006E1354 /* TextFieldInputView.h */,
+				7FC19EA11BA4285D006E1354 /* TextFieldInputView.m */,
+				7FC19EA31BA42879006E1354 /* TextFieldInputView.xib */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1711,6 +1719,7 @@
 				7F0794401B27DB5C006883F9 /* PhoneCoolSite.plist in Resources */,
 				7F70598A1B242E4A00FCB86C /* home_bottom_forward@3x.png in Resources */,
 				7F7059D81B242E4B00FCB86C /* home_webSite_toutiao@3x.png in Resources */,
+				7FC19EA41BA42879006E1354 /* TextFieldInputView.xib in Resources */,
 				7F58A9921B3E88C70009E965 /* home_scan_pick_bg@2x.png in Resources */,
 				7F7059B41B242E4B00FCB86C /* home_site_icon0@3x.png in Resources */,
 				7F70599A1B242E4B00FCB86C /* home_button_setting@3x.png in Resources */,
@@ -1802,6 +1811,7 @@
 				7FB94BC71B81D351002A7902 /* DatabaseUtil.m in Sources */,
 				7FEBB7271B5412FD0097FF73 /* WebPageManage.m in Sources */,
 				7F23C4101B899DF8000C4CAD /* CellForHistory.m in Sources */,
+				7FC19EA21BA4285D006E1354 /* TextFieldInputView.m in Sources */,
 				7FEBB72A1B55069D0097FF73 /* UIControllerBrowser.m in Sources */,
 				7F23C4091B899D1E000C4CAD /* ViewCellControl.m in Sources */,
 				7F6910271B900CF200B86985 /* ADOSite.m in Sources */,

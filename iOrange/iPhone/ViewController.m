@@ -22,6 +22,7 @@
 #import "NSStringEx.h"
 #import "SVPullToRefresh.h"
 #import "SettingConfig.h"
+#import "TextFieldInputView.h"
 #import "UIWebPage.h"
 #import "UIControllerBrowser.h"
 #import "UIScrollViewTaskManage.h"
@@ -271,6 +272,8 @@ static id _aSelf;
   [self onNotificationToPrivacy:nil];
   //天气注释
   [_viewHomeThree setUp];
+  //快捷键盘
+  [TextFieldInputView attachToInputView:_textFiledContent];
   //创建一个数组
   _DataArray=[[NSMutableArray alloc] init];
   for (int i = 0; i<5; i++) {
