@@ -6,6 +6,7 @@
 //  Copyright © 2015 yinxiangkai. All rights reserved.
 //
 
+#import "ApiConfig.h"
 #import "ControllerSettingDetail.h"
 #import "ControllerFontChanged.h"
 #import "ControllerAbout.h"
@@ -39,10 +40,12 @@
   [_switchX setOn:NO animated:YES];
   [[SettingConfig defaultSettingConfig] setFontSize:0];
   [[SettingConfig defaultSettingConfig] setIsEnableWebButton:NO];
+  [[NSNotificationCenter defaultCenter] postNotificationName:kBrowserControllerAtPageButton object:[NSNumber numberWithBool:NO]];
 }
 
 - (void)onTouchAtValueChanged:(UISwitch *)sender {
   [[SettingConfig defaultSettingConfig] setIsEnableWebButton:sender.on];
+  [[NSNotificationCenter defaultCenter] postNotificationName:kBrowserControllerAtPageButton object:[NSNumber numberWithBool:sender.on]];
 }
 
 #pragma mark - UITableViewDelegate,UITableViewDataSource

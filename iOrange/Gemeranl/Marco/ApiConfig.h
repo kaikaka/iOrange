@@ -42,6 +42,7 @@ typedef enum : NSUInteger {
 #define kSettingControllerNoPicture @"kSettingControllerNoPicture"
 
 #define kBrowserControllerFont @"kBrowserControllerFont"
+#define kBrowserControllerAtPageButton @"kBrowserControllerAtPageButton"
 
 
 #define sevenDaysWeatherInfoUrl(cityCode) [NSString stringWithFormat:@"http://mobile.weather.com.cn/data/forecast/%@.html", cityCode]
