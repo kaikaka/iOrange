@@ -50,9 +50,10 @@ static TextFieldInputView *textFieldInputView;
 - (void)setViewCorner :(UIView *)view {
   view.layer.cornerRadius = 3.;
   view.layer.borderColor = [UIColor grayColor].CGColor;
+  [view.layer setMasksToBounds:YES];
 }
 
--(void)onTouchKey:(UIButton *)sender {
+- (void)onTouchKey:(UIButton *)sender {
   if (sender == _btnwww) {
     [_inputView insertText:@"www."];
   }
@@ -71,8 +72,7 @@ static TextFieldInputView *textFieldInputView;
 }
 
 
--(void) textPosition:(NSInteger) offset
-{
+- (void) textPosition:(NSInteger) offset {
   NSInteger indexCurr = [_inputView offsetFromPosition:_inputView.beginningOfDocument toPosition:_inputView.selectedTextRange.start];
   NSInteger toIndex = indexCurr+offset;
   NSInteger indexStart = [_inputView offsetFromPosition:_inputView.beginningOfDocument toPosition:_inputView.beginningOfDocument];

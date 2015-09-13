@@ -14,7 +14,7 @@ static SettingConfig *_appConfig;
 interfaceOrientation = _interfaceOrientation,
 rotateLock = _rotateLock,
 brightValue = _brightValue,
-nTraceBrowser = _nTraceBrowser;
+nTraceBrowser = _nTraceBrowser,isEnableWebButton = _isEnableWebButton;
 
 +(SettingConfig *) defaultSettingConfig {
   static dispatch_once_t onceToken;
@@ -49,6 +49,14 @@ nTraceBrowser = _nTraceBrowser;
     [userDefault synchronize];
   }
   
+  if ([userDefault objectForKey:LightBrowserEnableWebButton]) {
+    _isEnableWebButton = [userDefault boolForKey:LightBrowserEnableWebButton];
+  }else{
+    _isEnableWebButton = NO;
+    
+    [userDefault setBool:_nTraceBrowser forKey:LightBrowserEnableWebButton];
+    [userDefault synchronize];
+  }
   
   if ([userDefault objectForKey:LightBrowserNoPicture]) {
     _noPicture = [userDefault boolForKey:LightBrowserNoPicture];

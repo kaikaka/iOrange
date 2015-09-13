@@ -5,6 +5,7 @@
 //  Created by David on 14-7-31.
 //  Copyright (c) 2014年 KOTO Inc. All rights reserved.
 //
+#define viewW 150.
 
 #import "ApiConfig.h"
 #import "ADOHistory.h"
@@ -16,6 +17,9 @@
 
 @interface UIControllerBrowser () <WebPageManageDelegate, UIGestureRecognizerDelegate> {
   UIWebPage *_webPage;
+  
+  UIButton *_btnPage;
+  UIView   *_viwePage;
 }
 
 @property (nonatomic, assign, readonly) CGRect webPageFrame;
@@ -51,11 +55,127 @@
   
   [UIWebPage appearance].progressColor = [UIColor orangeColor];//RGBCOLOR(0, 200, 0);
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationAtFont:) name:kBrowserControllerFont object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNOtificationAtPageButton:) name:kBrowserControllerAtPageButton object:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+#pragma mark - private methods
+
+- (void)loadPageButtonWithEnable:(BOOL)isEnable {
+  if (isEnable) {
+    if (_btnPage) {
+      //刷新时并不创建
+      return;
+    }
+    CGFloat viewH = 40.;
+    
+    UIButton *btnPage = [UIButton buttonWithType:0];
+    [btnPage setFrame:CGRectMake(self.view.width - 40 , self.view.height - viewH, 35, viewH-5)];
+    [btnPage setImage:[UIImage imageNamed:@"home_setting_browser_page"] forState:0];
+    [btnPage setImage:[UIImage imageNamed:@"home_setting_next"] forState:UIControlStateSelected];
+    [btnPage addTarget:self action:@selector(onTouchWithTouch:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view insertSubview:btnPage aboveSubview:_webPage];
+    _btnPage = btnPage;
+    
+    UIView *viewBackground = [[UIView alloc] initWithFrame:CGRectMake(self.view.width,
+                                                                      btnPage.top, viewW, viewH)];
+    [viewBackground setBackgroundColor:[UIColor clearColor]];
+    [self.view insertSubview:viewBackground aboveSubview:btnPage];
+    viewBackground.alpha = 0.;
+    _viwePage = viewBackground;
+    
+    UIImageView *imgvBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, viewW, viewH-5)];
+    [imgvBackground setImage:[UIImage imageNamed:@"home_setting_browserBtn_background"]];
+    [viewBackground addSubview:imgvBackground];
+    
+    UIImageView *imgvLeft = [[UIImageView alloc] initWithFrame:CGRectMake(0, 2, 30, 30)];
+    [imgvLeft setImage:[UIImage imageNamed:@"home_setting_browser_page"]];
+    [imgvBackground addSubview:imgvLeft];
+    
+    UILabel *labelLine = [[UILabel alloc] initWithFrame:CGRectMake(imgvLeft.right+5, 5, 1, imgvBackground.height-10)];
+    [labelLine setBackgroundColor:RGBA(180., 180., 180., 0.9)];
+    [imgvBackground addSubview:labelLine];
+    
+    CGFloat width = 30.;
+    CGFloat space = 6.;
+    CGFloat spaceHeight = 2.;
+    
+    UIButton *btnToTop = [UIButton buttonWithType:0];
+    [btnToTop setFrame:CGRectMake(labelLine.right+space, spaceHeight, width, width)];
+    [btnToTop setImage:[UIImage imageNamed:@"home_setting_browser_top"] forState:0];
+    [viewBackground addSubview:btnToTop];
+    
+    UIButton *btnToButtom = [UIButton buttonWithType:0];
+    [btnToButtom setFrame:CGRectMake(btnToTop.right+space, spaceHeight, width, width)];
+    [btnToButtom setImage:[UIImage imageNamed:@"home_setting_browser_bottom"] forState:0];
+    [viewBackground addSubview:btnToButtom];
+    
+    UIButton *btnShare = [UIButton buttonWithType:0];
+    [btnShare setFrame:CGRectMake(btnToButtom.right+space, spaceHeight, width, width)];
+    [btnShare setImage:[UIImage imageNamed:@"home_setting_browser_share"] forState:0];
+    [viewBackground addSubview:btnShare];
+    
+    [btnToTop addTarget:self action:@selector(onTouchWithTop:) forControlEvents:UIControlEventTouchUpInside];
+    [btnToButtom addTarget:self action:@selector(onTouchWithButtom:) forControlEvents:UIControlEventTouchUpInside];
+    [btnShare addTarget:self action:@selector(onTouchWithShare:) forControlEvents:UIControlEventTouchUpInside];
+  } else {
+    [_btnPage setHidden:YES];
+    [_viwePage setHidden:YES];
+  }
+}
+
+#pragma mark - events
+
+- (void)onTouchWithTouch:(UIButton *)sender {
+  sender.selected = !sender.selected;
+  if (sender.selected) {
+    [UIView animateWithDuration:kDuration250ms animations:^{
+      CGRect rect = _viwePage.frame;
+      rect.origin.x = self.view.width - viewW - _btnPage.width-10;
+      _viwePage.frame = rect;
+      
+      _viwePage.alpha = 1.;
+    } completion:^(BOOL finished) {
+      
+    }];
+  } else {
+    [UIView animateWithDuration:kDuration250ms animations:^{
+      CGRect rect = _viwePage.frame;
+      rect.origin.x = self.view.width;
+      _viwePage.frame = rect;
+      
+      _viwePage.alpha = 0.;
+    } completion:^(BOOL finished) {
+      
+    }];
+  }
+}
+
+- (void)onTouchWithTop:(UIButton *)sender {
+  if (_webPage.webView) {
+    [UIView animateWithDuration:kDuration250ms animations:^{
+      CGPoint point = _webPage.webView.scrollView.contentOffset;
+      point.y = 0;
+      _webPage.webView.scrollView.contentOffset = point;
+    } completion:^(BOOL finished) {
+      
+    }];
+  }
+}
+
+- (void)onTouchWithButtom:(UIButton *)sender {
+  if (_webPage.webView) {
+    [UIView animateWithDuration:kDuration250ms animations:^{
+      CGPoint point = _webPage.webView.scrollView.contentOffset;
+      point.y = _webPage.webView.scrollView.contentSize.height - _webPage.webView.scrollView.bounds.size.height;
+      _webPage.webView.scrollView.contentOffset = point;
+    } completion:^(BOOL finished) {
+      
+    }];
+  }
+}
+
+- (void)onTouchWithShare:(UIButton *)sender {
+  DLog(@"onTouchWithShare");
 }
 
 #pragma mark - property
@@ -164,7 +284,7 @@
 }
 
 - (void)webPageManage:(WebPageManage *)webPageManage didUpdateLink:(NSString *)link atIndex:(NSInteger)index {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kViewControllerNotionUpadtePaly object:nil];
+  [[NSNotificationCenter defaultCenter] postNotificationName:kViewControllerNotionUpadtePaly object:nil];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -258,6 +378,8 @@
       }
     }
   }
+  
+  [self loadPageButtonWithEnable:[SettingConfig defaultSettingConfig].isEnableWebButton];
 }
 
 #pragma mark - events
@@ -266,6 +388,11 @@
   NSInteger itg = [[center object] integerValue];
   NSString* str1 =[NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%f%%'",(itg*10)+100.];
   [_webPage.webView stringByEvaluatingJavaScriptFromString:str1];
+}
+
+- (void)onNOtificationAtPageButton:(NSNotification *)center {
+  BOOL isEnable = [[center object] boolValue];
+  [self loadPageButtonWithEnable:isEnable];
 }
 
 /*
