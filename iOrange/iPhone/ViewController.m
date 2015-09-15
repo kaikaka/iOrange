@@ -118,6 +118,10 @@
   [_controllerBrowser.webPage.webView reload];
 }
 
+- (void)reloadWeatherData {
+  [_viewHomeThree setUp];//更新
+}
+
 #pragma mark - private Methods
 
 -(void)collapseOrExpand:(NSInteger)section withExpanded:(BOOL)isExpand{
@@ -133,10 +137,10 @@
   NSString *pathString = [[NSBundle mainBundle] pathForResource:@"HomeNavSite" ofType:@"plist"];
   NSArray *arraySite = [NSArray arrayWithContentsOfFile:pathString];
   
-  int totalloc =3;
-  CGFloat appvieww = (CGRectGetWidth(self.view.frame)-30)/3;
-  CGFloat appviewh = iPhone5?(0.85*50):50;
-  CGFloat margin = (self.view.frame.size.width-totalloc*appvieww)/(totalloc+1);
+  int totalloc =3;//列的总数
+  CGFloat appvieww = (CGRectGetWidth(self.view.frame)-30)/3;//列的宽度
+  CGFloat appviewh = iPhone5?(0.85*50):50;//列的高度
+  CGFloat margin = (self.view.frame.size.width-totalloc*appvieww)/(totalloc+1);//间距
   CGFloat siteHeight = (appviewh + margin )* totalloc + totalloc * 3;
   
   UIView *viewShow = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _viewHomeOne.width, siteHeight)];
@@ -296,6 +300,7 @@ static id _aSelf;
   [_viewHomeThree setContentSize:CGSizeMake(0, _viewHomeThree.height+1)];
   [_viewHomeThree setShowsVerticalScrollIndicator:NO];
   [_viewHomeThree setDelegate:self];
+  /*
   [_viewHomeThree addPullToRefreshWithActionHandler:^{
     [_viewHomeThree setUp];
   }];
@@ -304,6 +309,7 @@ static id _aSelf;
   [_viewHomeThree.pullToRefreshView setTextColor:[UIColor whiteColor]];
   [_viewHomeThree.pullToRefreshView setArrowColor:[UIColor whiteColor]];
   [_viewHomeThree setWeatherInfoEnd:whenShowWeatherEnd];
+   */
 }
 
 - (void)setLayerRadius:(UIView *)viewRadius rectCorner:(UIRectCorner)corner{
@@ -397,13 +403,6 @@ static id _aSelf;
   } else
     _buttonBack.enabled = NO;
 
-}
-
-- (void)reloadEnd {
-  if ([_viewHomeThree.pullToRefreshView isHidden] == NO) {
-    [_viewHomeThree.pullToRefreshView setHidden:YES];
-    [_viewHomeThree.pullToRefreshView stopAnimating];
-  }
 }
 
 - (void)overBackgroundToHidden:(BOOL)isHidden {
@@ -606,6 +605,7 @@ static id _aSelf;
 - (void)enableWithWebView {
   ViewSetupButton *view10 = (ViewSetupButton *)[_controllerSetting.scrollViewSetting viewWithTag:100];
   ViewSetupButton *view104 = (ViewSetupButton *)[_controllerSetting.scrollViewSetting viewWithTag:104];
+  ViewSetupButton *view105 = (ViewSetupButton *)[_controllerSetting.scrollViewSetting viewWithTag:105];
   //控制设置按钮
   if (_controllerBrowser.webPage.webView) {
     if (_controllerBrowser.webPage.show) {
@@ -618,6 +618,11 @@ static id _aSelf;
   } else {
     [view10 setImageEnable:NO];
     [view104 setImageEnable:NO];
+  }
+  if (_pageViewMark.currentPage == 2 ) {
+    [view105 setImageEnable:YES];
+  } else {
+    [view105 setImageEnable:NO];
   }
 }
 
@@ -649,10 +654,6 @@ void (^whenTouchEnd)(NSString *) = ^ void (NSString *link) {
 
 void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
   [_aSelf siteAloneForDelete:link];
-};
-
-void (^whenShowWeatherEnd)(void) = ^ void (){
-  [_aSelf reloadEnd];
 };
 
 #pragma mark - 

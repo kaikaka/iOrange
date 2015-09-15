@@ -24,5 +24,10 @@
  */
 - (void)reloadWebView;
 
+/**
+ *  刷新天气数据
+ */
+- (void)reloadWeatherData;
+
 @end
 

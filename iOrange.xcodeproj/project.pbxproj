@@ -31,7 +31,6 @@
 		7F4182A11B4B71D300809DD4 /* UIImageViewEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4182A01B4B71D300809DD4 /* UIImageViewEx.m */; };
 		7F43EECA1B959A9800753C8D /* SettingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F43EEC91B959A9800753C8D /* SettingConfig.m */; };
 		7F43EECC1B95AB0B00753C8D /* home_touch_privacy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F43EECB1B95AB0B00753C8D /* home_touch_privacy@2x.png */; };
-		7F43EECF1B95CA0600753C8D /* CheckVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F43EECE1B95CA0600753C8D /* CheckVersion.m */; };
 		7F43EED21B95D0EC00753C8D /* ControllerSuggest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F43EED11B95D0EC00753C8D /* ControllerSuggest.m */; };
 		7F5519771B44E81000E0A0D1 /* home_scan_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5519731B44E81000E0A0D1 /* home_scan_close@2x.png */; };
 		7F5519781B44E81000E0A0D1 /* home_scan_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5519741B44E81000E0A0D1 /* home_scan_close@3x.png */; };
@@ -370,8 +369,6 @@
 		7F43EEC81B959A9800753C8D /* SettingConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingConfig.h; sourceTree = "<group>"; };
 		7F43EEC91B959A9800753C8D /* SettingConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingConfig.m; sourceTree = "<group>"; };
 		7F43EECB1B95AB0B00753C8D /* home_touch_privacy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_touch_privacy@2x.png"; sourceTree = "<group>"; };
-		7F43EECD1B95CA0600753C8D /* CheckVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckVersion.h; sourceTree = "<group>"; };
-		7F43EECE1B95CA0600753C8D /* CheckVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckVersion.m; sourceTree = "<group>"; };
 		7F43EED01B95D0EC00753C8D /* ControllerSuggest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSuggest.h; sourceTree = "<group>"; };
 		7F43EED11B95D0EC00753C8D /* ControllerSuggest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSuggest.m; sourceTree = "<group>"; };
 		7F5519731B44E81000E0A0D1 /* home_scan_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_close@2x.png"; sourceTree = "<group>"; };
@@ -895,8 +892,6 @@
 		7F09A9861B0C9D030036BDB7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				7F43EECD1B95CA0600753C8D /* CheckVersion.h */,
-				7F43EECE1B95CA0600753C8D /* CheckVersion.m */,
 				7FB94BC51B81D351002A7902 /* DatabaseUtil.h */,
 				7FB94BC61B81D351002A7902 /* DatabaseUtil.m */,
 				7FEBB72B1B5506EC0097FF73 /* UITaskPageManage.h */,
@@ -1873,7 +1868,6 @@
 				7F69101E1B8FEEF700B86985 /* ControllerAddNavigation.m in Sources */,
 				7F6910211B90089C00B86985 /* ModelSite.m in Sources */,
 				7FB94BCD1B82CF9C002A7902 /* ModelHistory.m in Sources */,
-				7F43EECF1B95CA0600753C8D /* CheckVersion.m in Sources */,
 				7F5572951B108AA400B0CE8F /* UIImage+Bundle.m in Sources */,
 				7F64E3341B7EE74B008B8BC3 /* ButtonSetting.m in Sources */,
 				7FCABB0E1B88536300B64300 /* CellForAccess.m in Sources */,

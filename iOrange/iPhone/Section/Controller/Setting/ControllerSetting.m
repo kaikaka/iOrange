@@ -9,7 +9,6 @@
 #import "ApiConfig.h"
 #import "ADOMark.h"
 #import "ButtonSetting.h"
-#import "CheckVersion.h"
 #import "ControllerSetting.h"
 #import "ControllerHistory.h"
 #import "ControllerSettingDetail.h"
@@ -81,7 +80,7 @@
                               @"home_setting_reload@2x",@"home_setting_update@2x",
                               @"home_setting_feedback@2x",@"home_setting_share@2x",
                               @"home_setting_noprivacy@2x",@"home_setting_setup@2x"];
-  NSArray *labelTextArray = @[@"添加书签",@"书签/历史",@"无图模式",@"全屏模式",@"刷新",@"更新",@"反馈",@"分享",@"无痕模式",@"设置"];
+  NSArray *labelTextArray = @[@"添加书签",@"书签/历史",@"无图模式",@"全屏模式",@"刷新",@"更新天气",@"反馈",@"分享",@"无痕模式",@"设置"];
   
   int totalloc = 4;
   CGFloat appvieww = self.view.width/4;
@@ -197,7 +196,7 @@
     }
       break;
     case HomeSettingTypeUpdate: {
-      [CheckVersion checkVersionWithAppleID:kAppId];
+      [viewCon reloadWeatherData];
     }
       break;
     case HomeSettingTypeFeedback: {
