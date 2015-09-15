@@ -34,11 +34,7 @@
 		7F43EED21B95D0EC00753C8D /* ControllerSuggest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F43EED11B95D0EC00753C8D /* ControllerSuggest.m */; };
 		7F5519771B44E81000E0A0D1 /* home_scan_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5519731B44E81000E0A0D1 /* home_scan_close@2x.png */; };
 		7F5519781B44E81000E0A0D1 /* home_scan_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5519741B44E81000E0A0D1 /* home_scan_close@3x.png */; };
-		7F5572211B0D7BA600B0CE8F /* baidumobadsdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F5571F01B0D7BA600B0CE8F /* baidumobadsdk.bundle */; };
-		7F5572221B0D7BA600B0CE8F /* libBaiduMobAdSdk64bit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5571F41B0D7BA600B0CE8F /* libBaiduMobAdSdk64bit.a */; };
-		7F5572231B0D7BA600B0CE8F /* mongoose.c in Sources */ = {isa = PBXBuildFile; fileRef = 7F5571F61B0D7BA600B0CE8F /* mongoose.c */; };
 		7F5572371B0D7EC700B0CE8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5572361B0D7EC700B0CE8F /* QuartzCore.framework */; };
-		7F5572391B0D7ED100B0CE8F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5572381B0D7ED100B0CE8F /* AdSupport.framework */; };
 		7F55723B1B0D7EDB00B0CE8F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F55723A1B0D7EDB00B0CE8F /* StoreKit.framework */; };
 		7F55723D1B0D7EE200B0CE8F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F55723C1B0D7EE200B0CE8F /* libz.dylib */; };
 		7F55723F1B0D7EEA00B0CE8F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F55723E1B0D7EEA00B0CE8F /* AudioToolbox.framework */; };
@@ -373,21 +369,7 @@
 		7F43EED11B95D0EC00753C8D /* ControllerSuggest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSuggest.m; sourceTree = "<group>"; };
 		7F5519731B44E81000E0A0D1 /* home_scan_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_close@2x.png"; sourceTree = "<group>"; };
 		7F5519741B44E81000E0A0D1 /* home_scan_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_close@3x.png"; sourceTree = "<group>"; };
-		7F5571EA1B0D7BA600B0CE8F /* BaiduMobAdCommonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdCommonConfig.h; sourceTree = "<group>"; };
-		7F5571EB1B0D7BA600B0CE8F /* BaiduMobAdDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdDelegateProtocol.h; sourceTree = "<group>"; };
-		7F5571EC1B0D7BA600B0CE8F /* BaiduMobAdInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdInterstitial.h; sourceTree = "<group>"; };
-		7F5571ED1B0D7BA600B0CE8F /* BaiduMobAdInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdInterstitialDelegate.h; sourceTree = "<group>"; };
-		7F5571EE1B0D7BA600B0CE8F /* BaiduMobAdRecommendDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdRecommendDelegateProtocol.h; sourceTree = "<group>"; };
-		7F5571EF1B0D7BA600B0CE8F /* BaiduMobAdRecommendIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdRecommendIcon.h; sourceTree = "<group>"; };
-		7F5571F01B0D7BA600B0CE8F /* baidumobadsdk.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = baidumobadsdk.bundle; sourceTree = "<group>"; };
-		7F5571F11B0D7BA600B0CE8F /* BaiduMobAdSplash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdSplash.h; sourceTree = "<group>"; };
-		7F5571F21B0D7BA600B0CE8F /* BaiduMobAdSplashDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdSplashDelegate.h; sourceTree = "<group>"; };
-		7F5571F31B0D7BA600B0CE8F /* BaiduMobAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdView.h; sourceTree = "<group>"; };
-		7F5571F41B0D7BA600B0CE8F /* libBaiduMobAdSdk64bit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBaiduMobAdSdk64bit.a; sourceTree = "<group>"; };
-		7F5571F61B0D7BA600B0CE8F /* mongoose.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mongoose.c; sourceTree = "<group>"; };
-		7F5571F71B0D7BA600B0CE8F /* mongoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mongoose.h; sourceTree = "<group>"; };
 		7F5572361B0D7EC700B0CE8F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		7F5572381B0D7ED100B0CE8F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		7F55723A1B0D7EDB00B0CE8F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7F55723C1B0D7EE200B0CE8F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		7F55723E1B0D7EEA00B0CE8F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -732,9 +714,7 @@
 				7F55723F1B0D7EEA00B0CE8F /* AudioToolbox.framework in Frameworks */,
 				7F55723D1B0D7EE200B0CE8F /* libz.dylib in Frameworks */,
 				7F55723B1B0D7EDB00B0CE8F /* StoreKit.framework in Frameworks */,
-				7F5572391B0D7ED100B0CE8F /* AdSupport.framework in Frameworks */,
 				7F5572371B0D7EC700B0CE8F /* QuartzCore.framework in Frameworks */,
-				7F5572221B0D7BA600B0CE8F /* libBaiduMobAdSdk64bit.a in Frameworks */,
 				C37A855E273AE8C121E29079 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -774,7 +754,6 @@
 				7F55723E1B0D7EEA00B0CE8F /* AudioToolbox.framework */,
 				7F55723C1B0D7EE200B0CE8F /* libz.dylib */,
 				7F55723A1B0D7EDB00B0CE8F /* StoreKit.framework */,
-				7F5572381B0D7ED100B0CE8F /* AdSupport.framework */,
 				7F5572361B0D7EC700B0CE8F /* QuartzCore.framework */,
 				6EB5AF0E0B59701CDA4DF7DF /* libPods.a */,
 			);
@@ -822,7 +801,6 @@
 			isa = PBXGroup;
 			children = (
 				7FEBB7091B5412FD0097FF73 /* KWebView_15.06.10 */,
-				7F5571E91B0D7BA600B0CE8F /* Baidu_Ad_2.6 */,
 			);
 			path = Vendors;
 			sourceTree = "<group>";
@@ -923,34 +901,6 @@
 			children = (
 			);
 			path = Share;
-			sourceTree = "<group>";
-		};
-		7F5571E91B0D7BA600B0CE8F /* Baidu_Ad_2.6 */ = {
-			isa = PBXGroup;
-			children = (
-				7F5571EA1B0D7BA600B0CE8F /* BaiduMobAdCommonConfig.h */,
-				7F5571EB1B0D7BA600B0CE8F /* BaiduMobAdDelegateProtocol.h */,
-				7F5571EC1B0D7BA600B0CE8F /* BaiduMobAdInterstitial.h */,
-				7F5571ED1B0D7BA600B0CE8F /* BaiduMobAdInterstitialDelegate.h */,
-				7F5571EE1B0D7BA600B0CE8F /* BaiduMobAdRecommendDelegateProtocol.h */,
-				7F5571EF1B0D7BA600B0CE8F /* BaiduMobAdRecommendIcon.h */,
-				7F5571F01B0D7BA600B0CE8F /* baidumobadsdk.bundle */,
-				7F5571F11B0D7BA600B0CE8F /* BaiduMobAdSplash.h */,
-				7F5571F21B0D7BA600B0CE8F /* BaiduMobAdSplashDelegate.h */,
-				7F5571F31B0D7BA600B0CE8F /* BaiduMobAdView.h */,
-				7F5571F41B0D7BA600B0CE8F /* libBaiduMobAdSdk64bit.a */,
-				7F5571F51B0D7BA600B0CE8F /* Mongoose */,
-			);
-			path = Baidu_Ad_2.6;
-			sourceTree = "<group>";
-		};
-		7F5571F51B0D7BA600B0CE8F /* Mongoose */ = {
-			isa = PBXGroup;
-			children = (
-				7F5571F61B0D7BA600B0CE8F /* mongoose.c */,
-				7F5571F71B0D7BA600B0CE8F /* mongoose.h */,
-			);
-			path = Mongoose;
 			sourceTree = "<group>";
 		};
 		7F69100F1B8E0A7A00B86985 /* Setting */ = {
@@ -1601,7 +1551,6 @@
 				7F8518271B7E12C600BAD5D3 /* home_setting_update@2x.png in Resources */,
 				7FC19EB31BA45FD2006E1354 /* home_setting_browserBtn_background@2x.png in Resources */,
 				7FCE1C431B99A02400F881DA /* iPhone6-guide-2-v@2x.png in Resources */,
-				7F5572211B0D7BA600B0CE8F /* baidumobadsdk.bundle in Resources */,
 				7F70598C1B242E4B00FCB86C /* home_bottom_forward_select@3x.png in Resources */,
 				7F07943B1B27C239006883F9 /* home_webSite_LightLine@2x.png in Resources */,
 				7F7059921B242E4B00FCB86C /* home_button_home@3x.png in Resources */,
@@ -1876,7 +1825,6 @@
 				7FCE1C2D1B99A00100F881DA /* ControllerGuide.m in Sources */,
 				7F09A98E1B0C9D8F0036BDB7 /* ControllerBase.m in Sources */,
 				7FEBB7301B5506F60097FF73 /* UIScrollViewTaskManage.m in Sources */,
-				7F5572231B0D7BA600B0CE8F /* mongoose.c in Sources */,
 				7FEBB7081B5411EE0097FF73 /* UIViewTaskPage.m in Sources */,
 				7FEBB71F1B5412FD0097FF73 /* BUIView.m in Sources */,
 				7F23C3FC1B88C30F000C4CAD /* ModelMark.m in Sources */,

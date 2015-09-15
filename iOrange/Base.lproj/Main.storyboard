@@ -48,10 +48,76 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8D6-sf-R0g">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1g-b0-ceT">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_nav_searchBg.png" translatesAutoresizingMaskIntoConstraints="NO" id="PhZ-jG-kdJ">
+                                                <rect key="frame" x="10" y="30" width="300" height="40"/>
+                                                <animations/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ie-Sb-ZvJ">
+                                                <rect key="frame" x="272" y="37" width="28" height="24"/>
+                                                <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="Dq4-Hg-BFx"/>
+                                                    <constraint firstAttribute="width" constant="28" id="o4N-41-yTp"/>
+                                                </constraints>
+                                                <state key="normal" image="home_nav_twoCode_default.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="selected" image="home_nav_twoCode_default.png"/>
+                                                <state key="highlighted" image="home_nav_twoCode_pressed.png"/>
+                                                <connections>
+                                                    <action selector="onTouchWithScan:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dkp-s4-ky4"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Est-EW-hPV">
+                                                <rect key="frame" x="17" y="37" width="24" height="24"/>
+                                                <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="24" id="Kgo-CS-j8e"/>
+                                                    <constraint firstAttribute="height" constant="24" id="eln-D2-T05"/>
+                                                </constraints>
+                                                <state key="normal" image="home_nav_search_default.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="highlighted" image="home_nav_search_pressed.png"/>
+                                                <connections>
+                                                    <action selector="onTouchWithSearchAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vss-HJ-gh4"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="搜索或输入网址" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7O6-9E-dtu">
+                                                <rect key="frame" x="49" y="34" width="215" height="30"/>
+                                                <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="DsS-tl-aDa"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Est-EW-hPV" firstAttribute="leading" secondItem="n1g-b0-ceT" secondAttribute="leading" constant="17" id="5QB-Ny-HG1"/>
+                                            <constraint firstAttribute="trailing" secondItem="4ie-Sb-ZvJ" secondAttribute="trailing" constant="20" id="AgU-4Y-KQF"/>
+                                            <constraint firstAttribute="trailing" secondItem="PhZ-jG-kdJ" secondAttribute="trailing" constant="10" id="BDq-rr-QKl"/>
+                                            <constraint firstItem="7O6-9E-dtu" firstAttribute="leading" secondItem="Est-EW-hPV" secondAttribute="trailing" constant="8" id="DDk-2Y-wdj"/>
+                                            <constraint firstItem="4ie-Sb-ZvJ" firstAttribute="leading" secondItem="7O6-9E-dtu" secondAttribute="trailing" constant="8" id="Djx-dF-TNz"/>
+                                            <constraint firstItem="4ie-Sb-ZvJ" firstAttribute="top" secondItem="n1g-b0-ceT" secondAttribute="top" constant="37" id="EhN-cZ-Tdc"/>
+                                            <constraint firstItem="PhZ-jG-kdJ" firstAttribute="top" secondItem="n1g-b0-ceT" secondAttribute="top" constant="30" id="I4q-6p-43b"/>
+                                            <constraint firstItem="PhZ-jG-kdJ" firstAttribute="leading" secondItem="n1g-b0-ceT" secondAttribute="leading" constant="10" id="aMc-kd-SIn"/>
+                                            <constraint firstItem="Est-EW-hPV" firstAttribute="top" secondItem="n1g-b0-ceT" secondAttribute="top" constant="37" id="am4-Ta-Dqt"/>
+                                            <constraint firstAttribute="height" constant="79" id="goH-40-Wcn"/>
+                                            <constraint firstAttribute="bottom" secondItem="PhZ-jG-kdJ" secondAttribute="bottom" constant="9" id="yb8-vz-buM"/>
+                                            <constraint firstItem="7O6-9E-dtu" firstAttribute="top" secondItem="n1g-b0-ceT" secondAttribute="top" constant="34" id="z3c-I2-Pxt"/>
+                                        </constraints>
+                                    </view>
                                     <view tag="50" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nho-ee-0Cu" customClass="UIScrollView">
                                         <rect key="frame" x="0.0" y="79" width="320" height="439"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktI-m3-Mw8">
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktI-m3-Mw8" customClass="UIScrollView">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="439"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -283,72 +349,6 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1g-b0-ceT">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_nav_searchBg.png" translatesAutoresizingMaskIntoConstraints="NO" id="PhZ-jG-kdJ">
-                                                <rect key="frame" x="10" y="30" width="300" height="40"/>
-                                                <animations/>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ie-Sb-ZvJ">
-                                                <rect key="frame" x="272" y="37" width="28" height="24"/>
-                                                <animations/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="24" id="Dq4-Hg-BFx"/>
-                                                    <constraint firstAttribute="width" constant="28" id="o4N-41-yTp"/>
-                                                </constraints>
-                                                <state key="normal" image="home_nav_twoCode_default.png">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="selected" image="home_nav_twoCode_default.png"/>
-                                                <state key="highlighted" image="home_nav_twoCode_pressed.png"/>
-                                                <connections>
-                                                    <action selector="onTouchWithScan:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dkp-s4-ky4"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Est-EW-hPV">
-                                                <rect key="frame" x="17" y="37" width="24" height="24"/>
-                                                <animations/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="24" id="Kgo-CS-j8e"/>
-                                                    <constraint firstAttribute="height" constant="24" id="eln-D2-T05"/>
-                                                </constraints>
-                                                <state key="normal" image="home_nav_search_default.png">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted" image="home_nav_search_pressed.png"/>
-                                                <connections>
-                                                    <action selector="onTouchWithSearchAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vss-HJ-gh4"/>
-                                                </connections>
-                                            </button>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="搜索或输入网址" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7O6-9E-dtu">
-                                                <rect key="frame" x="49" y="34" width="215" height="30"/>
-                                                <animations/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="DsS-tl-aDa"/>
-                                                </constraints>
-                                                <color key="textColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                        <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="Est-EW-hPV" firstAttribute="leading" secondItem="n1g-b0-ceT" secondAttribute="leading" constant="17" id="5QB-Ny-HG1"/>
-                                            <constraint firstAttribute="trailing" secondItem="4ie-Sb-ZvJ" secondAttribute="trailing" constant="20" id="AgU-4Y-KQF"/>
-                                            <constraint firstAttribute="trailing" secondItem="PhZ-jG-kdJ" secondAttribute="trailing" constant="10" id="BDq-rr-QKl"/>
-                                            <constraint firstItem="7O6-9E-dtu" firstAttribute="leading" secondItem="Est-EW-hPV" secondAttribute="trailing" constant="8" id="DDk-2Y-wdj"/>
-                                            <constraint firstItem="4ie-Sb-ZvJ" firstAttribute="leading" secondItem="7O6-9E-dtu" secondAttribute="trailing" constant="8" id="Djx-dF-TNz"/>
-                                            <constraint firstItem="4ie-Sb-ZvJ" firstAttribute="top" secondItem="n1g-b0-ceT" secondAttribute="top" constant="37" id="EhN-cZ-Tdc"/>
-                                            <constraint firstItem="PhZ-jG-kdJ" firstAttribute="top" secondItem="n1g-b0-ceT" secondAttribute="top" constant="30" id="I4q-6p-43b"/>
-                                            <constraint firstItem="PhZ-jG-kdJ" firstAttribute="leading" secondItem="n1g-b0-ceT" secondAttribute="leading" constant="10" id="aMc-kd-SIn"/>
-                                            <constraint firstItem="Est-EW-hPV" firstAttribute="top" secondItem="n1g-b0-ceT" secondAttribute="top" constant="37" id="am4-Ta-Dqt"/>
-                                            <constraint firstAttribute="height" constant="79" id="goH-40-Wcn"/>
-                                            <constraint firstAttribute="bottom" secondItem="PhZ-jG-kdJ" secondAttribute="bottom" constant="9" id="yb8-vz-buM"/>
-                                            <constraint firstItem="7O6-9E-dtu" firstAttribute="top" secondItem="n1g-b0-ceT" secondAttribute="top" constant="34" id="z3c-I2-Pxt"/>
-                                        </constraints>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vk-4b-jay" customClass="SlurImageView">
                                         <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                                         <subviews>
@@ -509,9 +509,9 @@
                         <outlet property="_buttonTwoCode" destination="4ie-Sb-ZvJ" id="014-Z9-OfF"/>
                         <outlet property="_imgvBackground" destination="uYT-a9-xm9" id="R6O-ai-Zwe"/>
                         <outlet property="_scrollViewContent" destination="nho-ee-0Cu" id="Gww-d2-T5c"/>
-                        <outlet property="_viewHomeOne" destination="ktI-m3-Mw8" id="Hte-pC-M8c"/>
+                        <outlet property="_scrollViewHomeOne" destination="ktI-m3-Mw8" id="O8P-ci-84I"/>
+                        <outlet property="_scrollViewHomeTwo" destination="oea-ki-WQQ" id="ulj-Ld-qPe"/>
                         <outlet property="_viewHomeThree" destination="uL6-Lk-PZG" id="rIT-BI-a5d"/>
-                        <outlet property="_viewHomeTwo" destination="oea-ki-WQQ" id="zzi-aE-zwE"/>
                         <outlet property="_viewMain" destination="8D6-sf-R0g" id="WXA-vn-O1C"/>
                         <outlet property="_viewSearch" destination="n1g-b0-ceT" id="Mhk-gl-x63"/>
                         <outlet property="_viewTouch" destination="3vk-4b-jay" id="YwM-CJ-GGk"/>

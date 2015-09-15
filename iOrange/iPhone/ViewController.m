@@ -41,8 +41,8 @@
   __weak IBOutlet UIButton *_buttonTwoCode;
   
   __weak IBOutlet UIScrollView *_scrollViewContent;
-  __weak IBOutlet UIView *_viewHomeOne;
-  __weak IBOutlet UIScrollView *_viewHomeTwo;
+  __weak IBOutlet UIScrollView *_scrollViewHomeOne;
+  __weak IBOutlet UIScrollView *_scrollViewHomeTwo;
   __weak IBOutlet ViewWeather *_viewHomeThree;
   __weak IBOutlet UIView *_viewSearch;
   __weak IBOutlet UIView *_viewTouch;
@@ -143,9 +143,9 @@
   CGFloat margin = (self.view.frame.size.width-totalloc*appvieww)/(totalloc+1);//间距
   CGFloat siteHeight = (appviewh + margin )* totalloc + totalloc * 3;
   
-  UIView *viewShow = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _viewHomeOne.width, siteHeight)];
+  UIView *viewShow = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _scrollViewHomeOne.width, siteHeight)];
   [viewShow setBackgroundColor:[UIColor clearColor]];
-  [_viewHomeOne addSubview:viewShow];
+  [_scrollViewHomeOne addSubview:viewShow];
   _viewSiteShow = viewShow;
   
   for (int i = 0 ; i < [arraySite count]; i++) {
@@ -197,7 +197,7 @@
     [siteView setTag:10+i];
     siteView.touched = whenTouchEnd;
     siteView.touchedDelete = whenTouchSiteDelete;
-    [_viewHomeTwo addSubview:siteView];
+    [_scrollViewHomeTwo addSubview:siteView];
     if (i == [arraySite count]-1) {
       int row = (i+1) / totalloc;
       int loc = (i+1) % totalloc;
@@ -207,7 +207,7 @@
       ViewGuideSiteButton *siteViewNine = [[ViewGuideSiteButton alloc] initWithFrame:CGRectMake(appviewW, appviewH, widthS, heightS) withIconName:@"home_site_icon9" withSiteName:@""];
       siteViewNine.touched = whenTouchEnd;
       siteViewNine.touchedDelete = whenTouchSiteDelete;
-      [_viewHomeTwo addSubview:siteViewNine];
+      [_scrollViewHomeTwo addSubview:siteViewNine];
     }
   }
   
@@ -221,7 +221,7 @@
 - (void)showCategoryTableWithMargin:(CGFloat)margin withHeight:(CGFloat)siteHeight {
   UITableView *tableCategory = [[UITableView alloc] initWithFrame:CGRectMake(margin, margin, self.view.width-margin * 2, siteHeight + kSectionHeight * 5 ) style:UITableViewStylePlain];
   tableCategory.backgroundColor = [UIColor clearColor];
-  [_viewHomeOne addSubview:tableCategory];
+  [_scrollViewHomeOne addSubview:tableCategory];
   [tableCategory setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   [tableCategory setShowsVerticalScrollIndicator:NO];
 //  tableCategory.tableFooterView = [[UIView alloc] init];
@@ -235,7 +235,7 @@
 }
 
 - (void)showPageView {
-  UIPageControl *pageView = [[UIPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame)-65, _viewHomeOne.width, 8)];
+  UIPageControl *pageView = [[UIPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame)-65, _scrollViewHomeOne.width, 8)];
   pageView.currentPageIndicatorTintColor = RGBA(125., 125., 125., 1.);
   pageView.pageIndicatorTintColor = [UIColor blackColor];
   pageView.numberOfPages = 3;
@@ -262,6 +262,10 @@ static id _aSelf;
   _scrollViewContent.pagingEnabled = YES;
   _scrollViewContent.delegate = self;
   _scrollViewContent.showsHorizontalScrollIndicator = NO;
+  _scrollViewContent.layer.masksToBounds = YES;//越界裁剪
+  //适配
+  _scrollViewHomeOne.contentSize = CGSizeMake(_scrollViewContent.width,
+                                                _scrollViewContent.height + 30);
   
   _textFiledContent.delegate = self;
   _buttonBack.enabled = NO;
@@ -300,7 +304,7 @@ static id _aSelf;
   [_viewHomeThree setContentSize:CGSizeMake(0, _viewHomeThree.height+1)];
   [_viewHomeThree setShowsVerticalScrollIndicator:NO];
   [_viewHomeThree setDelegate:self];
-  /*
+  /* 取消下拉刷新
   [_viewHomeThree addPullToRefreshWithActionHandler:^{
     [_viewHomeThree setUp];
   }];
@@ -560,7 +564,7 @@ static id _aSelf;
 }
 
 - (void)deleteAllSite {
-  for (UIView *view in _viewHomeTwo.subviews) {
+  for (UIView *view in _scrollViewHomeTwo.subviews) {
     [view removeFromSuperview];
   }
 }
@@ -675,9 +679,9 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
 #pragma mark - Systems Methods
 
 - (void)viewDidLayoutSubviews{
-  
   [_scrollViewContent.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *layConstant, NSUInteger idx, BOOL *stop) {
-    if (layConstant.firstItem == _viewHomeOne) {
+    
+    if (layConstant.firstItem == _scrollViewHomeOne) {
       if (layConstant.firstAttribute == NSLayoutAttributeWidth) {
         layConstant.constant = _scrollViewContent.width;
       }
@@ -685,7 +689,7 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
         layConstant.constant = _scrollViewContent.height;
       }
     }
-    if (layConstant.firstItem == _viewHomeTwo) {
+    if (layConstant.firstItem == _scrollViewHomeTwo) {
       if (layConstant.firstAttribute == NSLayoutAttributeWidth) {
         layConstant.constant = _scrollViewContent.width;
       }
@@ -837,7 +841,7 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
 
 - (void)onTouchAtSiteToDelete:(UIButton *)sender {
   [sender removeFromSuperview];
-  ViewGuideSiteButton *guideView = (ViewGuideSiteButton *)[_viewHomeTwo viewWithTag:sender.tag];
+  ViewGuideSiteButton *guideView = (ViewGuideSiteButton *)[_scrollViewHomeTwo viewWithTag:sender.tag];
   if ([ADOSite deleteWithSiteId:guideView.modelSite.s_id]) {
     [self deleteAllSite];
     [self showGuideSiteInView];
