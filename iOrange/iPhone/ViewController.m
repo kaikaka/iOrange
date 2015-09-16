@@ -190,20 +190,10 @@
     rect.size.height += kAdsspHeight;
     viewShow.frame = rect;
     UIView *adView = _sharedAdView;
-    adView.frame = CGRectMake(viewShow.width,viewShow.height - 55 - 3 , self.view.width, kSectionHeight);
+    adView.frame = CGRectMake(0,viewShow.height - 55 - 3 , self.view.width, kSectionHeight);
     adView.layer.cornerRadius = 5.;
     //广告
     [viewShow addSubview:adView];
-    dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)2 * NSEC_PER_SEC);
-    dispatch_after(when, dispatch_get_main_queue(), ^{
-      [UIView animateWithDuration:kDuration250ms animations:^{
-        CGRect rect = adView.frame;
-        rect.origin.x = 0;
-        adView.frame = rect;
-      } completion:^(BOOL finished) {
-        
-      }];
-    });
   }
   
   return viewShow;
