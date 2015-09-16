@@ -8,10 +8,12 @@
 
 #define DIC_EXPANDED @"expanded" //是否是展开 0收缩 1展开
 #define kSectionHeight 50
+#define kAdsspHeight 50
 
 #import "ApiConfig.h"
 #import "ADOHistory.h"
 #import "ADOSite.h"
+#import "BaiduMobAdView.h"
 #import "ControllerScanCode.h"
 #import "ControllerSetting.h"
 #import "ControllerAddNavigation.h"
@@ -35,7 +37,7 @@
 #import "ViewWeather.h"
 #import "ViewSetupButton.h"
 
-@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate,ScanCodeDelegate,UIControllerBrowserDelegate,UIScrollViewTaskManageDelegate>{
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate,ScanCodeDelegate,UIControllerBrowserDelegate,UIScrollViewTaskManageDelegate,BaiduMobAdViewDelegate>{
   
   __weak IBOutlet UIButton *_buttonSearch;
   __weak IBOutlet UIButton *_buttonTwoCode;
@@ -86,6 +88,7 @@
 @property (nonatomic,strong)void (^whenTouchEnd) (NSString *);
 @property (nonatomic,strong)void (^whenShowWeatherEnd) (void);
 @property (nonatomic,strong)void (^whenTouchSiteDelete) (NSString *);
+@property (strong, nonatomic) BaiduMobAdView *sharedAdView;//广告
 
 @end
 
@@ -100,11 +103,28 @@
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationToPrivacy:) name:kViewControllerNotionPrivacy object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationToUpadtePaly:) name:kViewControllerNotionUpadtePaly object:nil];
   
+  //广告
+  [self showAdvertAbove];
+  //加载表格
   [self countMargin];
+  //加载九宫格
   [self showGuideSiteInView];
+  //加载page页
   [self showPageView];
+//  初始化
   [self initDataSource];
   [self getCoolSitePath];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  //适配吧
+  if (isRetina) {
+    [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, self.view.height +30)];
+  }
+  if (iPhone5) {
+    [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, _scrollViewHomeOne.height +60)];
+  }
 }
 
 #pragma mrak -
@@ -161,7 +181,27 @@
     viewSiteButton.touched = whenTouchEnd;
     [viewShow addSubview:viewSiteButton];
   }
-
+  if (_sharedAdView) {
+    CGRect rect = viewShow.frame;
+    rect.size.height += kAdsspHeight;
+    viewShow.frame = rect;
+    UIView *adView = _sharedAdView;
+    adView.frame = CGRectMake(viewShow.width,viewShow.height - 55 - 3 , self.view.width, kSectionHeight);
+    adView.layer.cornerRadius = 5.;
+    //广告
+    [viewShow addSubview:adView];
+    dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)2 * NSEC_PER_SEC);
+    dispatch_after(when, dispatch_get_main_queue(), ^{
+      [UIView animateWithDuration:kDuration250ms animations:^{
+        CGRect rect = adView.frame;
+        rect.origin.x = 0;
+        adView.frame = rect;
+      } completion:^(BOOL finished) {
+        
+      }];
+    });
+  }
+  
   return viewShow;
 }
 
@@ -214,16 +254,25 @@
 }
 
 //广告
-- (void)showAdvertInView {
-  
+- (void)showAdvertAbove{
+  _sharedAdView = [[BaiduMobAdView alloc] init];
+  //把在mssp.baidu.com上创建后获得的推广广告位id写到这⾥里
+  _sharedAdView.AdUnitTag = kBaiduAppId;
+  _sharedAdView.AdType = BaiduMobAdViewTypeBanner;
+  _sharedAdView.frame = CGRectMake(0, 0, self.view.width, kSectionHeight);
+  _sharedAdView.delegate = self;
+  [_sharedAdView start];
 }
 
 - (void)showCategoryTableWithMargin:(CGFloat)margin withHeight:(CGFloat)siteHeight {
-  UITableView *tableCategory = [[UITableView alloc] initWithFrame:CGRectMake(margin, margin, self.view.width-margin * 2, siteHeight + kSectionHeight * 5 ) style:UITableViewStylePlain];
+//  siteHeight + kSectionHeight * 5
+  UIView *headView = [self showWebSitesInView];
+  UITableView *tableCategory = [[UITableView alloc] initWithFrame:CGRectMake(margin, margin, self.view.width-margin * 2, siteHeight + kSectionHeight * 5 + headView.height) style:UITableViewStylePlain];
   tableCategory.backgroundColor = [UIColor clearColor];
   [_scrollViewHomeOne addSubview:tableCategory];
   [tableCategory setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   [tableCategory setShowsVerticalScrollIndicator:NO];
+  [tableCategory setScrollEnabled:NO];
 //  tableCategory.tableFooterView = [[UIView alloc] init];
   //使向右偏移的线填满
 //  [tableCategory setSeparatorInset:UIEdgeInsetsZero];
@@ -231,6 +280,7 @@
   tableCategory.dataSource = self;
   tableCategory.scrollEnabled = YES;
   _tableViewExpend = tableCategory;
+  tableCategory.tableHeaderView = headView;
   
 }
 
@@ -264,8 +314,11 @@ static id _aSelf;
   _scrollViewContent.showsHorizontalScrollIndicator = NO;
   _scrollViewContent.layer.masksToBounds = YES;//越界裁剪
   //适配
-  _scrollViewHomeOne.contentSize = CGSizeMake(_scrollViewContent.width,
-                                                _scrollViewContent.height + 30);
+//  _scrollViewHomeOne.contentSize = CGSizeMake(_scrollViewContent.width,
+//                                                _scrollViewContent.height + (30));
+//  _scrollViewHomeOne.backgroundColor = [UIColor clearColor];
+  _scrollViewHomeOne.delegate = self;
+//  [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, 1000 +30)];
   
   _textFiledContent.delegate = self;
   _buttonBack.enabled = NO;
@@ -299,7 +352,6 @@ static id _aSelf;
   CGFloat margin = (self.view.frame.size.width-totalloc*appvieww)/(totalloc+1);
   CGFloat siteHeight = (appviewh + margin )* totalloc + totalloc * 3 - margin;
   _webSiteHeight = siteHeight;
-  
 //  [_viewMain bringSubviewToFront:_viewSearch];
   [_viewHomeThree setContentSize:CGSizeMake(0, _viewHomeThree.height+1)];
   [_viewHomeThree setShowsVerticalScrollIndicator:NO];
@@ -339,7 +391,7 @@ static id _aSelf;
 
 - (NSArray  *)arrayCutWithRow:(NSInteger)row withSection:(NSInteger)section {
   NSMutableArray *array = [NSMutableArray array];
-  NSArray *sectionArray = [_arrayContentSite objectAtIndex:section-1];
+  NSArray *sectionArray = [_arrayContentSite objectAtIndex:section];
   NSInteger m = 4 * row;
 
   for (NSInteger i = m; i<sectionArray.count; i++) {
@@ -686,7 +738,7 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
         layConstant.constant = _scrollViewContent.width;
       }
       if (layConstant.firstAttribute == NSLayoutAttributeHeight) {
-        layConstant.constant = _scrollViewContent.height;
+        layConstant.constant = _scrollViewContent.height;//?而不是等于_scrollViewContent.height
       }
     }
     if (layConstant.firstItem == _scrollViewHomeTwo) {
@@ -727,12 +779,11 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
 - (void)onGestureSectionWithTop:(UITapGestureRecognizer *)recognizer {
   ViewHomeSection *viewSection = (ViewHomeSection *)[recognizer view];
   NSInteger section = viewSection.tag - 10;
-  section = section + 1;
   
   if (_lastSection == section) {
-    NSMutableDictionary *dic=[_DataArray objectAtIndex:section-1];
+    NSMutableDictionary *dic=[_DataArray objectAtIndex:section];
     int expanded=[[dic objectForKey:DIC_EXPANDED] intValue];
-    [self collapseOrExpand:section-1 withExpanded:expanded];
+    [self collapseOrExpand:section withExpanded:expanded];
     [_tableViewExpend reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
     _lastSection = section;
     if (expanded == 1) {
@@ -746,11 +797,11 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
     }
     return;
   }
-  for (int i = 1; i<6; i++) {
+  for (int i = 0; i<5; i++) {
     if (i != section) {
-      [self collapseOrExpand:i-1 withExpanded:YES];
+      [self collapseOrExpand:i withExpanded:YES];
     } else {
-      [self collapseOrExpand:i-1 withExpanded:NO];
+      [self collapseOrExpand:i withExpanded:NO];
       _lastSection = section;
     }
     [_tableViewExpend reloadSections:[NSIndexSet indexSetWithIndex:i] withRowAnimation:UITableViewRowAnimationNone];
@@ -925,13 +976,10 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-  if (scrollView == _viewHomeThree) {
-    [_viewHomeThree.pullToRefreshView setHidden:NO];
-    return;
-  }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
@@ -948,10 +996,7 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  if (section == 0) {
-    return 0;
-  }
-  section = section -1;
+
   NSMutableDictionary *dic=[_DataArray objectAtIndex:section];
   //判断是收缩还是展开
   if ([[dic objectForKey:DIC_EXPANDED]intValue]) {
@@ -964,13 +1009,10 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  return 6;
+  return 5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-  if (section == 0) {
-    return _webSiteHeight;
-  }
   return kSectionHeight;
 }
 
@@ -978,7 +1020,7 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
   UITableViewCell * cell = [[UITableViewCell alloc] initWithFrame:CGRectZero];
   cell.selectionStyle = UITableViewCellSelectionStyleNone;
   cell.backgroundColor = RGBA(182., 182., 182., 0.5);
-  if (indexPath.section == 5) {
+  if (indexPath.section == 4) {
     CellForAccess * cellAcc = [[CellForAccess alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 44)];
     if (indexPath.row <= (NSInteger)(_arrayOftenHistory.count-1)) {
       ModelHistory *model = [_arrayOftenHistory objectAtIndex:indexPath.row];
@@ -996,12 +1038,11 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
   viewS.touched = whenTouchEnd;
   [cell addSubview:viewS];
   [viewS setArraySite:[self arrayCutWithRow:indexPath.row withSection:indexPath.section]];
-  
   return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-   if (indexPath.section == 5) {
+   if (indexPath.section == 4) {
      [tableView deselectRowAtIndexPath:indexPath animated:YES];
      ModelHistory *model = [_arrayOftenHistory objectAtIndex:indexPath.row];
      [self loadWebViewWithLink:model.hLink];
@@ -1009,10 +1050,6 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-  if (section == 0) {
-    return [self showWebSitesInView];
-  }
-  section = section-1;
   ViewHomeSection *viewSection = [[ViewHomeSection alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(tableView.frame), kSectionHeight) withImageName:_arrayCateImageName[section] withLableName:_arrayCateName[section]];
   [viewSection setIsMarkDown:[self isExpanded:section]];
   [viewSection setBackgroundColor:RGBA(230., 230., 230., 1.)];
@@ -1075,6 +1112,15 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
   [self thumbToBrowserWithIndex:selectedIdx completion:^{
     
   }];
+}
+
+#pragma mark - BaiduMobAdViewDelegate
+
+/**
+ *  应用的APPID
+ */
+- (NSString *)publisherId {
+  return kBaiduPublisherId;
 }
 
 @end

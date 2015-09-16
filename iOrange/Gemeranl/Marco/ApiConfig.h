@@ -34,6 +34,9 @@ typedef enum : NSUInteger {
 
 #define kAppId @"996950205"
 
+#define kBaiduAppId @"2013104"
+#define kBaiduPublisherId @"ac77abad"
+
 #define kViewControllerNotionHismark @"kNotionHismark"
 #define kViewControllerNotionSite @"kNotionSite"
 #define kViewControllerNotionPrivacy @"kViewControllerNotionPrivacy"

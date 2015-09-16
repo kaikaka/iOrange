@@ -203,6 +203,15 @@
 		7F705A861B265BC000FCB86C /* small_snow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F705A5A1B265BC000FCB86C /* small_snow@2x.png */; };
 		7F705A871B265BC000FCB86C /* small_snowShower@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F705A5B1B265BC000FCB86C /* small_snowShower@2x.png */; };
 		7F705A881B265BC000FCB86C /* small_thunderstorms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F705A5C1B265BC000FCB86C /* small_thunderstorms@2x.png */; };
+		7F78A70A1BA98E150016BF79 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78A7091BA98E150016BF79 /* Security.framework */; };
+		7F78A70C1BA98E280016BF79 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78A70B1BA98E280016BF79 /* AdSupport.framework */; };
+		7F78A70E1BA98E3A0016BF79 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78A70D1BA98E3A0016BF79 /* libz.tbd */; };
+		7F78A7101BA98E940016BF79 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78A70F1BA98E940016BF79 /* libstdc++.tbd */; };
+		7F78A7121BA98EA90016BF79 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78A7111BA98EA90016BF79 /* SystemConfiguration.framework */; };
+		7F78A7141BA98EBD0016BF79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78A7131BA98EBD0016BF79 /* Foundation.framework */; };
+		7F78A7161BA98EC70016BF79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78A7151BA98EC70016BF79 /* CoreGraphics.framework */; };
+		7F78A7251BA98F540016BF79 /* baidumobadsdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F78A71E1BA98F540016BF79 /* baidumobadsdk.bundle */; settings = {ASSET_TAGS = (); }; };
+		7F78A7261BA98F540016BF79 /* libBaiduMobAdSdk64bit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78A7241BA98F540016BF79 /* libBaiduMobAdSdk64bit.a */; settings = {ASSET_TAGS = (); }; };
 		7F85181B1B7E12C600BAD5D3 /* home_setting_addbookmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F85180E1B7E12C600BAD5D3 /* home_setting_addbookmark@2x.png */; };
 		7F85181C1B7E12C600BAD5D3 /* home_setting_bookmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F85180F1B7E12C600BAD5D3 /* home_setting_bookmark@2x.png */; };
 		7F85181D1B7E12C600BAD5D3 /* home_setting_feedback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8518101B7E12C600BAD5D3 /* home_setting_feedback@2x.png */; };
@@ -554,6 +563,26 @@
 		7F705A5A1B265BC000FCB86C /* small_snow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "small_snow@2x.png"; sourceTree = "<group>"; };
 		7F705A5B1B265BC000FCB86C /* small_snowShower@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "small_snowShower@2x.png"; sourceTree = "<group>"; };
 		7F705A5C1B265BC000FCB86C /* small_thunderstorms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "small_thunderstorms@2x.png"; sourceTree = "<group>"; };
+		7F78A7091BA98E150016BF79 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7F78A70B1BA98E280016BF79 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		7F78A70D1BA98E3A0016BF79 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		7F78A70F1BA98E940016BF79 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		7F78A7111BA98EA90016BF79 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7F78A7131BA98EBD0016BF79 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7F78A7151BA98EC70016BF79 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7F78A7181BA98F540016BF79 /* BaiduMobAdCommonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdCommonConfig.h; sourceTree = "<group>"; };
+		7F78A7191BA98F540016BF79 /* BaiduMobAdDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdDelegateProtocol.h; sourceTree = "<group>"; };
+		7F78A71A1BA98F540016BF79 /* BaiduMobAdInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdInterstitial.h; sourceTree = "<group>"; };
+		7F78A71B1BA98F540016BF79 /* BaiduMobAdInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdInterstitialDelegate.h; sourceTree = "<group>"; };
+		7F78A71C1BA98F540016BF79 /* BaiduMobAdRecommendDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdRecommendDelegateProtocol.h; sourceTree = "<group>"; };
+		7F78A71D1BA98F540016BF79 /* BaiduMobAdRecommendIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdRecommendIcon.h; sourceTree = "<group>"; };
+		7F78A71E1BA98F540016BF79 /* baidumobadsdk.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = baidumobadsdk.bundle; sourceTree = "<group>"; };
+		7F78A71F1BA98F540016BF79 /* BaiduMobAdSplash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdSplash.h; sourceTree = "<group>"; };
+		7F78A7201BA98F540016BF79 /* BaiduMobAdSplashDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdSplashDelegate.h; sourceTree = "<group>"; };
+		7F78A7211BA98F540016BF79 /* BaiduMobAdVideoDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdVideoDelegate.h; sourceTree = "<group>"; };
+		7F78A7221BA98F540016BF79 /* BaiduMobAdVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdVideoView.h; sourceTree = "<group>"; };
+		7F78A7231BA98F540016BF79 /* BaiduMobAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdView.h; sourceTree = "<group>"; };
+		7F78A7241BA98F540016BF79 /* libBaiduMobAdSdk64bit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBaiduMobAdSdk64bit.a; sourceTree = "<group>"; };
 		7F85180E1B7E12C600BAD5D3 /* home_setting_addbookmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_setting_addbookmark@2x.png"; sourceTree = "<group>"; };
 		7F85180F1B7E12C600BAD5D3 /* home_setting_bookmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_setting_bookmark@2x.png"; sourceTree = "<group>"; };
 		7F8518101B7E12C600BAD5D3 /* home_setting_feedback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_setting_feedback@2x.png"; sourceTree = "<group>"; };
@@ -702,19 +731,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F597EB41B82CCE400F4B5A0 /* libsqlite3.0.dylib in Frameworks */,
+				7F78A7261BA98F540016BF79 /* libBaiduMobAdSdk64bit.a in Frameworks */,
+				7F78A7161BA98EC70016BF79 /* CoreGraphics.framework in Frameworks */,
+				7F78A7141BA98EBD0016BF79 /* Foundation.framework in Frameworks */,
 				7F55724F1B0D7F5A00B0CE8F /* UIKit.framework in Frameworks */,
+				7F78A7121BA98EA90016BF79 /* SystemConfiguration.framework in Frameworks */,
 				7F55724D1B0D7F4F00B0CE8F /* CoreTelephony.framework in Frameworks */,
-				7F55724B1B0D7F4400B0CE8F /* libstdc++.dylib in Frameworks */,
+				7F78A7101BA98E940016BF79 /* libstdc++.tbd in Frameworks */,
 				7F5572491B0D7F3A00B0CE8F /* CoreLocation.framework in Frameworks */,
 				7F5572471B0D7F2C00B0CE8F /* MessageUI.framework in Frameworks */,
 				7F5572451B0D7F1000B0CE8F /* AVFoundation.framework in Frameworks */,
 				7F5572431B0D7F0500B0CE8F /* MediaPlayer.framework in Frameworks */,
 				7F5572411B0D7EF800B0CE8F /* CoreMotion.framework in Frameworks */,
 				7F55723F1B0D7EEA00B0CE8F /* AudioToolbox.framework in Frameworks */,
-				7F55723D1B0D7EE200B0CE8F /* libz.dylib in Frameworks */,
+				7F78A70E1BA98E3A0016BF79 /* libz.tbd in Frameworks */,
 				7F55723B1B0D7EDB00B0CE8F /* StoreKit.framework in Frameworks */,
+				7F78A70C1BA98E280016BF79 /* AdSupport.framework in Frameworks */,
+				7F78A70A1BA98E150016BF79 /* Security.framework in Frameworks */,
 				7F5572371B0D7EC700B0CE8F /* QuartzCore.framework in Frameworks */,
+				7F597EB41B82CCE400F4B5A0 /* libsqlite3.0.dylib in Frameworks */,
+				7F55724B1B0D7F4400B0CE8F /* libstdc++.dylib in Frameworks */,
+				7F55723D1B0D7EE200B0CE8F /* libz.dylib in Frameworks */,
 				C37A855E273AE8C121E29079 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -741,6 +778,13 @@
 		6576AC60241C78755AF2A5D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7F78A7151BA98EC70016BF79 /* CoreGraphics.framework */,
+				7F78A7131BA98EBD0016BF79 /* Foundation.framework */,
+				7F78A7111BA98EA90016BF79 /* SystemConfiguration.framework */,
+				7F78A70F1BA98E940016BF79 /* libstdc++.tbd */,
+				7F78A70D1BA98E3A0016BF79 /* libz.tbd */,
+				7F78A70B1BA98E280016BF79 /* AdSupport.framework */,
+				7F78A7091BA98E150016BF79 /* Security.framework */,
 				7F597EB31B82CCE400F4B5A0 /* libsqlite3.0.dylib */,
 				7FB94BC81B82CC85002A7902 /* libsqlite3.0.tbd */,
 				7F55724E1B0D7F5A00B0CE8F /* UIKit.framework */,
@@ -800,6 +844,7 @@
 		7F09A9811B0C9C8B0036BDB7 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				7F78A7171BA98F540016BF79 /* Baidu_Ad_15.09.16 */,
 				7FEBB7091B5412FD0097FF73 /* KWebView_15.06.10 */,
 			);
 			path = Vendors;
@@ -1129,6 +1174,26 @@
 				7F705A5C1B265BC000FCB86C /* small_thunderstorms@2x.png */,
 			);
 			path = WeatherIcon;
+			sourceTree = "<group>";
+		};
+		7F78A7171BA98F540016BF79 /* Baidu_Ad_15.09.16 */ = {
+			isa = PBXGroup;
+			children = (
+				7F78A7181BA98F540016BF79 /* BaiduMobAdCommonConfig.h */,
+				7F78A7191BA98F540016BF79 /* BaiduMobAdDelegateProtocol.h */,
+				7F78A71A1BA98F540016BF79 /* BaiduMobAdInterstitial.h */,
+				7F78A71B1BA98F540016BF79 /* BaiduMobAdInterstitialDelegate.h */,
+				7F78A71C1BA98F540016BF79 /* BaiduMobAdRecommendDelegateProtocol.h */,
+				7F78A71D1BA98F540016BF79 /* BaiduMobAdRecommendIcon.h */,
+				7F78A71E1BA98F540016BF79 /* baidumobadsdk.bundle */,
+				7F78A71F1BA98F540016BF79 /* BaiduMobAdSplash.h */,
+				7F78A7201BA98F540016BF79 /* BaiduMobAdSplashDelegate.h */,
+				7F78A7211BA98F540016BF79 /* BaiduMobAdVideoDelegate.h */,
+				7F78A7221BA98F540016BF79 /* BaiduMobAdVideoView.h */,
+				7F78A7231BA98F540016BF79 /* BaiduMobAdView.h */,
+				7F78A7241BA98F540016BF79 /* libBaiduMobAdSdk64bit.a */,
+			);
+			path = Baidu_Ad_15.09.16;
 			sourceTree = "<group>";
 		};
 		7F85180D1B7E12C600BAD5D3 /* Setting */ = {
@@ -1510,6 +1575,7 @@
 				7F8518241B7E12C600BAD5D3 /* home_setting_reload@2x.png in Resources */,
 				7F705A731B265BC000FCB86C /* big_shower@2x.png in Resources */,
 				7F7059DF1B242E4B00FCB86C /* home_weather_PM25Exp@2x.png in Resources */,
+				7F78A7251BA98F540016BF79 /* baidumobadsdk.bundle in Resources */,
 				7F07943C1B27C239006883F9 /* home_webSite_LightLine@3x.png in Resources */,
 				7FCE1C541B9B17BF00F881DA /* iPhone-guide-2-v.png in Resources */,
 				7F7059CC1B242E4B00FCB86C /* home_webSite_ctrip@3x.png in Resources */,
@@ -1987,7 +2053,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/iOrange/Vendors/Baidu_Ad_2.6",
+					"$(PROJECT_DIR)/iOrange/Vendors/Baidu_Ad_15.09.16",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoon.iOrange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2012,7 +2078,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/iOrange/Vendors/Baidu_Ad_2.6",
+					"$(PROJECT_DIR)/iOrange/Vendors/Baidu_Ad_15.09.16",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoon.iOrange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
