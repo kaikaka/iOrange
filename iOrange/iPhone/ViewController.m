@@ -119,11 +119,15 @@
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
   //适配吧
-  if (isRetina) {
-    [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, self.view.height +30)];
-  }
   if (iPhone5) {
     [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, _scrollViewHomeOne.height +60)];
+  }
+  else if (iPhone6) {}
+  else if (iPhone6Plus) {}
+  else if (isRetina) {
+    [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, self.view.height +30)];
+  } else {
+    [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, self.view.height +30)];
   }
 }
 
