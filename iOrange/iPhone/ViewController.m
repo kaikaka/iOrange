@@ -255,6 +255,7 @@
   _sharedAdView.AdType = BaiduMobAdViewTypeBanner;
   _sharedAdView.frame = CGRectMake(0, 0, self.view.width, kSectionHeight);
   _sharedAdView.delegate = self;
+//  _sharedAdView.layer.cornerRadius = 5.0;
   [_sharedAdView start];
 }
 
