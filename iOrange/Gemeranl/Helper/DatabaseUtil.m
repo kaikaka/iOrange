@@ -14,7 +14,6 @@
 
 +(void)createDatabase {
   if ([[NSFileManager defaultManager] fileExistsAtPath:GetDBPath() isDirectory:nil]) return;
-  
   char * errorMsg;
   sqlite3 *database;
   

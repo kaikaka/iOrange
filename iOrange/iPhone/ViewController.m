@@ -435,15 +435,40 @@ static id _aSelf;
 }
 
 - (void)goToHome {
-//  [_controllerBrowser.view removeFromSuperview];
-  if (_controllerBrowser.webPage.webView) {
-    _controllerBrowser.webPage.show = NO;
+  
+  if (_viewSearch.hidden == NO) {
+    NSInteger cupage ;
+    switch (_pageViewMark.currentPage) {
+      case 0:
+        cupage = 1;
+        break;
+      case 1:
+        cupage = 2;
+        break;
+      case 2:
+        cupage = 0;
+        break;
+        
+      default:
+        cupage = 0;
+        break;
+    }
+    [UIView animateWithDuration:kDuration250ms animations:^{
+      _scrollViewContent.contentOffset =
+      CGPointMake(cupage*self.view.width, _scrollViewContent.contentOffset.y);
+    } completion:^(BOOL finished) {
+      _pageViewMark.currentPage = cupage;
+    }];
+  } else {
+    if (_controllerBrowser.webPage.webView) {
+      _controllerBrowser.webPage.show = NO;
+    }
+    [self toFullScreen:NO];
+    [self overBackgroundToHidden:NO];
+    [self browserToHomeCompletion:^{
+      
+    }];
   }
-  [self toFullScreen:NO];
-  [self overBackgroundToHidden:NO];
-  [self browserToHomeCompletion:^{
-    
-  }];
 }
 
 /// 更新界面显示
@@ -580,7 +605,7 @@ static id _aSelf;
     _pageViewMark.alpha = 0.0;
     dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC));
     dispatch_after(when, dispatch_get_main_queue(), ^{
-      
+      [self overBackgroundToHidden:YES];
     });
   }
 }

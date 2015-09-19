@@ -106,9 +106,13 @@
   //获取当前值在数组所在的索引
   NSInteger index = [arr indexOfObject:SerachString];
   NSAssert(index <=[arr count], @"index not in array ");
+  NSAssert(index >= 0, @"index not in array ");
   //获取需要的code
-  NSString *codeString = [array objectAtIndex:index];
-  return codeString;
+  if (index >= 0 && index <= [array count]) {
+    NSString *codeString = [array objectAtIndex:index];
+    return codeString;
+  }
+  return @"NA";
 }
 
 /**
