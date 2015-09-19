@@ -351,8 +351,9 @@
         [_imageBigWeather setImage:[UIImage imageNamed:[self getImageName:fb withPrefix:@"big_"]]];
         [_labelWeather setText: [self getWeatherContent:fb]];
       }
-      NSString *tempString = [NSString stringWithFormat:@"%@°/%@°",fd,fc];//最高/最低
-      [_labelTemperature setText:tempString];
+      //先不显示今天的最高温度和最低温度
+//      NSString *tempString = [NSString stringWithFormat:@"%@°/%@°",fd,fc];//最高/最低
+//      [_labelTemperature setText:tempString];
     } else if (i == 1) {
       if ([CommonMethods GetNowHour]<=16) {
         [_imgvWeatherOne setImage:[UIImage imageNamed:[self getImageName:fa withPrefix:@"small_"]]];
@@ -480,8 +481,11 @@
   NSArray *arr = [dictWeather allValues];
   //获取当前值在数组所在的索引
   NSInteger index = [array indexOfObject:fw];
-  //获取需要的code
-  NSString *weatherCodeString = [arr objectAtIndex:index];
+  NSString *weatherCodeString = @"";
+  if (index>=0 && index <= array.count) {
+      //获取需要的code
+    weatherCodeString = [arr objectAtIndex:index];
+  }
   return weatherCodeString;
 }
 
@@ -528,6 +532,8 @@
     nameFix = [prefix stringByAppendingString:@"wind"];
   } else if (ge == 07 || ge == 8 || ge == 9 || ge == 21 || ge == 22) {
     nameFix = [prefix stringByAppendingString:@"rain"];
+  } else {
+    nameFix = [prefix stringByAppendingString:@"NA"];
   }
   return nameFix;
 }
