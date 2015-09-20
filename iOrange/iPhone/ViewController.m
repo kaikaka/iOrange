@@ -262,18 +262,18 @@
 - (void)showCategoryTableWithMargin:(CGFloat)margin withHeight:(CGFloat)siteHeight {
 //  siteHeight + kSectionHeight * 5
   UIView *headView = [self showWebSitesInView];
-  UITableView *tableCategory = [[UITableView alloc] initWithFrame:CGRectMake(margin, margin, self.view.width-margin * 2, siteHeight + kSectionHeight * 5 + headView.height) style:UITableViewStylePlain];
+  UITableView *tableCategory = [[UITableView alloc] initWithFrame:CGRectMake(margin, margin, self.view.width-margin * 2, siteHeight + kSectionHeight * 5 + headView.height+kSectionHeight) style:UITableViewStylePlain];
   tableCategory.backgroundColor = [UIColor clearColor];
   [_scrollViewHomeOne addSubview:tableCategory];
   [tableCategory setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   [tableCategory setShowsVerticalScrollIndicator:NO];
-  [tableCategory setScrollEnabled:NO];
+  [tableCategory setScrollEnabled:NO];//?
 //  tableCategory.tableFooterView = [[UIView alloc] init];
   //使向右偏移的线填满
 //  [tableCategory setSeparatorInset:UIEdgeInsetsZero];
   tableCategory.delegate = self;
   tableCategory.dataSource = self;
-  tableCategory.scrollEnabled = YES;
+  tableCategory.scrollEnabled = NO;
   _tableViewExpend = tableCategory;
   tableCategory.tableHeaderView = headView;
   
@@ -801,15 +801,29 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
     [self collapseOrExpand:section withExpanded:expanded];
     [_tableViewExpend reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
     _lastSection = section;
-    if (expanded == 1) {
-      [_tableViewExpend scrollsToTop];
-    } else {
-      dispatch_time_t when =  dispatch_time(DISPATCH_TIME_NOW, kDuration150ms * NSEC_PER_SEC);
-      dispatch_after(when, dispatch_get_main_queue(), ^{
-        CGPoint bottomOffset = CGPointMake(0, 44 * 4);
-        [_tableViewExpend setContentOffset:bottomOffset animated:YES];
-      });
-    }
+    dispatch_time_t when =  dispatch_time(DISPATCH_TIME_NOW, kDuration150ms * NSEC_PER_SEC);
+    dispatch_after(when, dispatch_get_main_queue(), ^{
+      CGPoint bottomOffset;
+      if (expanded == 0) {
+        bottomOffset = CGPointMake(0, 44 * 4);
+      } else {
+        bottomOffset = CGPointMake(0, 0);
+      }
+      if (iPhone5) {
+        [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, _scrollViewHomeOne.height +60 + bottomOffset.y)];
+      }
+      else if (iPhone6) {
+        [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, self.view.height + bottomOffset.y)];
+      }
+      else if (iPhone6Plus) {
+        [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, self.view.height + bottomOffset.y)];
+      }
+      else if (isRetina) {
+        [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, self.view.height +30 + bottomOffset.y)];
+      } else {
+        [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, self.view.height +30 + bottomOffset.y)];
+      }
+    });
     return;
   }
   for (int i = 0; i<5; i++) {
@@ -824,7 +838,21 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
   dispatch_time_t when =  dispatch_time(DISPATCH_TIME_NOW, kDuration150ms * NSEC_PER_SEC);
   dispatch_after(when, dispatch_get_main_queue(), ^{
     CGPoint bottomOffset = CGPointMake(0, 44 * 4);
-    [_tableViewExpend setContentOffset:bottomOffset animated:YES];
+    if (iPhone5) {
+      [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, _scrollViewHomeOne.height +60 + bottomOffset.y)];
+    }
+    else if (iPhone6) {
+      [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, self.view.height + bottomOffset.y)];
+    }
+    else if (iPhone6Plus) {
+      [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, self.view.height + bottomOffset.y)];
+    }
+    else if (isRetina) {
+      [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, self.view.height +30 + bottomOffset.y)];
+    } else {
+      [_scrollViewHomeOne setContentSize:CGSizeMake(_scrollViewHomeOne.width, self.view.height +30 + bottomOffset.y)];
+    }
+    //      [_tableViewExpend setContentOffset:bottomOffset animated:YES];
   });
 }
 
@@ -993,7 +1021,6 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
