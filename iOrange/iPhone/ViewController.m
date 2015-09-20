@@ -684,16 +684,11 @@ static id _aSelf;
   ViewSetupButton *view105 = (ViewSetupButton *)[_controllerSetting.scrollViewSetting viewWithTag:105];
   //控制设置按钮
   if (_viewSearch.hidden == NO) {
-    if (_controllerBrowser.webPage.show) {
-      [view10 setImageEnable:YES];
-      [view104 setImageEnable:YES];
-    } else {
-      [view10 setImageEnable:NO];
-      [view104 setImageEnable:NO];
-    }
-  } else {
     [view10 setImageEnable:NO];
     [view104 setImageEnable:NO];
+  } else {
+    [view10 setImageEnable:YES];
+    [view104 setImageEnable:YES];
   }
   if (_pageViewMark.currentPage == 2 ) {
     [view105 setImageEnable:YES];
