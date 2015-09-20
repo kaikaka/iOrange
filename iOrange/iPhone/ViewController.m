@@ -487,6 +487,7 @@ static id _aSelf;
   _buttonGoforw.enabled = NO;
   [[UIApplication sharedApplication] setStatusBarHidden:NO];
   _viewSearch.hidden = _scrollViewContent.hidden = isHidden;
+  _pageViewMark.hidden = isHidden;
 }
 
 - (void)browserToHomeCompletion:(void(^)())completion {
@@ -602,7 +603,6 @@ static id _aSelf;
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     self.view.userInteractionEnabled = YES;
     CGFloat duration = 0.0;
-    _pageViewMark.alpha = 0.0;
     dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC));
     dispatch_after(when, dispatch_get_main_queue(), ^{
       [self overBackgroundToHidden:YES];
@@ -621,7 +621,7 @@ static id _aSelf;
 
 - (CGRect)browserFrame {
   CGRect rc = self.view.bounds;
-  rc.origin.y = 0;
+  rc.origin.y = 20;
   rc.size.height = self.view.height-rc.origin.y-50;
   return rc;
 }
@@ -683,7 +683,7 @@ static id _aSelf;
   ViewSetupButton *view104 = (ViewSetupButton *)[_controllerSetting.scrollViewSetting viewWithTag:104];
   ViewSetupButton *view105 = (ViewSetupButton *)[_controllerSetting.scrollViewSetting viewWithTag:105];
   //控制设置按钮
-  if (_controllerBrowser.webPage.webView) {
+  if (_viewSearch.hidden == NO) {
     if (_controllerBrowser.webPage.show) {
       [view10 setImageEnable:YES];
       [view104 setImageEnable:YES];
@@ -926,7 +926,6 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
 #pragma mark - UIControllerBrowserDelegate
 
 - (void)controllerBrowserWillDimiss:(UIControllerBrowser *)controllerBrowser willRemoveWebPage:(UIWebPage *)webPage {
-  
 }
 
 - (void)controllerBrowser:(UIControllerBrowser *)controllerBrowser scrollViewWillBeginDragging:(UIScrollView *)scrollView {

@@ -53,7 +53,8 @@
   
   self.view.backgroundColor = [UIColor clearColor];
   
-  [UIWebPage appearance].progressColor = [UIColor orangeColor];//RGBCOLOR(0, 200, 0);
+  //浏览器加载颜色
+  [UIWebPage appearance].progressColor = RGBA(0., 0., 180., 0.7);//RGBCOLOR(0, 200, 0);
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationAtFont:) name:kBrowserControllerFont object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNOtificationAtPageButton:) name:kBrowserControllerAtPageButton object:nil];
 }
@@ -82,6 +83,10 @@
     [self.view insertSubview:viewBackground aboveSubview:btnPage];
     viewBackground.alpha = 0.;
     _viwePage = viewBackground;
+    
+    UIView *viewWhite = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewW-2, viewH-5)];
+    viewWhite.backgroundColor = [UIColor colorWithWhite:1. alpha:0.9];
+    [viewBackground addSubview:viewWhite];
     
     UIImageView *imgvBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, viewW, viewH-5)];
     [imgvBackground setImage:[UIImage imageNamed:@"home_setting_browserBtn_background"]];

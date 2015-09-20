@@ -290,10 +290,10 @@ typedef NS_ENUM(NSInteger, CustomPanDirection) {
     // TOTO: 扩展用，下拉 刷新，左 拉后腿，右 拉前进
     _webView.scrollView.backgroundColor = [UIColor clearColor];
     _webView.scrollView.delegate = self;
-    _webView.scrollView.alwaysBounceHorizontal = YES;
+    _webView.scrollView.alwaysBounceHorizontal = NO;
     _webView.scrollView.alwaysBounceVertical = YES;
     _webView.scrollView.clipsToBounds = NO;
-    
+  
     CGRect rc = CGRectZero;
     rc.size.height = 3;
     rc.size.width = kProgressWidthForZero;
@@ -658,8 +658,7 @@ typedef NS_ENUM(NSInteger, CustomPanDirection) {
 }
 
 #pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [_delegate scrollViewDidScroll:scrollView];
     CGPoint pt = [scrollView.panGestureRecognizer translationInView:scrollView];
     if (pt.x==0) {
@@ -762,8 +761,7 @@ typedef NS_ENUM(NSInteger, CustomPanDirection) {
     _viewProgress.transform = CGAffineTransformMakeTranslation(-scrollView.contentOffset.x, MAX(0, -scrollView.contentOffset.y));
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     CGPoint pt = [scrollView.panGestureRecognizer translationInView:scrollView];
     if (pt.x==0) {
         if (_progressRefresh.progressTotal==_progressRefresh.progressCounter) {
@@ -1087,8 +1085,7 @@ typedef NS_ENUM(NSInteger, CustomPanDirection) {
 }
 
 #pragma mark - UIGestureRecognizerDelegate
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
-{
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     DLog(@"%@ %@", [gestureRecognizer class], [otherGestureRecognizer class]);
     return NO;
 }
