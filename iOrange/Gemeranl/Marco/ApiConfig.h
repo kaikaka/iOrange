@@ -47,6 +47,7 @@ typedef enum : NSUInteger {
 #define kBrowserControllerFont @"kBrowserControllerFont"
 #define kBrowserControllerAtPageButton @"kBrowserControllerAtPageButton"
 
+#define kuMengTongJikey @"5663c5b967e58e8eac0022db"
 
 #define sevenDaysWeatherInfoUrl(cityCode) [NSString stringWithFormat:@"http://mobile.weather.com.cn/data/forecast/%@.html", cityCode]
 #define CITYWEATHERURL(Identifier) [NSString stringWithFormat:@"http://mobile.weather.com.cn/data/forecast/%@.html", Identifier]

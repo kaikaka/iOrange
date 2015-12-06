@@ -189,6 +189,11 @@ authors and should not be interpreted as representing official policies, either 
 or implied, of Jonathan Wight.
 
 
+## UMengAnalytics
+
+Copyright 2011 - 2015 UMeng.com. All rights reserved.
+
+
 ## ZipArchive
 
 

@@ -1,23 +1,23 @@
 PODS:
-  - AFNetworking (2.6.0):
-    - AFNetworking/NSURLConnection (= 2.6.0)
-    - AFNetworking/NSURLSession (= 2.6.0)
-    - AFNetworking/Reachability (= 2.6.0)
-    - AFNetworking/Security (= 2.6.0)
-    - AFNetworking/Serialization (= 2.6.0)
-    - AFNetworking/UIKit (= 2.6.0)
-  - AFNetworking/NSURLConnection (2.6.0):
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.0):
+  - AFNetworking/NSURLSession (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.0)
-  - AFNetworking/Security (2.6.0)
-  - AFNetworking/Serialization (2.6.0)
-  - AFNetworking/UIKit (2.6.0):
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - JTSlideShadowAnimation (1.0.1)
@@ -29,6 +29,7 @@ PODS:
   - SMPageControl (1.2)
   - SVPullToRefresh (0.4.1)
   - TouchJSON (1.1)
+  - UMengAnalytics (3.5.16)
   - ZipArchive (1.4.0)
 
 DEPENDENCIES:
@@ -40,10 +41,11 @@ DEPENDENCIES:
   - SMPageControl (~> 1.2)
   - SVPullToRefresh (~> 0.4.1)
   - TouchJSON (~> 1.1)
+  - UMengAnalytics (~> 3.5.8)
   - ZipArchive (~> 1.4.0)
 
 SPEC CHECKSUMS:
-  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   JTSlideShadowAnimation: abe7fb7b0be0690229e6fe6e93e77998e8cfe279
   MDRadialProgress: 1068574b9b4b870f64b605b07f734385bde5104d
   OpenUDID: e7cb6984c7304906ad20f3a36bf087b025896b6b
@@ -51,6 +53,7 @@ SPEC CHECKSUMS:
   SMPageControl: 922892813001cfaf059e86e6801f46a967e9ee29
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   TouchJSON: 39be3595ebe489095311d97ce0c824417324cb74
+  UMengAnalytics: fdf0c0a8c07d8bffc012ffa3c68e5d490af42098
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

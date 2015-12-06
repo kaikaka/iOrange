@@ -11,6 +11,8 @@
 #import "DatabaseUtil.h"
 #import "ViewController.h"
 #import "SettingConfig.h"
+#import "ApiConfig.h"
+#import "MobClick.h"
 
 @interface AppDelegate ()
 
@@ -37,6 +39,9 @@
     UINavigationController *nav = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Navigation"];
     self.window.rootViewController = nav;
   }
+  
+  //友盟统计
+  [MobClick startWithAppkey:kuMengTongJikey];
   
   return YES;
 }
