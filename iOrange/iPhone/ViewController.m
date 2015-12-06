@@ -901,7 +901,7 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
 
 - (IBAction)onTouchWithSearchAction:(UIButton *)sender {
   [_textFiledContent becomeFirstResponder];
-  return;
+      return;
 }
 
 - (void)onNotificationToHismark:(NSNotification *)notification {
