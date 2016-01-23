@@ -19,14 +19,14 @@
 #define kProgressWidthForZero (isPad?20.0f:10.0f)
 #define kDragWidth 80.0f
 
-#define kTextLeftContinue NSLocalizedString(@"leftContinue", nil)
-#define kTextLeftRelease NSLocalizedString(@"leftRelease", nil)
+#define kTextLeftContinue @"上一页"//NSLocalizedString(@"leftContinue", nil)
+#define kTextLeftRelease @"上一页"//NSLocalizedString(@"leftRelease", nil)
 
 #define kTextLeftContinueBackHome NSLocalizedString(@"leftContinueBackHome", nil)
 #define kTextLeftReleaseBackHome NSLocalizedString(@"leftReleaseBackHome", nil)
 
-#define kTextRightContinue NSLocalizedString(@"rightContinue", nil)
-#define kTextRightRelease NSLocalizedString(@"rightRelease", nil)
+#define kTextRightContinue @"下一页"//NSLocalizedString(@"rightContinue", nil)
+#define kTextRightRelease @"下一页"//NSLocalizedString(@"rightRelease", nil)
 #define kTextRightCannotForward NSLocalizedString(@"rightCannotForward", nil)
 
 typedef NS_ENUM(NSInteger, CustomPanDirection) {
@@ -290,7 +290,7 @@ typedef NS_ENUM(NSInteger, CustomPanDirection) {
     // TOTO: 扩展用，下拉 刷新，左 拉后腿，右 拉前进
     _webView.scrollView.backgroundColor = [UIColor clearColor];
     _webView.scrollView.delegate = self;
-    _webView.scrollView.alwaysBounceHorizontal = NO;
+    _webView.scrollView.alwaysBounceHorizontal = YES;
     _webView.scrollView.alwaysBounceVertical = YES;
     _webView.scrollView.clipsToBounds = NO;
   
@@ -658,9 +658,12 @@ typedef NS_ENUM(NSInteger, CustomPanDirection) {
 }
 
 #pragma mark - UIScrollViewDelegate
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [_delegate scrollViewDidScroll:scrollView];
+
     CGPoint pt = [scrollView.panGestureRecognizer translationInView:scrollView];
+
     if (pt.x==0) {
         // y轴方向移动
         if (scrollView.contentOffset.y<0) {
@@ -753,6 +756,7 @@ typedef NS_ENUM(NSInteger, CustomPanDirection) {
             }
         }
         else {
+          scrollView.bounces = NO;
             _viewDragL.hidden = YES;
             _viewDragR.hidden = YES;
         }
@@ -762,6 +766,7 @@ typedef NS_ENUM(NSInteger, CustomPanDirection) {
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+  scrollView.bounces = YES;
     CGPoint pt = [scrollView.panGestureRecognizer translationInView:scrollView];
     if (pt.x==0) {
         if (_progressRefresh.progressTotal==_progressRefresh.progressCounter) {
