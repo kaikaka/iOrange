@@ -62,7 +62,7 @@
   if (range.length == 1) {
     proCode = [placeLocality substringToIndex:[placeLocality length]-1];
   } else {
-    if ([CurrentLauguage isEqualToString:@"en"]) {
+    if ([CurrentLauguage isEqualToString:@"en"] || [CurrentLauguage isEqualToString:@"en-CN"]) {
       if ([placeLocality isEqualToString:@""]) {
         proCode = [placeAdministrativeArea substringToIndex:[placeAdministrativeArea length]];
       } else {
@@ -95,7 +95,8 @@
  */
 - (NSString *)getCityCodeForSearchString:(NSString *)SerachString {
   NSDictionary *cityDict = nil;
-  if ([CurrentLauguage isEqualToString:@"en"]) {
+  
+  if ([CurrentLauguage isEqualToString:@"en"] || [CurrentLauguage isEqualToString:@"en-CN"]) {
     cityDict = [CommonMethods getEnglishCityDict];
   }
   else
@@ -105,6 +106,9 @@
   NSArray *arr = [cityDict allValues];
   //获取当前值在数组所在的索引
   NSInteger index = [arr indexOfObject:SerachString];
+  if (index >= [array count]|| index <= 0) {
+    return @"NA";
+  }
   NSAssert(index <=[arr count], @"index not in array ");
   NSAssert(index >= 0, @"index not in array ");
   //获取需要的code
