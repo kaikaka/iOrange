@@ -210,8 +210,6 @@
 		7F78A7121BA98EA90016BF79 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78A7111BA98EA90016BF79 /* SystemConfiguration.framework */; };
 		7F78A7141BA98EBD0016BF79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78A7131BA98EBD0016BF79 /* Foundation.framework */; };
 		7F78A7161BA98EC70016BF79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78A7151BA98EC70016BF79 /* CoreGraphics.framework */; };
-		7F78A7251BA98F540016BF79 /* baidumobadsdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F78A71E1BA98F540016BF79 /* baidumobadsdk.bundle */; };
-		7F78A7261BA98F540016BF79 /* libBaiduMobAdSdk64bit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78A7241BA98F540016BF79 /* libBaiduMobAdSdk64bit.a */; };
 		7F85181B1B7E12C600BAD5D3 /* home_setting_addbookmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F85180E1B7E12C600BAD5D3 /* home_setting_addbookmark@2x.png */; };
 		7F85181C1B7E12C600BAD5D3 /* home_setting_bookmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F85180F1B7E12C600BAD5D3 /* home_setting_bookmark@2x.png */; };
 		7F85181D1B7E12C600BAD5D3 /* home_setting_feedback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8518101B7E12C600BAD5D3 /* home_setting_feedback@2x.png */; };
@@ -570,19 +568,6 @@
 		7F78A7111BA98EA90016BF79 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7F78A7131BA98EBD0016BF79 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7F78A7151BA98EC70016BF79 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		7F78A7181BA98F540016BF79 /* BaiduMobAdCommonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdCommonConfig.h; sourceTree = "<group>"; };
-		7F78A7191BA98F540016BF79 /* BaiduMobAdDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdDelegateProtocol.h; sourceTree = "<group>"; };
-		7F78A71A1BA98F540016BF79 /* BaiduMobAdInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdInterstitial.h; sourceTree = "<group>"; };
-		7F78A71B1BA98F540016BF79 /* BaiduMobAdInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdInterstitialDelegate.h; sourceTree = "<group>"; };
-		7F78A71C1BA98F540016BF79 /* BaiduMobAdRecommendDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdRecommendDelegateProtocol.h; sourceTree = "<group>"; };
-		7F78A71D1BA98F540016BF79 /* BaiduMobAdRecommendIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdRecommendIcon.h; sourceTree = "<group>"; };
-		7F78A71E1BA98F540016BF79 /* baidumobadsdk.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = baidumobadsdk.bundle; sourceTree = "<group>"; };
-		7F78A71F1BA98F540016BF79 /* BaiduMobAdSplash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdSplash.h; sourceTree = "<group>"; };
-		7F78A7201BA98F540016BF79 /* BaiduMobAdSplashDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdSplashDelegate.h; sourceTree = "<group>"; };
-		7F78A7211BA98F540016BF79 /* BaiduMobAdVideoDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdVideoDelegate.h; sourceTree = "<group>"; };
-		7F78A7221BA98F540016BF79 /* BaiduMobAdVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdVideoView.h; sourceTree = "<group>"; };
-		7F78A7231BA98F540016BF79 /* BaiduMobAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdView.h; sourceTree = "<group>"; };
-		7F78A7241BA98F540016BF79 /* libBaiduMobAdSdk64bit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBaiduMobAdSdk64bit.a; sourceTree = "<group>"; };
 		7F85180E1B7E12C600BAD5D3 /* home_setting_addbookmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_setting_addbookmark@2x.png"; sourceTree = "<group>"; };
 		7F85180F1B7E12C600BAD5D3 /* home_setting_bookmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_setting_bookmark@2x.png"; sourceTree = "<group>"; };
 		7F8518101B7E12C600BAD5D3 /* home_setting_feedback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_setting_feedback@2x.png"; sourceTree = "<group>"; };
@@ -731,7 +716,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F78A7261BA98F540016BF79 /* libBaiduMobAdSdk64bit.a in Frameworks */,
 				7F78A7161BA98EC70016BF79 /* CoreGraphics.framework in Frameworks */,
 				7F78A7141BA98EBD0016BF79 /* Foundation.framework in Frameworks */,
 				7F55724F1B0D7F5A00B0CE8F /* UIKit.framework in Frameworks */,
@@ -844,7 +828,6 @@
 		7F09A9811B0C9C8B0036BDB7 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				7F78A7171BA98F540016BF79 /* Baidu_Ad_15.09.16 */,
 				7FEBB7091B5412FD0097FF73 /* KWebView_15.06.10 */,
 			);
 			path = Vendors;
@@ -1174,26 +1157,6 @@
 				7F705A5C1B265BC000FCB86C /* small_thunderstorms@2x.png */,
 			);
 			path = WeatherIcon;
-			sourceTree = "<group>";
-		};
-		7F78A7171BA98F540016BF79 /* Baidu_Ad_15.09.16 */ = {
-			isa = PBXGroup;
-			children = (
-				7F78A7181BA98F540016BF79 /* BaiduMobAdCommonConfig.h */,
-				7F78A7191BA98F540016BF79 /* BaiduMobAdDelegateProtocol.h */,
-				7F78A71A1BA98F540016BF79 /* BaiduMobAdInterstitial.h */,
-				7F78A71B1BA98F540016BF79 /* BaiduMobAdInterstitialDelegate.h */,
-				7F78A71C1BA98F540016BF79 /* BaiduMobAdRecommendDelegateProtocol.h */,
-				7F78A71D1BA98F540016BF79 /* BaiduMobAdRecommendIcon.h */,
-				7F78A71E1BA98F540016BF79 /* baidumobadsdk.bundle */,
-				7F78A71F1BA98F540016BF79 /* BaiduMobAdSplash.h */,
-				7F78A7201BA98F540016BF79 /* BaiduMobAdSplashDelegate.h */,
-				7F78A7211BA98F540016BF79 /* BaiduMobAdVideoDelegate.h */,
-				7F78A7221BA98F540016BF79 /* BaiduMobAdVideoView.h */,
-				7F78A7231BA98F540016BF79 /* BaiduMobAdView.h */,
-				7F78A7241BA98F540016BF79 /* libBaiduMobAdSdk64bit.a */,
-			);
-			path = Baidu_Ad_15.09.16;
 			sourceTree = "<group>";
 		};
 		7F85180D1B7E12C600BAD5D3 /* Setting */ = {
@@ -1576,7 +1539,6 @@
 				7F8518241B7E12C600BAD5D3 /* home_setting_reload@2x.png in Resources */,
 				7F705A731B265BC000FCB86C /* big_shower@2x.png in Resources */,
 				7F7059DF1B242E4B00FCB86C /* home_weather_PM25Exp@2x.png in Resources */,
-				7F78A7251BA98F540016BF79 /* baidumobadsdk.bundle in Resources */,
 				7F07943C1B27C239006883F9 /* home_webSite_LightLine@3x.png in Resources */,
 				7FCE1C541B9B17BF00F881DA /* iPhone-guide-2-v.png in Resources */,
 				7F7059CC1B242E4B00FCB86C /* home_webSite_ctrip@3x.png in Resources */,
@@ -1984,8 +1946,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xiangkai yin (G986QBUMM5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiangkai yin (G986QBUMM5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: xiangkai yin (Y3A2P99A4V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xiangkai yin (Y3A2P99A4V)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
@@ -2031,8 +1993,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xiangkai yin (G986QBUMM5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiangkai yin (G986QBUMM5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: xiangkai yin (Y3A2P99A4V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xiangkai yin (Y3A2P99A4V)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
@@ -2060,7 +2022,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xiangkai yin (G986QBUMM5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: xiangkai yin (Y3A2P99A4V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xiangkai yin (Y3A2P99A4V)";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOrange/iOrange.pch;
@@ -2073,7 +2036,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoon.iOrange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ac35b4e9-33cb-4aa2-bec0-a92c136e852f";
+				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
@@ -2085,7 +2048,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xiangkai yin (G986QBUMM5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: xiangkai yin (Y3A2P99A4V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xiangkai yin (Y3A2P99A4V)";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOrange/iOrange.pch;
@@ -2098,7 +2062,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoon.iOrange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ac35b4e9-33cb-4aa2-bec0-a92c136e852f";
+				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};

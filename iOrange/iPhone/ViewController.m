@@ -13,7 +13,6 @@
 #import "ApiConfig.h"
 #import "ADOHistory.h"
 #import "ADOSite.h"
-#import "BaiduMobAdView.h"
 #import "ControllerScanCode.h"
 #import "ControllerSetting.h"
 #import "ControllerAddNavigation.h"
@@ -37,7 +36,7 @@
 #import "ViewWeather.h"
 #import "ViewSetupButton.h"
 
-@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate,ScanCodeDelegate,UIControllerBrowserDelegate,UIScrollViewTaskManageDelegate,BaiduMobAdViewDelegate>{
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate,ScanCodeDelegate,UIControllerBrowserDelegate,UIScrollViewTaskManageDelegate>{
   
   __weak IBOutlet UIButton *_buttonSearch;
   __weak IBOutlet UIButton *_buttonTwoCode;
@@ -88,7 +87,6 @@
 @property (nonatomic,strong)void (^whenTouchEnd) (NSString *);
 @property (nonatomic,strong)void (^whenShowWeatherEnd) (void);
 @property (nonatomic,strong)void (^whenTouchSiteDelete) (NSString *);
-@property (strong, nonatomic) BaiduMobAdView *sharedAdView;//广告
 
 @end
 
@@ -103,8 +101,6 @@
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationToPrivacy:) name:kViewControllerNotionPrivacy object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotificationToUpadtePaly:) name:kViewControllerNotionUpadtePaly object:nil];
   
-  //广告
-  [self showAdvertAbove];
   //加载表格
   [self countMargin];
   //加载九宫格
@@ -185,16 +181,6 @@
     viewSiteButton.touched = whenTouchEnd;
     [viewShow addSubview:viewSiteButton];
   }
-  if (_sharedAdView) {
-    CGRect rect = viewShow.frame;
-    rect.size.height += kAdsspHeight;
-    viewShow.frame = rect;
-    UIView *adView = _sharedAdView;
-    adView.frame = CGRectMake(0,viewShow.height - 55 - 3 , self.view.width, kSectionHeight);
-    adView.layer.cornerRadius = 5.;
-    //广告
-    [viewShow addSubview:adView];
-  }
   
   return viewShow;
 }
@@ -247,17 +233,6 @@
   
 }
 
-//广告
-- (void)showAdvertAbove{
-  _sharedAdView = [[BaiduMobAdView alloc] init];
-  //把在mssp.baidu.com上创建后获得的推广广告位id写到这⾥里
-  _sharedAdView.AdUnitTag = kBaiduAppId;
-  _sharedAdView.AdType = BaiduMobAdViewTypeBanner;
-  _sharedAdView.frame = CGRectMake(0, 0, self.view.width, kSectionHeight);
-  _sharedAdView.delegate = self;
-//  _sharedAdView.layer.cornerRadius = 5.0;
-  [_sharedAdView start];
-}
 
 - (void)showCategoryTableWithMargin:(CGFloat)margin withHeight:(CGFloat)siteHeight {
 //  siteHeight + kSectionHeight * 5
