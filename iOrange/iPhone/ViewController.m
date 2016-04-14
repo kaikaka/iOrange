@@ -1130,13 +1130,4 @@ void (^whenTouchSiteDelete)(NSString *) = ^ void(NSString *link) {
   }];
 }
 
-#pragma mark - BaiduMobAdViewDelegate
-
-/**
- *  应用的APPID
- */
-- (NSString *)publisherId {
-  return kBaiduPublisherId;
-}
-
 @end

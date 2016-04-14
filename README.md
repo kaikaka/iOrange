@@ -7,5 +7,4 @@
 
 3.增加有意思的细节
 
-![导向图](https://github.com/sugarAndsugar/iorange/raw/master/750.png)
 ![简单介绍](https://github.com/sugarAndsugar/iorange/raw/master/d1.gif)
