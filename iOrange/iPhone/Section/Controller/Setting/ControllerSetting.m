@@ -17,6 +17,7 @@
 #import "UIWebPage.h"
 #import "ViewSetupButton.h"
 #import "ViewController.h"
+#import "ModelCustomActivity.h"
 
 @interface ControllerSetting ()<UIScrollViewDelegate> {
   UIPageControl *_pageViewMark;
@@ -205,7 +206,30 @@
     }
       break;
     case HomeSettingTypeShare: {
-      DLog(@"HomeSettingTypeShare");
+     
+      UIWebPage *page = viewCon.receiveToWebView;
+      if (page == nil) {
+        
+        return;
+      }
+      NSURL *url = [NSURL URLWithString:page.link];
+      NSArray *activityItems = @[url];
+      NSString *host = [NSString stringWithFormat:@"http://%@/favicon.ico", [NSURL URLWithString:page.link].host];
+      
+      ModelCustomActivity *customActivity = [[ModelCustomActivity alloc] initWithImage:[[UIImage alloc] initWithContentsOfFile:host] atURL:url atTitle:page.link atShareContentArray:activityItems];
+      
+      NSArray *apps = @[customActivity];
+      UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:apps];
+      // >=iOS8.0系统用这个方法
+      activityVC.completionWithItemsHandler = ^(NSString *activityType,BOOL completed,NSArray *returnedItems,NSError *activityError)
+      {
+        if (completed) { // 确定分享
+        }
+        else {
+        }
+      };
+      [self presentViewController:activityVC animated:YES completion:nil];
+      
     }
       break;
     case HomeSettingTypePrivacy: {

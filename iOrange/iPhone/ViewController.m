@@ -54,6 +54,7 @@
   
   __weak IBOutlet UIButton *_buttonBack;
   __weak IBOutlet UIButton *_buttonGoforw;
+  __weak IBOutlet NSLayoutConstraint *viewSearchTop;
   
   
   UITableView *_tableViewExpend;
@@ -255,7 +256,7 @@
 }
 
 - (void)showPageView {
-  UIPageControl *pageView = [[UIPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame)-65, _scrollViewHomeOne.width, 8)];
+  UIPageControl *pageView = [[UIPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame)-115, _scrollViewHomeOne.width, 8)];
   pageView.currentPageIndicatorTintColor = RGBA(125., 125., 125., 1.);
   pageView.pageIndicatorTintColor = [UIColor blackColor];
   pageView.numberOfPages = 3;
@@ -283,6 +284,32 @@ static id _aSelf;
   _scrollViewContent.delegate = self;
   _scrollViewContent.showsHorizontalScrollIndicator = NO;
   _scrollViewContent.layer.masksToBounds = YES;//越界裁剪
+  
+  UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+  
+  CGRect rect = [_scrollViewContent frame];
+  rect.size.width = window.width;
+  _scrollViewContent.frame = rect;
+  
+  CGRect rect1 = [_scrollViewHomeOne frame];
+  rect1.origin.x = 0;
+  rect1.size.width = window.width;
+  _scrollViewHomeOne.frame = rect1;
+  
+  CGRect rect2 = [_scrollViewHomeTwo frame];
+  rect2.size.width = window.width;
+  rect2.origin.x = window.width;
+  _scrollViewHomeTwo.frame = rect2;
+  
+  CGRect rect3 = [_viewHomeThree frame];
+  
+  rect3.origin.x = window.width * 2 + (window.width - 320) / 2;
+  _viewHomeThree.frame = rect3;
+  
+  if iPhoneX {
+    viewSearchTop.constant = 24;
+  }
+  
   //适配
 //  _scrollViewHomeOne.contentSize = CGSizeMake(_scrollViewContent.width,
 //                                                _scrollViewContent.height + (30));

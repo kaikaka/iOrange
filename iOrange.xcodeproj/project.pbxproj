@@ -15,6 +15,7 @@
 		7F0794431B27E171006883F9 /* FilePathUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0794421B27E171006883F9 /* FilePathUtil.m */; };
 		7F07946F1B2FC66E006883F9 /* HomeNavSite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F07946E1B2FC66E006883F9 /* HomeNavSite.plist */; };
 		7F09A98E1B0C9D8F0036BDB7 /* ControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F09A98D1B0C9D8F0036BDB7 /* ControllerBase.m */; };
+		7F0D2C6F219925A800A469C2 /* ModelCustomActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0D2C6E219925A800A469C2 /* ModelCustomActivity.m */; };
 		7F23C3F91B88C27D000C4CAD /* ADOMark.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F23C3F81B88C27D000C4CAD /* ADOMark.m */; };
 		7F23C3FC1B88C30F000C4CAD /* ModelMark.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F23C3FB1B88C30F000C4CAD /* ModelMark.m */; };
 		7F23C3FE1B899C9C000C4CAD /* home_setting_history_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F23C3FD1B899C9C000C4CAD /* home_setting_history_default@2x.png */; };
@@ -345,6 +346,8 @@
 		7F09A98C1B0C9D8F0036BDB7 /* ControllerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerBase.h; sourceTree = "<group>"; };
 		7F09A98D1B0C9D8F0036BDB7 /* ControllerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerBase.m; sourceTree = "<group>"; };
 		7F09A98F1B0C9E6A0036BDB7 /* iOrange.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOrange.pch; sourceTree = "<group>"; };
+		7F0D2C6D219925A800A469C2 /* ModelCustomActivity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelCustomActivity.h; sourceTree = "<group>"; };
+		7F0D2C6E219925A800A469C2 /* ModelCustomActivity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelCustomActivity.m; sourceTree = "<group>"; };
 		7F23C3F71B88C27D000C4CAD /* ADOMark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADOMark.h; sourceTree = "<group>"; };
 		7F23C3F81B88C27D000C4CAD /* ADOMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADOMark.m; sourceTree = "<group>"; };
 		7F23C3FA1B88C30F000C4CAD /* ModelMark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelMark.h; sourceTree = "<group>"; };
@@ -821,6 +824,8 @@
 				7F23C3FB1B88C30F000C4CAD /* ModelMark.m */,
 				7F69101F1B90089B00B86985 /* ModelSite.h */,
 				7F6910201B90089C00B86985 /* ModelSite.m */,
+				7F0D2C6D219925A800A469C2 /* ModelCustomActivity.h */,
+				7F0D2C6E219925A800A469C2 /* ModelCustomActivity.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1501,6 +1506,7 @@
 					7FC997D31B09794E009E8BD7 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = Y3A2P99A4V;
+						ProvisioningStyle = Automatic;
 					};
 					7FC997EC1B09794E009E8BD7 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -1839,6 +1845,7 @@
 				7FEBB72A1B55069D0097FF73 /* UIControllerBrowser.m in Sources */,
 				7F23C4091B899D1E000C4CAD /* ViewCellControl.m in Sources */,
 				7F6910271B900CF200B86985 /* ADOSite.m in Sources */,
+				7F0D2C6F219925A800A469C2 /* ModelCustomActivity.m in Sources */,
 				7F6910191B8E0A7A00B86985 /* ControllerFontChanged.m in Sources */,
 				7FEBB7261B5412FD0097FF73 /* UnpreventableUILongPressGestureRecognizer.m in Sources */,
 				7F23C3F91B88C27D000C4CAD /* ADOMark.m in Sources */,
@@ -1946,8 +1953,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: xiangkai yin (Y3A2P99A4V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xiangkai yin (Y3A2P99A4V)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xiangkai yin (G986QBUMM5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiangkai yin (G986QBUMM5)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
@@ -1971,7 +1978,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d1a30d55-cf13-468c-a77a-8a015a99ded8";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1993,8 +2000,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: xiangkai yin (Y3A2P99A4V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xiangkai yin (Y3A2P99A4V)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xiangkai yin (G986QBUMM5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiangkai yin (G986QBUMM5)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
@@ -2010,7 +2017,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d1a30d55-cf13-468c-a77a-8a015a99ded8";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2023,12 +2030,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiangkai yin (G986QBUMM5)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y3A2P99A4V;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOrange/iOrange.pch;
 				INFOPLIST_FILE = iOrange/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2036,7 +2045,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoon.iOrange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d1a30d55-cf13-468c-a77a-8a015a99ded8";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
@@ -2049,12 +2059,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiangkai yin (G986QBUMM5)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y3A2P99A4V;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOrange/iOrange.pch;
 				INFOPLIST_FILE = iOrange/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2062,7 +2074,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoon.iOrange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d1a30d55-cf13-468c-a77a-8a015a99ded8";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
