@@ -27,7 +27,8 @@ typedef enum : NSUInteger {
   HomeSettingTypeFeedback,
   HomeSettingTypeShare,
   HomeSettingTypePrivacy,
-  HomeSettingTypeSetup
+  HomeSettingTypeSetup,
+  HomeSettingTypeTuijian
 } HomeSettingType;
 
 #define kScaleContain 1.2f

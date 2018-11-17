@@ -80,8 +80,8 @@
                               @"home_setting_nopicture_noable@2x",@"home_setting_nofull@2x",
                               @"home_setting_reload@2x",@"home_setting_update@2x",
                               @"home_setting_feedback@2x",@"home_setting_share@2x",
-                              @"home_setting_noprivacy@2x",@"home_setting_setup@2x"];
-  NSArray *labelTextArray = @[@"添加书签",@"书签/历史",@"无图模式",@"全屏模式",@"刷新",@"更新天气",@"反馈",@"分享",@"无痕模式",@"设置"];
+                              @"home_setting_noprivacy@2x",@"home_setting_setup@2x",@"home-setting-tuijian@2x"];
+  NSArray *labelTextArray = @[@"添加书签",@"书签/历史",@"无图模式",@"全屏模式",@"刷新",@"更新天气",@"反馈",@"分享",@"无痕模式",@"设置",@"推荐"];
   
   int totalloc = 4;
   CGFloat appvieww = self.view.width/4;
@@ -89,8 +89,8 @@
   CGFloat margin = 0;
   
   for (int i = 0; i < imageNameArray.count; i++) {
-    int row=(i-(i>4?5:0))/totalloc;//行号
-    int loc=(i-(i>4?5:0))%totalloc;//列号
+    int row=(i-(i>5?6:0))/totalloc;//行号
+    int loc=(i-(i>5?6:0))%totalloc;//列号
     
     CGFloat appviewx=(margin+appvieww)*loc+(i>4?self.ViewSettingSum.width:0);//（间距加上宽度）乘以列号 == x 坐标
     CGFloat appviewy= (margin+appviewh)*row;
@@ -188,6 +188,7 @@
       [config setNoPicture:!config.noPicture];
     }
       break;
+      
     case HomeSettingTypeFullMode: {
       [config setFullScreen:!config.fullScreen];
     }
@@ -242,7 +243,12 @@
       [viewCon.navigationController pushViewController:controllerDetail animated:YES];
     }
       break;
-      
+    case HomeSettingTypeTuijian: {
+      NSString *url = [NSString stringWithFormat:
+                       @"itms-apps://itunes.apple.com/cn/app/id1439553847"];
+      [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    }
+      break;
     default:
       break;
   }
